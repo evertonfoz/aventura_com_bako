@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.utfpr.aventura_no_bosque">
+    package="com.utfpr.aventura_com_bako">
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
          In most cases you can leave this as-is, but you if you want to provide
@@ -7,7 +7,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="aventura_no_bosque"
+        android:label="aventura_com_bako"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
