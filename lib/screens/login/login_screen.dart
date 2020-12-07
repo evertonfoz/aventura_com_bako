@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -32,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: <Widget>[
               Center(
                   child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 60.0),
+                      padding: EdgeInsets.symmetric(vertical: 75.0),
                       child: new Image.asset(
                         'assets/idv.png',
                         height: 80.0,
@@ -80,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Container(
                   width: double.infinity,
-                  height: 95.0,
+                  height: 90.0,
                   padding:
                       EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
                   child: RaisedButton(
@@ -95,7 +96,43 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: double.infinity,
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
-                child: Text('ou', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black54),),
+                child: Text(
+                  'ou',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black54),
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 65,
+                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+                child: SignInButton(
+                  Buttons.Facebook,
+                  text: "ENTRAR COM FACEBOOK",
+                  onPressed: () {},
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 65,
+                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+                child: SignInButton(
+                  Buttons.Twitter,
+                  text: "ENTRAR COM FACEBOOK",
+                  onPressed: () {},
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                height: 65,
+                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+                child: SignInButton(
+                  Buttons.Google,
+                  text: "ENTRAR COM GOOGLE",
+                  onPressed: () {},
+                ),
               )
             ],
           )
