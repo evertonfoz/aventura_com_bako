@@ -42,8 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Container(
                 padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 alignment: Alignment.centerLeft,
-                height: 60.0,
-                child: TextField(
+                child: TextFormField(
                   decoration: InputDecoration(
                       hintText: "Usuário ou E-mail",
                       enabledBorder: UnderlineInputBorder(
@@ -77,6 +76,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   keyboardType: TextInputType.text,
                   cursorColor: Colors.green,
                   style: TextStyle(fontSize: 18),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 5.0),
+                child: CheckboxListTile(
+                  title: Text(
+                    "Lembrar de mim",
+                    style: TextStyle(fontSize: 18, color: Colors.black54),
+                  ),
+                  value: true,
+                  onChanged: (value) {},
                 ),
               ),
               Container(
@@ -119,19 +129,31 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 65,
                 padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
                 child: SignInButton(
-                  Buttons.Twitter,
-                  text: "ENTRAR COM FACEBOOK",
+                  Buttons.Google,
+                  text: "ENTRAR COM GOOGLE",
                   onPressed: () {},
                 ),
               ),
               Container(
+                alignment: Alignment.center,
                 width: double.infinity,
-                height: 65,
                 padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
-                child: SignInButton(
-                  Buttons.Google,
-                  text: "ENTRAR COM GOOGLE",
-                  onPressed: () {},
+                child: InkWell(
+                  child: new RichText(
+                    text: new TextSpan(
+                      style: new TextStyle(
+                        fontSize: 18.0,
+                        color: Colors.black,
+                      ),
+                      children: <TextSpan>[
+                        new TextSpan(text: 'Não tem uma conta? '),
+                        new TextSpan(
+                            text: 'Registre-se',
+                            style: new TextStyle(fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                  ),
+                  onTap: () {},
                 ),
               )
             ],
