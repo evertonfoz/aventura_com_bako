@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:aventura_com_bako/screens/splash/splash.dart';
-import 'package:aventura_com_bako/screens/login/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:aventura_com_bako/screens/home/home_screen.dart';
+import 'package:aventura_com_bako/screens/login/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
         Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
-            builder: (context) => HomeScreen(),
+            builder: (context) => LoginScreen(),
           ),
           (route) => false,
         );
