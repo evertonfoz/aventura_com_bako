@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -38,21 +39,24 @@ class _LoginScreenState extends State<LoginScreen> {
             ListView(
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                SizedBox(
+                  height: 60.h,
+                ),
                 Center(
                   child: Container(
                     child: new Image.asset(
                       'assets/idv.png',
-                      height: 80.0,
+                      height: 80.0.h,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 20.h,
                 ),
                 Container(
                   padding:
-                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                      EdgeInsets.symmetric(vertical: 10.0.w, horizontal: 20.0.h),
                   alignment: Alignment.centerLeft,
                   child: TextFormField(
                     decoration: InputDecoration(
@@ -73,12 +77,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     autocorrect: false,
                     keyboardType: TextInputType.emailAddress,
                     cursorColor: Colors.green,
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 18.sp),
                   ),
                 ),
                 Container(
                   padding:
-                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                      EdgeInsets.symmetric(vertical: 10.0.w, horizontal: 20.0.h),
                   // alignment: Alignment.centerLeft,
                   // height: 60.0,
                   child: TextField(
@@ -103,18 +107,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     autocorrect: false,
                     keyboardType: TextInputType.text,
                     cursorColor: Colors.green,
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 18.sp),
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10.h,
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 5.0),
+                  padding: EdgeInsets.symmetric(horizontal: 5.0.h),
                   child: CheckboxListTile(
                     title: Text(
                       "Lembrar de mim?",
-                      style: TextStyle(fontSize: 18, color: Colors.black54),
+                      style: TextStyle(fontSize: 18.sp, color: Colors.black54),
                     ),
                     value: reminderPass,
                     onChanged: (value) {
@@ -125,21 +129,21 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 20.h,
                 ),
                 Container(
                   width: double.infinity,
-                  height: 90.0,
+                  height: 90.h,
                   padding:
-                      EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+                      EdgeInsets.symmetric(vertical: 20.0.w, horizontal: 20.0.h),
                   child: RaisedButton(
                     onPressed: () {},
                     textColor: Colors.white,
                     color: Colors.green,
-                    child: const Text(
+                    child: Text(
                       'ENTRAR',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
@@ -152,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                     'ou',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.normal,
                       color: Colors.black54,
                     ),
@@ -160,9 +164,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 65,
+                  height: 65.h,
                   padding:
-                      EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+                      EdgeInsets.symmetric(vertical: 8.0.w, horizontal: 20.0.h),
                   child: SignInButton(
                     Buttons.Facebook,
                     text: "ENTRAR COM FACEBOOK",
@@ -171,9 +175,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Container(
                   width: double.infinity,
-                  height: 65,
+                  height: 65.h,
                   padding:
-                      EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+                      EdgeInsets.symmetric(vertical: 8.0.w, horizontal: 20.0.h),
                   child: SignInButton(
                     Buttons.Google,
                     text: "ENTRAR COM GOOGLE",
@@ -184,12 +188,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   alignment: Alignment.center,
                   width: double.infinity,
                   padding:
-                      EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+                      EdgeInsets.symmetric(vertical: 8.0.w, horizontal: 20.0.h),
                   child: InkWell(
                     child: new RichText(
                       text: new TextSpan(
                         style: new TextStyle(
-                          fontSize: 18.0,
+                          fontSize: 18.0.sp,
                           color: Colors.black,
                         ),
                         children: <TextSpan>[
