@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       ScreenUtil.init(constraints,
           designSize: Size(393, 813), allowFontScaling: false);
       return MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Aventura com Bako',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.green,
