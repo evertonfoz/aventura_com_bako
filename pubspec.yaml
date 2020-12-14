@@ -16,10 +16,19 @@ dependencies:
   flutter_signin_button: ^1.1.0
   flutter_screenutil: ^4.0.0-beta2
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.7.4
+
+# flutter pub run flutter_launcher_icons:main
+flutter_icons:
+  ios: true
+  android: "launcher_icon"
+  image_path_ios: "assets/bako_vetor.png"
+  image_path_android: "assets/bako_vetor.png"
+  # adaptive_icon_background: "assets/launcher/background.png"
+  # adaptive_icon_foreground: "assets/launcher/foreground.png"
 
 flutter:
   assets:
