@@ -33,6 +33,7 @@ flutter_icons:
 flutter:
   assets:
     - assets/
+    - assets/icons/
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:

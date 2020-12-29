@@ -55,8 +55,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 20.h,
                 ),
                 Container(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 10.0.w, horizontal: 20.0.h),
+                  padding: EdgeInsets.symmetric(
+                      vertical: 10.0.w, horizontal: 20.0.h),
                   alignment: Alignment.centerLeft,
                   child: TextFormField(
                     decoration: InputDecoration(
@@ -81,8 +81,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Container(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 10.0.w, horizontal: 20.0.h),
+                  padding: EdgeInsets.symmetric(
+                      vertical: 10.0.w, horizontal: 20.0.h),
                   // alignment: Alignment.centerLeft,
                   // height: 60.0,
                   child: TextField(
@@ -134,10 +134,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   width: double.infinity,
                   height: 90.h,
-                  padding:
-                      EdgeInsets.symmetric(vertical: 20.0.w, horizontal: 20.0.h),
+                  padding: EdgeInsets.symmetric(
+                      vertical: 20.0.w, horizontal: 20.0.h),
                   child: RaisedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, '/tutorial');
+                    },
                     textColor: Colors.white,
                     color: Colors.green,
                     child: Text(

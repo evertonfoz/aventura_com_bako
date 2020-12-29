@@ -1,3 +1,6 @@
+import 'package:aventura_com_bako/screens/home/home_screen.dart';
+import 'package:aventura_com_bako/screens/login/login_screen.dart';
+import 'package:aventura_com_bako/screens/tutorial/tutorial_app.dart';
 import 'package:flutter/material.dart';
 import 'package:aventura_com_bako/screens/splash/splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +23,13 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.green,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: SplashScreen(),
+        routes: {
+          '/': (context) => SplashScreen(),
+          '/login': (context) => LoginScreen(),
+          '/tutorial': (context) => TutorialApp(),
+          '/home': (context) => HomeScreen(),
+        },
+        initialRoute: '/',
       );
     });
   }
