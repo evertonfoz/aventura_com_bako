@@ -1,4 +1,5 @@
 import 'package:aventura_com_bako/screens/tutorial/qr_code.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 
 class ReadyTutorial extends StatefulWidget {
@@ -24,39 +25,39 @@ class _ReadyTutorialState extends State<ReadyTutorial> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 80,
+                  height: 80.h,
                 ),
                 Card(
                   child: SizedBox(
-                    width: 350,
+                    width: 350.w,
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(vertical: 10),
-                          height: 100,
-                          width: 350,
+                          padding: EdgeInsets.symmetric(vertical: 10.h),
+                          height: 100.h,
+                          width: 350.w,
                           child: Center(child: Image.asset('assets/idv.png')),
                         ),
                         Container(
                           color: Colors.green,
-                          height: 300,
-                          width: 350,
+                          height: 300.h,
+                          width: 350.w,
                           child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 30),
+                            padding: EdgeInsets.symmetric(horizontal: 30.w),
                             child: Center(
                               child: Column(
                                 children: [
-                                  SizedBox(height: 30),
+                                  SizedBox(height: 30.h),
                                   SizedBox(
-                                    height: 150,
+                                    height: 150.h,
                                     child:
                                         Image.asset('assets/icons/ready.png'),
                                   ),
-                                  SizedBox(height: 20),
+                                  SizedBox(height: 20.h),
                                   Text(
                                     'VAMOS COMEÇAR?',
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: 25.sp,
                                       color: Colors.amberAccent[100],
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -89,7 +90,7 @@ class _ReadyTutorialState extends State<ReadyTutorial> {
                                     QrCodeTutorial()));
                       },
                     ),
-                    SizedBox(width: 50),
+                    SizedBox(width: 50.w),
                     RaisedButton(
                       child: Text(
                         'Próximo',
@@ -103,7 +104,7 @@ class _ReadyTutorialState extends State<ReadyTutorial> {
                   ],
                 ),
                 SizedBox(
-                  height: 270,
+                  height: 270.h,
                   child: Center(
                     child: Image.asset('assets/bako_vetor.png'),
                   ),

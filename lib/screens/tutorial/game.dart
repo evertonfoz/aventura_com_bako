@@ -1,5 +1,6 @@
 import 'package:aventura_com_bako/screens/tutorial/map.dart';
 import 'package:aventura_com_bako/screens/tutorial/story.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 
 class GameTutorial extends StatefulWidget {
@@ -25,52 +26,52 @@ class GameTutorialState extends State<GameTutorial> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 80,
+                  height: 80.h,
                 ),
                 Card(
                   child: SizedBox(
-                    width: 350,
+                    width: 350.w,
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(vertical: 10),
-                          height: 100,
-                          width: 350,
+                          padding: EdgeInsets.symmetric(vertical: 10.h),
+                          height: 100.h,
+                          width: 350.w,
                           child: Center(child: Image.asset('assets/idv.png')),
                         ),
                         Container(
                           color: Colors.green,
-                          height: 300,
-                          width: 350,
+                          height: 300.h,
+                          width: 350.w,
                           child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 30),
+                            padding: EdgeInsets.symmetric(horizontal: 30.w),
                             child: Center(
                               child: Column(
                                 children: [
                                   SizedBox(
-                                    height: 10,
+                                    height: 10.h,
                                   ),
                                   Container(
-                                    height: 100,
+                                    height: 100.h,
                                     child: Image.asset('assets/icons/game.png'),
                                   ),
                                   SizedBox(
-                                    height: 10,
+                                    height: 10.h,
                                   ),
                                   Text(
                                     'JOGAR',
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: 25.sp,
                                       color: Colors.amberAccent[100],
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(height: 25),
+                                  SizedBox(height: 25.h),
                                   Center(
                                     child: Text(
                                       'Ganhe pontos descobrindo dicas durante o passeio e ainda resolva os mistérios da nossa aventura',
                                       style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
+                                          color: Colors.white, fontSize: 20.sp),
                                       textAlign: TextAlign.center,
                                     ),
                                   )
@@ -102,7 +103,7 @@ class GameTutorialState extends State<GameTutorial> {
                                     MapTutorial()));
                       },
                     ),
-                    SizedBox(width: 50),
+                    SizedBox(width: 50.w),
                     RaisedButton(
                       child: Text(
                         'Próximo',
@@ -120,7 +121,7 @@ class GameTutorialState extends State<GameTutorial> {
                   ],
                 ),
                 SizedBox(
-                  height: 270,
+                  height: 270.h,
                   child: Center(
                     child: Image.asset('assets/bako_vetor.png'),
                   ),

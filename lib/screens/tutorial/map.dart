@@ -1,5 +1,6 @@
 import 'package:aventura_com_bako/screens/tutorial/welcome.dart';
 import 'package:aventura_com_bako/screens/tutorial/game.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 
 class MapTutorial extends StatefulWidget {
@@ -25,46 +26,46 @@ class _MapTutorialState extends State<MapTutorial> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 80,
+                  height: 80.h,
                 ),
                 Card(
                   child: SizedBox(
-                    width: 350,
+                    width: 350.w,
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.symmetric(vertical: 10),
-                          height: 100,
-                          width: 350,
+                          padding: EdgeInsets.symmetric(vertical: 10.h),
+                          height: 100.h,
+                          width: 350.w,
                           child: Center(child: Image.asset('assets/idv.png')),
                         ),
                         Container(
                           color: Colors.green,
-                          height: 300,
-                          width: 350,
+                          height: 300.h,
+                          width: 350.h,
                           child: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 30),
+                            padding: EdgeInsets.symmetric(horizontal: 30.w),
                             child: Center(
                               child: Column(
                                 children: [
                                   SizedBox(
-                                    height: 150,
+                                    height: 150.h,
                                     child: Image.asset('assets/icons/map.png'),
                                   ),
                                   Text(
                                     'O MAPA',
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: 25.sp,
                                       color: Colors.amberAccent[100],
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(height: 15),
+                                  SizedBox(height: 15.h),
                                   Center(
                                     child: Text(
                                       'Encontre tesouros, descura novas espécies e ganhe pontos durante todo o percurso da trilha',
                                       style: TextStyle(
-                                          color: Colors.white, fontSize: 20),
+                                          color: Colors.white, fontSize: 20.sp),
                                       textAlign: TextAlign.center,
                                     ),
                                   )
@@ -96,7 +97,7 @@ class _MapTutorialState extends State<MapTutorial> {
                                     WelcomeTutorial()));
                       },
                     ),
-                    SizedBox(width: 50),
+                    SizedBox(width: 50.w),
                     RaisedButton(
                       child: Text(
                         'Próximo',
@@ -114,7 +115,7 @@ class _MapTutorialState extends State<MapTutorial> {
                   ],
                 ),
                 SizedBox(
-                  height: 270,
+                  height: 270.h,
                   child: Center(
                     child: Image.asset('assets/bako_vetor.png'),
                   ),
