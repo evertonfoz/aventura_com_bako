@@ -19,7 +19,7 @@ class TutorialCard extends StatelessWidget {
               // Header
               padding: EdgeInsets.symmetric(
                   vertical: MediaQuery.of(context).size.height * 0.01),
-              height: MediaQuery.of(context).size.height * 0.12,
+              height: MediaQuery.of(context).size.height * 0.1,
               child: Center(child: Image.asset('assets/idv.png')),
             ),
             Expanded(
@@ -38,7 +38,8 @@ class TutorialCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        child: Image.asset('assets/icons/book.png'),
+                        height: MediaQuery.of(context).size.height * 0.15,
+                        child: Image.asset(cardList[index].imageUrl),
                       ),
                       Text(
                         cardList[index].cardText,

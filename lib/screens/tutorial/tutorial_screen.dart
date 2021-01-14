@@ -83,9 +83,7 @@ class _TutorialPageState extends State<TutorialPage> {
                           ),
                         ),
                         onPressed: () {
-                          currentPage == cardList.length - 1
-                              ? Navigator.pushNamed(context, '/home')
-                              : _navigationTapped(currentPage - 1);
+                          _navigationTapped(currentPage - 1);
                         },
                       ),
                     ),
