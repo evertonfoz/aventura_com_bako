@@ -35,21 +35,3 @@ final cardList = [
     cardText: 'VAMOS COMEÇAR?',
   )
 ];
-
-/*
-  Pagination(
-      cardText:
-          ''),
-  Pagination(
-      cardText:
-          ''),
-  Pagination(
-      cardText:
-          ''),
-  Pagination(
-      cardText: ''),
-  Pagination(
-      cardText:
-          ''),
-  Pagination(cardText: 'VAMOS COMEÇAR?'),
-  */
