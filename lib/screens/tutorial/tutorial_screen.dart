@@ -67,7 +67,7 @@ class _TutorialPageState extends State<TutorialPage> {
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width * 0.4,
-                      child: RaisedButton(
+                      child: FlatButton(
                         padding: EdgeInsets.symmetric(vertical: 10.0),
                         child: Text(
                           'Anterior',
@@ -76,7 +76,7 @@ class _TutorialPageState extends State<TutorialPage> {
                             fontSize: 20,
                           ),
                         ),
-                        color: Colors.green,
+                        color: Colors.black.withOpacity(0.3),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(12.0),
