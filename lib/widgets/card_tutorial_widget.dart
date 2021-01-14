@@ -8,6 +8,9 @@ class TutorialCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.9,
         child: Column(
@@ -19,12 +22,17 @@ class TutorialCard extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.12,
               child: Center(child: Image.asset('assets/idv.png')),
             ),
-            Expanded( // Card text
+            Expanded(
+              // Card text
               child: Container(
-                color: Colors.green,
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(20),
+                ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: MediaQuery.of(context).size.width * 0.05),
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   child: Center(
                     child: Text(
                       cardList[index].cardText,
