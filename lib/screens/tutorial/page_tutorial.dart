@@ -27,39 +27,50 @@ class TutorialLayout extends StatelessWidget {
             fit: BoxFit.fitHeight,
           ),
         ),
-        Center(
-          child: Column(
-            // Holds all the content
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.075,
-              ),
-              PageView.builder(
-                scrollDirection: Axis.horizontal,
+        Column(
+          // Holds all the content
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.075,
+            ),
+            Expanded(
+              child: PageView.builder(
+                //physics: NeverScrollableScrollPhysics(),
                 controller: _pageController,
                 itemCount: cardList.length,
-                itemBuilder: (context, i) => TutorialCard(i),
-              ), // A widget for the card
-              Center(
-                child: RaisedButton(
-                  child: Text(
-                    'Próximo',
-                    style: TextStyle(color: Colors.amberAccent[100]),
-                  ),
-                  color: Colors.green,
-                  onPressed: () {},
-                ),
+                itemBuilder: (context, i) {
+                  return TutorialCard(i);
+                },
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.025),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.35,
-                child: Center(
-                  child: Image.asset('assets/bako_vetor.png'),
+            ),
+            Center(
+              child: RaisedButton(
+                child: Text(
+                  'Próximo',
+                  style: TextStyle(color: Colors.amberAccent[100]),
                 ),
-              )
-            ],
-          ),
-        )
+                color: Colors.green,
+                onPressed: () {
+                  void navigationTapped(int page) {
+                    _pageController.animateToPage(
+                      page,
+                      duration: const Duration(milliseconds: 600),
+                      curve: Curves.ease,
+                    );
+                  }
+                },
+              ),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.35,
+              child: Center(
+                child: Image.asset('assets/bako_vetor.png'),
+              ),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.015),
+          ],
+        ),
       ],
     );
   }
