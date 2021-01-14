@@ -33,15 +33,22 @@ class TutorialCard extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                     horizontal: MediaQuery.of(context).size.width * 0.05,
                   ),
-                  child: Center(
-                    child: Text(
-                      cardList[index].cardText,
-                      style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height * 0.03,
-                        color: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        child: Image.asset('assets/icons/book.png'),
                       ),
-                      textAlign: TextAlign.center,
-                    ),
+                      Text(
+                        cardList[index].cardText,
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height * 0.03,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
                 ),
               ),

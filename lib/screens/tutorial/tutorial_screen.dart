@@ -62,31 +62,63 @@ class _TutorialPageState extends State<TutorialPage> {
                 SizedBox(
                   height: 20,
                 ),
-                Container(
-                  width: double.infinity,
-                  child: RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 10.0),
-                    child: Text(
-                      currentPage == cardList.length - 1
-                          ? 'Finalizar'
-                          : 'Próximo',
-                      style: TextStyle(
-                        color: Colors.amberAccent[100],
-                        fontSize: 20,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: RaisedButton(
+                        padding: EdgeInsets.symmetric(vertical: 10.0),
+                        child: Text(
+                          'Anterior',
+                          style: TextStyle(
+                            color: Colors.amberAccent[100],
+                            fontSize: 20,
+                          ),
+                        ),
+                        color: Colors.green,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(12.0),
+                          ),
+                        ),
+                        onPressed: () {
+                          currentPage == cardList.length - 1
+                              ? Navigator.pushNamed(context, '/home')
+                              : _navigationTapped(currentPage - 1);
+                        },
                       ),
                     ),
-                    color: Colors.green,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(12.0),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.08,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: RaisedButton(
+                        padding: EdgeInsets.symmetric(vertical: 10.0),
+                        child: Text(
+                          currentPage == cardList.length - 1
+                              ? 'Finalizar'
+                              : 'Próximo',
+                          style: TextStyle(
+                            color: Colors.amberAccent[100],
+                            fontSize: 20,
+                          ),
+                        ),
+                        color: Colors.green,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(12.0),
+                          ),
+                        ),
+                        onPressed: () {
+                          currentPage == cardList.length - 1
+                              ? Navigator.pushNamed(context, '/home')
+                              : _navigationTapped(currentPage + 1);
+                        },
                       ),
                     ),
-                    onPressed: () {
-                      currentPage == cardList.length - 1
-                          ? Navigator.pushNamed(context, '/home')
-                          : _navigationTapped(currentPage + 1);
-                    },
-                  ),
+                  ],
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 Container(

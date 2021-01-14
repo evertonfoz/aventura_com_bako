@@ -1,7 +1,7 @@
 import 'package:aventura_com_bako/screens/home/home_screen.dart';
 import 'package:aventura_com_bako/screens/login/login_screen.dart';
-import 'package:aventura_com_bako/screens/splash/splash.dart';
-import 'package:aventura_com_bako/screens/tutorial/page_tutorial.dart';
+import 'package:aventura_com_bako/screens/splash/splash_screen.dart';
+import 'package:aventura_com_bako/screens/tutorial/tutorial_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

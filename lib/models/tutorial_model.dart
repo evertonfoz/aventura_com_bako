@@ -1,23 +1,55 @@
 class Pagination {
   final String cardText;
+  final String imageUrl;
 
-  Pagination({this.cardText});
+  Pagination({this.imageUrl, this.cardText});
 }
 
 final cardList = [
   Pagination(
-      cardText:
-          'Olá! Eu me chamo Bako, e vou contigo através dessa aventura. Vou te ensinar como jogar e explorar ao máximo nossa jornada!'),
+    imageUrl: '',
+    cardText:
+        'Olá! Eu me chamo Bako, e vou contigo através dessa aventura. Vou te ensinar como jogar e explorar ao máximo nossa jornada!',
+  ),
   Pagination(
-      cardText:
-          'Encontre tesouros, descura novas espécies e ganhe pontos durante todo o percurso da trilha'),
+    imageUrl: 'assets/icons/map.png',
+    cardText:
+        'Encontre tesouros, descura novas espécies e ganhe pontos durante todo o percurso da trilha',
+  ),
   Pagination(
-      cardText:
-          'Ganhe pontos descobrindo dicas durante o passeio e ainda resolva os mistérios da nossa aventura'),
+    imageUrl: 'assets/icons/game.png',
+    cardText:
+        'Ganhe pontos descobrindo dicas durante o passeio e ainda resolva os mistérios da nossa aventura',
+  ),
   Pagination(
-      cardText: 'Conheça mais sobre o bosque e suas curiosidades e aprenda'),
+    imageUrl: 'assets/icons/book.png',
+    cardText: 'Conheça mais sobre o bosque e suas curiosidades e aprenda',
+  ),
   Pagination(
-      cardText:
-          'Com a câmera do seu celular, você consegue escanear as placas pelo bosque e participar dos desafios'),
-  Pagination(cardText: 'VAMOS COMEÇAR?'),
+    imageUrl: 'assets/icons/qr_code.png',
+    cardText:
+        'Com a câmera do seu celular, você consegue escanear as placas pelo bosque e participar dos desafios',
+  ),
+  Pagination(
+    imageUrl: 'assets/icons/ready.png',
+    cardText: 'VAMOS COMEÇAR?',
+  )
 ];
+
+/*
+  Pagination(
+      cardText:
+          ''),
+  Pagination(
+      cardText:
+          ''),
+  Pagination(
+      cardText:
+          ''),
+  Pagination(
+      cardText: ''),
+  Pagination(
+      cardText:
+          ''),
+  Pagination(cardText: 'VAMOS COMEÇAR?'),
+  */
