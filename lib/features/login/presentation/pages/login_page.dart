@@ -1,7 +1,9 @@
+import 'package:aventura_com_bako/core/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:aventura_com_bako/features/login/presentation/widgets/login_input_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -37,7 +39,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             ListView(
-              // crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.04,
@@ -60,6 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     horizontal: MediaQuery.of(context).size.width * 0.05,
                   ),
                   alignment: Alignment.centerLeft,
+<<<<<<< HEAD:lib/screens/login/login_screen.dart
                   child: TextFormField(
                     decoration: InputDecoration(
                         hintText: "Usuário ou E-mail",
@@ -81,10 +83,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     cursorColor: Colors.green,
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.height * 0.02),
+=======
+                  child: TextInput(
+                    texto: Textos.usuarioOuEmail,
+                    tipoDeInput: TextInputType.emailAddress,
+                    corDoCursor: Colors.green,
+                    tamanhoDaFonte: 18,
+                    habilitarCorretor: false,
+                    habilitarSugestoes: true,
+                    habilitarTextoObscuro: false,
+>>>>>>> d49da3c196149ee4dd5967a243cc62cbfa2f5563:lib/features/login/presentation/pages/login_page.dart
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
+<<<<<<< HEAD:lib/screens/login/login_screen.dart
                     vertical: MediaQuery.of(context).size.height * 0.02,
                     horizontal: MediaQuery.of(context).size.width * 0.05,
                   ),
@@ -114,6 +127,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     cursorColor: Colors.green,
                     style: TextStyle(
                         fontSize: MediaQuery.of(context).size.height * 0.02),
+=======
+                      vertical: 10.0.w, horizontal: 20.0.h),
+                  child: TextInput(
+                    texto: Textos.senha,
+                    tipoDeInput: TextInputType.text,
+                    corDoCursor: Colors.green,
+                    tamanhoDaFonte: 18,
+                    habilitarCorretor: false,
+                    habilitarSugestoes: false,
+                    habilitarTextoObscuro: true,
+>>>>>>> d49da3c196149ee4dd5967a243cc62cbfa2f5563:lib/features/login/presentation/pages/login_page.dart
                   ),
                 ),
                 SizedBox(
@@ -123,10 +147,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 5.0.h),
                   child: CheckboxListTile(
                     title: Text(
+<<<<<<< HEAD:lib/screens/login/login_screen.dart
                       "Lembrar de mim?",
                       style: TextStyle(
                           fontSize: MediaQuery.of(context).size.height * 0.019,
                           color: Colors.black54),
+=======
+                      Textos.lembrarDeMim,
+                      style: TextStyle(fontSize: 18.sp, color: Colors.black54),
+>>>>>>> d49da3c196149ee4dd5967a243cc62cbfa2f5563:lib/features/login/presentation/pages/login_page.dart
                     ),
                     value: reminderPass,
                     onChanged: (value) {
@@ -153,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     textColor: Colors.white,
                     color: Colors.green,
                     child: Text(
-                      'ENTRAR',
+                      Textos.entrar,
                       style: TextStyle(
                         fontSize: MediaQuery.of(context).size.height * 0.02,
                         fontWeight: FontWeight.normal,
@@ -190,7 +219,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: SignInButton(
                     Buttons.Facebook,
-                    text: "ENTRAR COM FACEBOOK",
+                    text: Textos.entrarComFacebook,
                     onPressed: () {},
                   ),
                 ),
@@ -203,7 +232,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: SignInButton(
                     Buttons.Google,
-                    text: "ENTRAR COM GOOGLE",
+                    text: Textos.entrarComGoogle,
                     onPressed: () {},
                   ),
                 ),
@@ -220,9 +249,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Colors.black,
                         ),
                         children: <TextSpan>[
-                          new TextSpan(text: 'Não tem uma conta? '),
+                          new TextSpan(text: Textos.naoTemUmaConta),
                           new TextSpan(
-                            text: 'Registre-se',
+                            text: Textos.registreSe,
                             style: new TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],
