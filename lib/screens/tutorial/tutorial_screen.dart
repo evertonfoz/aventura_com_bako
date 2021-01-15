@@ -66,32 +66,40 @@ class _TutorialPageState extends State<TutorialPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.4,
-                      child: FlatButton(
-                        padding: EdgeInsets.symmetric(vertical: 10.0),
-                        child: Text(
-                          'Anterior',
-                          style: TextStyle(
-                            color: Colors.amberAccent[100],
-                            fontSize: 20,
-                          ),
-                        ),
-                        color: Colors.black.withOpacity(0.3),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(12.0),
-                          ),
-                        ),
-                        onPressed: () {
-                          _navigationTapped(currentPage - 1);
-                        },
-                      ),
-                    ),
+                        width: currentPage != 0
+                            ? MediaQuery.of(context).size.width * 0.4
+                            : null,
+                        child: currentPage != 0
+                            ? FlatButton(
+                                padding: EdgeInsets.symmetric(vertical: 10.0),
+                                child: Text(
+                                  'Anterior',
+                                  style: TextStyle(
+                                    color: Colors.amberAccent[100],
+                                    fontSize: 20,
+                                  ),
+                                ),
+                                color: Colors.black.withOpacity(0.3),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(12.0),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  _navigationTapped(currentPage - 1);
+                                },
+                              )
+                            : null),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.08,
+                      // Space between "Anterior" and "Próximo" buttons
+                      width: currentPage != 0
+                          ? MediaQuery.of(context).size.width * 0.08
+                          : null,
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.4,
+                      width: currentPage != 0
+                          ? MediaQuery.of(context).size.width * 0.4
+                          : MediaQuery.of(context).size.width * 0.9,
                       child: RaisedButton(
                         padding: EdgeInsets.symmetric(vertical: 10.0),
                         child: Text(
