@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.green,
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          fontFamily: 'Nunito',
         ),
         routes: {
           '/splash': (context) => SplashScreen(),

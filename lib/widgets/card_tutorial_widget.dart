@@ -28,14 +28,16 @@ class _TutorialCardState extends State<TutorialCard> {
         width: MediaQuery.of(context).size.width * 0.9,
         child: Column(
           children: [
-            Container( // Header
+            Container(
+              // Header
               // Header
               padding: EdgeInsets.symmetric(
                   vertical: MediaQuery.of(context).size.height * 0.01),
               height: MediaQuery.of(context).size.height * 0.1,
               child: Center(child: Image.asset('assets/idv.png')),
             ),
-            Expanded( // Card description
+            Expanded(
+              // Card description
               // Card text
               child: Container(
                 decoration: BoxDecoration(
@@ -50,7 +52,8 @@ class _TutorialCardState extends State<TutorialCard> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container( // Icon, if currentPage is not 0
+                      Container(
+                          // Icon, if currentPage is not 0
                           child: widget.index != 0
                               ? Container(
                                   height:
@@ -59,10 +62,12 @@ class _TutorialCardState extends State<TutorialCard> {
                                       cardList[widget.index].imageUrl),
                                 )
                               : null),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.03),
                       Text(
                         cardList[widget.index].cardText,
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                          fontSize: MediaQuery.of(context).size.height * 0.023,
                           color: Colors.white,
                         ),
                         textAlign: TextAlign.center,
