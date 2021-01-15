@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 import 'package:aventura_com_bako/screens/home/home_screen.dart';
 import 'package:aventura_com_bako/features/login/presentation/pages/login_page.dart';
 import 'package:aventura_com_bako/screens/tutorial/tutorial_app.dart';
+import 'package:aventura_com_bako/screens/tutorial/page_tutorial.dart';
+=======
+import 'package:aventura_com_bako/screens/tutorial/page_tutorial.dart';
+>>>>>>> 8115c67cb9c377a105f24dae46a70f5fca67e69f
 import 'package:flutter/material.dart';
-import 'package:aventura_com_bako/screens/splash/splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
@@ -23,13 +27,14 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.green,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        routes: {
+        /*routes: {
           '/': (context) => SplashScreen(),
           '/login': (context) => LoginScreen(),
           '/tutorial': (context) => TutorialApp(),
           '/home': (context) => HomeScreen(),
         },
-        initialRoute: '/',
+        initialRoute: '/',*/
+        home: TutorialPage(),
       );
     });
   }
