@@ -28,14 +28,14 @@ class _TutorialCardState extends State<TutorialCard> {
         width: MediaQuery.of(context).size.width * 0.9,
         child: Column(
           children: [
-            Container(
+            Container( // Header
               // Header
               padding: EdgeInsets.symmetric(
                   vertical: MediaQuery.of(context).size.height * 0.01),
               height: MediaQuery.of(context).size.height * 0.1,
               child: Center(child: Image.asset('assets/idv.png')),
             ),
-            Expanded(
+            Expanded( // Card description
               // Card text
               child: Container(
                 decoration: BoxDecoration(
@@ -50,11 +50,11 @@ class _TutorialCardState extends State<TutorialCard> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
+                      Container( // Icon, if currentPage is not 0
                           child: widget.index != 0
                               ? Container(
                                   height:
-                                      MediaQuery.of(context).size.height * 0.15,
+                                      MediaQuery.of(context).size.height * 0.13,
                                   child: Image.asset(
                                       cardList[widget.index].imageUrl),
                                 )
@@ -62,7 +62,7 @@ class _TutorialCardState extends State<TutorialCard> {
                       Text(
                         cardList[widget.index].cardText,
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.03,
+                          fontSize: MediaQuery.of(context).size.height * 0.02,
                           color: Colors.white,
                         ),
                         textAlign: TextAlign.center,

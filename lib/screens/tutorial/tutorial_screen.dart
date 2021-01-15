@@ -60,23 +60,24 @@ class _TutorialPageState extends State<TutorialPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: MediaQuery.of(context).size.height * 0.01,
                 ),
-                Row(
+                Row( // Buttons "Anterior" and "Próximo"
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
+                      height: MediaQuery.of(context).size.height * 0.05,
                         width: currentPage != 0
                             ? MediaQuery.of(context).size.width * 0.4
                             : null,
                         child: currentPage != 0
                             ? FlatButton(
-                                padding: EdgeInsets.symmetric(vertical: 10.0),
+                                padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.009),
                                 child: Text(
                                   'Anterior',
                                   style: TextStyle(
                                     color: Colors.amberAccent[100],
-                                    fontSize: 20,
+                                    fontSize: MediaQuery.of(context).size.height * 0.02,
                                   ),
                                 ),
                                 color: Colors.black.withOpacity(0.3),
@@ -97,18 +98,19 @@ class _TutorialPageState extends State<TutorialPage> {
                           : null,
                     ),
                     Container(
+                      height: MediaQuery.of(context).size.height * 0.05,
                       width: currentPage != 0
                           ? MediaQuery.of(context).size.width * 0.4
                           : MediaQuery.of(context).size.width * 0.9,
                       child: RaisedButton(
-                        padding: EdgeInsets.symmetric(vertical: 10.0),
+                        padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.009),
                         child: Text(
                           currentPage == cardList.length - 1
                               ? 'Finalizar'
                               : 'Próximo',
                           style: TextStyle(
                             color: Colors.amberAccent[100],
-                            fontSize: 20,
+                            fontSize: MediaQuery.of(context).size.height * 0.02,
                           ),
                         ),
                         color: Colors.green,

@@ -24,8 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
             Opacity(
               opacity: 0.3,
               child: Container(
-                height: double.infinity,
-                width: double.infinity,
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
                 decoration: new BoxDecoration(
                   image: new DecorationImage(
                     image: new ExactAssetImage(
@@ -40,23 +40,25 @@ class _LoginScreenState extends State<LoginScreen> {
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
-                  height: 60.h,
+                  height: MediaQuery.of(context).size.height * 0.04,
                 ),
                 Center(
                   child: Container(
                     child: new Image.asset(
                       'assets/idv.png',
-                      height: 80.0.h,
+                      height: MediaQuery.of(context).size.height * 0.1,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 20.h,
+                  height: MediaQuery.of(context).size.height * 0.03,
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
-                      vertical: 10.0.w, horizontal: 20.0.h),
+                    vertical: MediaQuery.of(context).size.height * 0.02,
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   alignment: Alignment.centerLeft,
                   child: TextFormField(
                     decoration: InputDecoration(
@@ -77,12 +79,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     autocorrect: false,
                     keyboardType: TextInputType.emailAddress,
                     cursorColor: Colors.green,
-                    style: TextStyle(fontSize: 18.sp),
+                    style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.height * 0.02),
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
-                      vertical: 10.0.w, horizontal: 20.0.h),
+                    vertical: MediaQuery.of(context).size.height * 0.02,
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   // alignment: Alignment.centerLeft,
                   // height: 60.0,
                   child: TextField(
@@ -107,18 +112,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     autocorrect: false,
                     keyboardType: TextInputType.text,
                     cursorColor: Colors.green,
-                    style: TextStyle(fontSize: 18.sp),
+                    style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.height * 0.02),
                   ),
                 ),
                 SizedBox(
-                  height: 10.h,
+                  height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 5.0.h),
                   child: CheckboxListTile(
                     title: Text(
                       "Lembrar de mim?",
-                      style: TextStyle(fontSize: 18.sp, color: Colors.black54),
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height * 0.019,
+                          color: Colors.black54),
                     ),
                     value: reminderPass,
                     onChanged: (value) {
@@ -129,13 +137,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 20.h,
+                  height: MediaQuery.of(context).size.height * 0.12,
                 ),
                 Container(
-                  width: double.infinity,
-                  height: 90.h,
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.08,
                   padding: EdgeInsets.symmetric(
-                      vertical: 20.0.w, horizontal: 20.0.h),
+                    vertical: MediaQuery.of(context).size.height * 0.01,
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   child: RaisedButton(
                     onPressed: () {
                       Navigator.pushReplacementNamed(context, '/tutorial');
@@ -145,30 +155,39 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Text(
                       'ENTRAR',
                       style: TextStyle(
-                        fontSize: 20.sp,
+                        fontSize: MediaQuery.of(context).size.height * 0.02,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.015,
+                ),
                 Container(
-                  width: double.infinity,
+                  width: MediaQuery.of(context).size.width,
                   alignment: Alignment.center,
-                  // padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
+                  padding: EdgeInsets.symmetric(
+                      vertical: MediaQuery.of(context).size.height * 0.005),
                   child: Text(
                     'ou',
                     style: TextStyle(
-                      fontSize: 18.sp,
+                      fontSize: MediaQuery.of(context).size.height * 0.018,
                       fontWeight: FontWeight.normal,
                       color: Colors.black54,
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.015,
+                ),
                 Container(
-                  width: double.infinity,
-                  height: 65.h,
-                  padding:
-                      EdgeInsets.symmetric(vertical: 8.0.w, horizontal: 20.0.h),
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.08,
+                  padding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.of(context).size.height * 0.01,
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   child: SignInButton(
                     Buttons.Facebook,
                     text: "ENTRAR COM FACEBOOK",
@@ -176,10 +195,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Container(
-                  width: double.infinity,
-                  height: 65.h,
-                  padding:
-                      EdgeInsets.symmetric(vertical: 8.0.w, horizontal: 20.0.h),
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.08,
+                  padding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.of(context).size.height * 0.01,
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   child: SignInButton(
                     Buttons.Google,
                     text: "ENTRAR COM GOOGLE",
@@ -188,7 +209,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Container(
                   alignment: Alignment.center,
-                  width: double.infinity,
+                  width: MediaQuery.of(context).size.width,
                   padding:
                       EdgeInsets.symmetric(vertical: 8.0.w, horizontal: 20.0.h),
                   child: InkWell(
