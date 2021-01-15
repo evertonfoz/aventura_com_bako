@@ -89,7 +89,10 @@ class _TutorialPageState extends State<TutorialPage> {
                       ),
                     ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.08,
+                      // Space between "Anterior" and "Próximo" buttons
+                      width: currentPage != 0
+                          ? MediaQuery.of(context).size.width * 0.08
+                          : null,
                     ),
                     Expanded(
                       child: Container(
