@@ -7,7 +7,7 @@ class Pagination {
 
 final cardList = [
   Pagination(
-    imageUrl: '.',
+    imageUrl: '',
     cardText:
         'Olá! Eu me chamo Bako, e vou contigo através dessa aventura. Vou te ensinar como jogar e explorar ao máximo nossa jornada!',
   ),
@@ -35,21 +35,3 @@ final cardList = [
     cardText: 'VAMOS COMEÇAR?',
   )
 ];
-
-/*
-  Pagination(
-      cardText:
-          ''),
-  Pagination(
-      cardText:
-          ''),
-  Pagination(
-      cardText:
-          ''),
-  Pagination(
-      cardText: ''),
-  Pagination(
-      cardText:
-          ''),
-  Pagination(cardText: 'VAMOS COMEÇAR?'),
-  */
