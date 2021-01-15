@@ -37,10 +37,11 @@ class TutorialCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.15,
-                        child: Image.asset(cardList[index].imageUrl),
-                      ),
+                      if (cardList[index].imageUrl != null)
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          child: Image.asset(cardList[index].imageUrl),
+                        ),
                       Text(
                         cardList[index].cardText,
                         style: TextStyle(
