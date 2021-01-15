@@ -1,4 +1,5 @@
-import 'package:aventura_com_bako/screens/login/login_screen.dart';
+import 'package:aventura_com_bako/core/constants.dart';
+import 'package:aventura_com_bako/features/login/presentation/pages/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Text(
-                'Desenvolvido pelo time da UTFPR',
+                Textos.desenvolvidoPor,
                 style: TextStyle(
                   fontFamily: 'Arial',
                   fontSize: 20,
