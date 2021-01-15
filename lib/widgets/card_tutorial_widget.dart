@@ -1,9 +1,22 @@
 import 'package:aventura_com_bako/models/tutorial_model.dart';
 import 'package:flutter/material.dart';
 
-class TutorialCard extends StatelessWidget {
+class TutorialCard extends StatefulWidget {
   final int index;
   const TutorialCard(this.index);
+
+  @override
+  _TutorialCardState createState() => _TutorialCardState();
+}
+
+class _TutorialCardState extends State<TutorialCard> {
+  bool isVisible = false;
+
+  void setVisibility(i) {
+    if (i != 0) {
+      isVisible = true;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +51,16 @@ class TutorialCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.15,
-                        child: Image.asset(cardList[index].imageUrl),
-                      ),
+                          child: widget.index != 0
+                              ? Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.15,
+                                  child: Image.asset(
+                                      cardList[widget.index].imageUrl),
+                                )
+                              : null),
                       Text(
-                        cardList[index].cardText,
+                        cardList[widget.index].cardText,
                         style: TextStyle(
                           fontSize: MediaQuery.of(context).size.height * 0.03,
                           color: Colors.white,
