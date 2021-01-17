@@ -1,5 +1,5 @@
-import 'package:aventura_com_bako/models/tutorial_model.dart';
-import 'package:aventura_com_bako/widgets/card_tutorial_widget.dart';
+import 'package:aventura_com_bako/features/tutorial/data/models/tutorial_model.dart';
+import 'package:aventura_com_bako/features/tutorial/presentation/widgets/card_tutorial_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

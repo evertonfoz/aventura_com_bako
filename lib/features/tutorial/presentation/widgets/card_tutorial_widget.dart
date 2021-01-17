@@ -1,4 +1,4 @@
-import 'package:aventura_com_bako/models/tutorial_model.dart';
+import 'package:aventura_com_bako/features/tutorial/data/models/tutorial_model.dart';
 import 'package:flutter/material.dart';
 
 class TutorialCard extends StatefulWidget {

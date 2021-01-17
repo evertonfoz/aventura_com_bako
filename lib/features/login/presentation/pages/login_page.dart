@@ -61,83 +61,27 @@ class _LoginScreenState extends State<LoginScreen> {
                     horizontal: MediaQuery.of(context).size.width * 0.05,
                   ),
                   alignment: Alignment.centerLeft,
-<<<<<<< HEAD:lib/screens/login/login_screen.dart
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                        hintText: "Usuário ou E-mail",
-                        fillColor: Colors.white.withOpacity(0.7),
-                        filled: true,
-                        border: InputBorder.none
-                        // enabledBorder: UnderlineInputBorder(
-                        //   borderSide: BorderSide(color: Colors.grey),
-                        // ),
-                        // border: UnderlineInputBorder(
-                        //   borderSide: BorderSide(color: Colors.grey),
-                        // ),
-                        // focusedBorder: UnderlineInputBorder(
-                        //   borderSide: BorderSide(color: Colors.grey),
-                        // ),
-                        ),
-                    autocorrect: false,
-                    keyboardType: TextInputType.emailAddress,
-                    cursorColor: Colors.green,
-                    style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height * 0.02),
-=======
                   child: TextInput(
-                    texto: Textos.usuarioOuEmail,
+                    texto: Texts.usuarioOuEmail,
                     tipoDeInput: TextInputType.emailAddress,
                     corDoCursor: Colors.green,
                     tamanhoDaFonte: 18,
                     habilitarCorretor: false,
                     habilitarSugestoes: true,
                     habilitarTextoObscuro: false,
->>>>>>> d49da3c196149ee4dd5967a243cc62cbfa2f5563:lib/features/login/presentation/pages/login_page.dart
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
-<<<<<<< HEAD:lib/screens/login/login_screen.dart
-                    vertical: MediaQuery.of(context).size.height * 0.02,
-                    horizontal: MediaQuery.of(context).size.width * 0.05,
-                  ),
-                  // alignment: Alignment.centerLeft,
-                  // height: 60.0,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Senha",
-                      fillColor: Colors.white.withOpacity(0.7),
-                      filled: true,
-                      border: InputBorder.none,
-
-                      // enabledBorder: UnderlineInputBorder(
-                      //   borderSide: BorderSide(color: Colors.grey),
-                      // ),
-                      // border: UnderlineInputBorder(
-                      //   borderSide: BorderSide(color: Colors.grey),
-                      // ),
-                      // focusedBorder: UnderlineInputBorder(
-                      //   borderSide: BorderSide(color: Colors.grey),
-                      // ),
-                    ),
-                    obscureText: true,
-                    enableSuggestions: false,
-                    autocorrect: false,
-                    keyboardType: TextInputType.text,
-                    cursorColor: Colors.green,
-                    style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height * 0.02),
-=======
                       vertical: 10.0.w, horizontal: 20.0.h),
                   child: TextInput(
-                    texto: Textos.senha,
+                    texto: Texts.senha,
                     tipoDeInput: TextInputType.text,
                     corDoCursor: Colors.green,
                     tamanhoDaFonte: 18,
                     habilitarCorretor: false,
                     habilitarSugestoes: false,
                     habilitarTextoObscuro: true,
->>>>>>> d49da3c196149ee4dd5967a243cc62cbfa2f5563:lib/features/login/presentation/pages/login_page.dart
                   ),
                 ),
                 SizedBox(
@@ -147,15 +91,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 5.0.h),
                   child: CheckboxListTile(
                     title: Text(
-<<<<<<< HEAD:lib/screens/login/login_screen.dart
-                      "Lembrar de mim?",
-                      style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.019,
-                          color: Colors.black54),
-=======
-                      Textos.lembrarDeMim,
+                      Texts.lembrarDeMim,
                       style: TextStyle(fontSize: 18.sp, color: Colors.black54),
->>>>>>> d49da3c196149ee4dd5967a243cc62cbfa2f5563:lib/features/login/presentation/pages/login_page.dart
                     ),
                     value: reminderPass,
                     onChanged: (value) {
@@ -182,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     textColor: Colors.white,
                     color: Colors.green,
                     child: Text(
-                      Textos.entrar,
+                      Texts.entrar,
                       style: TextStyle(
                         fontSize: MediaQuery.of(context).size.height * 0.02,
                         fontWeight: FontWeight.normal,
@@ -219,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: SignInButton(
                     Buttons.Facebook,
-                    text: Textos.entrarComFacebook,
+                    text: Texts.entrarComFacebook,
                     onPressed: () {},
                   ),
                 ),
@@ -232,7 +169,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: SignInButton(
                     Buttons.Google,
-                    text: Textos.entrarComGoogle,
+                    text: Texts.entrarComGoogle,
                     onPressed: () {},
                   ),
                 ),
@@ -249,9 +186,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Colors.black,
                         ),
                         children: <TextSpan>[
-                          new TextSpan(text: Textos.naoTemUmaConta),
+                          new TextSpan(text: Texts.naoTemUmaConta),
                           new TextSpan(
-                            text: Textos.registreSe,
+                            text: Texts.registreSe,
                             style: new TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],

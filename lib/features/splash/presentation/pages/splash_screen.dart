@@ -45,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Text(
-                Textos.desenvolvidoPor,
+                Texts.desenvolvidoPor,
                 style: TextStyle(
                   fontFamily: 'Arial',
                   fontSize: 20,
