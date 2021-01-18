@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Nunito',
         ),
         onGenerateRoute: Routes.generateRoute,
+        navigatorKey: Routes.navigatorKey,
         initialRoute: Routes.splashScreen,
         home: HomeScreen(),
       );
