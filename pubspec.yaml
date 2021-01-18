@@ -31,6 +31,14 @@ flutter_icons:
   # adaptive_icon_foreground: "assets/launcher/foreground.png"
 
 flutter:
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: fonts/Nunito-Regular.ttf
+        - asset: fonts/Nunito-Italic.ttf
+          style: italic
+        - asset: fonts/Nunito-Bold.ttf
+        - asset: fonts/Nunito-Light.ttf
   assets:
     - assets/
     - assets/icons/

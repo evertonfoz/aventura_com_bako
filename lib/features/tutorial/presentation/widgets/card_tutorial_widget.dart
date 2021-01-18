@@ -1,4 +1,4 @@
-import 'package:aventura_com_bako/models/tutorial_model.dart';
+import 'package:aventura_com_bako/features/tutorial/data/models/tutorial_model.dart';
 import 'package:flutter/material.dart';
 
 class TutorialCard extends StatefulWidget {
@@ -30,12 +30,14 @@ class _TutorialCardState extends State<TutorialCard> {
           children: [
             Container(
               // Header
+              // Header
               padding: EdgeInsets.symmetric(
                   vertical: MediaQuery.of(context).size.height * 0.01),
               height: MediaQuery.of(context).size.height * 0.1,
               child: Center(child: Image.asset('assets/idv.png')),
             ),
             Expanded(
+              // Card description
               // Card text
               child: Container(
                 decoration: BoxDecoration(
@@ -50,15 +52,22 @@ class _TutorialCardState extends State<TutorialCard> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      if (cardList[widget.index].imageUrl != null)
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.15,
-                          child: Image.asset(cardList[widget.index].imageUrl),
-                        ),
+                      Container(
+                          // Icon, if currentPage is not 0
+                          child: widget.index != 0
+                              ? Container(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.13,
+                                  child: Image.asset(
+                                      cardList[widget.index].imageUrl),
+                                )
+                              : null),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.03),
                       Text(
                         cardList[widget.index].cardText,
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.03,
+                          fontSize: MediaQuery.of(context).size.height * 0.023,
                           color: Colors.white,
                         ),
                         textAlign: TextAlign.center,
