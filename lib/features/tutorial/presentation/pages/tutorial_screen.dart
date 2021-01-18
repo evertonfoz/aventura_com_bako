@@ -121,7 +121,7 @@ class _TutorialPageState extends State<TutorialPage> {
                         ),
                         onPressed: () {
                           currentPage == cardList.length - 1
-                              ? Navigator.pushNamed(context, '/home')
+                              ? Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false)
                               : _navigationTapped(currentPage + 1);
                         },
                       ),

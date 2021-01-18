@@ -114,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: RaisedButton(
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/tutorial');
+                      Navigator.pushNamedAndRemoveUntil(context, '/tutorial', (route) => false);
                     },
                     textColor: Colors.white,
                     color: Colors.green,
