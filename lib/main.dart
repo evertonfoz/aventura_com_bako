@@ -1,8 +1,5 @@
-
+import 'package:aventura_com_bako/core/routes.dart';
 import 'package:aventura_com_bako/features/home/presentation/pages/home_screen.dart';
-import 'package:aventura_com_bako/features/login/presentation/pages/login_page.dart';
-import 'package:aventura_com_bako/features/splash/presentation/pages/splash_screen.dart';
-import 'package:aventura_com_bako/features/tutorial/presentation/pages/tutorial_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,13 +22,8 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Nunito',
         ),
-        routes: {
-          '/splash': (context) => SplashScreen(),
-          '/login': (context) => LoginScreen(),
-          '/tutorial': (context) => TutorialPage(),
-          '/home': (context) => HomeScreen(),
-        },
-        initialRoute: '/splash',
+        onGenerateRoute: Routes.generateRoute,
+        initialRoute: Routes.splashScreen,
         home: HomeScreen(),
       );
     });
