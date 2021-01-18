@@ -1,4 +1,5 @@
 import 'package:aventura_com_bako/core/constants.dart';
+import 'package:aventura_com_bako/core/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -114,7 +115,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(context, '/tutorial', (route) => false);
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, Routes.tutorial, (route) => false);
                     },
                     textColor: Colors.white,
                     color: Colors.green,

@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/core/routes.dart';
 import 'package:aventura_com_bako/features/tutorial/data/models/tutorial_model.dart';
 import 'package:aventura_com_bako/features/tutorial/presentation/widgets/card_tutorial_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -129,7 +130,7 @@ class _TutorialPageState extends State<TutorialPage> {
                         ),
                         onPressed: () {
                           currentPage == cardList.length - 1
-                              ? Navigator.pushNamed(context, '/home')
+                              ? Navigator.pushNamed(context, Routes.home)
                               : _navigationTapped(currentPage + 1);
                         },
                       ),

@@ -1,4 +1,5 @@
 import 'package:aventura_com_bako/core/constants.dart';
+import 'package:aventura_com_bako/core/routes.dart';
 import 'package:aventura_com_bako/features/login/presentation/pages/login_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
       (value) {
         Navigator.pushNamedAndRemoveUntil(
           context,
-          '/login',
+          Routes.login,
           (route) => false,
         );
       },
