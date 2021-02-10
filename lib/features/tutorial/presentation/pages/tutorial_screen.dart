@@ -68,6 +68,7 @@ class _TutorialPageState extends State<TutorialPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
+                        // "Anterior" button
                         height: MediaQuery.of(context).size.height * 0.05,
                         width: currentPage != 0
                             ? MediaQuery.of(context).size.width * 0.4
@@ -105,10 +106,11 @@ class _TutorialPageState extends State<TutorialPage> {
                           : null,
                     ),
                     Container(
+                      // "Próximo" or "Finalizar" button
                       height: MediaQuery.of(context).size.height * 0.05,
                       width: currentPage != 0
                           ? MediaQuery.of(context).size.width * 0.4
-                          : MediaQuery.of(context).size.width * 0.9,
+                          : MediaQuery.of(context).size.width * 0.89,
                       child: RaisedButton(
                         padding: EdgeInsets.symmetric(
                             vertical:
@@ -120,6 +122,9 @@ class _TutorialPageState extends State<TutorialPage> {
                           style: TextStyle(
                             color: Colors.amberAccent[100],
                             fontSize: MediaQuery.of(context).size.height * 0.02,
+                            fontWeight: currentPage == cardList.length - 1
+                                ? FontWeight.w900
+                                : null,
                           ),
                         ),
                         color: Colors.green,
