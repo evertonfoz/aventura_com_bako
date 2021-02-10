@@ -25,12 +25,12 @@ class _TutorialCardState extends State<TutorialCard> {
         borderRadius: BorderRadius.circular(20.0),
       ),
       child: SizedBox(
+        // It limits card size
         width: MediaQuery.of(context).size.width * 0.9,
         child: Column(
           children: [
             Container(
-              // Header
-              // Header
+              // Header with "Aventura com Bako" image
               padding: EdgeInsets.symmetric(
                   vertical: MediaQuery.of(context).size.height * 0.01),
               height: MediaQuery.of(context).size.height * 0.1,
@@ -49,6 +49,7 @@ class _TutorialCardState extends State<TutorialCard> {
                     horizontal: MediaQuery.of(context).size.width * 0.05,
                   ),
                   child: Column(
+                    // Column for icon and description of the card
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -56,18 +57,25 @@ class _TutorialCardState extends State<TutorialCard> {
                           // Icon, if currentPage is not 0
                           child: widget.index != 0
                               ? Container(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.13,
+                                  height: widget.index != 5
+                                      ? MediaQuery.of(context).size.height *
+                                          0.13
+                                      : MediaQuery.of(context).size.height *
+                                          0.17,
                                   child: Image.asset(
                                       cardList[widget.index].imageUrl),
                                 )
                               : null),
                       SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03),
+                          height: widget.index != 5
+                              ? MediaQuery.of(context).size.height * 0.03
+                              : MediaQuery.of(context).size.height * 0.01),
                       Text(
                         cardList[widget.index].cardText,
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.023,
+                          fontSize: widget.index != 5
+                              ? MediaQuery.of(context).size.height * 0.023
+                              : MediaQuery.of(context).size.height * 0.04,
                           color: Colors.white,
                         ),
                         textAlign: TextAlign.center,
