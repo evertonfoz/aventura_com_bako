@@ -114,6 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     horizontal: MediaQuery.of(context).size.width * 0.05,
                   ),
                   child: RaisedButton(
+                    // IT HAS TO BE CHANGED
                     onPressed: () {
                       Navigator.pushNamedAndRemoveUntil(
                           context, Routes.tutorial, (route) => false);
@@ -128,6 +129,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
+                  /*
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, Routes.tutorial, (route) => false);
+                    },
+                    style: ButtonStyle(textStyle: TextStyle(),)
+                  ),*/
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.015,

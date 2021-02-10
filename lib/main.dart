@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
+      // Sets the orientation for only portrait up, disallowing screen rotate
       DeviceOrientation.portraitUp,
     ]);
 
