@@ -3,11 +3,10 @@ import 'package:aventura_com_bako/features/home/presentation/pages/home_screen.d
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/services.dart';
-import 'package:device_preview/device_preview.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(DevicePreview(builder: (_) => MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -33,8 +32,6 @@ class MyApp extends StatelessWidget {
         navigatorKey: Routes.navigatorKey,
         initialRoute: Routes.splashScreen,
         home: HomeScreen(),
-        builder: DevicePreview.appBuilder,
-        locale: DevicePreview.locale(context),
       );
     });
   }
