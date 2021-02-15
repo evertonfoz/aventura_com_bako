@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/features/home/presentation/home_widgets/user_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -31,76 +32,50 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: HomePageBody(),
+      body: HomePageHome(),
     );
   }
 }
 
-class HomePageBody extends StatelessWidget {
-  final double circleRadius = 100.0;
-  final double circleBorderWidth = 8.0;
+class HomePageHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          height: double.infinity,
-          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Image.asset(
             'assets/background_forest.jpg',
             fit: BoxFit.cover,
           ),
         ),
-        Center(
-          child: Stack(
-            alignment: Alignment.topCenter,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(top: circleRadius / 2.0),
-                child: Card(
-                  child: SizedBox(
-                    height: 450,
-                    child: Column(
-                      children: [
-                        Container(
-                          width: 370,
-                          height: 70,
-                          color: Colors.white,
-                        ),
-                        Container(
-                          width: 370,
-                          height: 380,
-                          color: Colors.green,
-                        )
-                      ],
-                    ),
-                  ),
-                ),
+        UserCard(),
+        Positioned(
+          bottom: 150,
+          left: 15,
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.5,
+            child: Text(
+              "Bem-vindo(a) de volta. Aqui é o seu painel de controle. Escolha uma das ações acima e comece sua aventura agora mesmo!",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
               ),
-              Container(
-                width: circleRadius,
-                height: circleRadius,
-                decoration:
-                    ShapeDecoration(shape: CircleBorder(), color: Colors.white),
-                child: Padding(
-                  padding: EdgeInsets.all(circleBorderWidth),
-                  child: DecoratedBox(
-                    decoration: ShapeDecoration(
-                      shape: CircleBorder(),
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                          'https://upload.wikimedia.org/wikipedia/commons/a/a0/Bill_Gates_2018.jpg',
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 10,
+          right: 20,
+          child: Container(
+            height: 220,
+            child: Image.asset("assets/bako_vetor.png"),
           ),
         ),
       ],
     );
   }
 }
+
+

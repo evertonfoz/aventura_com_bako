@@ -1,0 +1,17 @@
+{
+    "users": [
+        {
+            "username": "Nathã Lopes",
+            "gender": "M",
+            "age": 21,
+            "email": "natha.luca.pereira.lopes@gmail.com"
+        },
+
+        {
+            "username": "Renata Monteiro",
+            "gender": "F",
+            "age": 10,
+            "email": "renata_mon08@gmail.com"
+        }
+    ]
+}
