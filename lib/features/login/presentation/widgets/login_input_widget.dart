@@ -9,11 +9,20 @@ class TextInput extends StatelessWidget {
   final bool habilitarCorretor;
   final bool habilitarSugestoes;
   final bool habilitarTextoObscuro;
+  final TextEditingController controlador;
+  final Color corDePreenchimento;
 
   const TextInput(
       {Key key,
-      @required this.texto, this.tipoDeInput, this.corDoCursor, this.tamanhoDaFonte, 
-      this.habilitarCorretor, this.habilitarSugestoes, this.habilitarTextoObscuro})
+      @required this.texto,
+      @required this.tipoDeInput,
+      @required this.corDoCursor,
+      @required this.tamanhoDaFonte,
+      @required this.habilitarCorretor,
+      @required this.habilitarSugestoes,
+      @required this.habilitarTextoObscuro,
+      @required this.controlador,
+      @required this.corDePreenchimento})
       : super(key: key);
 
   @override
@@ -21,7 +30,7 @@ class TextInput extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
           hintText: texto,
-          fillColor: Colors.white.withOpacity(0.7),
+          fillColor: corDePreenchimento,
           filled: true,
           border: InputBorder.none),
       autocorrect: habilitarCorretor,
@@ -30,6 +39,7 @@ class TextInput extends StatelessWidget {
       keyboardType: tipoDeInput,
       cursorColor: corDoCursor,
       style: TextStyle(fontSize: tamanhoDaFonte.sp),
+      controller: controlador,
     );
   }
 }
