@@ -11,10 +11,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.0
-  flutter_signin_button: ^1.1.0
+  firebase_auth: ^0.20.0+1
+  firebase_core: ^0.7.0
+  flutter_mobx: ^1.1.0+2
   flutter_screenutil: ^4.0.0-beta2
+  flutter_signin_button: ^1.1.0
+  flutter_svg: ^0.19.1
+  mobx: ^1.2.1+4
+  provider: ^4.3.3
 
 dev_dependencies:
   flutter_test:
@@ -43,12 +48,10 @@ flutter:
     - assets/
     - assets/icons/
   uses-material-design: true
-
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-
   # fonts:
   #   - family: Schyler
   #     fonts:
