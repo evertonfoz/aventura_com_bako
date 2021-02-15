@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "802041020097",
+    "project_id": "hasura-auth-demo-jwt",
+    "storage_bucket": "hasura-auth-demo-jwt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802041020097:android:6be9380f6c5d4ab46d5e40",
+        "android_client_info": {
+          "package_name": "com.utfpr.aventura_com_bako"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802041020097-tiui1qnj0gea0s6eq17l2i431k40s00j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.utfpr.aventura_com_bako",
+            "certificate_hash": "f656b3d8ae144b2ec1d7ad95e3844d140abcff3f"
+          }
+        },
+        {
+          "client_id": "802041020097-37thja21rmhakr0p7savegk0q89hofm1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBZI7DYxJu3KZAwu5GTjcL0Ti4SyVtNRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802041020097-37thja21rmhakr0p7savegk0q89hofm1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
