@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 /// Armazena o [Email]
-/// 
+///
 /// Caso não seja um email válido, joga um [InvalidEmailFailure].
 class Email {
   final String value;
@@ -27,6 +27,16 @@ class Email {
 
   @override
   String toString() => 'Email($value)';
+
+  static bool isValidEmail(String input) {
+    const emailRegex =
+        r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
+    if (RegExp(emailRegex).hasMatch(input)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 /// valida o [Email] usando expressões regulares

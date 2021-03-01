@@ -24,6 +24,14 @@ class Password {
 
   @override
   String toString() => 'Password(value: $value)';
+
+  static bool isValidPassword(String input) {
+    if (input.length >= 6) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 String validatePassword(String input) {
