@@ -1,6 +1,5 @@
 import 'package:aventura_com_bako/core/constants.dart';
-import 'package:aventura_com_bako/core/routes.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:aventura_com_bako/features/login/domain/usecases/login_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,6 +11,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   bool reminderPass = false;
 
   @override
@@ -63,13 +64,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   alignment: Alignment.centerLeft,
                   child: TextInput(
-                    texto: Texts.usuarioOuEmail,
+                    texto: Texts.email,
                     tipoDeInput: TextInputType.emailAddress,
                     corDoCursor: Colors.green,
                     tamanhoDaFonte: 18,
                     habilitarCorretor: false,
                     habilitarSugestoes: true,
                     habilitarTextoObscuro: false,
+                    controlador: emailController,
+                    corDePreenchimento: Colors.white.withOpacity(0.7),
                   ),
                 ),
                 Container(
@@ -83,6 +86,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     habilitarCorretor: false,
                     habilitarSugestoes: false,
                     habilitarTextoObscuro: true,
+                    controlador: passwordController,
+                    corDePreenchimento: Colors.white.withOpacity(0.7),
                   ),
                 ),
                 SizedBox(
@@ -115,8 +120,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, Routes.tutorial, (route) => false);
+                      signIn(context, emailController.text,
+                          passwordController.text);
                     },
                     textColor: Colors.white,
                     color: Colors.green,

@@ -3,7 +3,7 @@ class Texts {
   static String desenvolvidoPor = "Desenvolvido pelo time da UTFPR";
 
   // Login Screen
-  static String usuarioOuEmail = "Usuário ou E-Mail";
+  static String email = "E-Mail";
   static String senha = "Senha";
   static String lembrarDeMim = "Lembrar de mim?";
   static String entrar = "ENTRAR";

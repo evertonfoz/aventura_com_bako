@@ -11,18 +11,24 @@ class TextInput extends StatelessWidget {
   final bool habilitarTextoObscuro;
   final TextEditingController controlador;
   final Color corDePreenchimento;
+  final Function onChanged;
+  final Function onEditingComplete;
+  final String textoDeErro;
 
   const TextInput(
       {Key key,
       @required this.texto,
-      @required this.tipoDeInput,
-      @required this.corDoCursor,
       @required this.tamanhoDaFonte,
-      @required this.habilitarCorretor,
-      @required this.habilitarSugestoes,
-      @required this.habilitarTextoObscuro,
-      @required this.controlador,
-      @required this.corDePreenchimento})
+      @required this.corDePreenchimento,
+      this.controlador,
+      this.corDoCursor,
+      this.habilitarCorretor,
+      this.habilitarTextoObscuro,
+      this.habilitarSugestoes,
+      this.tipoDeInput,
+      this.onChanged,
+      this.textoDeErro,
+      this.onEditingComplete})
       : super(key: key);
 
   @override
@@ -32,14 +38,18 @@ class TextInput extends StatelessWidget {
           hintText: texto,
           fillColor: corDePreenchimento,
           filled: true,
-          border: InputBorder.none),
-      autocorrect: habilitarCorretor,
-      enableSuggestions: habilitarSugestoes,
-      obscureText: habilitarTextoObscuro,
-      keyboardType: tipoDeInput,
-      cursorColor: corDoCursor,
+          border: InputBorder.none,
+          errorText: textoDeErro != null ? textoDeErro : null),
+      autocorrect: habilitarCorretor != null ? habilitarCorretor : true,
+      enableSuggestions: habilitarSugestoes != null ? habilitarSugestoes : true,
+      obscureText:
+          habilitarTextoObscuro != null ? habilitarTextoObscuro : false,
+      keyboardType: tipoDeInput != null ? tipoDeInput : null,
+      cursorColor: corDoCursor != null ? corDoCursor : Colors.green,
       style: TextStyle(fontSize: tamanhoDaFonte.sp),
-      controller: controlador,
+      controller: controlador != null ? controlador : null,
+      onChanged: onChanged,
+      onEditingComplete: onEditingComplete,
     );
   }
 }
