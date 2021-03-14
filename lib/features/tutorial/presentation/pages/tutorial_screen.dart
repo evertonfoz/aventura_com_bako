@@ -47,7 +47,7 @@ class _TutorialPageState extends State<TutorialPage> {
               // Holds all the content
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.075,
+                  height: MediaQuery.of(context).size.height * 0.045,
                 ),
                 Expanded(
                   child: PageView.builder(
@@ -145,12 +145,34 @@ class _TutorialPageState extends State<TutorialPage> {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.35,
+                  // BAKO
+                  height: MediaQuery.of(context).size.height * 0.3,
                   child: Center(
                     child: Image.asset('assets/bako_vetor.png'),
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.015),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        primary: Colors.white,
+                        textStyle: TextStyle(
+                          fontSize: 15,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                      child: Text(
+                        "Pular",
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, Routes.home, (route) => false);
+                      },
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
