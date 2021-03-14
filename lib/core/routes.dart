@@ -12,6 +12,7 @@ class Routes {
   static const String tutorial = '/tutorial';
   static const String home = '/home';
 
+  // ignore: missing_return
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
 

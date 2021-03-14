@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/features/home/presentation/home_widgets/drawer_widget.dart';
 import 'package:aventura_com_bako/features/home/presentation/home_widgets/user_card_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -10,16 +11,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: HomeDrawer(),
       appBar: AppBar(
         toolbarHeight: 80,
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.menu),
-            );
-          },
-        ),
         title: Image.asset(
           'assets/idv.png',
           fit: BoxFit.contain,
@@ -77,5 +71,3 @@ class HomePageHome extends StatelessWidget {
     );
   }
 }
-
-

@@ -57,7 +57,7 @@ class UserCard extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              "Nome do Usuário",
+                              "Nathã Luca",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -145,7 +145,7 @@ class UserCard extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: NetworkImage(
-                      'https://upload.wikimedia.org/wikipedia/commons/a/a0/Bill_Gates_2018.jpg',
+                      'https://avatars3.githubusercontent.com/u/66957319?s=400&u=cd4df0aa31a432e77b14a1b853f705f62fb5d2be&v=4',
                     ),
                   ),
                 ),
