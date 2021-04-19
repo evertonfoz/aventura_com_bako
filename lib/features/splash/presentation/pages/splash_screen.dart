@@ -1,35 +1,20 @@
 import 'package:aventura_com_bako/core/constants.dart';
-import 'package:aventura_com_bako/core/routes.dart';
-import 'package:aventura_com_bako/features/login/presentation/pages/login_page.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:aventura_com_bako/features/splash/presentation/controller/splash_screen_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
+  SplashScreen({Key key}) : super(key: key);
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  Size size;
-  @override
-  void initState() {
-    super.initState();
-
-    Future.delayed(Duration(seconds: 2)).then(
-      (value) {
-        Navigator.pushNamedAndRemoveUntil(
-          context,
-          Routes.login,
-          (route) => false,
-        );
-      },
-    );
-  }
-
+  SplashScreenController controller = Get.put(SplashScreenController());
   @override
   Widget build(BuildContext context) {
-    size = MediaQuery.of(context).size;
-
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -68,9 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             alignment: Alignment.topCenter,
             margin: EdgeInsets.only(
-              // left: 40.0,
               top: size.height * 0.1,
-              // right: 40.0,
             ),
             child: Image.asset(
               'assets/idv.png',
