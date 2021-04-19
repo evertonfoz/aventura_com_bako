@@ -1,41 +1,25 @@
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
-class Player {
+class PlayerEntity extends Equatable {
   final String id;
   final String name;
   final String email;
-  final String imgURL;
+  final Image avatar;
   final int points;
   final int exp;
+  final String token;
 
-  Player(
+  PlayerEntity(
       {@required this.id,
       @required this.name,
       @required this.email,
-      @required this.imgURL,
+      @required this.avatar,
+      @required this.token,
       this.points,
       this.exp});
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
-
-    return o is Player &&
-        o.id == id &&
-        o.name == name &&
-        o.email == email &&
-        o.imgURL == imgURL &&
-        o.points == points &&
-        o.exp == exp;
-  }
-
-  @override
-  int get hashCode {
-    return id.hashCode ^
-        name.hashCode ^
-        email.hashCode ^
-        imgURL.hashCode ^
-        points.hashCode ^
-        exp.hashCode;
-  }
+  List<Object> get props => [id, name, email, avatar, points, exp, token];
 }
