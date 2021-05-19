@@ -48,9 +48,9 @@ class AuthRepositoryImplementation implements IAuthRepository {
       {@required String email,
       @required String password,
       @required String name,
-      @required Image avatar}) async {
+      @required String avatar}) async {
     try {
-      var result = await datasource.signUpWithEmail(email, password, name);
+      var result = await datasource.signUpWithEmail(email, password, name, avatar);
       return Right(result);
     } on ServerException {
       return Left(AuthServerFailure(

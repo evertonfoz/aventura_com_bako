@@ -9,7 +9,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 abstract class IAuthDatasource {
   Future<PlayerModel> loginWithEmail(String email, String password);
   Future<PlayerModel> loginWithGoogle();
-  Future<bool> signUpWithEmail(String email, String password, String name);
+  Future<bool> signUpWithEmail(
+      String email, String password, String name, String avatar);
   Future<PlayerModel> getUserLogged();
 }
 
@@ -86,7 +87,7 @@ class AuthDatasourceImplementation implements IAuthDatasource {
 
   @override
   Future<bool> signUpWithEmail(
-      String email, String password, String name) async {
+      String email, String password, String name, String avatar) async {
     try {
       HttpsCallable registroDeUsuario =
           FirebaseFunctions.instance.httpsCallable('registerUser');
@@ -95,6 +96,7 @@ class AuthDatasourceImplementation implements IAuthDatasource {
         'email': email,
         'password': password,
         'displayName': name,
+        'imgByte': avatar,
       });
 
       return true;

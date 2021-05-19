@@ -11,6 +11,6 @@ abstract class IAuthRepository {
       {@required String email,
       @required String password,
       @required String name,
-      @required Image avatar});
+      @required String avatar});
   Future<Either<Failure, PlayerEntity>> getUserLogged();
 }

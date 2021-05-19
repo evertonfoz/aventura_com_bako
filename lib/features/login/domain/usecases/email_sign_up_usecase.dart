@@ -27,7 +27,7 @@ class SignUpParams extends Equatable {
   final String email;
   final String password;
   final String name;
-  final Image avatar;
+  final String avatar;
 
   SignUpParams(
       {@required this.email,
