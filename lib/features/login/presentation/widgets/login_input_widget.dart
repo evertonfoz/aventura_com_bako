@@ -9,11 +9,26 @@ class TextInput extends StatelessWidget {
   final bool habilitarCorretor;
   final bool habilitarSugestoes;
   final bool habilitarTextoObscuro;
+  final TextEditingController controlador;
+  final Color corDePreenchimento;
+  final Function onChanged;
+  final Function onEditingComplete;
+  final String textoDeErro;
 
   const TextInput(
       {Key key,
-      @required this.texto, this.tipoDeInput, this.corDoCursor, this.tamanhoDaFonte, 
-      this.habilitarCorretor, this.habilitarSugestoes, this.habilitarTextoObscuro})
+      @required this.texto,
+      @required this.tamanhoDaFonte,
+      @required this.corDePreenchimento,
+      this.controlador,
+      this.corDoCursor,
+      this.habilitarCorretor,
+      this.habilitarTextoObscuro,
+      this.habilitarSugestoes,
+      this.tipoDeInput,
+      this.onChanged,
+      this.textoDeErro,
+      this.onEditingComplete})
       : super(key: key);
 
   @override
@@ -21,15 +36,20 @@ class TextInput extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
           hintText: texto,
-          fillColor: Colors.white.withOpacity(0.7),
+          fillColor: corDePreenchimento,
           filled: true,
-          border: InputBorder.none),
-      autocorrect: habilitarCorretor,
-      enableSuggestions: habilitarSugestoes,
-      obscureText: habilitarTextoObscuro,
-      keyboardType: tipoDeInput,
-      cursorColor: corDoCursor,
+          border: InputBorder.none,
+          errorText: textoDeErro != null ? textoDeErro : null),
+      autocorrect: habilitarCorretor != null ? habilitarCorretor : true,
+      enableSuggestions: habilitarSugestoes != null ? habilitarSugestoes : true,
+      obscureText:
+          habilitarTextoObscuro != null ? habilitarTextoObscuro : false,
+      keyboardType: tipoDeInput != null ? tipoDeInput : null,
+      cursorColor: corDoCursor != null ? corDoCursor : Colors.green,
       style: TextStyle(fontSize: tamanhoDaFonte.sp),
+      controller: controlador != null ? controlador : null,
+      onChanged: onChanged,
+      onEditingComplete: onEditingComplete,
     );
   }
 }
