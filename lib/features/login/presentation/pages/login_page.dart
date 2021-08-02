@@ -122,6 +122,14 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  /*
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, Routes.tutorial, (route) => false);
+                    },
+                    style: ButtonStyle(textStyle: TextStyle(),)
+                  ),*/
                 ),
                 SizedBox(
                   height: Get.height * 0.015,
