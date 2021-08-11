@@ -13,6 +13,7 @@ class Routes {
   static const String tutorial = '/tutorial';
   static const String home = '/home';
   static const String signup = '/signup';
+  static const String map = '/map';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments;
@@ -33,6 +34,9 @@ class Routes {
         break;
       case signup:
         return MaterialPageRoute(builder: (_) => SignUpScreen());
+        break;
+      case map:
+        return MaterialPageRoute(builder: (_) => /* TODO MapScreen */);
         break;
       default:
         _errorRoute();

@@ -24,6 +24,10 @@ dependencies:
   google_sign_in: ^5.0.4
   graphql_flutter: ^5.0.0
   image_picker: null
+  flutter_map: ^0.13.1
+  flutter_map_location: ^0.12.0
+  flutter_compass: ^0.6.1
+  latlong2: ^0.8.0
 
 dev_dependencies:
   flutter_test:
