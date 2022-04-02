@@ -24,12 +24,6 @@ class _HomeScreenState extends State<HomeScreen> {
           fit: BoxFit.contain,
           height: 45,
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: Stack(
         children: [
@@ -43,25 +37,15 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Center(
             child: Card(
-              child: SizedBox(
-                height: 450,
-                child: Column(
-                  children: [
-                    Container(
-                      width: 370,
-                      height: 70,
-                      color: Colors.white,
-                    ),
-                    Container(
-                      width: 370,
-                      height: 380,
-                      color: Colors.green,
-                    )
-                  ],
+              child: Container(
+                color: Colors.green,
+                child: TextButton(
+                  child: Text('Mapa'),
+                  onPressed: null,
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

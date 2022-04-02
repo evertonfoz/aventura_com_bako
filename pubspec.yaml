@@ -24,6 +24,8 @@ dependencies:
   google_sign_in: ^5.0.4
   graphql_flutter: ^5.0.0
   image_picker: null
+  flame: 0.29.4
+  
 
 dev_dependencies:
   flutter_test:
