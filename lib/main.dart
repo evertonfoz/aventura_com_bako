@@ -14,9 +14,8 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-  return LayoutBuilder(builder: (context, constraints) {
-      ScreenUtil.init(constraints,
-          designSize: Size(393, 813), allowFontScaling: false);
+    return LayoutBuilder(builder: (context, constraints) {
+      ScreenUtil.init(constraints, designSize: Size(393, 813));
       return GetMaterialApp(
         title: 'Aventura com Bako',
         debugShowCheckedModeBanner: false,

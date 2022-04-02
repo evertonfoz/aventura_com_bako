@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import '../helpers/enums/direction_enum.dart';
 
 class Joystick extends StatefulWidget {
-  final ValueChanged<Direction> onDirectionChanged;
+  final ValueChanged<Direction>? onDirectionChanged;
 
-  const Joystick({Key key, this.onDirectionChanged}) : super(key: key);
+  const Joystick({Key? key, this.onDirectionChanged}) : super(key: key);
 
   @override
   JoystickState createState() => JoystickState();
@@ -60,7 +60,7 @@ class JoystickState extends State<Joystick> {
 
     if (newDirection != direction) {
       direction = newDirection;
-      widget.onDirectionChanged(direction);
+      widget.onDirectionChanged!(direction);
     }
 
     setState(() {

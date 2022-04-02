@@ -63,7 +63,7 @@ class _TutorialCardState extends State<TutorialCard> {
                                       : MediaQuery.of(context).size.height *
                                           0.17,
                                   child: Image.asset(
-                                      cardList[widget.index].imageUrl),
+                                      cardList[widget.index].imageUrl!),
                                 )
                               : null),
                       SizedBox(
@@ -71,7 +71,7 @@ class _TutorialCardState extends State<TutorialCard> {
                               ? MediaQuery.of(context).size.height * 0.03
                               : MediaQuery.of(context).size.height * 0.01),
                       Text(
-                        cardList[widget.index].cardText,
+                        cardList[widget.index].cardText!,
                         style: TextStyle(
                           fontSize: widget.index != 5
                               ? MediaQuery.of(context).size.height * 0.023

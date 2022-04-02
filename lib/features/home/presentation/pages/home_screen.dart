@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_main_page.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,8 +41,18 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Container(
                 color: Colors.green,
                 child: TextButton(
-                  child: Text('Mapa'),
-                  onPressed: null,
+                  child: Text(
+                    'Mapa',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MapPage(),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),

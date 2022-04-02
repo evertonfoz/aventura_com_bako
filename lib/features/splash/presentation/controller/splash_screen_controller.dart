@@ -1,5 +1,5 @@
+import 'package:aventura_com_bako/features/home/presentation/pages/bindings/home_binding.dart';
 import 'package:aventura_com_bako/features/home/presentation/pages/home_screen.dart';
-import 'package:aventura_com_bako/features/login/presentation/pages/bindings/login_binding.dart';
 import 'package:get/get.dart';
 
 class SplashScreenController extends GetxController {
@@ -11,6 +11,6 @@ class SplashScreenController extends GetxController {
         () => Get.offAll(() => HomeScreen(),
             transition: Transition.zoom,
             duration: Duration(seconds: 2),
-            binding: LoginBinding()));
+            binding: HomeScreenBinding()));
   }
 }
