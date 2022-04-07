@@ -1,13 +1,8 @@
-import 'dart:ui';
-
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:flame/components.dart';
-import 'package:flame/game.dart';
 import 'package:flame/sprite.dart';
 
-import 'mapa_widget.dart';
-
-class Bako extends FlameGame {
+class Bako extends SpriteAnimationComponent with HasGameRef {
   Direction direction = Direction.none;
   final double _bakoSpeed = 300.0;
   final double _animationSpeed = 0.15;
@@ -17,36 +12,39 @@ class Bako extends FlameGame {
   late final SpriteAnimation _runRightAnimation;
   late final SpriteAnimation _standingAnimation;
   late SpriteAnimationComponent bako;
-  final Mapa _mapa = Mapa();
+
+  Bako()
+      : super(
+          size: Vector2.all(50.0),
+        );
 
   @override
   Future<void> onLoad() async {
-    await super.onLoad();
-    // sprite = await gameRef.loadSprite('test_player.png');
-    // position = gameRef.size / 2;
-    add(_mapa);
-    _loadAnimations().then((_) => {bako.animation = _standingAnimation});
+    super.onLoad();
+    _loadAnimations().then((_) => {animation = _standingAnimation});
+  }
+
+  @override
+  void update(double delta) {
+    super.update(delta);
+    moveBako(delta);
   }
 
   Future<void> _loadAnimations() async {
     final spriteSheet = SpriteSheet(
-      image: await images.load('test_player_spritesheet.png'),
+      image: await gameRef.images.load('test_player_spritesheet.png'),
       srcSize: Vector2(29.0, 32.0),
     );
 
-    //frente - primeira linha do spritesheet
     _runDownAnimation =
         spriteSheet.createAnimation(row: 0, stepTime: _animationSpeed, to: 4);
 
-    //esquerda - segunda linha do spritesheet
     _runLeftAnimation =
         spriteSheet.createAnimation(row: 1, stepTime: _animationSpeed, to: 4);
 
-    //costas - terceira linha do spritesheet
     _runUpAnimation =
         spriteSheet.createAnimation(row: 2, stepTime: _animationSpeed, to: 4);
 
-    //direita - ultima linha do spritesheet
     _runRightAnimation =
         spriteSheet.createAnimation(row: 3, stepTime: _animationSpeed, to: 4);
 
@@ -59,53 +57,48 @@ class Bako extends FlameGame {
       ..size = Vector2.all(100);
 
     add(bako);
-
-    camera.followComponent(bako);
-  }
-
-  @override
-  void update(double delta) {
-    super.update(delta);
-    moveBako(delta);
   }
 
   void moveBako(double delta) {
     switch (direction) {
       case Direction.up:
-        bako.animation = _runUpAnimation;
+        animation = _runUpAnimation;
         moveUp(delta);
+
         break;
       case Direction.down:
-        bako.animation = _runDownAnimation;
+        animation = _runDownAnimation;
         moveDown(delta);
+
         break;
       case Direction.left:
-        bako.animation = _runLeftAnimation;
+        animation = _runLeftAnimation;
         moveLeft(delta);
+
         break;
       case Direction.right:
-        bako.animation = _runRightAnimation;
+        animation = _runRightAnimation;
         moveRight(delta);
         break;
       case Direction.none:
-        bako.animation = _standingAnimation;
+        animation = _standingAnimation;
         break;
     }
   }
 
-  void moveDown(double delta) {
-    bako.position.add(Vector2(0, delta * _bakoSpeed));
+  void moveUp(double delta) {
+    position.add(Vector2(0, delta * -_bakoSpeed));
   }
 
-  void moveUp(double delta) {
-    bako.position.add(Vector2(0, delta * -_bakoSpeed));
+  void moveDown(double delta) {
+    position.add(Vector2(0, delta * _bakoSpeed));
   }
 
   void moveLeft(double delta) {
-    bako.position.add(Vector2(delta * -_bakoSpeed, 0));
+    position.add(Vector2(delta * -_bakoSpeed, 0));
   }
 
   void moveRight(double delta) {
-    bako.position.add(Vector2(delta * _bakoSpeed, 0));
+    position.add(Vector2(delta * _bakoSpeed, 0));
   }
 }
