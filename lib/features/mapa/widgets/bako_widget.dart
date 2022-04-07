@@ -1,7 +1,11 @@
+import 'dart:ui';
+
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame/sprite.dart';
+
+import 'mapa_widget.dart';
 
 class Bako extends FlameGame {
   Direction direction = Direction.none;
@@ -12,14 +16,16 @@ class Bako extends FlameGame {
   late final SpriteAnimation _runUpAnimation;
   late final SpriteAnimation _runRightAnimation;
   late final SpriteAnimation _standingAnimation;
-  late SpriteAnimationComponent baku;
+  late SpriteAnimationComponent bako;
+  final Mapa _mapa = Mapa();
 
   @override
   Future<void> onLoad() async {
     await super.onLoad();
     // sprite = await gameRef.loadSprite('test_player.png');
     // position = gameRef.size / 2;
-    _loadAnimations().then((_) => {baku.animation = _standingAnimation});
+    add(_mapa);
+    _loadAnimations().then((_) => {bako.animation = _standingAnimation});
   }
 
   Future<void> _loadAnimations() async {
@@ -47,12 +53,14 @@ class Bako extends FlameGame {
     _standingAnimation =
         spriteSheet.createAnimation(row: 0, stepTime: _animationSpeed, to: 1);
 
-    baku = SpriteAnimationComponent()
+    bako = SpriteAnimationComponent()
       ..animation = _standingAnimation
-      ..position = Vector2(100, 200)
-      ..size = Vector2.all(50);
+      ..position = Vector2(1000, 1000)
+      ..size = Vector2.all(100);
 
-    add(baku);
+    add(bako);
+
+    camera.followComponent(bako);
   }
 
   @override
@@ -64,40 +72,40 @@ class Bako extends FlameGame {
   void moveBako(double delta) {
     switch (direction) {
       case Direction.up:
-        baku.animation = _runUpAnimation;
+        bako.animation = _runUpAnimation;
         moveUp(delta);
         break;
       case Direction.down:
-        baku.animation = _runDownAnimation;
+        bako.animation = _runDownAnimation;
         moveDown(delta);
         break;
       case Direction.left:
-        baku.animation = _runLeftAnimation;
+        bako.animation = _runLeftAnimation;
         moveLeft(delta);
         break;
       case Direction.right:
-        baku.animation = _runRightAnimation;
+        bako.animation = _runRightAnimation;
         moveRight(delta);
         break;
       case Direction.none:
-        baku.animation = _standingAnimation;
+        bako.animation = _standingAnimation;
         break;
     }
   }
 
   void moveDown(double delta) {
-    baku.position.add(Vector2(0, delta * _bakoSpeed));
+    bako.position.add(Vector2(0, delta * _bakoSpeed));
   }
 
   void moveUp(double delta) {
-    baku.position.add(Vector2(0, delta * -_bakoSpeed));
+    bako.position.add(Vector2(0, delta * -_bakoSpeed));
   }
 
   void moveLeft(double delta) {
-    baku.position.add(Vector2(delta * -_bakoSpeed, 0));
+    bako.position.add(Vector2(delta * -_bakoSpeed, 0));
   }
 
   void moveRight(double delta) {
-    baku.position.add(Vector2(delta * _bakoSpeed, 0));
+    bako.position.add(Vector2(delta * _bakoSpeed, 0));
   }
 }
