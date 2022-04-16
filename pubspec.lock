@@ -266,7 +266,14 @@ packages:
       name: flame
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
+  flame_tiled:
+    dependency: "direct main"
+    description:
+      name: flame_tiled
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.4.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -812,6 +819,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.2"
+  tiled:
+    dependency: transitive
+    description:
+      name: tiled
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.1"
   typed_data:
     dependency: transitive
     description:

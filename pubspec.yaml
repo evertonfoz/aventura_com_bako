@@ -25,6 +25,7 @@ dependencies:
   graphql_flutter: ^5.0.1
   image_picker: ^0.8.4+11
   flame: ^1.1.0
+  flame_tiled: ^1.4.0
   
 
 dev_dependencies:
@@ -55,6 +56,8 @@ flutter:
     - assets/
     - assets/icons/
     - assets/images/
+    - assets/tiles/
+    - assets/images/SERENE_VILLAGE_REVAMPED/
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   # assets:
