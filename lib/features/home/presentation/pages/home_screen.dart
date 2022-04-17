@@ -1,4 +1,5 @@
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_main_page.dart';
+import 'package:aventura_com_bako/features/qrcode/presentation/pages/qrcode_scanner_page.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -37,24 +38,47 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Center(
-            child: Card(
-              child: Container(
-                color: Colors.green,
-                child: TextButton(
-                  child: Text(
-                    'Mapa',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => MapPage(),
+            child: Column(
+              children: [
+                Card(
+                  child: Container(
+                    color: Colors.green,
+                    child: TextButton(
+                      child: Text(
+                        'Mapa',
+                        style: TextStyle(color: Colors.white),
                       ),
-                    );
-                  },
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MapPage(),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
                 ),
-              ),
+                Card(
+                  child: Container(
+                    color: Colors.green,
+                    child: TextButton(
+                      child: Text(
+                        'Leitor de qrcode (teste)',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => QrCodeScannerPage(),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
