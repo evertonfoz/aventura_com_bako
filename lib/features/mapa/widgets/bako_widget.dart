@@ -4,6 +4,8 @@ import 'package:flame/sprite.dart';
 
 class Bako extends SpriteAnimationComponent with HasGameRef {
   Direction direction = Direction.none;
+  late double mapWidth = 0;
+  late double mapHeight = 0;
   final double _bakoSpeed = 300.0;
   final double _animationSpeed = 0.15;
   late final SpriteAnimation _runDownAnimation;
@@ -64,22 +66,23 @@ class Bako extends SpriteAnimationComponent with HasGameRef {
       case Direction.up:
         animation = _runUpAnimation;
         moveUp(delta);
-
         break;
+
       case Direction.down:
         animation = _runDownAnimation;
         moveDown(delta);
-
         break;
+
       case Direction.left:
         animation = _runLeftAnimation;
         moveLeft(delta);
-
         break;
+
       case Direction.right:
         animation = _runRightAnimation;
         moveRight(delta);
         break;
+
       case Direction.none:
         animation = _standingAnimation;
         break;

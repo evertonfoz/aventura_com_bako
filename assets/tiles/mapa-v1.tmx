@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="300" height="300" tilewidth="16" tileheight="16" infinite="0" nextlayerid="8" nextobjectid="1">
  <tileset firstgid="1" name="contorno-com-textura-v1" tilewidth="16" tileheight="16" tilecount="90000" columns="300">
-  <image source="../imagens/contorno-com-textura-v1.png" width="4800" height="4800"/>
+  <image source="../images/contorno-com-textura-v1.png" width="4800" height="4800"/>
  </tileset>
  <layer id="7" name="Camada de Tiles 1" width="300" height="300">
   <data encoding="csv">
