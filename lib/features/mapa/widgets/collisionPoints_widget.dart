@@ -1,6 +1,8 @@
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
-class CollisionPoints extends PositionComponent {
+class CollisionPoints extends PositionComponent
+    with GestureHitboxes, CollisionCallbacks {
   CollisionPoints({
     required Vector2? position,
     required Vector2? size,
@@ -16,5 +18,15 @@ class CollisionPoints extends PositionComponent {
           anchor: anchor,
         ) {
     debugMode = true;
+  }
+
+  late ShapeHitbox hitbox;
+
+  @override
+  Future<void> onLoad() async {
+    hitbox = RectangleHitbox()..renderShape = true;
+    add(hitbox);
+
+    return super.onLoad();
   }
 }

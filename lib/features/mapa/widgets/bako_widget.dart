@@ -1,11 +1,12 @@
+import 'dart:ui';
+
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
-import 'package:aventura_com_bako/features/mapa/widgets/collisionPoints_widget.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';
 
 class Bako extends SpriteAnimationComponent
-    with HasGameRef, CollisionCallbacks {
+    with HasGameRef, GestureHitboxes, CollisionCallbacks {
   Direction direction = Direction.none;
   late double mapWidth = 0;
   late double mapHeight = 0;
@@ -17,13 +18,28 @@ class Bako extends SpriteAnimationComponent
   late final SpriteAnimation _runRightAnimation;
   late final SpriteAnimation _standingAnimation;
   late SpriteAnimationComponent bako;
+  late ShapeHitbox hitbox;
+  Direction _collisionDirection = Direction.none;
+  bool _hasCollided = false;
 
-  Bako(Vector2? position) : super(size: Vector2.all(20.0), position: position);
+  Bako(Vector2? position)
+      : super(
+          size: Vector2.all(20.0),
+          position: position,
+          anchor: Anchor.center,
+        ) {
+    debugMode = true;
+  }
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
     _loadAnimations().then((_) => {animation = _standingAnimation});
+    final defaultPaint = Paint()..style = PaintingStyle.stroke;
+    hitbox = CircleHitbox()
+      ..paint = defaultPaint
+      ..renderShape = true;
+    add(hitbox);
   }
 
   @override
@@ -64,25 +80,29 @@ class Bako extends SpriteAnimationComponent
   void moveBako(double delta) {
     switch (direction) {
       case Direction.up:
-        animation = _runUpAnimation;
-        moveUp(delta);
+        if (canPlayerMoveUp()) {
+          animation = _runUpAnimation;
+          moveUp(delta);
+        }
         break;
-
       case Direction.down:
-        animation = _runDownAnimation;
-        moveDown(delta);
+        if (canPlayerMoveDown()) {
+          animation = _runDownAnimation;
+          moveDown(delta);
+        }
         break;
-
       case Direction.left:
-        animation = _runLeftAnimation;
-        moveLeft(delta);
+        if (canPlayerMoveLeft()) {
+          animation = _runLeftAnimation;
+          moveLeft(delta);
+        }
         break;
-
       case Direction.right:
-        animation = _runRightAnimation;
-        moveRight(delta);
+        if (canPlayerMoveRight()) {
+          animation = _runRightAnimation;
+          moveRight(delta);
+        }
         break;
-
       case Direction.none:
         animation = _standingAnimation;
         break;
@@ -105,23 +125,49 @@ class Bako extends SpriteAnimationComponent
     position.add(Vector2(delta * _bakoSpeed, 0));
   }
 
+  bool canPlayerMoveUp() {
+    if (_hasCollided && _collisionDirection == Direction.up) {
+      return false;
+    }
+    return true;
+  }
+
+  bool canPlayerMoveDown() {
+    if (_hasCollided && _collisionDirection == Direction.down) {
+      return false;
+    }
+    return true;
+  }
+
+  bool canPlayerMoveLeft() {
+    if (_hasCollided && _collisionDirection == Direction.left) {
+      return false;
+    }
+    return true;
+  }
+
+  bool canPlayerMoveRight() {
+    if (_hasCollided && _collisionDirection == Direction.right) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   void onCollisionStart(
       Set<Vector2> intersectionPoints, PositionComponent other) {
-    if (other is CollisionPoints) {
-      if (intersectionPoints.length == 2) {
-        final mid = (intersectionPoints.elementAt(0) +
-                intersectionPoints.elementAt(1)) /
-            2;
-
-        final collisionNormal = absoluteCenter - mid;
-        final separationDistance = (size.x / 2) - collisionNormal.length;
-        collisionNormal.normalize();
-
-        position += collisionNormal.scaled(separationDistance);
-      }
-
-      super.onCollisionStart(intersectionPoints, other);
+    super.onCollisionStart(intersectionPoints, other);
+    print("começou a colisão");
+    if (!_hasCollided) {
+      _hasCollided = true;
+      _collisionDirection = direction;
     }
+  }
+
+  @override
+  void onCollisionEnd(PositionComponent other) {
+    super.onCollisionEnd(other);
+    print("acabou a colisão");
+    _hasCollided = false;
   }
 }
