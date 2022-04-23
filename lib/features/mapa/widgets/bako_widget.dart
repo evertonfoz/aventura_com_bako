@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
+import 'package:aventura_com_bako/features/mapa/widgets/collisionPoints_widget.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';
@@ -28,7 +29,7 @@ class Bako extends SpriteAnimationComponent
           position: position,
           anchor: Anchor.center,
         ) {
-    debugMode = true;
+    // debugMode = true;
   }
 
   @override
@@ -157,17 +158,21 @@ class Bako extends SpriteAnimationComponent
   void onCollisionStart(
       Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollisionStart(intersectionPoints, other);
-    print("começou a colisão");
-    if (!_hasCollided) {
-      _hasCollided = true;
-      _collisionDirection = direction;
+    if (other is CollisionPoints) {
+      print("começou a colisão");
+      if (!_hasCollided) {
+        _hasCollided = true;
+        _collisionDirection = direction;
+      }
     }
   }
 
   @override
   void onCollisionEnd(PositionComponent other) {
     super.onCollisionEnd(other);
-    print("acabou a colisão");
-    _hasCollided = false;
+    if (other is CollisionPoints) {
+      print("acabou a colisão");
+      _hasCollided = false;
+    }
   }
 }

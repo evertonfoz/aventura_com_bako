@@ -1,6 +1,7 @@
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:aventura_com_bako/features/mapa/widgets/bako_widget.dart';
 import 'package:aventura_com_bako/features/mapa/widgets/collisionPoints_widget.dart';
+import 'package:aventura_com_bako/features/mapa/widgets/plants_widget.dart';
 import 'package:flame/game.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/widgets.dart';
@@ -26,6 +27,7 @@ class MapScreen extends FlameGame with HasCollisionDetection {
   }
 
   void addActors(RenderableTiledMap tileMap) {
+    //pontos de colisão
     late final collisionPointsLayer =
         tileMap.getObjectGroupFromLayer('CollisionPoints');
 
@@ -40,6 +42,21 @@ class MapScreen extends FlameGame with HasCollisionDetection {
       add(collisionPoints);
     }
 
+    //plantas
+    late final plantsLayer = tileMap.getObjectGroupFromLayer('Plants');
+
+    for (final plantsObject in plantsLayer.objects) {
+      final plants = Plants(
+        position: Vector2(plantsObject.x, plantsObject.y),
+        size: Vector2(
+          plantsObject.width,
+          plantsObject.height,
+        ),
+      );
+      add(plants);
+    }
+
+    // bako (player)
     late final spawnPointsLayer =
         tileMap.getObjectGroupFromLayer('SpawnPoints');
 

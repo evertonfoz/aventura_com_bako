@@ -1,9 +1,9 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
-class CollisionPoints extends PositionComponent
+class Plants extends PositionComponent
     with GestureHitboxes, CollisionCallbacks {
-  CollisionPoints({
+  Plants({
     required Vector2? position,
     required Vector2? size,
     Vector2? scale,
@@ -17,7 +17,7 @@ class CollisionPoints extends PositionComponent
           angle: angle,
           anchor: anchor,
         ) {
-    debugMode = true;
+    //debugMode = true;
   }
 
   late ShapeHitbox hitbox;
