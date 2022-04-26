@@ -27,6 +27,8 @@ dependencies:
   flame: ^1.1.0
   flame_tiled: ^1.4.0
   qr_code_scanner: ^0.7.0
+  basic_utils: ^4.2.1
+  carousel_slider: ^4.1.1
   
 
 dev_dependencies:
