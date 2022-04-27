@@ -1,6 +1,9 @@
+import 'package:aventura_com_bako/features/informacoes_especies/controllers/informacoes_controller.dart';
+import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/categoria_especie_widget.dart';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class InformacoesEspeciesPage extends StatefulWidget {
   const InformacoesEspeciesPage({Key? key}) : super(key: key);
@@ -11,6 +14,9 @@ class InformacoesEspeciesPage extends StatefulWidget {
 }
 
 class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
+  InformacoesEspeciesController controller =
+      Get.put(InformacoesEspeciesController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +76,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Ceiba Speciosa',
+                              controller.informacoes.value.nomeCientifico,
                               style: TextStyle(
                                   fontSize: 40,
                                   color: Color(
@@ -99,7 +105,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                       Container(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'Família Malvaceae',
+                          'Família ${controller.informacoes.value.familia}',
                           style: TextStyle(
                             fontSize: 20,
                             color: Color(
@@ -150,230 +156,40 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                           color: Colors.black54,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 25, bottom: 25, left: 8, right: 8),
-                        child: Divider(),
+                      CategoriaEspecie(
+                        title: 'Fenologia',
+                        body: controller.informacoes.value.fenologia,
+                        imageIcon: '',
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(500),
-                                topRight: Radius.circular(500),
-                                bottomLeft: Radius.circular(500),
-                                bottomRight: Radius.circular(500),
-                              ),
-                              color: Colors.green[100],
-                            ),
-                            child: Text('x'),
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            'Fenologia',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Color(
-                                ColorUtils.hexToInt("#94BF36"),
-                              ),
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
+                      CategoriaEspecie(
+                        title: 'Altura',
+                        body: controller.informacoes.value.altura,
+                        imageIcon: '',
                       ),
-                      SizedBox(height: 10),
-                      Text(
-                        'a floração ocorre de fevereiro à abril e a frutificação de abril à outubro.',
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.black54,
-                        ),
+                      CategoriaEspecie(
+                        title: 'Copa',
+                        body: controller.informacoes.value.copa,
+                        imageIcon: '',
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 25, bottom: 25, left: 8, right: 8),
-                        child: Divider(),
+                      CategoriaEspecie(
+                        title: 'Tronco',
+                        body: controller.informacoes.value.tronco,
+                        imageIcon: '',
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(500),
-                                topRight: Radius.circular(500),
-                                bottomLeft: Radius.circular(500),
-                                bottomRight: Radius.circular(500),
-                              ),
-                              color: Colors.green[100],
-                            ),
-                            child: Text('x'),
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            'Altura',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Color(
-                                ColorUtils.hexToInt("#94BF36"),
-                              ),
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
+                      CategoriaEspecie(
+                        title: 'Flores',
+                        body: controller.informacoes.value.flores,
+                        imageIcon: '',
                       ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Pode atingir até 30 metros (árvore de grande porte)',
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.black54,
-                        ),
+                      CategoriaEspecie(
+                        title: 'Folhas',
+                        body: controller.informacoes.value.folhas,
+                        imageIcon: '',
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 25, bottom: 25, left: 8, right: 8),
-                        child: Divider(),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(500),
-                                topRight: Radius.circular(500),
-                                bottomLeft: Radius.circular(500),
-                                bottomRight: Radius.circular(500),
-                              ),
-                              color: Colors.green[100],
-                            ),
-                            child: Text('x'),
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            'Copa',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Color(
-                                ColorUtils.hexToInt("#94BF36"),
-                              ),
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Ampla e muito ramificada',
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.black54,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 25, bottom: 25, left: 8, right: 8),
-                        child: Divider(),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(500),
-                                topRight: Radius.circular(500),
-                                bottomLeft: Radius.circular(500),
-                                bottomRight: Radius.circular(500),
-                              ),
-                              color: Colors.green[100],
-                            ),
-                            child: Text('x'),
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            'Tronco',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Color(
-                                ColorUtils.hexToInt("#94BF36"),
-                              ),
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'retilíneo e cilíndrico, geralmente com engrossamento próximo à base; com casca externa estriada de coloração verde-escura, com acúleos cônicos principalmente na fase jovem.',
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.black54,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 25, bottom: 25, left: 8, right: 8),
-                        child: Divider(),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(500),
-                                topRight: Radius.circular(500),
-                                bottomLeft: Radius.circular(500),
-                                bottomRight: Radius.circular(500),
-                              ),
-                              color: Colors.green[100],
-                            ),
-                            child: Text('x'),
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            'Flores',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Color(
-                                ColorUtils.hexToInt("#94BF36"),
-                              ),
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Coloração rosa-intenso, vistosas, pentâmeras e hermafroditas',
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.black54,
-                        ),
+                      CategoriaEspecie(
+                        title: 'Fruto',
+                        body: controller.informacoes.value.fruto,
+                        imageIcon: '',
                       ),
                     ],
                   ),

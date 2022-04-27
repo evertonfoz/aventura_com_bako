@@ -1,10 +1,16 @@
 import 'dart:ui';
 
+import 'package:aventura_com_bako/features/mapa/controllers/bako_controller.dart';
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:aventura_com_bako/features/mapa/widgets/collisionPoints_widget.dart';
+import 'package:aventura_com_bako/features/mapa/widgets/plants_widget.dart';
+import 'package:aventura_com_bako/features/qrcode/presentation/pages/qrcode_scanner_page.dart';
+import 'package:aventura_com_bako/features/splash/presentation/controller/splash_screen_controller.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Bako extends SpriteAnimationComponent
     with HasGameRef, GestureHitboxes, CollisionCallbacks {
@@ -22,6 +28,7 @@ class Bako extends SpriteAnimationComponent
   late ShapeHitbox hitbox;
   Direction _collisionDirection = Direction.none;
   bool _hasCollided = false;
+  BakoController controller = Get.put(BakoController());
 
   Bako(Vector2? position)
       : super(
@@ -164,6 +171,11 @@ class Bako extends SpriteAnimationComponent
         _hasCollided = true;
         _collisionDirection = direction;
       }
+    }
+
+    if (other is Plants) {
+      print("colisão com qrcode");
+      controller.navigateQrCode();
     }
   }
 

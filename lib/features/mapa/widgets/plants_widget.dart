@@ -17,15 +17,14 @@ class Plants extends PositionComponent
           angle: angle,
           anchor: anchor,
         ) {
-    //debugMode = true;
+    debugMode = true;
   }
 
   late ShapeHitbox hitbox;
 
   @override
   Future<void> onLoad() async {
-    hitbox = RectangleHitbox();
-    //..renderShape = true;
+    hitbox = RectangleHitbox()..renderShape = true;
     add(hitbox);
 
     return super.onLoad();
