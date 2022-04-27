@@ -56,7 +56,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                       )),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 285),
+              padding: const EdgeInsets.only(top: 280),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -121,8 +121,8 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                         children: [
                           Container(
                             alignment: Alignment.center,
-                            width: 20,
-                            height: 20,
+                            width: 25,
+                            height: 25,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(500),
@@ -130,9 +130,12 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                                 bottomLeft: Radius.circular(500),
                                 bottomRight: Radius.circular(500),
                               ),
-                              color: Colors.green[100],
+                              image: new DecorationImage(
+                                image: AssetImage('assets/icon-1.png'),
+                                fit: BoxFit.fitHeight,
+                              ),
+                              color: Colors.yellow[200],
                             ),
-                            child: Text('x'),
                           ),
                           SizedBox(width: 5),
                           Text(
@@ -159,37 +162,44 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                       CategoriaEspecie(
                         title: 'Fenologia',
                         body: controller.informacoes.value.fenologia,
-                        imageIcon: '',
+                        imageIcon: 'assets/icon-4.png',
+                        color: Colors.cyan.shade100,
                       ),
                       CategoriaEspecie(
                         title: 'Altura',
                         body: controller.informacoes.value.altura,
-                        imageIcon: '',
+                        imageIcon: 'assets/icon-8.png',
+                        color: Colors.pink.shade100,
                       ),
                       CategoriaEspecie(
                         title: 'Copa',
                         body: controller.informacoes.value.copa,
-                        imageIcon: '',
+                        imageIcon: 'assets/icon-2.png',
+                        color: Colors.green.shade100,
                       ),
                       CategoriaEspecie(
                         title: 'Tronco',
                         body: controller.informacoes.value.tronco,
-                        imageIcon: '',
+                        imageIcon: 'assets/icon-3.png',
+                        color: Colors.orange.shade100,
                       ),
                       CategoriaEspecie(
                         title: 'Flores',
                         body: controller.informacoes.value.flores,
-                        imageIcon: '',
+                        imageIcon: 'assets/icon-6.png',
+                        color: Colors.red.shade100,
                       ),
                       CategoriaEspecie(
                         title: 'Folhas',
                         body: controller.informacoes.value.folhas,
-                        imageIcon: '',
+                        imageIcon: 'assets/icon-5.png',
+                        color: Colors.teal.shade100,
                       ),
                       CategoriaEspecie(
                         title: 'Fruto',
                         body: controller.informacoes.value.fruto,
-                        imageIcon: '',
+                        imageIcon: 'assets/icon-7.png',
+                        color: Colors.lime.shade100,
                       ),
                     ],
                   ),

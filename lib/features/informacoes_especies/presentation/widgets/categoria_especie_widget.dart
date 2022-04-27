@@ -5,12 +5,14 @@ class CategoriaEspecie extends StatelessWidget {
   final String title;
   final String body;
   final String imageIcon;
+  final Color color;
 
   CategoriaEspecie(
       {Key? key,
       required this.title,
       required this.body,
-      required this.imageIcon})
+      required this.imageIcon,
+      required this.color})
       : super(key: key);
 
   @override
@@ -27,8 +29,8 @@ class CategoriaEspecie extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
-              width: 20,
-              height: 20,
+              width: 25,
+              height: 25,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(500),
@@ -36,9 +38,12 @@ class CategoriaEspecie extends StatelessWidget {
                   bottomLeft: Radius.circular(500),
                   bottomRight: Radius.circular(500),
                 ),
-                color: Colors.green[100],
+                image: new DecorationImage(
+                  image: AssetImage(imageIcon),
+                  fit: BoxFit.fitHeight,
+                ),
+                color: color,
               ),
-              child: Text('x'),
             ),
             SizedBox(width: 5),
             Text(
