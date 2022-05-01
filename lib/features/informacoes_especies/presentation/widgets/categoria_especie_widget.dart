@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CategoriaEspecie extends StatelessWidget {
   final String title;
-  final String body;
+  final String? body;
   final String imageIcon;
   final Color color;
 
@@ -60,7 +60,7 @@ class CategoriaEspecie extends StatelessWidget {
         ),
         SizedBox(height: 10),
         Text(
-          body,
+          body!,
           textAlign: TextAlign.justify,
           style: TextStyle(
             fontSize: 17,

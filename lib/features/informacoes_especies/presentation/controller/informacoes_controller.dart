@@ -1,7 +1,15 @@
-import 'package:aventura_com_bako/features/informacoes_especies/model/informacoes_model.dart';
+import 'package:aventura_com_bako/features/informacoes_especies/data/model/informacoes_model.dart';
+import 'package:aventura_com_bako/features/informacoes_especies/data/repositories/informacoes_repository_implementation.dart';
 import 'package:get/get.dart';
 
 class InformacoesEspeciesController extends GetxController {
+  final InformacoesRepositoryImplementation
+      informacoesRepositoryImplementation =
+      InformacoesRepositoryImplementation();
+
+  var informacoesEspeciesList = <InformacoesModel>[].obs;
+  var isLoading = true.obs;
+
   late var informacoes = InformacoesModel(
           idEspecie: "Paineira-rosa",
           nomeCientifico: "Ceiba Speciosa",
@@ -20,4 +28,18 @@ class InformacoesEspeciesController extends GetxController {
           fruto:
               "Cápsulas de até 17 cm contendo numerosas sementes envoltas por painas brancas. ")
       .obs;
+
+  void getInformacoesEspecies() async {
+    try {
+      isLoading(true);
+      var response = await informacoesRepositoryImplementation.getInformacoes();
+
+      if (response.isNotEmpty) {
+        informacoesEspeciesList.clear();
+        informacoesEspeciesList.addAll(response);
+      }
+    } finally {
+      isLoading(false);
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import 'package:aventura_com_bako/features/informacoes_especies/controllers/informacoes_controller.dart';
+import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/categoria_especie_widget.dart';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -18,43 +18,49 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
       Get.put(InformacoesEspeciesController());
 
   @override
+  void initState() {
+    controller.getInformacoesEspecies();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Container(
-              child: CarouselSlider.builder(
-                  options: CarouselOptions(
-                    height: 300,
-                    aspectRatio: 16 / 9,
-                    viewportFraction: 1.0,
-                    initialPage: 0,
-                    enableInfiniteScroll: true,
-                    reverse: false,
-                    autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 3),
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    autoPlayCurve: Curves.linear,
-                    scrollDirection: Axis.horizontal,
-                  ),
-                  itemCount: 2,
-                  itemBuilder: (BuildContext context, int itemIndex,
-                          int pageViewIndex) =>
-                      Container(
-                        child: Container(
-                          width: 700,
-                          decoration: BoxDecoration(
-                            image: new DecorationImage(
-                              image: AssetImage('assets/${itemIndex + 1}.jpg'),
-                              fit: BoxFit.fitHeight,
-                            ),
-                            color: Colors.transparent,
-                          ),
-                        ),
-                      )),
-            ),
+            // Container(
+            //   child: CarouselSlider.builder(
+            //       options: CarouselOptions(
+            //         height: 300,
+            //         aspectRatio: 16 / 9,
+            //         viewportFraction: 1.0,
+            //         initialPage: 0,
+            //         enableInfiniteScroll: true,
+            //         reverse: false,
+            //         autoPlay: true,
+            //         autoPlayInterval: Duration(seconds: 3),
+            //         autoPlayAnimationDuration: Duration(milliseconds: 800),
+            //         autoPlayCurve: Curves.linear,
+            //         scrollDirection: Axis.horizontal,
+            //       ),
+            //       itemCount: 2,
+            //       itemBuilder: (BuildContext context, int itemIndex,
+            //               int pageViewIndex) =>
+            //           Container(
+            //             child: Container(
+            //               width: 700,
+            //               decoration: BoxDecoration(
+            //                 image: new DecorationImage(
+            //                   image: AssetImage('assets/${itemIndex + 1}.jpg'),
+            //                   fit: BoxFit.fitHeight,
+            //                 ),
+            //                 color: Colors.transparent,
+            //               ),
+            //             ),
+            //           )),
+            // ),
             Padding(
               padding: const EdgeInsets.only(top: 280),
               child: Container(
@@ -76,7 +82,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              controller.informacoes.value.nomeCientifico,
+                              '${controller.informacoes.value.nomeCientifico}',
                               style: TextStyle(
                                   fontSize: 40,
                                   color: Color(

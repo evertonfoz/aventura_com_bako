@@ -1,7 +1,7 @@
 import 'dart:math';
+import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import '../helpers/enums/direction_enum.dart';
 
 class Joystick extends StatefulWidget {
   final ValueChanged<Direction>? onDirectionChanged;

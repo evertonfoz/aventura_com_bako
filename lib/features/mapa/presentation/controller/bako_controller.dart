@@ -1,5 +1,6 @@
 import 'package:aventura_com_bako/features/qrcode/presentation/pages/bindings/qrcode_scanner_binding.dart';
 import 'package:aventura_com_bako/features/qrcode/presentation/pages/qrcode_scanner_page.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BakoController extends GetxController {

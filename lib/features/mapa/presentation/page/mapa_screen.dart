@@ -1,7 +1,7 @@
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
-import 'package:aventura_com_bako/features/mapa/widgets/bako_widget.dart';
-import 'package:aventura_com_bako/features/mapa/widgets/collisionPoints_widget.dart';
-import 'package:aventura_com_bako/features/mapa/widgets/plants_widget.dart';
+import 'package:aventura_com_bako/features/mapa/presentation/widgets/bako_widget.dart';
+import 'package:aventura_com_bako/features/mapa/presentation/widgets/collisionPoints_widget.dart';
+import 'package:aventura_com_bako/features/mapa/presentation/widgets/plants_widget.dart';
 import 'package:flame/game.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/widgets.dart';

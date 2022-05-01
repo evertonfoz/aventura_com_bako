@@ -1,11 +1,7 @@
-import 'dart:ui';
-
-import 'package:aventura_com_bako/features/mapa/controllers/bako_controller.dart';
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
-import 'package:aventura_com_bako/features/mapa/widgets/collisionPoints_widget.dart';
-import 'package:aventura_com_bako/features/mapa/widgets/plants_widget.dart';
-import 'package:aventura_com_bako/features/qrcode/presentation/pages/qrcode_scanner_page.dart';
-import 'package:aventura_com_bako/features/splash/presentation/controller/splash_screen_controller.dart';
+import 'package:aventura_com_bako/features/mapa/presentation/controller/bako_controller.dart';
+import 'package:aventura_com_bako/features/mapa/presentation/widgets/collisionPoints_widget.dart';
+import 'package:aventura_com_bako/features/mapa/presentation/widgets/plants_widget.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';
@@ -176,6 +172,9 @@ class Bako extends SpriteAnimationComponent
     if (other is Plants) {
       print("colisão com qrcode");
       controller.navigateQrCode();
+      AlertDialog(
+        title: Text('sgyhasgayg'),
+      );
     }
   }
 

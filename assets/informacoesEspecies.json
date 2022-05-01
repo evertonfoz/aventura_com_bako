@@ -1,0 +1,48 @@
+[
+    {
+        "id": 0,
+        "idEspecie": "Paineira-rosa",
+        "descricao": "Paineira-rosa",
+        "nomeCientifico": "Ceiba speciosa",
+        "nomesPopulares": "Paineira; Paineira-rosa; Paina-de-seda; Barriguda; Sumaúma; Árvore-de-lã; Árvore-de-paina; Paineira-de-espinho",
+        "familia": "Malvaceae",
+        "fenologia": "a floração ocorre de fevereiro à abril e a frutificação de abril à outubro.",
+        "altura": "Pode atingir até 30 metros (árvore de grande porte).",
+        "copa": "ampla e muito ramificada",
+        "tronco": "retilíneo e cilíndrico, geralmente com engrossamento próximo à base; com casca externa estriada de coloração verde-escura, com acúleos cônicos principalmente na fase jovem.",
+        "flores": "coloração rosa-intenso, vistosas, pentâmeras e hermafroditas.",
+        "folhas": "alternas, digitadas e pecioladas, com 5 a 8 folíolos.",
+        "fruto": "cápsulas de até 17 cm contendo numerosas sementes envoltas por painas brancas.",
+        "assets": [
+            {
+                "url": "images_plants/Paineira-rosa-1.jpg"
+            },
+            {
+                "url": "images_plants/Paineira-rosa-2.jpg"
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "idEspecie": "Teste",
+        "descricao": "Paineira-rosa",
+        "nomeCientifico": "Teste",
+        "nomesPopulares": "Paineira; Paineira-rosa; Paina-de-seda; Barriguda; Sumaúma; Árvore-de-lã; Árvore-de-paina; Paineira-de-espinho",
+        "familia": "Malvaceae",
+        "fenologia": "a floração ocorre de fevereiro à abril e a frutificação de abril à outubro.",
+        "altura": "Pode atingir até 30 metros (árvore de grande porte).",
+        "copa": "ampla e muito ramificada",
+        "tronco": "retilíneo e cilíndrico, geralmente com engrossamento próximo à base; com casca externa estriada de coloração verde-escura, com acúleos cônicos principalmente na fase jovem.",
+        "flores": "coloração rosa-intenso, vistosas, pentâmeras e hermafroditas.",
+        "folhas": "alternas, digitadas e pecioladas, com 5 a 8 folíolos.",
+        "fruto": "cápsulas de até 17 cm contendo numerosas sementes envoltas por painas brancas.",
+        "assets": [
+            {
+                "url": "images_plants/Paineira-rosa-1.jpg"
+            },
+            {
+                "url": "images_plants/Paineira-rosa-2.jpg"
+            }
+        ]
+    }
+]

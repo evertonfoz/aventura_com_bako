@@ -1,6 +1,6 @@
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
-import 'package:aventura_com_bako/features/mapa/widgets/joystick_widget.dart';
+import 'package:aventura_com_bako/features/mapa/presentation/widgets/joystick_widget.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
