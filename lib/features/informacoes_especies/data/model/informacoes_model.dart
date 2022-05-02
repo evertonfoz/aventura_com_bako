@@ -7,7 +7,7 @@ List<InformacoesModel> informacoesModelFromJson(String str) =>
 class InformacoesModel {
   late String? idEspecie;
   late String? nomeCientifico;
-  late String? nomePopular;
+  late String? nomesPopulares;
   late String? familia;
   late String? fenologia;
   late String? altura;
@@ -16,11 +16,12 @@ class InformacoesModel {
   late String? flores;
   late String? folhas;
   late String? fruto;
+  late List<Assets>? assets;
 
   InformacoesModel(
       {this.idEspecie,
       this.nomeCientifico,
-      this.nomePopular,
+      this.nomesPopulares,
       this.familia,
       this.fenologia,
       this.altura,
@@ -33,7 +34,7 @@ class InformacoesModel {
   InformacoesModel.fromJson(Map<String, dynamic> json) {
     idEspecie = json['idEspecie'] as String?;
     nomeCientifico = json['nomeCientifico'] as String?;
-    nomePopular = json['nomesPopular'] as String?;
+    nomesPopulares = json['nomesPopulares'] as String?;
     familia = json['familia'] as String?;
     fenologia = json['fenologia'] as String?;
     altura = json['altura'] as String?;
@@ -48,7 +49,7 @@ class InformacoesModel {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['idEspecie'] = this.idEspecie;
     data['nomeCientifico'] = this.nomeCientifico;
-    data['nomesPopular'] = this.nomePopular;
+    data['nomesPopulares'] = this.nomesPopulares;
     data['familia'] = this.familia;
     data['fenologia'] = this.fenologia;
     data['altura'] = this.altura;
@@ -57,6 +58,22 @@ class InformacoesModel {
     data['flores'] = this.flores;
     data['folhas'] = this.folhas;
     data['fruto'] = this.fruto;
+    return data;
+  }
+}
+
+class Assets {
+  String? url;
+
+  Assets({this.url});
+
+  Assets.fromJson(Map<String, dynamic> json) {
+    url = json['url'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['url'] = this.url;
     return data;
   }
 }

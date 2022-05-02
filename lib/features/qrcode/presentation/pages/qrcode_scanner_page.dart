@@ -1,5 +1,7 @@
 import 'dart:io';
+import 'package:aventura_com_bako/features/qrcode/presentation/pages/controller/qrcode_scanner_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QrCodeScannerPage extends StatefulWidget {
@@ -13,6 +15,7 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
   final qrKey = GlobalKey(debugLabel: 'QR');
   QRViewController? qrController;
   Barcode? barcode;
+  QrCodeController controller = Get.put(QrCodeController());
 
   @override
   void dispose() {
@@ -167,7 +170,7 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
       (barcode) => setState(
         () {
           this.barcode = barcode;
-          print(barcode.code);
+          controller.navigateInformacoesEspecies(this.barcode?.code);
         },
       ),
     );
