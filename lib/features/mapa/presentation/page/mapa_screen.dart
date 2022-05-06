@@ -10,14 +10,16 @@ class MapScreen extends FlameGame with HasCollisionDetection {
   late double mapWidth;
   late double mapHeight;
   late Bako bako;
+  int placar = 0;
 
   @override
   Future<void> onLoad() async {
-    final _mapa = await TiledComponent.load('mapa-v3.tmx', Vector2.all(16));
+    final _mapa = await TiledComponent.load('mapa-v4.tmx', Vector2.all(16));
     mapWidth = _mapa.tileMap.map.width * 16.0;
     mapHeight = _mapa.tileMap.map.height * 16.0;
     add(_mapa);
 
+    overlays.add('BotoesPage');
     addActors(_mapa.tileMap);
 
     camera.followComponent(bako,
@@ -47,6 +49,7 @@ class MapScreen extends FlameGame with HasCollisionDetection {
 
     for (final plantsObject in plantsLayer.objects) {
       final plants = Plants(
+        mapa: this,
         position: Vector2(plantsObject.x, plantsObject.y),
         size: Vector2(
           plantsObject.width,

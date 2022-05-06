@@ -146,18 +146,18 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
                   ),
                 ),
               ),
-              Positioned(
-                top: 40,
-                child: Container(
-                  padding: EdgeInsets.all(12),
-                  child: Text(
-                    barcode != null
-                        ? 'Valor qrcode: ${barcode!.code}'
-                        : 'Sem valor',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              )
+              // Positioned(
+              //   top: 40,
+              //   child: Container(
+              //     padding: EdgeInsets.all(12),
+              //     child: Text(
+              //       barcode != null
+              //           ? 'Valor qrcode: ${barcode!.code}'
+              //           : 'Sem valor',
+              //       style: TextStyle(color: Colors.white),
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ),

@@ -170,11 +170,8 @@ class Bako extends SpriteAnimationComponent
     }
 
     if (other is Plants) {
-      print("colisão com qrcode");
-      controller.navigateQrCode();
-      AlertDialog(
-        title: Text('sgyhasgayg'),
-      );
+      //print("colisão com qrcode");
+      //   controller.navigateQrCode();
     }
   }
 

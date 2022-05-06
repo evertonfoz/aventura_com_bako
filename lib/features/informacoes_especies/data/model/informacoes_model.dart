@@ -16,7 +16,7 @@ class InformacoesModel {
   late String? flores;
   late String? folhas;
   late String? fruto;
-  late List<Assets>? assets;
+  List<Assets>? assets;
 
   InformacoesModel(
       {this.idEspecie,

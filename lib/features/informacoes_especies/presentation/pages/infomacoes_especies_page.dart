@@ -38,45 +38,45 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
       backgroundColor: Colors.white,
       body: Obx(() {
         if (controller.buscandoEspecieLida.value) {
-          return Text('Carregando');
+          return Center(child: Text('Carregando'));
         }
         return SingleChildScrollView(
           child: Stack(
             children: [
-              // Container(
-              //   child: CarouselSlider.builder(
-              //     options: CarouselOptions(
-              //       height: 300,
-              //       aspectRatio: 16 / 9,
-              //       viewportFraction: 1.0,
-              //       initialPage: 0,
-              //       enableInfiniteScroll: true,
-              //       reverse: false,
-              //       autoPlay: true,
-              //       autoPlayInterval: Duration(seconds: 3),
-              //       autoPlayAnimationDuration: Duration(milliseconds: 800),
-              //       autoPlayCurve: Curves.linear,
-              //       scrollDirection: Axis.horizontal,
-              //     ),
-              //     itemCount: controller.especieLida.value.assets?.length,
-              //     itemBuilder: (BuildContext context, int itemIndex,
-              //             int pageViewIndex) =>
-              //         Container(
-              //       child: Container(
-              //         width: 700,
-              //         decoration: BoxDecoration(
-              //           image: new DecorationImage(
-              //             image: AssetImage(
-              //               '${controller.especieLida.value.assets?[itemIndex].url}',
-              //             ),
-              //             fit: BoxFit.fitHeight,
-              //           ),
-              //           color: Colors.transparent,
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
+              Container(
+                child: CarouselSlider.builder(
+                  options: CarouselOptions(
+                    height: 300,
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 1.0,
+                    initialPage: 0,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: true,
+                    autoPlayInterval: Duration(seconds: 3),
+                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.linear,
+                    scrollDirection: Axis.horizontal,
+                  ),
+                  itemCount: 2,
+                  itemBuilder: (BuildContext context, int itemIndex,
+                          int pageViewIndex) =>
+                      Container(
+                    child: Container(
+                      width: 700,
+                      decoration: BoxDecoration(
+                        image: new DecorationImage(
+                          image: AssetImage(
+                            'assets/Paineira-rosa-${itemIndex + 1}.jpg',
+                          ),
+                          fit: BoxFit.fitHeight,
+                        ),
+                        color: Colors.transparent,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.only(top: 280),
                 child: Container(
