@@ -60,44 +60,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                Card(
-                  child: Container(
-                    color: Colors.green,
-                    child: TextButton(
-                      child: Text(
-                        'Leitor de qrcode (teste)',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => QrCodeScannerPage(),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ),
-                // Card(
-                //   child: Container(
-                //     color: Colors.green,
-                //     child: TextButton(
-                //       child: Text(
-                //         'Cards informações das especies (teste)',
-                //         style: TextStyle(color: Colors.white),
-                //       ),
-                //       onPressed: () {
-                //         Navigator.push(
-                //           context,
-                //           MaterialPageRoute(
-                //             builder: (context) => InformacoesEspeciesPage(),
-                //           ),
-                //         );
-                //       },
-                //     ),
-                //   ),
-                // ),
               ],
             ),
           ),

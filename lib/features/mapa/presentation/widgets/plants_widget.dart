@@ -35,9 +35,11 @@ class Plants extends PositionComponent
   }
 
   @override
-  void onCollisionEnd(PositionComponent other) {
-    super.onCollisionEnd(other);
+  void onCollisionStart(
+      Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollisionStart(intersectionPoints, other);
     if (other is Bako) {
+      mapa.overlays.add('QrCodePage');
       mapa.placar++;
       mapa.overlays.notifyListeners();
     }

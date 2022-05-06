@@ -11,6 +11,7 @@ class MapScreen extends FlameGame with HasCollisionDetection {
   late double mapHeight;
   late Bako bako;
   int placar = 0;
+  String especieLida = ' ';
 
   @override
   Future<void> onLoad() async {
@@ -20,6 +21,7 @@ class MapScreen extends FlameGame with HasCollisionDetection {
     add(_mapa);
 
     overlays.add('BotoesPage');
+    overlays.add('JoyStick');
     addActors(_mapa.tileMap);
 
     camera.followComponent(bako,

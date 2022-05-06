@@ -168,11 +168,6 @@ class Bako extends SpriteAnimationComponent
         _collisionDirection = direction;
       }
     }
-
-    if (other is Plants) {
-      //print("colisão com qrcode");
-      //   controller.navigateQrCode();
-    }
   }
 
   @override

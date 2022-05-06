@@ -1,11 +1,14 @@
 import 'dart:io';
+import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
 import 'package:aventura_com_bako/features/qrcode/presentation/pages/controller/qrcode_scanner_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QrCodeScannerPage extends StatefulWidget {
-  const QrCodeScannerPage({Key? key}) : super(key: key);
+  const QrCodeScannerPage({Key? key, required this.mapa}) : super(key: key);
+
+  final MapScreen mapa;
 
   @override
   State<QrCodeScannerPage> createState() => _QrCodeScannerPageState();
@@ -14,7 +17,7 @@ class QrCodeScannerPage extends StatefulWidget {
 class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
   final qrKey = GlobalKey(debugLabel: 'QR');
   QRViewController? qrController;
-  Barcode? barcode;
+  late Barcode barcode;
   QrCodeController controller = Get.put(QrCodeController());
 
   @override
@@ -35,8 +38,8 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
 
   @override
   Widget build(BuildContext context) => SafeArea(
-        child: Scaffold(
-          body: Stack(
+        child: Container(
+          child: Stack(
             children: <Widget>[
               QRView(
                 key: qrKey,
@@ -170,7 +173,10 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
       (barcode) => setState(
         () {
           this.barcode = barcode;
-          controller.navigateInformacoesEspecies(this.barcode?.code);
+          widget.mapa.especieLida = this.barcode.code!;
+          widget.mapa.overlays.add('InformacoesEspeciesPage');
+          widget.mapa.overlays.remove('QrCodePage');
+          widget.mapa.overlays.notifyListeners();
         },
       ),
     );
