@@ -40,7 +40,11 @@ class Plants extends PositionComponent
     super.onCollisionStart(intersectionPoints, other);
     if (other is Bako) {
       mapa.overlays.add('QrCodePage');
-      mapa.placar++;
+      if (mapa.placar == 21) {
+        mapa.fullScore = true;
+      } else {
+        mapa.placar++;
+      }
       mapa.overlays.notifyListeners();
     }
   }

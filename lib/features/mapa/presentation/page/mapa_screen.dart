@@ -12,6 +12,7 @@ class MapScreen extends FlameGame with HasCollisionDetection {
   late Bako bako;
   int placar = 0;
   String especieLida = ' ';
+  late bool fullScore = false;
 
   @override
   Future<void> onLoad() async {

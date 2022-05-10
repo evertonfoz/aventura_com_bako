@@ -103,6 +103,13 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                       ),
                       onTap: () {
                         widget.mapa.overlays.remove('InformacoesEspeciesPage');
+
+                        if (widget.mapa.fullScore) {
+                          Future.delayed(Duration(milliseconds: 5000)).then(
+                              (value) => widget.mapa.overlays
+                                  .add('DescobriuTodasEspeciesPage'));
+                        }
+
                         widget.mapa.overlays.notifyListeners();
                       },
                     ),
