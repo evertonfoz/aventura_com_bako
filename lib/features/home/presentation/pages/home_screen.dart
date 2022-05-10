@@ -1,6 +1,5 @@
-import 'package:aventura_com_bako/features/informacoes_especies/presentation/pages/infomacoes_especies_page.dart';
+import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_main_page.dart';
-import 'package:aventura_com_bako/features/qrcode/presentation/pages/qrcode_scanner_page.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -53,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MapPage(),
+                            builder: (context) => WelcomePage(),
                           ),
                         );
                       },

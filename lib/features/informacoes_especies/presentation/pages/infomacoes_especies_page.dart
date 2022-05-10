@@ -89,13 +89,18 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: Color(
-                        ColorUtils.hexToInt("#94BF36"),
+                        ColorUtils.hexToInt("#FEE784"),
                       ),
                       border:
                           Border.all(width: 0.5, color: Colors.grey.shade500),
                     ),
                     child: GestureDetector(
-                      child: Icon(Icons.close, color: Colors.white),
+                      child: Icon(
+                        Icons.close,
+                        color: Color(
+                          ColorUtils.hexToInt("#788A25"),
+                        ),
+                      ),
                       onTap: () {
                         widget.mapa.overlays.remove('InformacoesEspeciesPage');
                         widget.mapa.overlays.notifyListeners();
