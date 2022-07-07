@@ -136,7 +136,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  '${controller.especieLida.value.idEspecie}',
+                                  '${controller.especieLida.value.nomeCientifico}',
                                   overflow: TextOverflow.fade,
                                   style: TextStyle(
                                       fontSize: 40,

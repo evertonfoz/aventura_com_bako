@@ -28,7 +28,7 @@ class Bako extends SpriteAnimationComponent
 
   Bako(Vector2? position)
       : super(
-          size: Vector2.all(20.0),
+          size: Vector2.all(30.0),
           position: position,
           anchor: Anchor.center,
         ) {
@@ -43,7 +43,7 @@ class Bako extends SpriteAnimationComponent
     hitbox = CircleHitbox()
       ..paint = defaultPaint
       ..renderShape = true;
-    add(hitbox);
+    // add(hitbox);
   }
 
   @override

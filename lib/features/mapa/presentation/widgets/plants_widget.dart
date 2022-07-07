@@ -20,7 +20,7 @@ class Plants extends PositionComponent
           angle: angle,
           anchor: anchor,
         ) {
-    debugMode = true;
+    //  debugMode = true;
   }
 
   late ShapeHitbox hitbox;
