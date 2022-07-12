@@ -29,7 +29,7 @@ class Plants extends PositionComponent
   @override
   Future<void> onLoad() async {
     hitbox = RectangleHitbox()..renderShape = true;
-    add(hitbox);
+    //add(hitbox);
 
     return super.onLoad();
   }

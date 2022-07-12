@@ -16,7 +16,7 @@ class MapScreen extends FlameGame with HasCollisionDetection {
 
   @override
   Future<void> onLoad() async {
-    final _mapa = await TiledComponent.load('mapa-v4.tmx', Vector2.all(16));
+    final _mapa = await TiledComponent.load('mapa-v5.tmx', Vector2.all(16));
     mapWidth = _mapa.tileMap.map.width * 16.0;
     mapHeight = _mapa.tileMap.map.height * 16.0;
     add(_mapa);
