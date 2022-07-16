@@ -21,7 +21,7 @@ class Routes {
       case tutorial:
         return MaterialPageRoute(builder: (_) => TutorialPage());
       default:
-        _errorRoute();
+        return _errorRoute();
     }
   }
 
