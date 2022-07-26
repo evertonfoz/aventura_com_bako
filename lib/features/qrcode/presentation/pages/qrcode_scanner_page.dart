@@ -176,7 +176,7 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
           widget.mapa.especieLida = this.barcode.code!;
           widget.mapa.overlays.add('InformacoesEspeciesPage');
           widget.mapa.overlays.remove('QrCodePage');
-          widget.mapa.overlays.notifyListeners();
+          // widget.mapa.overlays.notifyListeners();
         },
       ),
     );

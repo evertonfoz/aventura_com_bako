@@ -37,13 +37,14 @@ class Bako extends SpriteAnimationComponent
 
   @override
   Future<void> onLoad() async {
-    super.onLoad();
     _loadAnimations().then((_) => {animation = _standingAnimation});
     final defaultPaint = Paint()..style = PaintingStyle.stroke;
     hitbox = CircleHitbox()
       ..paint = defaultPaint
       ..renderShape = true;
     // add(hitbox);
+
+    return super.onLoad();
   }
 
   @override
@@ -158,9 +159,9 @@ class Bako extends SpriteAnimationComponent
   }
 
   @override
-  void onCollisionStart(
-      Set<Vector2> intersectionPoints, PositionComponent other) {
-    super.onCollisionStart(intersectionPoints, other);
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    print("começou a colisão");
+    super.onCollision(intersectionPoints, other);
     if (other is CollisionPoints) {
       print("começou a colisão");
       if (!_hasCollided) {
@@ -173,6 +174,7 @@ class Bako extends SpriteAnimationComponent
   @override
   void onCollisionEnd(PositionComponent other) {
     super.onCollisionEnd(other);
+    print("acabou a colisão");
     if (other is CollisionPoints) {
       print("acabou a colisão");
       _hasCollided = false;

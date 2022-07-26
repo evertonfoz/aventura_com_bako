@@ -20,7 +20,7 @@ class Plants extends PositionComponent
           angle: angle,
           anchor: anchor,
         ) {
-    //  debugMode = true;
+    debugMode = true;
   }
 
   late ShapeHitbox hitbox;
@@ -35,9 +35,9 @@ class Plants extends PositionComponent
   }
 
   @override
-  void onCollisionStart(
-      Set<Vector2> intersectionPoints, PositionComponent other) {
-    super.onCollisionStart(intersectionPoints, other);
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollision(intersectionPoints, other);
+    print("teste");
     if (other is Bako) {
       mapa.overlays.add('QrCodePage');
       if (mapa.placar == 21) {
@@ -45,7 +45,7 @@ class Plants extends PositionComponent
       } else {
         mapa.placar++;
       }
-      mapa.overlays.notifyListeners();
+      //mapa.overlays.notifyListeners();
     }
   }
 }

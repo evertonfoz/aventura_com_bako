@@ -110,7 +110,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                                   .add('DescobriuTodasEspeciesPage'));
                         }
 
-                        widget.mapa.overlays.notifyListeners();
+                        //widget.mapa.overlays.notifyListeners();
                       },
                     ),
                   ),

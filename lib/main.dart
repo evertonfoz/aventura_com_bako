@@ -14,21 +14,18 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      ScreenUtil.init(constraints, designSize: Size(393, 813));
-      return GetMaterialApp(
-        title: 'Aventura com Bako',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.green,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          fontFamily: 'Nunito',
-        ),
-        onGenerateRoute: Routes.generateRoute,
-        navigatorKey: Routes.navigatorKey,
-        initialRoute: Routes.splashScreen,
-        home: SplashScreen(),
-      );
-    });
+    return GetMaterialApp(
+      title: 'Aventura com Bako',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        fontFamily: 'Nunito',
+      ),
+      onGenerateRoute: Routes.generateRoute,
+      navigatorKey: Routes.navigatorKey,
+      initialRoute: Routes.splashScreen,
+      home: SplashScreen(),
+    );
   }
 }

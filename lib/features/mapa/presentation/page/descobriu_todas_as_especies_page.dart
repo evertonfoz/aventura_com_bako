@@ -57,7 +57,7 @@ class _DescobriuTodasEspeciesPageState
                   ),
                   onTap: () {
                     widget.mapa.overlays.remove('DescobriuTodasEspeciesPage');
-                    widget.mapa.overlays.notifyListeners();
+                    // widget.mapa.overlays.notifyListeners();
                   },
                 ),
               ),

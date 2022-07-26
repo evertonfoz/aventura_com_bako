@@ -5,6 +5,7 @@ import 'package:aventura_com_bako/features/mapa/presentation/widgets/plants_widg
 import 'package:flame/game.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tiled/tiled.dart';
 
 class MapScreen extends FlameGame with HasCollisionDetection {
   late double mapWidth;
@@ -34,9 +35,9 @@ class MapScreen extends FlameGame with HasCollisionDetection {
   void addActors(RenderableTiledMap tileMap) {
     //pontos de colisão
     late final collisionPointsLayer =
-        tileMap.getObjectGroupFromLayer('CollisionPoints');
+        tileMap.getLayer<ObjectGroup>('CollisionPoints');
 
-    for (final collisionPointsObject in collisionPointsLayer.objects) {
+    for (final collisionPointsObject in collisionPointsLayer!.objects) {
       final collisionPoints = CollisionPoints(
         position: Vector2(collisionPointsObject.x, collisionPointsObject.y),
         size: Vector2(
@@ -48,9 +49,9 @@ class MapScreen extends FlameGame with HasCollisionDetection {
     }
 
     //plantas
-    late final plantsLayer = tileMap.getObjectGroupFromLayer('Plants');
+    late final plantsLayer = tileMap.getLayer<ObjectGroup>('Plants');
 
-    for (final plantsObject in plantsLayer.objects) {
+    for (final plantsObject in plantsLayer!.objects) {
       final plants = Plants(
         mapa: this,
         position: Vector2(plantsObject.x, plantsObject.y),
@@ -63,10 +64,9 @@ class MapScreen extends FlameGame with HasCollisionDetection {
     }
 
     // bako (player)
-    late final spawnPointsLayer =
-        tileMap.getObjectGroupFromLayer('SpawnPoints');
+    late final spawnPointsLayer = tileMap.getLayer<ObjectGroup>('SpawnPoints');
 
-    for (final spawnPoint in spawnPointsLayer.objects) {
+    for (final spawnPoint in spawnPointsLayer!.objects) {
       switch (spawnPoint.type) {
         case 'Player':
           bako = Bako(Vector2(spawnPoint.x, spawnPoint.y));
