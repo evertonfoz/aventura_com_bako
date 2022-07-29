@@ -17,7 +17,7 @@ class Routes {
       case splashScreen:
         return MaterialPageRoute(builder: (_) => SplashScreen());
       case home:
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case tutorial:
         return MaterialPageRoute(builder: (_) => TutorialPage());
       default:
@@ -29,11 +29,9 @@ class Routes {
     return MaterialPageRoute(builder: (_) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Erro'),
+          title: const Text('Erro'),
         ),
-        body: Container(
-          child: Text('Rota não definida'),
-        ),
+        body: const Text('Rota não definida'),
       );
     });
   }

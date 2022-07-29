@@ -2,7 +2,10 @@ import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.d
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
 }
 
@@ -16,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (BuildContext context) {
             return IconButton(
               onPressed: () {},
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
             );
           },
         ),
@@ -28,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Stack(
         children: [
-          Container(
+          SizedBox(
             height: double.infinity,
             width: double.infinity,
             child: Image.asset(
@@ -43,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                     color: Colors.green,
                     child: TextButton(
-                      child: Text(
+                      child: const Text(
                         'Mapa',
                         style: TextStyle(color: Colors.white),
                       ),
@@ -51,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => WelcomePage(),
+                            builder: (context) => const WelcomePage(),
                           ),
                         );
                       },

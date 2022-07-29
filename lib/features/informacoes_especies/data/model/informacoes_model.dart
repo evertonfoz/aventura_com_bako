@@ -46,18 +46,18 @@ class InformacoesModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['idEspecie'] = this.idEspecie;
-    data['nomeCientifico'] = this.nomeCientifico;
-    data['nomesPopulares'] = this.nomesPopulares;
-    data['familia'] = this.familia;
-    data['fenologia'] = this.fenologia;
-    data['altura'] = this.altura;
-    data['copa'] = this.copa;
-    data['tronco'] = this.tronco;
-    data['flores'] = this.flores;
-    data['folhas'] = this.folhas;
-    data['fruto'] = this.fruto;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['idEspecie'] = idEspecie;
+    data['nomeCientifico'] = nomeCientifico;
+    data['nomesPopulares'] = nomesPopulares;
+    data['familia'] = familia;
+    data['fenologia'] = fenologia;
+    data['altura'] = altura;
+    data['copa'] = copa;
+    data['tronco'] = tronco;
+    data['flores'] = flores;
+    data['folhas'] = folhas;
+    data['fruto'] = fruto;
     return data;
   }
 }
@@ -72,8 +72,8 @@ class Assets {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['url'] = this.url;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['url'] = url;
     return data;
   }
 }
