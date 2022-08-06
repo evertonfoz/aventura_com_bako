@@ -3,15 +3,11 @@ import 'package:aventura_com_bako/features/splash/presentation/controller/splash
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SplashScreen extends StatefulWidget {
-  SplashScreen({Key? key}) : super(key: key);
-
-  @override
-  _SplashScreenState createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
+// ignore: must_be_immutable
+class SplashScreen extends StatelessWidget {
   SplashScreenController controller = Get.put(SplashScreenController());
+
+  SplashScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -19,10 +15,12 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(bottom: 10),
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new ExactAssetImage('assets/background-splash.jpg'),
+            padding: const EdgeInsets.only(bottom: 10),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: ExactAssetImage(
+                    //TODO Organizar as imagens em pastas em assets
+                    'assets/background-splash.jpg'), //TODO Constants
                 fit: BoxFit.cover,
               ),
             ),
@@ -30,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
               alignment: Alignment.bottomCenter,
               child: Text(
                 Texts.desenvolvidoPor,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Arial',
                   fontSize: 20,
                   color: Colors.white,
