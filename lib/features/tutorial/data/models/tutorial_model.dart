@@ -1,4 +1,4 @@
-import 'package:aventura_com_bako/core/constants.dart';
+import 'package:aventura_com_bako/core/constants/constants.dart';
 import 'package:aventura_com_bako/features/tutorial/domain/entities/tutorial_pagination.dart';
 
 final cardList = [

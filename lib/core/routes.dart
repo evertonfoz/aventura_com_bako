@@ -1,5 +1,5 @@
 import 'package:aventura_com_bako/features/home/presentation/pages/home_screen.dart';
-import 'package:aventura_com_bako/features/splash/presentation/pages/splash_screen.dart';
+import 'package:aventura_com_bako/features/splashscreen/presentation/pages/splashscreen.dart';
 import 'package:aventura_com_bako/features/tutorial/presentation/pages/tutorial_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class Routes {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case splashScreen:
-        return MaterialPageRoute(builder: (_) => SplashScreen());
+        return MaterialPageRoute(builder: (_) => SplashScreenPage());
       case home:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case tutorial:

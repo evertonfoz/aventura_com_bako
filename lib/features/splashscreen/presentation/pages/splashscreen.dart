@@ -1,13 +1,13 @@
-import 'package:aventura_com_bako/core/constants.dart';
-import 'package:aventura_com_bako/features/splash/presentation/controller/splash_screen_controller.dart';
+import 'package:aventura_com_bako/core/constants/constants.dart';
+import 'package:aventura_com_bako/features/splashscreen/presentation/controller/splash_screen_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
-class SplashScreen extends StatelessWidget {
+class SplashScreenPage extends StatelessWidget {
   SplashScreenController controller = Get.put(SplashScreenController());
 
-  SplashScreen({Key? key}) : super(key: key);
+  SplashScreenPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -24,20 +24,20 @@ class SplashScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Text(
-                Texts.desenvolvidoPor,
-                style: const TextStyle(
-                  fontFamily: 'Arial',
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-                textDirection: TextDirection.ltr,
-              ),
-            ),
+            // child: Align(
+            //   alignment: Alignment.bottomCenter,
+            //   child: Text(
+            //     Texts.desenvolvidoPor,
+            //     style: const TextStyle(
+            //       fontFamily: 'Arial',
+            //       fontSize: 20,
+            //       color: Colors.white,
+            //       fontWeight: FontWeight.bold,
+            //     ),
+            //     textAlign: TextAlign.center,
+            //     textDirection: TextDirection.ltr,
+            //   ),
+            // ),
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 50.0),
