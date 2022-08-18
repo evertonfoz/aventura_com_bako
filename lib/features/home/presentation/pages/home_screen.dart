@@ -13,22 +13,22 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80,
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.menu),
-            );
-          },
-        ),
-        title: Image.asset(
-          'assets/idv.png',
-          fit: BoxFit.contain,
-          height: 45,
-        ),
-      ),
+      // appBar: AppBar(
+      //   toolbarHeight: 80,
+      //   leading: Builder(
+      //     builder: (BuildContext context) {
+      //       return IconButton(
+      //         onPressed: () {},
+      //         icon: const Icon(Icons.menu),
+      //       );
+      //     },
+      //   ),
+      //   title: Image.asset(
+      //     'assets/idv.png',
+      //     fit: BoxFit.contain,
+      //     height: 45,
+      //   ),
+      // ),
       body: Stack(
         children: [
           SizedBox(
@@ -62,6 +62,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                'assets/idv.png',
+                fit: BoxFit.contain,
+                height: 70,
+              ),
             ),
           ),
         ],
