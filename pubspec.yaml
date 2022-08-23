@@ -11,7 +11,7 @@ environment:
 dependencies:
   cloud_functions: ^3.3.2
   cupertino_icons: ^1.0.5
-  equatable: ^2.0.3
+  equatable: ^2.0.5
   dartz: ^0.10.1
   eca_packages:
     path: ../eca_packages/
