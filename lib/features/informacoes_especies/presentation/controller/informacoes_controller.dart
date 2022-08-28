@@ -25,7 +25,7 @@ class InformacoesEspeciesController extends GetxController {
     especieLida.value = informacoesEspeciesList[
         informacoesEspeciesList.indexWhere((element) =>
             element.idEspecie == valorQrCode.value.replaceAll('"', ''))];
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(const Duration(seconds: 5));
     buscandoEspecieLida(false);
   }
 }

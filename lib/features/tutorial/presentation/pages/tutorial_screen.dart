@@ -1,10 +1,11 @@
 import 'package:aventura_com_bako/core/routes.dart';
 import 'package:aventura_com_bako/features/tutorial/data/models/tutorial_model.dart';
 import 'package:aventura_com_bako/features/tutorial/presentation/widgets/card_tutorial_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TutorialPage extends StatefulWidget {
+  const TutorialPage({Key? key}) : super(key: key);
+
   @override
   _TutorialPageState createState() => _TutorialPageState();
 }
@@ -42,7 +43,7 @@ class _TutorialPageState extends State<TutorialPage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               // Holds all the content
               children: [
@@ -52,7 +53,7 @@ class _TutorialPageState extends State<TutorialPage> {
                 Expanded(
                   child: PageView.builder(
                     controller: _pageController,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     onPageChanged: _onPageChanged,
                     itemCount: cardList.length,
                     itemBuilder: (context, i) {
@@ -79,6 +80,15 @@ class _TutorialPageState extends State<TutorialPage> {
                                     vertical:
                                         MediaQuery.of(context).size.height *
                                             0.009),
+                                color: Colors.black.withOpacity(0.3),
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(12.0),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  _navigationTapped(currentPage - 1);
+                                },
                                 child: Text(
                                   'Anterior',
                                   style: TextStyle(
@@ -88,15 +98,6 @@ class _TutorialPageState extends State<TutorialPage> {
                                             0.02,
                                   ),
                                 ),
-                                color: Colors.black.withOpacity(0.3),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(12.0),
-                                  ),
-                                ),
-                                onPressed: () {
-                                  _navigationTapped(currentPage - 1);
-                                },
                               )
                             : null),
                     SizedBox(
@@ -115,6 +116,17 @@ class _TutorialPageState extends State<TutorialPage> {
                         padding: EdgeInsets.symmetric(
                             vertical:
                                 MediaQuery.of(context).size.height * 0.009),
+                        color: Colors.green,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(12.0),
+                          ),
+                        ),
+                        onPressed: () {
+                          currentPage == cardList.length - 1
+                              ? Navigator.pushNamed(context, Routes.home)
+                              : _navigationTapped(currentPage + 1);
+                        },
                         child: Text(
                           currentPage == cardList.length - 1
                               ? 'Finalizar'
@@ -127,17 +139,6 @@ class _TutorialPageState extends State<TutorialPage> {
                                 : null,
                           ),
                         ),
-                        color: Colors.green,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(12.0),
-                          ),
-                        ),
-                        onPressed: () {
-                          currentPage == cardList.length - 1
-                              ? Navigator.pushNamed(context, Routes.home)
-                              : _navigationTapped(currentPage + 1);
-                        },
                       ),
                     ),
                   ],

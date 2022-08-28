@@ -12,7 +12,7 @@ class BotoesPage extends StatelessWidget {
       padding: const EdgeInsets.only(top: 20, left: 20),
       child: Container(
         alignment: Alignment.center,
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         width: 100,
         height: 60,
         decoration: BoxDecoration(
@@ -21,15 +21,15 @@ class BotoesPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Text('Placar:'),
+            const Text('Placar:'),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
                   height: 25,
                   width: 25,
-                  decoration: BoxDecoration(
-                    image: new DecorationImage(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
                       image: AssetImage('assets/score_icon.png'),
                       fit: BoxFit.fitHeight,
                     ),

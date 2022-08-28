@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class TutorialCard extends StatefulWidget {
   final int index;
-  const TutorialCard(this.index);
+
+  const TutorialCard(this.index, {Key? key}) : super(key: key);
 
   @override
   _TutorialCardState createState() => _TutorialCardState();

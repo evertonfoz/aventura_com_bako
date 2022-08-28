@@ -116,8 +116,8 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 110),
                   child: Container(
-                    padding: EdgeInsets.all(12),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.all(12),
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(1),
                         topRight: Radius.circular(10),
@@ -141,8 +141,8 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
                 child: Container(
                   width: 130.00,
                   height: 130.00,
-                  decoration: new BoxDecoration(
-                    image: new DecorationImage(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
                       image: ExactAssetImage('assets/bako_vetor.png'),
                       fit: BoxFit.fitHeight,
                     ),

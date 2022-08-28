@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:timelines/timelines.dart';
 
 class InstrucoesTimelinePage extends StatefulWidget {
+  const InstrucoesTimelinePage({Key? key}) : super(key: key);
+
   @override
   State<InstrucoesTimelinePage> createState() => _InstrucoesTimelinePageState();
 }
@@ -15,8 +17,8 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
-        decoration: new BoxDecoration(
-          image: new DecorationImage(
+        decoration: BoxDecoration(
+          image: const DecorationImage(
             image: ExactAssetImage('assets/Padrão4.jpg'),
             fit: BoxFit.fitHeight,
           ),
@@ -35,8 +37,8 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
                 child: Container(
                   width: 200.00,
                   height: 100.00,
-                  decoration: new BoxDecoration(
-                    image: new DecorationImage(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
                       image: ExactAssetImage('assets/idv.png'),
                       fit: BoxFit.contain,
                     ),
@@ -44,8 +46,8 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
                 ),
               ),
               Container(
-                  padding: EdgeInsets.all(12),
-                  decoration: BoxDecoration(
+                  padding: const EdgeInsets.all(12),
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10.0),
                     ),
@@ -72,7 +74,7 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
                       ),
                     ],
                   )),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               SizedBox(
                 height: 400,
                 child: Timeline.tileBuilder(
@@ -99,8 +101,8 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
                       padding:
                           const EdgeInsets.only(top: 25, bottom: 25, left: 20),
                       child: Container(
-                        padding: EdgeInsets.all(12),
-                        decoration: BoxDecoration(
+                        padding: const EdgeInsets.all(12),
+                        decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(
                             Radius.circular(10.0),
                           ),
@@ -110,7 +112,7 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
                           children: [
                             Text(
                               '${textosDeInformacao[index]}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.black54,
                                 fontSize: 15,
                               ),
@@ -125,20 +127,20 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
               ),
               Center(
                 child: Container(
-                  padding: EdgeInsets.only(bottom: 50),
+                  padding: const EdgeInsets.only(bottom: 50),
                   width: 220,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => MapPage(),
+                          builder: (context) => const MapPage(),
                         ),
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(30.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
                       ),
                       primary: Color(
                         ColorUtils.hexToInt("#FEE784"),

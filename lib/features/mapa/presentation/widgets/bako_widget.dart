@@ -1,7 +1,6 @@
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/controller/bako_controller.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/widgets/collisionPoints_widget.dart';
-import 'package:aventura_com_bako/features/mapa/presentation/widgets/plants_widget.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';

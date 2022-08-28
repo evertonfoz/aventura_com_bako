@@ -100,7 +100,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => InstrucoesTimelinePage(),
+                      builder: (context) => const InstrucoesTimelinePage(),
                     ),
                   );
                 },

@@ -7,10 +7,10 @@ class SplashScreenController extends GetxController {
   void onReady() {
     super.onReady();
     Future.delayed(
-        Duration(seconds: 3),
-        () => Get.offAll(() => HomeScreen(),
+        const Duration(seconds: 3),
+        () => Get.offAll(() => const HomeScreen(),
             transition: Transition.zoom,
-            duration: Duration(seconds: 2),
+            duration: const Duration(seconds: 2),
             binding: HomeScreenBinding()));
   }
 }

@@ -40,8 +40,8 @@ class MapPageState extends State<MapPage> {
               Container(
                 width: 70.00,
                 height: 70.00,
-                decoration: new BoxDecoration(
-                  image: new DecorationImage(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
                     image: ExactAssetImage('assets/bako_vetor.png'),
                     fit: BoxFit.contain,
                   ),
@@ -62,8 +62,8 @@ class MapPageState extends State<MapPage> {
               child: ElevatedButton(
                 onPressed: () => Navigator.pop(context, false),
                 style: ElevatedButton.styleFrom(
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
                   ),
                   primary: Color(
                     ColorUtils.hexToInt("#FEE784"),
@@ -87,8 +87,8 @@ class MapPageState extends State<MapPage> {
               child: ElevatedButton(
                 onPressed: () => Navigator.pop(context, true),
                 style: ElevatedButton.styleFrom(
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
                   ),
                   primary: Color(
                     ColorUtils.hexToInt("#FEE784"),

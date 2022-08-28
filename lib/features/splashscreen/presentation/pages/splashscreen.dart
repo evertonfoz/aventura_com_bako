@@ -1,4 +1,3 @@
-import 'package:aventura_com_bako/core/constants/constants.dart';
 import 'package:aventura_com_bako/features/splashscreen/presentation/controller/splash_screen_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

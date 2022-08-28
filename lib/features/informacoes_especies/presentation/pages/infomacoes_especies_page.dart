@@ -41,7 +41,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
       body: Obx(
         () {
           if (controller.buscandoEspecieLida.value) {
-            return CarregandoPaginaWidget();
+            return const CarregandoPaginaWidget();
           }
           return SingleChildScrollView(
             child: Stack(
@@ -56,8 +56,9 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                       enableInfiniteScroll: true,
                       reverse: false,
                       autoPlay: true,
-                      autoPlayInterval: Duration(seconds: 3),
-                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayInterval: const Duration(seconds: 3),
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
                       autoPlayCurve: Curves.linear,
                       scrollDirection: Axis.horizontal,
                     ),
@@ -68,7 +69,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                       child: Container(
                         width: 700,
                         decoration: BoxDecoration(
-                          image: new DecorationImage(
+                          image: DecorationImage(
                             image: AssetImage(
                               'assets/Paineira-rosa-${itemIndex + 1}.jpg',
                             ),
@@ -105,8 +106,8 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                         widget.mapa.overlays.remove('InformacoesEspeciesPage');
 
                         if (widget.mapa.fullScore) {
-                          Future.delayed(Duration(milliseconds: 5000)).then(
-                              (value) => widget.mapa.overlays
+                          Future.delayed(const Duration(milliseconds: 5000))
+                              .then((value) => widget.mapa.overlays
                                   .add('DescobriuTodasEspeciesPage'));
                         }
 
@@ -118,7 +119,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 280),
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(25),
                         topRight: Radius.circular(25),
@@ -130,7 +131,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                       child: Column(
                         children: [
                           Container(
-                            padding: EdgeInsets.only(right: 50),
+                            padding: const EdgeInsets.only(right: 50),
                             alignment: Alignment.centerLeft,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -148,8 +149,8 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                                 Container(
                                   height: 25,
                                   width: 25,
-                                  decoration: BoxDecoration(
-                                    image: new DecorationImage(
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
                                       image:
                                           AssetImage('assets/plant_icon.png'),
                                       fit: BoxFit.fitHeight,
@@ -162,7 +163,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                           Container(
                             alignment: Alignment.centerLeft,
                             padding: const EdgeInsets.only(right: 40),
-                            child: Divider(),
+                            child: const Divider(),
                           ),
                           Container(
                             alignment: Alignment.centerLeft,
@@ -177,7 +178,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 50),
+                          const SizedBox(height: 50),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -186,20 +187,20 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                                 width: 25,
                                 height: 25,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
+                                  borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(500),
                                     topRight: Radius.circular(500),
                                     bottomLeft: Radius.circular(500),
                                     bottomRight: Radius.circular(500),
                                   ),
-                                  image: new DecorationImage(
+                                  image: const DecorationImage(
                                     image: AssetImage('assets/icon-1.png'),
                                     fit: BoxFit.fitHeight,
                                   ),
                                   color: Colors.yellow[200],
                                 ),
                               ),
-                              SizedBox(width: 5),
+                              const SizedBox(width: 5),
                               Text(
                                 'Nomes populares',
                                 style: TextStyle(
@@ -212,11 +213,11 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Text(
                             '${controller.especieLida.value.nomesPopulares}',
                             textAlign: TextAlign.justify,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 17,
                               color: Colors.black54,
                             ),
