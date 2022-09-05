@@ -108,14 +108,6 @@ class MapPageState extends State<MapPage> {
                 ),
               ),
             ),
-            // TextButton(
-            //   onPressed: () => Navigator.pop(context, false),
-            //   child: Text('Cancelar'),
-            // ),
-            // TextButton(
-            //   onPressed: () => Navigator.pop(context, true),
-            //   child: Text('Sair'),
-            // ),
           ],
         );
       },
@@ -142,9 +134,8 @@ class MapPageState extends State<MapPage> {
                     BotoesPage(
                       mapa: mapa,
                     ),
-                'QrCodePage': (BuildContext context, MapScreen mapa) {
-                  return QrCodeScannerPage(mapa: mapa);
-                },
+                'QrCodePage': (BuildContext context, MapScreen mapa) =>
+                    QrCodeScannerPage(mapa: mapa),
                 'JoyStick': (BuildContext context, MapScreen mapa) => Padding(
                       padding: const EdgeInsets.only(bottom: 5),
                       child: Align(

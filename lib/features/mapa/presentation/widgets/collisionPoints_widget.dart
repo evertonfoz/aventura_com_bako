@@ -17,15 +17,14 @@ class CollisionPoints extends PositionComponent
           angle: angle,
           anchor: anchor,
         ) {
-    debugMode = true;
+    debugMode = false;
   }
 
   late ShapeHitbox hitbox;
 
   @override
   Future<void> onLoad() async {
-    hitbox = RectangleHitbox();
-    //..renderShape = true;
+    hitbox = RectangleHitbox()..renderShape = false;
     add(hitbox);
 
     return super.onLoad();

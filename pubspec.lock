@@ -298,9 +298,11 @@ packages:
   eca_packages:
     dependency: "direct main"
     description:
-      path: "../eca_packages"
-      relative: true
-    source: path
+      path: "."
+      ref: HEAD
+      resolved-ref: "9bc6eba4e8ce8ea15c5076b19886d9bb0b7ee474"
+      url: "https://github.com/evertonfoz/eca_packages.git"
+    source: git
     version: "0.0.1+2"
   equatable:
     dependency: "direct main"
@@ -800,6 +802,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  mobile_scanner:
+    dependency: "direct main"
+    description:
+      name: mobile_scanner
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   mobx:
     dependency: transitive
     description:
@@ -1045,13 +1054,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
-  qr_code_scanner:
-    dependency: "direct main"
-    description:
-      name: qr_code_scanner
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   quiver:
     dependency: transitive
     description:

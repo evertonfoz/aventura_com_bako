@@ -14,17 +14,19 @@ class MapScreen extends FlameGame with HasCollisionDetection {
   int placar = 0;
   String especieLida = ' ';
   late bool fullScore = false;
+  late bool mostrarQrCodePage = true;
 
   @override
   Future<void> onLoad() async {
-    final _mapa = await TiledComponent.load('mapa-v5.tmx', Vector2.all(16));
-    mapWidth = _mapa.tileMap.map.width * 16.0;
-    mapHeight = _mapa.tileMap.map.height * 16.0;
-    add(_mapa);
+    final mapa = await TiledComponent.load('mapa-v5.tmx', Vector2.all(16));
+    mapWidth = mapa.tileMap.map.width * 16.0;
+    mapHeight = mapa.tileMap.map.height * 16.0;
+    add(mapa);
 
     overlays.add('BotoesPage');
     overlays.add('JoyStick');
-    addActors(_mapa.tileMap);
+
+    addActors(mapa.tileMap);
 
     camera.followComponent(bako,
         worldBounds: Rect.fromLTRB(0, 0, mapWidth, mapHeight));
