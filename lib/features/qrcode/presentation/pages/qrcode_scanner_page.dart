@@ -1,121 +1,114 @@
-import 'dart:io';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
 import 'package:aventura_com_bako/features/qrcode/presentation/pages/controller/qrcode_scanner_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 
-class QrCodeScannerPage extends StatefulWidget {
-  const QrCodeScannerPage({Key? key, required this.mapa}) : super(key: key);
+class QrCodeScannerPage extends StatelessWidget {
+  QrCodeScannerPage({
+    Key? key,
+    required this.mapa,
+  }) : super(key: key);
 
   final MapScreen mapa;
 
-  @override
-  State<QrCodeScannerPage> createState() => _QrCodeScannerPageState();
-}
-
-class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
-  final qrKey = GlobalKey(debugLabel: 'QR');
-  QRViewController? qrController;
-  late Barcode barcode;
   QrCodeController controller = Get.put(QrCodeController());
+  MobileScannerController cameraController = MobileScannerController();
 
   @override
-  void dispose() {
-    qrController?.dispose();
-    super.dispose();
-  }
-
-  @override
-  void reassemble() async {
-    super.reassemble();
-
-    if (Platform.isAndroid) {
-      await qrController!.pauseCamera();
-    }
-    qrController!.resumeCamera();
-  }
-
-  @override
-  Widget build(BuildContext context) => SafeArea(
-        child: Container(
-          child: Stack(
-            children: <Widget>[
-              QRView(
-                key: qrKey,
-                onQRViewCreated: onQRViewCreated,
-                overlay: QrScannerOverlayShape(
-                  borderColor: Colors.green.shade900,
-                  borderRadius: 10,
-                  borderLength: 20,
-                  borderWidth: 10,
-                  cutOutSize: MediaQuery.of(context).size.width * 0.8,
-                ),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          MobileScanner(
+            allowDuplicates: false,
+            controller: cameraController,
+            onDetect: (barcode, args) {
+              final String code = barcode.rawValue ?? "---";
+              debugPrint('Barcode found! $code');
+              mapa.especieLida = code;
+              mapa.overlays.add('InformacoesEspeciesPage');
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.close),
+            iconSize: 32.0,
+            onPressed: () {
+              mapa.mostrarQrCodePage = false;
+              mapa.overlays.remove('QrCodePage');
+              mapa.mostrarQrCodePage = true;
+            },
+          ),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              height: 50,
+              width: 150,
+              margin: const EdgeInsets.only(top: 20),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white54),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  IconButton(
+                    color: Colors.white,
+                    icon: ValueListenableBuilder(
+                      valueListenable: cameraController.torchState,
+                      builder: (context, state, child) {
+                        switch (state as TorchState) {
+                          case TorchState.off:
+                            return const Icon(Icons.flash_off_rounded,
+                                color: Colors.grey);
+                          case TorchState.on:
+                            return const Icon(Icons.flash_on_rounded,
+                                color: Colors.green);
+                        }
+                      },
+                    ),
+                    onPressed: () => cameraController.toggleTorch(),
+                  ),
+                  IconButton(
+                    color: Colors.green,
+                    icon: ValueListenableBuilder(
+                      valueListenable: cameraController.cameraFacingState,
+                      builder: (context, state, child) {
+                        switch (state as CameraFacing) {
+                          case CameraFacing.front:
+                            return const Icon(Icons.camera_front);
+                          case CameraFacing.back:
+                            return const Icon(Icons.camera_rear);
+                        }
+                      },
+                    ),
+                    iconSize: 32.0,
+                    onPressed: () => cameraController.switchCamera(),
+                  ),
+                ],
               ),
-              Center(
-                heightFactor: 2,
-                child: Positioned(
-                  top: 20,
-                  child: Container(
-                    width: 150.00,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white54),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          icon: FutureBuilder<bool?>(
-                            future: qrController?.getFlashStatus(),
-                            builder: (context, snapshot) {
-                              if (snapshot.data != null) {
-                                return Icon(
-                                  snapshot.data!
-                                      ? Icons.flash_on_rounded
-                                      : Icons.flash_off_rounded,
-                                  color: Colors.green[900],
-                                );
-                              } else {
-                                return Container();
-                              }
-                            },
-                          ),
-                          onPressed: () async {
-                            await qrController?.toggleFlash();
-                            setState(() {});
-                          },
-                        ),
-                        IconButton(
-                          icon: FutureBuilder(
-                            future: qrController?.getCameraInfo(),
-                            builder: (context, snapshot) {
-                              if (snapshot.data != null) {
-                                return Icon(
-                                  Icons.switch_camera_rounded,
-                                  color: Colors.green[900],
-                                );
-                              } else {
-                                return Container();
-                              }
-                            },
-                          ),
-                          onPressed: () async {
-                            await qrController?.flipCamera();
-                            setState(() {});
-                          },
-                        ),
-                      ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    width: 130.00,
+                    height: 130.00,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: ExactAssetImage('assets/bako_vetor.png'),
+                        fit: BoxFit.fitHeight,
+                      ),
                     ),
                   ),
-                ),
-              ),
-              Positioned(
-                bottom: 15,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 110),
-                  child: Container(
+                  Container(
                     padding: const EdgeInsets.all(12),
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
@@ -134,50 +127,11 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
                       ),
                     ),
                   ),
-                ),
+                ],
               ),
-              Positioned(
-                bottom: 15,
-                child: Container(
-                  width: 130.00,
-                  height: 130.00,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: ExactAssetImage('assets/bako_vetor.png'),
-                      fit: BoxFit.fitHeight,
-                    ),
-                  ),
-                ),
-              ),
-              // Positioned(
-              //   top: 40,
-              //   child: Container(
-              //     padding: EdgeInsets.all(12),
-              //     child: Text(
-              //       barcode != null
-              //           ? 'Valor qrcode: ${barcode!.code}'
-              //           : 'Sem valor',
-              //       style: TextStyle(color: Colors.white),
-              //     ),
-              //   ),
-              // )
-            ],
+            ),
           ),
-        ),
-      );
-
-  void onQRViewCreated(QRViewController qrController) {
-    setState(() => this.qrController = qrController);
-
-    qrController.scannedDataStream.listen(
-      (barcode) => setState(
-        () {
-          this.barcode = barcode;
-          widget.mapa.especieLida = this.barcode.code!;
-          widget.mapa.overlays.add('InformacoesEspeciesPage');
-          widget.mapa.overlays.remove('QrCodePage');
-          // widget.mapa.overlays.notifyListeners();
-        },
+        ],
       ),
     );
   }

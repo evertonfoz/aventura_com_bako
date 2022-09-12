@@ -26,6 +26,11 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
   void initState() {
     controller.valorQrCode.value = widget.mapa.especieLida;
     getInformacoes();
+    if (widget.mapa.placar == 20) {
+      widget.mapa.fullScore = true;
+    } else {
+      widget.mapa.placar++;
+    }
     super.initState();
   }
 
@@ -46,38 +51,33 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
           return SingleChildScrollView(
             child: Stack(
               children: [
-                Container(
-                  child: CarouselSlider.builder(
-                    options: CarouselOptions(
-                      height: 300,
-                      aspectRatio: 16 / 9,
-                      viewportFraction: 1.0,
-                      initialPage: 0,
-                      enableInfiniteScroll: true,
-                      reverse: false,
-                      autoPlay: true,
-                      autoPlayInterval: const Duration(seconds: 3),
-                      autoPlayAnimationDuration:
-                          const Duration(milliseconds: 800),
-                      autoPlayCurve: Curves.linear,
-                      scrollDirection: Axis.horizontal,
-                    ),
-                    itemCount: 2,
-                    itemBuilder: (BuildContext context, int itemIndex,
-                            int pageViewIndex) =>
-                        Container(
-                      child: Container(
-                        width: 700,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/Paineira-rosa-${itemIndex + 1}.jpg',
-                            ),
-                            fit: BoxFit.fitHeight,
-                          ),
-                          color: Colors.transparent,
+                CarouselSlider.builder(
+                  options: CarouselOptions(
+                    height: 300,
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 1.0,
+                    initialPage: 0,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: true,
+                    autoPlayInterval: Duration(seconds: 3),
+                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.linear,
+                    scrollDirection: Axis.horizontal,
+                  ),
+                  itemCount: 2,
+                  itemBuilder: (BuildContext context, int itemIndex,
+                          int pageViewIndex) =>
+                      Container(
+                    width: 700,
+                    decoration: BoxDecoration(
+                      image: new DecorationImage(
+                        image: AssetImage(
+                          'assets/Paineira-rosa-${itemIndex + 1}.jpg',
                         ),
+                        fit: BoxFit.fitHeight,
                       ),
+                      color: Colors.transparent,
                     ),
                   ),
                 ),
@@ -103,15 +103,13 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                         ),
                       ),
                       onTap: () {
+                        widget.mapa.overlays.remove('QrCodePage');
                         widget.mapa.overlays.remove('InformacoesEspeciesPage');
 
                         if (widget.mapa.fullScore) {
-                          Future.delayed(const Duration(milliseconds: 5000))
-                              .then((value) => widget.mapa.overlays
-                                  .add('DescobriuTodasEspeciesPage'));
+                          widget.mapa.overlays
+                              .add('DescobriuTodasEspeciesPage');
                         }
-
-                        //widget.mapa.overlays.notifyListeners();
                       },
                     ),
                   ),

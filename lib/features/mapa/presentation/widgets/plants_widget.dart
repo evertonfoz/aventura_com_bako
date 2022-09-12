@@ -20,7 +20,7 @@ class Plants extends PositionComponent
           angle: angle,
           anchor: anchor,
         ) {
-    debugMode = true;
+    debugMode = false;
   }
 
   late ShapeHitbox hitbox;
@@ -28,24 +28,20 @@ class Plants extends PositionComponent
 
   @override
   Future<void> onLoad() async {
-    hitbox = RectangleHitbox()..renderShape = true;
-    //add(hitbox);
+    hitbox = RectangleHitbox()..renderShape = false;
+    add(hitbox);
 
     return super.onLoad();
   }
 
   @override
-  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
-    super.onCollision(intersectionPoints, other);
-    print("teste");
+  void onCollisionStart(
+      Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is Bako) {
-      mapa.overlays.add('QrCodePage');
-      if (mapa.placar == 21) {
-        mapa.fullScore = true;
-      } else {
-        mapa.placar++;
+      if (mapa.mostrarQrCodePage) {
+        mapa.overlays.add('QrCodePage');
       }
-      //mapa.overlays.notifyListeners();
     }
+    super.onCollisionStart(intersectionPoints, other);
   }
 }

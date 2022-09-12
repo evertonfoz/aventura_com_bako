@@ -2,6 +2,8 @@ import 'package:aventura_com_bako/features/splashscreen/presentation/controller/
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+//TODO Organizar assets em pastas e usar constantes
+
 // ignore: must_be_immutable
 class SplashScreenPage extends StatelessWidget {
   SplashScreenController controller = Get.put(SplashScreenController());
