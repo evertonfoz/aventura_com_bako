@@ -1,3 +1,5 @@
+import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/data/model/game_model.dart';
+import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/presentation/pages/home_game_page.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +12,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final MemoryGameModel _gameModel = MemoryGameModel();
+  @override
+  void initState() {
+    super.initState();
+    _gameModel.initGame();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +71,34 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(80.0),
+            child: Center(
+              child: Column(
+                children: [
+                  Card(
+                    child: Container(
+                      color: Colors.green,
+                      child: TextButton(
+                        child: const Text(
+                          'JOGOS',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomeGamePage(),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

@@ -32,6 +32,7 @@ dependencies:
   basic_utils: ^4.4.1
   carousel_slider: ^4.1.1
   timelines: ^0.1.0
+  flip_card: ^0.6.0
 
 dev_dependencies:
   flutter_launcher_icons: ^0.9.3
@@ -62,6 +63,8 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/tiles/
+    - assets/games/jogo_memoria/
+    - assets/games/jogo_memoria/jogoMemoria.png
   uses-material-design: true
 
   # flutter pub run flutter_native_splash:create
