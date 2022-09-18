@@ -12,7 +12,7 @@ class HomeGamePage extends StatefulWidget {
 }
 
 class _HomeGamePageState extends State<HomeGamePage> {
-  int tentativas = 15;
+  int tentativas = 20;
   int placar = 0;
   final MemoryGameModel _gameModel = MemoryGameModel();
 
@@ -40,12 +40,12 @@ class _HomeGamePageState extends State<HomeGamePage> {
               cabecalho('MEMORY', placar, tentativas),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                    const EdgeInsets.symmetric(vertical: 40, horizontal: 10),
                 child: SizedBox(
                   height: MediaQuery.of(context).size.height - 325,
                   width: MediaQuery.of(context).size.width,
                   child: Card(
-                    color: Colors.white38,
+                    color: Colors.transparent,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
                     ),
@@ -89,8 +89,9 @@ class _HomeGamePageState extends State<HomeGamePage> {
           },
           direction: FlipDirection.HORIZONTAL,
           flipOnTouch: _gameModel.cardFlips[index],
-          front: _faceConfigFlipCard(Colors.amber, ''),
-          back: _faceConfigFlipCard(Colors.green, _gameModel.cardsList[index]),
+          front: _faceConfigFlipCard(
+              Colors.amber, 'assets/images/launch_screen.png'),
+          back: _faceConfigFlipCard(Colors.white, _gameModel.cardsList[index]),
         );
       },
     );

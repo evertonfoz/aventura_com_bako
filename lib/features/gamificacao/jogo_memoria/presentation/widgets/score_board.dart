@@ -23,7 +23,7 @@ Widget cabecalho(String titlePage, int placar, int chances) {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           _placar('Chances', chances),
-          _placar('Placar', placar),
+          _placar('Sementes', placar),
         ],
       ),
     ],
@@ -35,7 +35,7 @@ Widget _placar(String title, int valor) {
     padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20.0),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(6.0),
-      color: Colors.green.shade300,
+      color: Colors.amber,
     ),
     child: Column(
       children: [
