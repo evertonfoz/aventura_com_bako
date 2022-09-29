@@ -99,7 +99,7 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 480.0, left: 140),
+          padding: const EdgeInsets.only(top: 480.0, left: 40),
           child: Timeline.tileBuilder(
             theme: TimelineThemeData(
               nodePosition: 0,
@@ -121,7 +121,8 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
             builder: TimelineTileBuilder.fromStyle(
               contentsAlign: ContentsAlign.basic,
               contentsBuilder: (context, index) => Padding(
-                padding: const EdgeInsets.only(top: 25, bottom: 25, left: 20),
+                padding: const EdgeInsets.only(
+                    top: 25, bottom: 5, left: 20, right: 100),
                 child: Container(
                   padding: const EdgeInsets.all(12),
                   decoration: const BoxDecoration(
@@ -133,10 +134,10 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
                   child: Column(
                     children: [
                       Text(
-                        '${textosDeInformacao[index]}',
+                        textosDeInformacao[index],
                         style: const TextStyle(
                           color: Colors.black54,
-                          fontSize: 15,
+                          fontSize: 14,
                         ),
                       ),
                     ],
@@ -176,9 +177,9 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
     ));
   }
 
-  var textosDeInformacao = [
-    {'1. Texto de informação'},
-    {'2. Texto de informação'},
-    {'3. Texto de informação'},
+  List<String> textosDeInformacao = [
+    '1. Toque no botão abaixo para começar',
+    '2. Utilize o controle para caminhar para os lados, frente e trás',
+    '3. Ao chegar em uma árvore, será aberta a câmera para você apontar para o QR Code',
   ];
 }

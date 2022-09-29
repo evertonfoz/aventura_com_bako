@@ -30,13 +30,13 @@ dependencies:
   image_picker: ^0.8.5+3
   flame: ^1.2.1
   flame_tiled: ^1.6.0
-  basic_utils: ^4.4.1
+  basic_utils: ^5.3.0
   carousel_slider: ^4.1.1
   timelines: ^0.1.0
   mobile_scanner: ^2.0.0
 
 dev_dependencies:
-  flutter_launcher_icons: ^0.9.3
+  flutter_launcher_icons: ^0.10.0
   flutter_lints: ^2.0.1
   flutter_native_splash: ^2.2.0+1
   mocktail: ^0.3.0

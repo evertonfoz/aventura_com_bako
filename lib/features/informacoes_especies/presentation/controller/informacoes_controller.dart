@@ -22,10 +22,15 @@ class InformacoesEspeciesController extends GetxController {
   }
 
   Future getInformacaoEspecieLida() async {
-    especieLida.value = informacoesEspeciesList[
-        informacoesEspeciesList.indexWhere((element) =>
-            element.idEspecie == valorQrCode.value.replaceAll('"', ''))];
-    await Future.delayed(Duration(seconds: 5));
-    buscandoEspecieLida(false);
+    try {
+      especieLida.value = informacoesEspeciesList[
+          informacoesEspeciesList.indexWhere((element) =>
+              element.idEspecie == valorQrCode.value.replaceAll('"', ''))];
+    } catch (e) {
+      rethrow;
+    } finally {
+      await Future.delayed(Duration(seconds: 5));
+      buscandoEspecieLida(false);
+    }
   }
 }

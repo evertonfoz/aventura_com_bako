@@ -74,11 +74,24 @@ class _TutorialPageState extends State<TutorialPage> {
                             ? MediaQuery.of(context).size.width * 0.4
                             : null,
                         child: currentPage != 0
-                            ? FlatButton(
-                                padding: EdgeInsets.symmetric(
-                                    vertical:
-                                        MediaQuery.of(context).size.height *
-                                            0.009),
+                            ? TextButton(
+                                // padding: EdgeInsets.symmetric(
+                                //     vertical:
+                                //         MediaQuery.of(context).size.height *
+                                //             0.009),
+                                // color: Colors.black.withOpacity(0.3),
+                                // shape: RoundedRectangleBorder(
+                                //   borderRadius: BorderRadius.all(
+                                //     Radius.circular(12.0),
+                                //   ),
+                                // ),
+                                onPressed: () {
+                                  _navigationTapped(currentPage - 1);
+                                },
+                                // padding: EdgeInsets.symmetric(
+                                //     vertical:
+                                //         MediaQuery.of(context).size.height *
+                                //             0.009),
                                 child: Text(
                                   'Anterior',
                                   style: TextStyle(
@@ -88,15 +101,6 @@ class _TutorialPageState extends State<TutorialPage> {
                                             0.02,
                                   ),
                                 ),
-                                color: Colors.black.withOpacity(0.3),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(12.0),
-                                  ),
-                                ),
-                                onPressed: () {
-                                  _navigationTapped(currentPage - 1);
-                                },
                               )
                             : null),
                     SizedBox(
@@ -111,10 +115,12 @@ class _TutorialPageState extends State<TutorialPage> {
                       width: currentPage != 0
                           ? MediaQuery.of(context).size.width * 0.4
                           : MediaQuery.of(context).size.width * 0.89,
-                      child: RaisedButton(
-                        padding: EdgeInsets.symmetric(
-                            vertical:
-                                MediaQuery.of(context).size.height * 0.009),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          currentPage == cardList.length - 1
+                              ? Navigator.pushNamed(context, Routes.home)
+                              : _navigationTapped(currentPage + 1);
+                        },
                         child: Text(
                           currentPage == cardList.length - 1
                               ? 'Finalizar'
@@ -127,18 +133,35 @@ class _TutorialPageState extends State<TutorialPage> {
                                 : null,
                           ),
                         ),
-                        color: Colors.green,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(12.0),
-                          ),
-                        ),
-                        onPressed: () {
-                          currentPage == cardList.length - 1
-                              ? Navigator.pushNamed(context, Routes.home)
-                              : _navigationTapped(currentPage + 1);
-                        },
                       ),
+                      // RaisedButton(
+                      //   padding: EdgeInsets.symmetric(
+                      //       vertical:
+                      //           MediaQuery.of(context).size.height * 0.009),
+                      //   child: Text(
+                      //     currentPage == cardList.length - 1
+                      //         ? 'Finalizar'
+                      //         : 'Próximo',
+                      //     style: TextStyle(
+                      //       color: Colors.amberAccent[100],
+                      //       fontSize: MediaQuery.of(context).size.height * 0.02,
+                      //       fontWeight: currentPage == cardList.length - 1
+                      //           ? FontWeight.w900
+                      //           : null,
+                      //     ),
+                      //   ),
+                      //   color: Colors.green,
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.all(
+                      //       Radius.circular(12.0),
+                      //     ),
+                      //   ),
+                      //   onPressed: () {
+                      //     currentPage == cardList.length - 1
+                      //         ? Navigator.pushNamed(context, Routes.home)
+                      //         : _navigationTapped(currentPage + 1);
+                      //   },
+                      // ),
                     ),
                   ],
                 ),
