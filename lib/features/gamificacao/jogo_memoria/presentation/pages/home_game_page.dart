@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 
 import '../widgets/score_board.dart';
 
-class HomeGamePage extends StatefulWidget {
-  const HomeGamePage({Key? key}) : super(key: key);
+class HomePageMemoryGame extends StatefulWidget {
+  const HomePageMemoryGame({Key? key}) : super(key: key);
 
   @override
-  State<HomeGamePage> createState() => _HomeGamePageState();
+  State<HomePageMemoryGame> createState() => _HomePageMemoryGameState();
 }
 
-class _HomeGamePageState extends State<HomeGamePage> {
+class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
   int tentativas = 20;
   int placar = 0;
   final MemoryGameModel _gameModel = MemoryGameModel();

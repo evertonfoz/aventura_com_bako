@@ -1,5 +1,6 @@
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/data/model/game_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/presentation/pages/home_game_page.dart';
+import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/pages/home_page.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:flutter/material.dart';
 
@@ -126,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const HomeGamePage(),
+                              builder: (context) => const HomePageQuizz(),
                             ),
                           );
                         },
