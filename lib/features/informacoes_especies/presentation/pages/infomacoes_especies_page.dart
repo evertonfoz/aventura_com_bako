@@ -2,8 +2,10 @@ import 'package:aventura_com_bako/features/informacoes_especies/presentation/con
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/carregando_pagina_widget.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/categoria_especie_widget.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
+import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:eca_packages/eca_packages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -51,6 +53,69 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
           return SingleChildScrollView(
             child: Stack(
               children: [
+                Visibility(
+                  visible: controller.especieLida.value.nomeCientifico == null,
+                  child: Container(
+                    color: Colors.green,
+                    height: MediaQuery.of(context).size.height,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            // width: MediaQuery.of(context).size.width * 0.85,
+                            // height: 200,
+                            decoration: ShapeDecoration(
+                              color: Colors.yellow,
+                              shape: TooltipShapeBorder(
+                                arrowArc: 0.5,
+                                arrowHeight: 35,
+                              ),
+                              shadows: const [
+                                BoxShadow(
+                                    color: Colors.black26,
+                                    blurRadius: 4.0,
+                                    offset: Offset(2, 2))
+                              ],
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: Column(
+                                children: [
+                                  TextECA(
+                                    text:
+                                        'Olá, eu sou o Bako e vou te acompanhar nessa aventura!',
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  const SizedBox(height: 10),
+                                  TextECA(
+                                    text:
+                                        'Pelo visto, algum problema ocorreu com o QR CODE lido. Pode tentar novamente, pois não identifiquei nele dados da espécies',
+                                    fontSize: 16,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 200.00,
+                          height: 200.00,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: ExactAssetImage(
+                                  'assets/bako_vetor.png'), //TODO Constantes
+                              fit: BoxFit.fitHeight,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 30),
+                      ],
+                    ),
+                  ),
+                ),
                 CarouselSlider.builder(
                   options: CarouselOptions(
                     height: 300,
@@ -72,7 +137,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                       Container(
                     width: 700,
                     decoration: BoxDecoration(
-                      image: new DecorationImage(
+                      image: DecorationImage(
                         image: AssetImage(
                           'assets/Paineira-rosa-${itemIndex + 1}.jpg',
                         ),
@@ -151,10 +216,10 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                                   Container(
                                     height: 25,
                                     width: 25,
-                                    decoration: BoxDecoration(
-                                      image: new DecorationImage(
-                                        image: const AssetImage(
-                                            'assets/plant_icon.png'),
+                                    decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                        image:
+                                            AssetImage('assets/plant_icon.png'),
                                         fit: BoxFit.fitHeight,
                                       ),
                                     ),
@@ -195,9 +260,8 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                                       bottomLeft: Radius.circular(500),
                                       bottomRight: Radius.circular(500),
                                     ),
-                                    image: new DecorationImage(
-                                      image:
-                                          const AssetImage('assets/icon-1.png'),
+                                    image: const DecorationImage(
+                                      image: AssetImage('assets/icon-1.png'),
                                       fit: BoxFit.fitHeight,
                                     ),
                                     color: Colors.yellow[200],
