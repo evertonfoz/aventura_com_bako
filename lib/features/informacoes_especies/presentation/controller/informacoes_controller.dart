@@ -29,7 +29,7 @@ class InformacoesEspeciesController extends GetxController {
     } catch (e) {
       rethrow;
     } finally {
-      await Future.delayed(Duration(seconds: 5));
+      await Future.delayed(const Duration(seconds: 1));
       buscandoEspecieLida(false);
     }
   }
