@@ -51,54 +51,54 @@ List<QuestionModel> questions = [
     },
     false,
   ),
-  QuestionModel(
-    "About How long would it take to travel to Mars ?",
-    {
-      "Three days": false,
-      "A month": false,
-      "Eight months": true,
-      "Two years": false,
-    },
-    false,
-  ),
-  QuestionModel(
-    "Mars is Named after the Roman god Mars. What is he the god of ?",
-    {
-      "Fire": false,
-      "Love": false,
-      "Agriculture": false,
-      "War": true,
-    },
-    false,
-  ),
-  QuestionModel(
-    "Mars Is the ___ planet from the sun ?",
-    {
-      "Secon": false,
-      "Third": false,
-      "Fourth": true,
-      "Sixth": false,
-    },
-    false,
-  ),
-  QuestionModel(
-    "Where did Orville and Wilbur Wright build their first flying airplane ?",
-    {
-      "Paris, France": false,
-      "Boston, Massachusetts": false,
-      "Kitty Hawk, North Carolina": true,
-      "Tokyou, Japan": false,
-    },
-    false,
-  ),
-  QuestionModel(
-    "The First astronuts to travel to space came from which country ?",
-    {
-      "United States": false,
-      "Soviet Union (now Russia)": true,
-      "China": false,
-      "Rocketonia": false,
-    },
-    false,
-  ),
+  // QuestionModel(
+  //   "About How long would it take to travel to Mars ?",
+  //   {
+  //     "Three days": false,
+  //     "A month": false,
+  //     "Eight months": true,
+  //     "Two years": false,
+  //   },
+  //   false,
+  // ),
+  // QuestionModel(
+  //   "Mars is Named after the Roman god Mars. What is he the god of ?",
+  //   {
+  //     "Fire": false,
+  //     "Love": false,
+  //     "Agriculture": false,
+  //     "War": true,
+  //   },
+  //   false,
+  // ),
+  // QuestionModel(
+  //   "Mars Is the ___ planet from the sun ?",
+  //   {
+  //     "Secon": false,
+  //     "Third": false,
+  //     "Fourth": true,
+  //     "Sixth": false,
+  //   },
+  //   false,
+  // ),
+  // QuestionModel(
+  //   "Where did Orville and Wilbur Wright build their first flying airplane ?",
+  //   {
+  //     "Paris, France": false,
+  //     "Boston, Massachusetts": false,
+  //     "Kitty Hawk, North Carolina": true,
+  //     "Tokyou, Japan": false,
+  //   },
+  //   false,
+  // ),
+  // QuestionModel(
+  //   "The First astronuts to travel to space came from which country ?",
+  //   {
+  //     "United States": false,
+  //     "Soviet Union (now Russia)": true,
+  //     "China": false,
+  //     "Rocketonia": false,
+  //   },
+  //   false,
+  // ),
 ];

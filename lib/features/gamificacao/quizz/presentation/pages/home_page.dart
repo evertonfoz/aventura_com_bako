@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/widgets/score_board.dart';
 import 'package:flutter/material.dart';
 import '../../data/model/questions_list.dart';
 import '../widgets/result_page.dart';
@@ -11,7 +12,7 @@ class HomePageQuizz extends StatefulWidget {
 }
 
 class _HomePageQuizzState extends State<HomePageQuizz> {
-  final PageController? _controllerPage = PageController(initialPage: 0);
+  final PageController _controllerPage = PageController(initialPage: 0);
   bool isPressed = false;
   int score = 0;
 
@@ -19,7 +20,7 @@ class _HomePageQuizzState extends State<HomePageQuizz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quizz do Bako'),
+        title: const Text('Quizz do Bako'),
         centerTitle: true,
       ),
       backgroundColor: QuizzColors.mainColor,
@@ -34,10 +35,14 @@ class _HomePageQuizzState extends State<HomePageQuizz> {
                     fit: BoxFit.cover)),
           ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(15.0),
+            child: cabecalho('titlePage', score, 0),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 60.0, left: 20, right: 20),
             child: PageView.builder(
               physics: const NeverScrollableScrollPhysics(),
-              controller: _controllerPage!,
+              controller: _controllerPage,
               onPageChanged: (page) {
                 setState(() {
                   isPressed = false;
@@ -103,12 +108,15 @@ class _HomePageQuizzState extends State<HomePageQuizz> {
                 });
                 if (questions[index].answer.entries.toList()[i].value) {
                   score += 10;
-                  print(score);
                 }
               },
         child: Text(
           questions[index].answer.keys.toList()[i],
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+              wordSpacing: 3),
         ),
       ),
     );
@@ -128,7 +136,7 @@ class _HomePageQuizzState extends State<HomePageQuizz> {
                               builder: ((context) => ResultPage(score))));
                     }
                   : () {
-                      _controllerPage!.nextPage(
+                      _controllerPage.nextPage(
                           duration: const Duration(milliseconds: 500),
                           curve: Curves.linear);
                       setState(() {

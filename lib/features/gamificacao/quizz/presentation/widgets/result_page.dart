@@ -15,22 +15,31 @@ class _ResultPageState extends State<ResultPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueGrey,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Text('Parabens'),
-          Text(widget.score.toString()),
-          MaterialButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => HomePageQuizz()));
-            },
-            color: Colors.yellow,
-            textColor: Colors.white,
-            child: const Text('Sair'),
-          )
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Parabéns, você fez: ',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              '${widget.score.toString()} pontos',
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 50),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pop(context);
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) => HomePageQuizz()));
+              },
+              color: Colors.yellow,
+              textColor: Colors.black,
+              child: const Text('Sair'),
+            )
+          ],
+        ),
       ),
     );
   }
