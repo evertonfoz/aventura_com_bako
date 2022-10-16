@@ -17,8 +17,8 @@ class MemoryGameModel {
     "assets/games/jogo_memoria/triangle.png",
     "assets/games/jogo_memoria/circle.png",
     "assets/games/jogo_memoria/heart.png",
-    "assets/games/jogo_memoria/star.png",
-    "assets/games/jogo_memoria/triangle.png",
+    "assets/games/jogo_memoria/circle.png",
+    "assets/games/jogo_memoria/heart.png",
   ];
 
   List<GlobalKey<FlipCardState>> cardStateKeys = [
