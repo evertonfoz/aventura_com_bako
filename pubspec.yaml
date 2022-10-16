@@ -68,6 +68,7 @@ flutter:
     - assets/tiles/
     - assets/games/jogo_memoria/
     - assets/games/jogo_memoria/jogoMemoria.png
+    - assets/games/caca_palavras/caca-palavras.png
   uses-material-design: true
 
   # flutter pub run flutter_native_splash:create

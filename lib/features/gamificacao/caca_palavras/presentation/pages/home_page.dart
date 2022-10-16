@@ -8,7 +8,9 @@ class HomeCacaPalavras extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Caça-Palavras'),
+      ),
       body: Stack(
         children: [
           Container(
@@ -19,7 +21,7 @@ class HomeCacaPalavras extends StatelessWidget {
                     image: AssetImage('assets/Padrão4.jpg'),
                     fit: BoxFit.cover)),
           ),
-          CrosswordWidget(),
+          CacaPalavra(),
         ],
       ),
     );

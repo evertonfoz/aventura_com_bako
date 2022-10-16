@@ -1,19 +1,21 @@
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/data/model/current_obj.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/data/model/resposta.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/widgets/card_respostas.dart';
+import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/widgets/score_board.dart';
 import 'package:flutter/material.dart';
 import 'package:word_search_safety/word_search_safety.dart';
 
-class CrosswordWidget extends StatefulWidget {
-  CrosswordWidget({Key? key}) : super(key: key);
+class CacaPalavra extends StatefulWidget {
+  CacaPalavra({Key? key}) : super(key: key);
 
   @override
-  _CrosswordWidgetState createState() => _CrosswordWidgetState();
+  _CacaPalavraState createState() => _CacaPalavraState();
 }
 
-class _CrosswordWidgetState extends State<CrosswordWidget> {
+class _CacaPalavraState extends State<CacaPalavra> {
   int numBox = 11;
   double padding = 5;
+  int placarJogo = 0;
   Size sizeBox = Size.zero;
   late ValueNotifier<List<List<String>>> listaPalavras;
   late ValueNotifier<List<RespostasCacaPalavra>> listaResposta;
@@ -35,7 +37,8 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 100),
+        cabecalho('Caça-Palavras', placarJogo, 0),
+        const SizedBox(height: 15),
         Container(
           decoration: BoxDecoration(
             border: Border.all(color: Colors.green.shade700, width: 2),
@@ -48,7 +51,7 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
           margin: EdgeInsets.all(padding),
           child: areaJogavel(),
         ),
-        const SizedBox(height: 75),
+        const SizedBox(height: 35),
         Container(
           alignment: Alignment.center,
           child: CardResposta(
@@ -60,7 +63,6 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
   }
 
   void endClick(PointerUpEvent? event) {
-    print("PointerUpEvent");
     if (currentClick.value.currentLine == null) return;
 
     currentClick.value.currentLine.clear();
@@ -78,6 +80,9 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
     if (indexFound >= 0) {
       listaResposta.value[indexFound].done = true;
       palavrasFeitas.value.addAll(listaResposta.value[indexFound].answerLines!);
+      setState(() {
+        placarJogo += 10;
+      });
       palavrasFeitas.notifyListeners();
       listaResposta.notifyListeners();
       endClick(null);
@@ -235,7 +240,6 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
   }
 
   void geradorRandomicoPalavras() {
-    // this words we want put on crossword game
     final List<String> wl = [
       'angico',
       'conservacao',
@@ -245,9 +249,15 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
       'bako'
     ];
 
-    // setup configuration to generate crossword
+    final List<String> wl2 = [
+      'floresta',
+      'bacupari',
+      'arvores',
+      'biodiversidade',
+      'bosque',
+      'bako'
+    ];
 
-    // Create the puzzle sessting object
     final WSSettings ws = WSSettings(
       width: numBox,
       height: numBox,
@@ -261,21 +271,12 @@ class _CrosswordWidgetState extends State<CrosswordWidget> {
       ]),
     );
 
-    // Create new instance of the WordSearch class
     final WordSearchSafety wordSearch = WordSearchSafety();
 
-    // Create a new puzzle
     final WSNewPuzzle newPuzzle = wordSearch.newPuzzle(wl, ws);
 
-    /// Check if there are errors generated while creating the puzzle
     if (newPuzzle.errors!.isEmpty) {
-      // if no error.. proceed
-
-      // List<List<String>> charsArray = newPuzzle.puzzle;
       listaPalavras.value = newPuzzle.puzzle!;
-      // done pass..ez
-
-      // Solve puzzle for given word list
       final WSSolved solved = wordSearch.solvePuzzle(newPuzzle.puzzle!, wl);
 
       listaResposta.value = solved.found!
