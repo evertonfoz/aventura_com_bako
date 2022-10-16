@@ -1381,6 +1381,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.6.1"
+  word_search_safety:
+    dependency: "direct main"
+    description:
+      name: word_search_safety
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2-nullsafety.1"
   xdg_directories:
     dependency: transitive
     description:
