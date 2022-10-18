@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:aventura_com_bako/features/gamificacao/gamification.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/carregando_pagina_widget.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/categoria_especie_widget.dart';
@@ -21,9 +24,12 @@ class InformacoesEspeciesPage extends StatefulWidget {
 class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
   InformacoesEspeciesController controller =
       Get.put(InformacoesEspeciesController());
+  Random random = Random();
+  late int randomGame;
 
   @override
   void initState() {
+    randomGame = random.nextInt(3);
     controller.valorQrCode.value = widget.mapa.especieLida;
     getInformacoes();
     if (widget.mapa.placar == 20) {
@@ -262,6 +268,31 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                             imageIcon: 'assets/icon-7.png',
                             color: Colors.lime.shade100,
                           ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(top: 30.0, bottom: 10),
+                            child: SizedBox(
+                              width: 200,
+                              height: 50,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              GamificationPage(
+                                                gameChoice: randomGame,
+                                              )));
+                                },
+                                child: const Text(
+                                  'Atividade',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ),
