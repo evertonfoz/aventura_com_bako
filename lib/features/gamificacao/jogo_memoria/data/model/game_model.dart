@@ -34,11 +34,9 @@ class MemoryGameModel {
     GlobalKey<FlipCardState>(),
     GlobalKey<FlipCardState>(),
     GlobalKey<FlipCardState>(),
-    GlobalKey<FlipCardState>(),
   ];
 
   List<bool> cardFlips = [
-    true,
     true,
     true,
     true,
@@ -58,6 +56,7 @@ class MemoryGameModel {
   //init Game
   void initGame() {
     cardsList.shuffle();
+    cardStateKeys;
     gameImg = List.generate(cardCount, (index) => hiddenCardPath);
   }
 }

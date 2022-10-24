@@ -1,12 +1,16 @@
+import 'package:aventura_com_bako/features/gamificacao/alert_game.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/data/model/current_obj.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/data/model/resposta.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/widgets/card_respostas.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/widgets/score_board.dart';
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:flutter/material.dart';
 import 'package:word_search_safety/word_search_safety.dart';
 
 class CacaPalavra extends StatefulWidget {
-  CacaPalavra({Key? key}) : super(key: key);
+  CacaPalavra({required this.gamification, Key? key}) : super(key: key);
+
+  GamificationUser gamification;
 
   @override
   _CacaPalavraState createState() => _CacaPalavraState();
@@ -21,6 +25,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
   late ValueNotifier<List<RespostasCacaPalavra>> listaResposta;
   late ValueNotifier<CurrentObj> currentClick;
   late ValueNotifier<List<int>> palavrasFeitas;
+  int acertos = 0;
 
   @override
   void initState() {
@@ -49,7 +54,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
           height: 380,
           padding: EdgeInsets.all(padding),
           margin: EdgeInsets.all(padding),
-          child: areaJogavel(),
+          child: areaJogavel(context),
         ),
         const SizedBox(height: 35),
         Container(
@@ -69,7 +74,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
     currentClick.notifyListeners();
   }
 
-  void updateClick(PointerMoveEvent event) {
+  void updateClick(PointerMoveEvent event, context) {
     generateLineOnDrag(event);
 
     int indexFound = listaResposta.value.indexWhere((answer) {
@@ -79,13 +84,54 @@ class _CacaPalavraState extends State<CacaPalavra> {
 
     if (indexFound >= 0) {
       listaResposta.value[indexFound].done = true;
+      List tamPalavra;
       palavrasFeitas.value.addAll(listaResposta.value[indexFound].answerLines!);
-      setState(() {
-        placarJogo += 10;
-      });
+      tamPalavra = listaResposta.value[indexFound].answerLines!;
+      pontuacao(tamPalavra.length);
+      acertos += 1;
+      if (acertos == 6) {
+        widget.gamification.updatePontuacao(placarJogo);
+        AlertGame(pontos: placarJogo).alertWin(context);
+      }
       palavrasFeitas.notifyListeners();
       listaResposta.notifyListeners();
       endClick(null);
+    }
+  }
+
+  pontuacao(tamPalavra) {
+    switch (tamPalavra) {
+      case 4:
+        setState(() {
+          placarJogo += 3;
+        });
+        break;
+      case 6:
+        setState(() {
+          placarJogo += 3;
+        });
+        break;
+      case 7:
+        setState(() {
+          placarJogo += 5;
+        });
+        break;
+      case 8:
+        setState(() {
+          placarJogo += 5;
+        });
+        break;
+      case 9:
+        setState(() {
+          placarJogo += 7;
+        });
+        break;
+      case 11:
+        setState(() {
+          placarJogo += 7;
+        });
+        break;
+      default:
     }
   }
 
@@ -184,10 +230,10 @@ class _CacaPalavraState extends State<CacaPalavra> {
     } catch (e) {}
   }
 
-  Widget areaJogavel() {
+  Widget areaJogavel(context) {
     return Listener(
       onPointerUp: (event) => endClick(event),
-      onPointerMove: (event) => updateClick(event),
+      onPointerMove: (event) => updateClick(event, context),
       child: LayoutBuilder(
         builder: (context, constraints) {
           sizeBox = Size(constraints.maxWidth, constraints.maxWidth);
@@ -241,22 +287,22 @@ class _CacaPalavraState extends State<CacaPalavra> {
 
   void geradorRandomicoPalavras() {
     final List<String> wl = [
-      'angico',
-      'conservacao',
-      'paineira',
-      'area-verde',
-      'bosque',
-      'bako'
+      'angicopos', //7
+      'conservacao', //7
+      'paineira', //5
+      'arvores', //5
+      'bosque', //3
+      'bako' //3
     ];
 
-    final List<String> wl2 = [
-      'floresta',
-      'bacupari',
-      'arvores',
-      'biodiversidade',
-      'bosque',
-      'bako'
-    ];
+    // final List<String> wl2 = [
+    //   'flo res tas', 5
+    //   'ba cu pa ri', 7
+    //   'a re a - ver de', 5
+    //   'di ver si da de', 7
+    //   'bos que', 3
+    //   'ba ko' 3
+    // ];
 
     final WSSettings ws = WSSettings(
       width: numBox,

@@ -1,10 +1,13 @@
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
 
 class BotoesPage extends StatelessWidget {
   final MapScreen mapa;
-  const BotoesPage({Key? key, required this.mapa}) : super(key: key);
+  final GamificationUser gamification;
+  const BotoesPage({Key? key, required this.mapa, required this.gamification})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +84,7 @@ class BotoesPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '0',
+                      '${gamification.pontuacao}',
                       overflow: TextOverflow.fade,
                       style: TextStyle(
                           fontSize: 15,

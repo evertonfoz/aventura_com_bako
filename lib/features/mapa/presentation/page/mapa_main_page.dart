@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/pages/infomacoes_especies_page.dart';
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/botoes_page.dart';
@@ -19,6 +20,7 @@ class MapPage extends StatefulWidget {
 
 class MapPageState extends State<MapPage> {
   MapScreen mapa = MapScreen();
+  GamificationUser gamification = GamificationUser();
   late bool sair = false;
 
   Future<bool?> showDialogSairDoMapa() {
@@ -133,6 +135,7 @@ class MapPageState extends State<MapPage> {
                 'BotoesPage': (BuildContext context, MapScreen mapa) =>
                     BotoesPage(
                       mapa: mapa,
+                      gamification: gamification,
                     ),
                 'QrCodePage': (BuildContext context, MapScreen mapa) =>
                     QrCodeScannerPage(mapa: mapa),
@@ -149,7 +152,8 @@ class MapPageState extends State<MapPage> {
                     ),
                 'InformacoesEspeciesPage':
                     (BuildContext context, MapScreen mapa) =>
-                        InformacoesEspeciesPage(mapa: mapa),
+                        InformacoesEspeciesPage(
+                            mapa: mapa, gamification: gamification),
                 'DescobriuTodasEspeciesPage':
                     (BuildContext context, MapScreen mapa) =>
                         DescobriuTodasEspeciesPage(

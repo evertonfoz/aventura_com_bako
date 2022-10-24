@@ -1,3 +1,5 @@
+import 'package:aventura_com_bako/features/gamificacao/alert_game.dart';
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/data/model/game_model.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
@@ -5,15 +7,16 @@ import 'package:flutter/material.dart';
 import '../widgets/score_board.dart';
 
 class HomePageMemoryGame extends StatefulWidget {
-  const HomePageMemoryGame({Key? key}) : super(key: key);
+  HomePageMemoryGame({required this.gamification, Key? key}) : super(key: key);
+  GamificationUser gamification;
 
   @override
   State<HomePageMemoryGame> createState() => _HomePageMemoryGameState();
 }
 
 class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
-  int tentativas = 20;
-  int placar = 0;
+  int tentativas = 15;
+  int pontos = 0;
   final MemoryGameModel _gameModel = MemoryGameModel();
 
   int previousIndex = -1;
@@ -22,6 +25,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
   @override
   void initState() {
     super.initState();
+    _gameModel.cardFlips.every((element) => element = true);
     _gameModel.initGame();
   }
 
@@ -37,7 +41,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              cabecalho('MEMORY', placar, tentativas),
+              cabecalho('MEMORY', pontos, tentativas),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 40, horizontal: 10),
@@ -49,7 +53,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
                     ),
-                    child: _gridCards(),
+                    child: _gridCards(context),
                   ),
                 ),
               )
@@ -72,7 +76,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
     );
   }
 
-  Widget _gridCards() {
+  Widget _gridCards(context) {
     return GridView.builder(
       itemCount: _gameModel.gameImg!.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -85,7 +89,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
         return FlipCard(
           key: _gameModel.cardStateKeys[index],
           onFlip: () {
-            logicMatch(index);
+            logicMatch(index, context);
           },
           direction: FlipDirection.HORIZONTAL,
           flipOnTouch: _gameModel.cardFlips[index],
@@ -108,7 +112,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
     );
   }
 
-  void logicMatch(index) {
+  void logicMatch(index, context) {
     if (!flip) {
       flip = true;
       previousIndex = index;
@@ -122,14 +126,18 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
           setState(() {
             tentativas -= 1;
           });
+          if (tentativas == 0) {
+            AlertGame(pontos: 0).alertTriesOver(context);
+          }
         } else {
           _gameModel.cardFlips[previousIndex] = false;
           _gameModel.cardFlips[index] = false;
           setState(() {
-            placar += 100;
+            pontos += 5;
           });
           if (_gameModel.cardFlips.every((t) => t == false)) {
-            print("Fazer um trem de alert");
+            widget.gamification.updatePontuacao(pontos);
+            AlertGame(pontos: pontos).alertWin(context);
           }
         }
       } else {

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:aventura_com_bako/features/gamificacao/gamification.dart';
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/carregando_pagina_widget.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/categoria_especie_widget.dart';
@@ -11,10 +12,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class InformacoesEspeciesPage extends StatefulWidget {
-  const InformacoesEspeciesPage({Key? key, required this.mapa})
+  const InformacoesEspeciesPage(
+      {Key? key, required this.mapa, required this.gamification})
       : super(key: key);
 
   final MapScreen mapa;
+  final GamificationUser gamification;
 
   @override
   State<InformacoesEspeciesPage> createState() =>
@@ -282,6 +285,8 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                                           builder: (context) =>
                                               GamificationPage(
                                                 gameChoice: randomGame,
+                                                gamification:
+                                                    widget.gamification,
                                               )));
                                 },
                                 child: const Text(
