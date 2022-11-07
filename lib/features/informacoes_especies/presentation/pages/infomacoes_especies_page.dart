@@ -50,6 +50,9 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
           if (controller.buscandoEspecieLida.value) {
             return const CarregandoPaginaWidget();
           }
+          if (controller.especieLida.value.nomeCientifico == null) {
+            widget.mapa.placar--;
+          }
           return SingleChildScrollView(
             child: Stack(
               children: [
@@ -92,7 +95,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                                   const SizedBox(height: 10),
                                   TextECA(
                                     text:
-                                        'Pelo visto, algum problema ocorreu com o QR CODE lido. Pode tentar novamente, pois não identifiquei nele dados da espécies',
+                                        'Pelo visto, algum problema ocorreu com o QR CODE lido. Pode tentar novamente, pois não identifiquei nele dados da espécie.',
                                     fontSize: 16,
                                   ),
                                 ],
