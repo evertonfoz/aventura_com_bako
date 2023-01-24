@@ -1,8 +1,13 @@
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
 
-class CarregandoPaginaWidget extends StatelessWidget {
-  const CarregandoPaginaWidget({
+import '../../../mapa/presentation/page/mapa_screen.dart';
+
+class EspecieRepetidaPage extends StatelessWidget {
+  final MapScreen mapa;
+
+  const EspecieRepetidaPage({
+    required this.mapa,
     Key? key,
   }) : super(key: key);
 
@@ -44,34 +49,50 @@ class CarregandoPaginaWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        'Carregando',
-                        style: TextStyle(
-                          color: Colors.black54,
-                          fontSize: 24,
-                        ),
-                      ),
-                      SizedBox(width: 5),
-                      SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: CircularProgressIndicator(
-                          valueColor:
-                              AlwaysStoppedAnimation<Color>(Colors.black54),
-                        ),
-                      ),
-                    ],
+                  const Text(
+                    'Ops!',
+                    style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 24,
+                    ),
                   ),
                   const Text(
-                    'Estamos preparando tudo para você descobrir uma nova especie!',
+                    'Lembre-se, você só pode descobrir uma especie uma unica vez! Tente descobrir uma nova.',
                     style: TextStyle(
                       color: Colors.black54,
                       fontSize: 18,
                     ),
                     textAlign: TextAlign.center,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.only(bottom: 50, top: 20),
+                    width: 220,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        mapa.overlays.remove('EspecieRepetidaPage');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        backgroundColor: Color(
+                          ColorUtils.hexToInt("#FEE784"),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(13.0),
+                        child: Text(
+                          'Retomar',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w800,
+                            color: Color(
+                              ColorUtils.hexToInt("#788A25"),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

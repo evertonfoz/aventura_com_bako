@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/features/informacoes_especies/helpers/enums/informacoes_especies_enum.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/widgets/bako_widget.dart';
 import 'package:flame/collisions.dart';
@@ -9,6 +10,7 @@ class Plants extends PositionComponent
     required this.mapa,
     required Vector2? position,
     required Vector2? size,
+    required this.informacoesEspeciesEnum,
     Vector2? scale,
     double? angle,
     Anchor? anchor,
@@ -25,6 +27,7 @@ class Plants extends PositionComponent
 
   late ShapeHitbox hitbox;
   final MapScreen mapa;
+  final InformacoesEspeciesEnum? informacoesEspeciesEnum;
 
   @override
   Future<void> onLoad() async {
@@ -39,6 +42,7 @@ class Plants extends PositionComponent
       Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is Bako) {
       if (mapa.mostrarQrCodePage) {
+        mapa.pontoCapturado = informacoesEspeciesEnum;
         mapa.overlays.add('QrCodePage');
       }
     }

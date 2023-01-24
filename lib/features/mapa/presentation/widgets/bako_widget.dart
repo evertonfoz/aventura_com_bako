@@ -1,11 +1,9 @@
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/controller/bako_controller.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/widgets/collisionPoints_widget.dart';
-import 'package:aventura_com_bako/features/mapa/presentation/widgets/plants_widget.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/sprite.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Bako extends SpriteAnimationComponent
@@ -45,9 +43,9 @@ class Bako extends SpriteAnimationComponent
   }
 
   @override
-  void update(double delta) {
-    super.update(delta);
-    moveBako(delta);
+  void update(double dt) {
+    super.update(dt);
+    moveBako(dt);
   }
 
   Future<void> _loadAnimations() async {

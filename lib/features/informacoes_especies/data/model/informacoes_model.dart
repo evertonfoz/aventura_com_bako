@@ -1,35 +1,48 @@
 import 'dart:convert';
 
+import 'package:aventura_com_bako/features/informacoes_especies/helpers/enums/informacoes_especies_enum.dart';
+
 List<InformacoesModel> informacoesModelFromJson(String str) =>
     List<InformacoesModel>.from(
         json.decode(str).map((x) => InformacoesModel.fromJson(x)));
 
 class InformacoesModel {
-  late String? idEspecie;
-  late String? nomeCientifico;
-  late String? nomesPopulares;
-  late String? familia;
-  late String? fenologia;
-  late String? altura;
-  late String? copa;
-  late String? tronco;
-  late String? flores;
-  late String? folhas;
-  late String? fruto;
+  String? idEspecie;
+  String? nomeCientifico;
+  String? nomesPopulares;
+  String? familia;
+  String? fenologia;
+  String? altura;
+  String? copa;
+  String? tronco;
+  String? flores;
+  String? folhas;
+  String? fruto;
   List<Assets>? assets;
+  InformacoesEspeciesEnum? informacoesEspeciesEnum;
+  bool? especieDescoberta;
+  int? numDescobertas;
 
-  InformacoesModel(
-      {this.idEspecie,
-      this.nomeCientifico,
-      this.nomesPopulares,
-      this.familia,
-      this.fenologia,
-      this.altura,
-      this.copa,
-      this.tronco,
-      this.flores,
-      this.folhas,
-      this.fruto});
+  bool get especieRepetidaNaTrilha =>
+      informacoesEspeciesEnum == InformacoesEspeciesEnum.AspidospermaPolyneuron;
+
+  InformacoesModel({
+    this.idEspecie,
+    this.nomeCientifico,
+    this.nomesPopulares,
+    this.familia,
+    this.fenologia,
+    this.altura,
+    this.copa,
+    this.tronco,
+    this.flores,
+    this.folhas,
+    this.fruto,
+    this.informacoesEspeciesEnum,
+    this.assets,
+    this.especieDescoberta,
+    this.numDescobertas,
+  });
 
   InformacoesModel.fromJson(Map<String, dynamic> json) {
     idEspecie = json['idEspecie'] as String?;
@@ -43,22 +56,33 @@ class InformacoesModel {
     flores = json['flores'] as String?;
     folhas = json['folhas'] as String?;
     fruto = json['fruto'] as String?;
+    informacoesEspeciesEnum =
+        InformacoesEspeciesEnum.values.asNameMap()[json['enum']];
+    especieDescoberta = false;
+    numDescobertas = 0;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['idEspecie'] = idEspecie;
-    data['nomeCientifico'] = nomeCientifico;
-    data['nomesPopulares'] = nomesPopulares;
-    data['familia'] = familia;
-    data['fenologia'] = fenologia;
-    data['altura'] = altura;
-    data['copa'] = copa;
-    data['tronco'] = tronco;
-    data['flores'] = flores;
-    data['folhas'] = folhas;
-    data['fruto'] = fruto;
-    return data;
+  InformacoesModel copyWith({
+    bool? especieDescoberta,
+    int? numDescobertas,
+  }) {
+    return InformacoesModel(
+      especieDescoberta: especieDescoberta ?? this.especieDescoberta,
+      numDescobertas: numDescobertas ?? this.numDescobertas,
+      idEspecie: idEspecie,
+      nomeCientifico: nomeCientifico,
+      nomesPopulares: nomesPopulares,
+      familia: familia,
+      fenologia: fenologia,
+      altura: altura,
+      copa: copa,
+      tronco: tronco,
+      flores: flores,
+      folhas: folhas,
+      fruto: fruto,
+      informacoesEspeciesEnum: informacoesEspeciesEnum,
+      assets: assets,
+    );
   }
 }
 

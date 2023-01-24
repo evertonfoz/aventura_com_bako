@@ -22,9 +22,9 @@ class _DescobriuTodasEspeciesPageState
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
-        padding: EdgeInsets.only(top: 20),
-        decoration: new BoxDecoration(
-          image: new DecorationImage(
+        padding: const EdgeInsets.only(top: 20),
+        decoration: BoxDecoration(
+          image: const DecorationImage(
             image: ExactAssetImage('assets/Padrão4.jpg'),
             fit: BoxFit.fitHeight,
           ),
@@ -66,8 +66,8 @@ class _DescobriuTodasEspeciesPageState
               child: Container(
                 width: 200.00,
                 height: 100.00,
-                decoration: new BoxDecoration(
-                  image: new DecorationImage(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
                     image: ExactAssetImage('assets/idv.png'),
                     fit: BoxFit.contain,
                   ),
@@ -77,14 +77,14 @@ class _DescobriuTodasEspeciesPageState
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.white60,
                 ),
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       'Parabéns!',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -96,14 +96,14 @@ class _DescobriuTodasEspeciesPageState
                     Container(
                       width: 200.00,
                       height: 200.00,
-                      decoration: new BoxDecoration(
-                        image: new DecorationImage(
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
                           image: ExactAssetImage('assets/trofeu_icon.png'),
                           fit: BoxFit.fitHeight,
                         ),
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Você descobriu todas as espécies!',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -112,22 +112,22 @@ class _DescobriuTodasEspeciesPageState
                         fontSize: 24,
                       ),
                     ),
-                    SizedBox(height: 50),
+                    const SizedBox(height: 50),
                     Row(
                       children: [
                         Center(
                           child: Container(
                             width: 70.00,
                             height: 70.00,
-                            decoration: new BoxDecoration(
-                              image: new DecorationImage(
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
                                 image: ExactAssetImage('assets/bako_vetor.png'),
                                 fit: BoxFit.contain,
                               ),
                             ),
                           ),
                         ),
-                        Expanded(
+                        const Expanded(
                           child: Text(
                             'Agora, você conhece todas as espécies que temos em nosso Bosque.',
                             style: TextStyle(
@@ -146,22 +146,22 @@ class _DescobriuTodasEspeciesPageState
             ),
             Center(
               child: Container(
-                padding: EdgeInsets.only(bottom: 50, top: 20),
+                padding: const EdgeInsets.only(bottom: 50, top: 20),
                 width: 220,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomeScreen(),
+                        builder: (context) => const HomeScreen(),
                       ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
-                    primary: Color(
+                    backgroundColor: Color(
                       ColorUtils.hexToInt("#FEE784"),
                     ),
                   ),

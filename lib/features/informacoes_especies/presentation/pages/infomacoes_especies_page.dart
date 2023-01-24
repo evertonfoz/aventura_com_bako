@@ -1,5 +1,4 @@
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
-import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/carregando_pagina_widget.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/categoria_especie_widget.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
@@ -26,8 +25,6 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
 
   @override
   void initState() {
-    controller.valorQrCode.value = widget.mapa.especieLida;
-    getInformacoes();
     if (widget.mapa.placar == 20) {
       widget.mapa.fullScore = true;
     } else {
@@ -36,20 +33,12 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
     super.initState();
   }
 
-  getInformacoes() async {
-    await controller.getAllInformacoesEspecies();
-    await controller.getInformacaoEspecieLida();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Obx(
         () {
-          if (controller.buscandoEspecieLida.value) {
-            return const CarregandoPaginaWidget();
-          }
           if (controller.especieLida.value.nomeCientifico == null) {
             widget.mapa.placar--;
           }
@@ -174,6 +163,8 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                       onTap: () {
                         widget.mapa.overlays.remove('QrCodePage');
                         widget.mapa.overlays.remove('InformacoesEspeciesPage');
+
+                        controller.setEspecieLida();
 
                         if (widget.mapa.fullScore) {
                           widget.mapa.overlays

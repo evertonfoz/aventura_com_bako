@@ -8,12 +8,11 @@ class InformacoesEspeciesController extends GetxController {
       InformacoesRepositoryImplementation();
 
   var informacoesEspeciesList = <InformacoesModel>[].obs;
-  RxBool buscandoEspecieLida = true.obs;
+  RxBool buscandoEspecieLida = false.obs;
   Rx<InformacoesModel> especieLida = InformacoesModel().obs;
   RxString valorQrCode = ''.obs;
 
   Future getAllInformacoesEspecies() async {
-    buscandoEspecieLida(true);
     var response = await informacoesRepositoryImplementation.getInformacoes();
     if (response.isNotEmpty) {
       informacoesEspeciesList.clear();
@@ -22,6 +21,7 @@ class InformacoesEspeciesController extends GetxController {
   }
 
   Future getInformacaoEspecieLida() async {
+    buscandoEspecieLida(true);
     try {
       especieLida.value = informacoesEspeciesList[
           informacoesEspeciesList.indexWhere((element) =>
@@ -32,5 +32,17 @@ class InformacoesEspeciesController extends GetxController {
       await Future.delayed(const Duration(seconds: 1));
       buscandoEspecieLida(false);
     }
+  }
+
+  void setEspecieLida() {
+    int index = informacoesEspeciesList
+        .indexWhere((e) => e.idEspecie == especieLida.value.idEspecie);
+    informacoesEspeciesList[index] = especieLida.value.copyWith(
+        especieDescoberta: true,
+        numDescobertas: especieLida.value.numDescobertas! + 1);
+  }
+
+  void resertEspecieLida() {
+    especieLida = InformacoesModel().obs;
   }
 }

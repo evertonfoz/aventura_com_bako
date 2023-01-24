@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/features/informacoes_especies/data/model/informacoes_model.dart';
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/widgets/bako_widget.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/widgets/collisionPoints_widget.dart';
@@ -7,18 +8,20 @@ import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tiled/tiled.dart';
 
+import '../../../informacoes_especies/helpers/enums/informacoes_especies_enum.dart';
+
 class MapScreen extends FlameGame with HasCollisionDetection {
   late double mapWidth;
   late double mapHeight;
   late Bako bako;
   int placar = 0;
-  String especieLida = ' ';
   late bool fullScore = false;
   late bool mostrarQrCodePage = true;
+  InformacoesEspeciesEnum? pontoCapturado;
 
   @override
   Future<void> onLoad() async {
-    final mapa = await TiledComponent.load('mapa-v5.tmx', Vector2.all(16));
+    final mapa = await TiledComponent.load('mapa-v6.tmx', Vector2.all(16));
     mapWidth = mapa.tileMap.map.width * 16.0;
     mapHeight = mapa.tileMap.map.height * 16.0;
     add(mapa);
@@ -57,6 +60,8 @@ class MapScreen extends FlameGame with HasCollisionDetection {
       final plants = Plants(
         mapa: this,
         position: Vector2(plantsObject.x, plantsObject.y),
+        informacoesEspeciesEnum:
+            InformacoesEspeciesEnum.values.asNameMap()[plantsObject.name],
         size: Vector2(
           plantsObject.width,
           plantsObject.height,

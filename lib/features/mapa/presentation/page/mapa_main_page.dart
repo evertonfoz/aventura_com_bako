@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/features/informacoes_especies/presentation/pages/especie_errada_page.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/pages/infomacoes_especies_page.dart';
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/botoes_page.dart';
@@ -9,6 +10,10 @@ import 'package:basic_utils/basic_utils.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+
+import '../../../informacoes_especies/presentation/controller/informacoes_controller.dart';
+import '../../../informacoes_especies/presentation/pages/especie_repetida_page.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -20,6 +25,14 @@ class MapPage extends StatefulWidget {
 class MapPageState extends State<MapPage> {
   MapScreen mapa = MapScreen();
   late bool sair = false;
+  InformacoesEspeciesController informacoesEspeciesController =
+      Get.put(InformacoesEspeciesController());
+
+  @override
+  void initState() {
+    super.initState();
+    informacoesEspeciesController.getAllInformacoesEspecies();
+  }
 
   Future<bool?> showDialogSairDoMapa() {
     return showDialog(
@@ -120,7 +133,6 @@ class MapPageState extends State<MapPage> {
     return WillPopScope(
       onWillPop: () async {
         final sair = await showDialogSairDoMapa();
-
         return sair ?? false;
       },
       child: Scaffold(
@@ -155,6 +167,14 @@ class MapPageState extends State<MapPage> {
                         DescobriuTodasEspeciesPage(
                           mapa: mapa,
                         ),
+                'EspecieErradaPage': (BuildContext context, MapScreen mapa) =>
+                    EspecieErradaPage(
+                      mapa: mapa,
+                    ),
+                'EspecieRepetidaPage': (BuildContext context, MapScreen mapa) =>
+                    EspecieRepetidaPage(
+                      mapa: mapa,
+                    ),
               },
             ),
           ],
