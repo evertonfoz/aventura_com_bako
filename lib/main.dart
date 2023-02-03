@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:status_bar_control/status_bar_control.dart';
 
 import 'core/constants/app_color.dart';
 
@@ -12,11 +13,18 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
+  // await StatusBarControl.setColor(Colors.transparent);
+  // await StatusBarControl.setTranslucent(true);
+  // await StatusBarControl.setNavigationBarColor(Colors.transparent);
+  // await StatusBarControl.setNavigationBarStyle(NavigationBarStyle.DARK);
+  // await StatusBarControl.setFullscreen(true);
 
   await Firebase.initializeApp();
 
-  await hideStatusBarAndSetColorToNavigationBar(
-      navigationBarColor: kBrandColor);
+  await showStatusBarAndSetColorToNavigationBar(
+      statusBarColor: Colors.transparent,
+      navigationBarColor: kBrandColor.shade900,
+      darkContent: false);
 
   runApp(const MyApp());
 }

@@ -1298,7 +1298,7 @@ packages:
     source: hosted
     version: "1.10.0"
   status_bar_control:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: status_bar_control
       url: "https://pub.dartlang.org"
