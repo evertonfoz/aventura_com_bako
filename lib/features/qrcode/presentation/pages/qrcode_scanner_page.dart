@@ -44,10 +44,9 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
         return Stack(
           children: <Widget>[
             MobileScanner(
-              allowDuplicates: false,
               controller: cameraController,
-              onDetect: (barcode, args) async {
-                final String code = barcode.rawValue ?? "---";
+              onDetect: (barcode) async {
+                final String code = barcode.toString();
 
                 informacoesEspeciesController.valorQrCode.value = code;
 
