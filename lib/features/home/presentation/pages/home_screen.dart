@@ -77,22 +77,25 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 70,
                   ),
                   const SizedBox(width: 8),
-                  SizedBox(
-                    width: 80,
-                    height: 80,
-                    child: FloatingActionButton(
-                      onPressed: () {
-                        Navigator.push(
+                  Builder(
+                    builder: (context) => SizedBox(
+                      width: 80,
+                      height: 80,
+                      child: FloatingActionButton(
+                        onPressed: () {
+                          Scaffold.of(context).openEndDrawer();
+                          /*Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => const WelcomePage(),
                           ),
-                        );
-                      },
-                      child: const Icon(
-                        Icons.menu,
-                        size: 60,
-                        // color: kBrandColor,
+                        );*/
+                        },
+                        child: const Icon(
+                          Icons.menu,
+                          size: 60,
+                          // color: kBrandColor,
+                        ),
                       ),
                     ),
                   ),
@@ -101,6 +104,93 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ],
+      ),
+      endDrawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.23,
+              decoration: const BoxDecoration(
+                color: Colors.green,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Image.asset(
+                      'assets/idv.png',
+                      fit: BoxFit.contain,
+                      height: 70,
+                    ),
+                    SizedBox(width: 15),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              color: Colors.amber,
+              padding: EdgeInsets.all(10),
+              child: Wrap(
+                runSpacing: 5,
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.forest),
+                    title: const Text('Passeio no bosque'),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const WelcomePage(),
+                        ),
+                      );
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.videogame_asset),
+                    title: const Text('Jogos'),
+                    onTap: () {
+                      // Update the state of the app.
+                      // ...
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.label),
+                    title: const Text('Item 3'),
+                    onTap: () {
+                      // Update the state of the app.
+                      // ...
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.label),
+                    title: const Text('Item 4'),
+                    onTap: () {
+                      // Update the state of the app.
+                      // ...
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Opacity(
+              opacity: 0.5,
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image:
+                        ExactAssetImage('assets/Padrão4.jpg'), //TODO Constantes
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

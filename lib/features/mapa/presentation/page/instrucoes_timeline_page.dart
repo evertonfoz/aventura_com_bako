@@ -52,7 +52,7 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * 0.85,
-                height: 120,
+                height: MediaQuery.of(context).size.height * 0.22,
                 decoration: ShapeDecoration(
                   color: Colors.yellow,
                   shape: TooltipShapeBorder(

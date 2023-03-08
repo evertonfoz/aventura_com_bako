@@ -51,7 +51,7 @@ class _WelcomePageState extends State<WelcomePage> {
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
-                  height: 200,
+                  height: MediaQuery.of(context).size.height * 0.30,
                   decoration: ShapeDecoration(
                     color: Colors.yellow,
                     shape: TooltipShapeBorder(
