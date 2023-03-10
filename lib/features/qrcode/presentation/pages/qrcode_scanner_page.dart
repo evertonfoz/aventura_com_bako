@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
 import 'package:aventura_com_bako/features/qrcode/presentation/pages/controller/qrcode_scanner_controller.dart';
 import 'package:flutter/material.dart';
@@ -45,8 +47,9 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
           children: <Widget>[
             MobileScanner(
               controller: cameraController,
-              onDetect: (barcode) async {
-                final String code = barcode.toString();
+              onDetect: (captue) async {
+                final List<Barcode> barcode = captue.barcodes;
+                final String code = barcode.single.rawValue ?? '---';
 
                 informacoesEspeciesController.valorQrCode.value = code;
 
