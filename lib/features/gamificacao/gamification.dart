@@ -23,11 +23,11 @@ class GamificationPage extends StatelessWidget {
   }
 
   Widget memoryGame() {
-    return HomePageMemoryGame(gamification: gamification);
+    return HomePageMemoryGame();
   }
 
   Widget quizzGame() {
-    return HomePageQuizz(gamification: gamification);
+    return HomePageQuizz();
   }
 
   Widget cacaPalavras() {

@@ -6,9 +6,9 @@ import '../../data/model/questions_list.dart';
 import '../widgets/quizz_colors.dart';
 
 class HomePageQuizz extends StatefulWidget {
-  HomePageQuizz({required this.gamification, Key? key}) : super(key: key);
+  HomePageQuizz({/*required this.gamification,*/ Key? key}) : super(key: key);
 
-  GamificationUser gamification;
+  //GamificationUser gamification;
 
   @override
   State<HomePageQuizz> createState() => _HomePageQuizzState();
@@ -133,7 +133,7 @@ class _HomePageQuizzState extends State<HomePageQuizz> {
           onPressed: isPressed
               ? index + 1 == questions.length
                   ? () {
-                      widget.gamification.updatePontuacao(score);
+                      //widget.gamification.updatePontuacao(score);
                       Navigator.push(
                           context,
                           MaterialPageRoute(

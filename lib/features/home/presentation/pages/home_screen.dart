@@ -1,5 +1,8 @@
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/pages/home_page.dart';
+import 'package:aventura_com_bako/features/gamificacao/gamification.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/data/model/game_model.dart';
+import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/presentation/pages/home_game_page.dart';
+import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/pages/home_page.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:flutter/material.dart';
 
@@ -157,17 +160,47 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     },
                   ),
-                  ListTile(
+                  ExpansionTile(
                     leading: Icon(Icons.videogame_asset),
                     title: const Text('Jogos'),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeCacaPalavras(),
-                        ),
-                      );
-                    },
+                    children: [
+                      ListTile(
+                        leading: Icon(Icons.abc),
+                        title: const Text('Caça-Palavras'),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeCacaPalavras(),
+                            ),
+                          );
+                        },
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.question_mark),
+                        title: const Text('Quizz'),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomePageQuizz(),
+                            ),
+                          );
+                        },
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.remember_me),
+                        title: const Text('Jogo da memória'),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomePageMemoryGame(),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
                   ),
                   ListTile(
                     leading: Icon(Icons.label),

@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 import '../widgets/score_board.dart';
 
 class HomePageMemoryGame extends StatefulWidget {
-  HomePageMemoryGame({required this.gamification, Key? key}) : super(key: key);
-  GamificationUser gamification;
+  HomePageMemoryGame({/*required this.gamification,*/ Key? key})
+      : super(key: key);
+  //GamificationUser gamification;
 
   @override
   State<HomePageMemoryGame> createState() => _HomePageMemoryGameState();
@@ -136,7 +137,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
             pontos += 5;
           });
           if (_gameModel.cardFlips.every((t) => t == false)) {
-            widget.gamification.updatePontuacao(pontos);
+            //widget.gamification.updatePontuacao(pontos);
             AlertGame(pontos: pontos).alertWin(context);
           }
         }

@@ -1,4 +1,5 @@
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
+import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/caca_palavra.dart';

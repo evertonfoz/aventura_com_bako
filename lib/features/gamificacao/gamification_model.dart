@@ -1,5 +1,5 @@
 class GamificationUser {
-  String userName = '';
+  String userName = ' ';
   int pontuacao = 0;
 
   void updatePontuacao(int pontos) {
