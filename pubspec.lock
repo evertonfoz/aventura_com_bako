@@ -426,6 +426,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.5+1"
+  flip_card:
+    dependency: "direct main"
+    description:
+      name: flip_card
+      sha256: "5d4aa58f3983cced0782f4ce45826b7eea36e8e464964d9209dcbc7a87b2292f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -1630,6 +1638,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.3"
+  word_search_safety:
+    dependency: "direct main"
+    description:
+      name: word_search_safety
+      sha256: "099b36b43b832c174ce8a832219045dd497d1c3e2635c5e9ec209472516fe5cb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.2-nullsafety.1"
   xdg_directories:
     dependency: transitive
     description:

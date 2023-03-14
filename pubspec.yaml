@@ -34,6 +34,9 @@ dependencies:
   mobile_scanner: ^3.0.0
   status_bar_control: ^3.2.1
   timelines: ^0.1.0
+  flip_card: ^0.7.0
+  word_search_safety: ^0.1.2-nullsafety.1
+
 
 dev_dependencies:
   flutter_launcher_icons: ^0.12.0
