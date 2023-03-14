@@ -66,9 +66,9 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
             Align(
               alignment: Alignment.topCenter,
               child: Container(
-                height: 50,
-                width: 150,
-                margin: const EdgeInsets.only(top: 20),
+                height: MediaQuery.of(context).size.height * 0.07,
+                width: MediaQuery.of(context).size.width * 0.4,
+                margin: const EdgeInsets.only(top: 45),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white54),
@@ -123,8 +123,8 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Container(
-                      width: 130.00,
-                      height: 130.00,
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      height: MediaQuery.of(context).size.height * 0.15,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: ExactAssetImage('assets/bako_vetor.png'),

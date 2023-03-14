@@ -24,7 +24,7 @@ class HomeCacaPalavras extends StatelessWidget {
                     image: AssetImage('assets/Padrão4.jpg'),
                     fit: BoxFit.cover)),
           ),
-          CacaPalavra(gamification: gamification!),
+          CacaPalavra(/*gamification: gamification!*/),
         ],
       ),
     );

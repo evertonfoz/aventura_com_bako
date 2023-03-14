@@ -7,7 +7,7 @@ Widget cabecalho(String titlePage, int placar, int chances) {
       Padding(
         padding: const EdgeInsets.all(10.0),
         child: SizedBox(
-            height: 75,
+            //height: 75,
             width: 350,
             child: Container(
               decoration: BoxDecoration(

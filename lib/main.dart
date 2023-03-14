@@ -23,7 +23,7 @@ Future<void> main() async {
 
   await showStatusBarAndSetColorToNavigationBar(
       statusBarColor: Colors.transparent,
-      navigationBarColor: kBrandColor.shade900,
+      navigationBarColor: Colors.green,
       darkContent: false);
 
   runApp(const MyApp());

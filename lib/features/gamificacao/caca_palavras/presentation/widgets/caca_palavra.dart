@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:word_search_safety/word_search_safety.dart';
 
 class CacaPalavra extends StatefulWidget {
-  CacaPalavra({required this.gamification, Key? key}) : super(key: key);
+  CacaPalavra({/*required this.gamification,*/ Key? key}) : super(key: key);
 
-  GamificationUser gamification;
+  //GamificationUser gamification;
 
   @override
   _CacaPalavraState createState() => _CacaPalavraState();
@@ -49,9 +49,9 @@ class _CacaPalavraState extends State<CacaPalavra> {
             border: Border.all(color: Colors.green.shade700, width: 2),
             borderRadius: BorderRadius.circular(5),
           ),
-          alignment: Alignment.center,
+          alignment: Alignment.topCenter,
           width: 380,
-          height: 380,
+          height: 351,
           padding: EdgeInsets.all(padding),
           margin: EdgeInsets.all(padding),
           child: areaJogavel(context),
@@ -90,7 +90,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
       pontuacao(tamPalavra.length);
       acertos += 1;
       if (acertos == 6) {
-        widget.gamification.updatePontuacao(placarJogo);
+        //widget.gamification.updatePontuacao(placarJogo);
         AlertGame(pontos: placarJogo).alertWin(context);
       }
       palavrasFeitas.notifyListeners();
@@ -288,11 +288,11 @@ class _CacaPalavraState extends State<CacaPalavra> {
   void geradorRandomicoPalavras() {
     final List<String> wl = [
       'angicopos', //7
-      'conservacao', //7
+      'bako', //3
       'paineira', //5
       'arvores', //5
       'bosque', //3
-      'bako' //3
+      'conservacao' //7
     ];
 
     // final List<String> wl2 = [

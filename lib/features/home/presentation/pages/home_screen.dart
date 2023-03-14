@@ -112,34 +112,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(80.0),
-            child: Center(
-              child: Column(
-                children: [
-                  Card(
-                    child: Container(
-                      color: Colors.green,
-                      child: TextButton(
-                        child: const Text(
-                          'JOGOS',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomeCacaPalavras(),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
         ],
       ),
       endDrawer: Drawer(
@@ -189,8 +161,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     leading: Icon(Icons.videogame_asset),
                     title: const Text('Jogos'),
                     onTap: () {
-                      // Update the state of the app.
-                      // ...
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeCacaPalavras(),
+                        ),
+                      );
                     },
                   ),
                   ListTile(
