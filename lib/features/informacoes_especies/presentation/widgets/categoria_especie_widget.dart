@@ -7,7 +7,7 @@ class CategoriaEspecie extends StatelessWidget {
   final String imageIcon;
   final Color color;
 
-  CategoriaEspecie(
+  const CategoriaEspecie(
       {Key? key,
       required this.title,
       required this.body,
@@ -19,9 +19,8 @@ class CategoriaEspecie extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding:
-              const EdgeInsets.only(top: 25, bottom: 25, left: 8, right: 8),
+        const Padding(
+          padding: EdgeInsets.only(top: 25, bottom: 25, left: 8, right: 8),
           child: Divider(),
         ),
         Row(
@@ -32,20 +31,20 @@ class CategoriaEspecie extends StatelessWidget {
               width: 25,
               height: 25,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(500),
                   topRight: Radius.circular(500),
                   bottomLeft: Radius.circular(500),
                   bottomRight: Radius.circular(500),
                 ),
-                image: new DecorationImage(
+                image: DecorationImage(
                   image: AssetImage(imageIcon),
                   fit: BoxFit.fitHeight,
                 ),
                 color: color,
               ),
             ),
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             Text(
               title,
               style: TextStyle(
@@ -58,11 +57,11 @@ class CategoriaEspecie extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Text(
           body!,
           textAlign: TextAlign.justify,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 17,
             color: Colors.black54,
           ),

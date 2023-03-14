@@ -1,3 +1,7 @@
+import 'dart:math';
+
+import 'package:aventura_com_bako/features/gamificacao/gamification.dart';
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/categoria_especie_widget.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
@@ -9,10 +13,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class InformacoesEspeciesPage extends StatefulWidget {
-  const InformacoesEspeciesPage({Key? key, required this.mapa})
+  const InformacoesEspeciesPage(
+      {Key? key, required this.mapa, required this.gamification})
       : super(key: key);
 
   final MapScreen mapa;
+  final GamificationUser gamification;
 
   @override
   State<InformacoesEspeciesPage> createState() =>
@@ -22,6 +28,8 @@ class InformacoesEspeciesPage extends StatefulWidget {
 class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
   InformacoesEspeciesController controller =
       Get.put(InformacoesEspeciesController());
+  Random random = Random();
+  late int randomGame;
 
   @override
   void initState() {
@@ -325,6 +333,33 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                               imageIcon: 'assets/icon-7.png',
                               color: Colors.lime.shade100,
                             ),
+                            Padding(
+                            padding:
+                                const EdgeInsets.only(top: 30.0, bottom: 10),
+                            child: SizedBox(
+                              width: 200,
+                              height: 50,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              GamificationPage(
+                                                gameChoice: randomGame,
+                                                gamification:
+                                                    widget.gamification,
+                                              )));
+                                },
+                                child: const Text(
+                                  'Atividade',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
                           ],
                         ),
                       ),

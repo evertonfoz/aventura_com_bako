@@ -26,6 +26,9 @@ class JoystickState extends State<Joystick> {
           borderRadius: BorderRadius.circular(60),
         ),
         child: GestureDetector(
+          onPanDown: onDragDown,
+          onPanUpdate: onDragUpdate,
+          onPanEnd: onDragEnd,
           child: Container(
             decoration: BoxDecoration(
               color: const Color(0x88ffffff),
@@ -47,9 +50,6 @@ class JoystickState extends State<Joystick> {
               ),
             ),
           ),
-          onPanDown: onDragDown,
-          onPanUpdate: onDragUpdate,
-          onPanEnd: onDragEnd,
         ),
       ),
     );

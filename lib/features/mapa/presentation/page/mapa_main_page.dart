@@ -1,4 +1,7 @@
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/pages/especie_errada_page.dart';
+
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
+
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/pages/infomacoes_especies_page.dart';
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/botoes_page.dart';
@@ -24,6 +27,7 @@ class MapPage extends StatefulWidget {
 
 class MapPageState extends State<MapPage> {
   MapScreen mapa = MapScreen();
+  GamificationUser gamification = GamificationUser();
   late bool sair = false;
   InformacoesEspeciesController informacoesEspeciesController =
       Get.put(InformacoesEspeciesController());
@@ -53,8 +57,8 @@ class MapPageState extends State<MapPage> {
               Container(
                 width: 70.00,
                 height: 70.00,
-                decoration: new BoxDecoration(
-                  image: new DecorationImage(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
                     image: ExactAssetImage('assets/bako_vetor.png'),
                     fit: BoxFit.contain,
                   ),
@@ -75,8 +79,8 @@ class MapPageState extends State<MapPage> {
               child: ElevatedButton(
                 onPressed: () => Navigator.pop(context, false),
                 style: ElevatedButton.styleFrom(
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
                   ),
                   primary: Color(
                     ColorUtils.hexToInt("#FEE784"),
@@ -100,8 +104,8 @@ class MapPageState extends State<MapPage> {
               child: ElevatedButton(
                 onPressed: () => Navigator.pop(context, true),
                 style: ElevatedButton.styleFrom(
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
                   ),
                   primary: Color(
                     ColorUtils.hexToInt("#FEE784"),
@@ -145,6 +149,7 @@ class MapPageState extends State<MapPage> {
                 'BotoesPage': (BuildContext context, MapScreen mapa) =>
                     BotoesPage(
                       mapa: mapa,
+                      gamification: gamification,
                     ),
                 'QrCodePage': (BuildContext context, MapScreen mapa) =>
                     QrCodeScannerPage(mapa: mapa),
@@ -161,7 +166,8 @@ class MapPageState extends State<MapPage> {
                     ),
                 'InformacoesEspeciesPage':
                     (BuildContext context, MapScreen mapa) =>
-                        InformacoesEspeciesPage(mapa: mapa),
+                        InformacoesEspeciesPage(
+                            mapa: mapa, gamification: gamification),
                 'DescobriuTodasEspeciesPage':
                     (BuildContext context, MapScreen mapa) =>
                         DescobriuTodasEspeciesPage(
