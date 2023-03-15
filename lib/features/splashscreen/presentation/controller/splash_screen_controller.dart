@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/home/presentation/pages/bindings/home_binding.dart';
 import 'package:aventura_com_bako/features/home/presentation/pages/home_screen.dart';
 import 'package:get/get.dart';

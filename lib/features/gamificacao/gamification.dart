@@ -27,7 +27,7 @@ class GamificationPage extends StatelessWidget {
   }
 
   Widget quizzGame() {
-    return HomePageQuizz();
+    return HomePageQuizz(gamification: gamification,);
   }
 
   Widget cacaPalavras() {

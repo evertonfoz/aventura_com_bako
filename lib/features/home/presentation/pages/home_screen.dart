@@ -1,5 +1,6 @@
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/pages/home_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification.dart';
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/data/model/game_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/presentation/pages/home_game_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/pages/home_page.dart';
@@ -8,7 +9,6 @@ import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
-
   @override
   // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
@@ -16,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final MemoryGameModel _gameModel = MemoryGameModel();
+  final GamificationUser gamificationUser = GamificationUser();
   @override
   void initState() {
     super.initState();
@@ -183,7 +184,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomePageQuizz(),
+                              builder: (context) => HomePageQuizz(
+                                gamification: gamificationUser,
+                              ),
                             ),
                           );
                         },

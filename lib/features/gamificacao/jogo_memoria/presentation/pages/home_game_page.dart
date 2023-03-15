@@ -106,6 +106,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
+          colorFilter: ColorFilter.mode(Colors.white38, BlendMode.screen),
           fit: BoxFit.cover,
           image: AssetImage('assets/Padrão4.jpg'),
         ),

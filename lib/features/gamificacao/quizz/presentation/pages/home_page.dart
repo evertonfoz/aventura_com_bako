@@ -1,14 +1,15 @@
 import 'package:aventura_com_bako/features/gamificacao/alert_game.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
+import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/widgets/result_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/widgets/score_board.dart';
 import 'package:flutter/material.dart';
 import '../../data/model/questions_list.dart';
 import '../widgets/quizz_colors.dart';
 
 class HomePageQuizz extends StatefulWidget {
-  HomePageQuizz({/*required this.gamification,*/ Key? key}) : super(key: key);
+  HomePageQuizz({required this.gamification, Key? key}) : super(key: key);
 
-  //GamificationUser gamification;
+  GamificationUser gamification;
 
   @override
   State<HomePageQuizz> createState() => _HomePageQuizzState();
@@ -133,12 +134,8 @@ class _HomePageQuizzState extends State<HomePageQuizz> {
           onPressed: isPressed
               ? index + 1 == questions.length
                   ? () {
-                      //widget.gamification.updatePontuacao(score);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) =>
-                                  AlertGame(pontos: score))));
+                      widget.gamification.updatePontuacao(score);
+                      AlertGame(pontos: score).alertWin(context);
                     }
                   : () {
                       _controllerPage.nextPage(
