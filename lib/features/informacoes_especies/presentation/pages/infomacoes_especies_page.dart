@@ -333,33 +333,6 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                               imageIcon: 'assets/icon-7.png',
                               color: Colors.lime.shade100,
                             ),
-                            Padding(
-                            padding:
-                                const EdgeInsets.only(top: 30.0, bottom: 10),
-                            child: SizedBox(
-                              width: 200,
-                              height: 50,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              GamificationPage(
-                                                gameChoice: randomGame,
-                                                gamification:
-                                                    widget.gamification,
-                                              )));
-                                },
-                                child: const Text(
-                                  'Atividade',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          )
                           ],
                         ),
                       ),

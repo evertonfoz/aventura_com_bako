@@ -9,13 +9,18 @@ Widget cabecalho(String titlePage, int placar, int chances) {
         child: SizedBox(
             height: 75,
             width: 350,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6.0),
-                image: DecorationImage(
-                    image: AssetImage(
-                        'assets/games/jogo_memoria/jogoMemoria.png')),
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Jogo da memória',
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 25.0),
+                ),
+              ],
             )),
       ),
       Row(

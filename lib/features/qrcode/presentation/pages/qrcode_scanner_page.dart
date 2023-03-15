@@ -5,6 +5,7 @@ import 'package:aventura_com_bako/features/qrcode/presentation/pages/controller/
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:flutter/services.dart';
 
 import '../../../informacoes_especies/presentation/controller/informacoes_controller.dart';
 import '../../../informacoes_especies/presentation/widgets/carregando_pagina_widget.dart';
@@ -58,17 +59,24 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
                 navegarProximaPagina();
               },
             ),
-            IconButton(
-              icon: const Icon(Icons.close),
-              iconSize: 32.0,
-              onPressed: () => _removerQRCodePage(),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.13,
+                //width: MediaQuery.of(context).size.width * 0.4,
+                child: IconButton(
+                  icon: const Icon(Icons.close),
+                  iconSize: 35.0,
+                  onPressed: () => _removerQRCodePage(),
+                ),
+              ),
             ),
             Align(
               alignment: Alignment.topCenter,
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.07,
                 width: MediaQuery.of(context).size.width * 0.4,
-                margin: const EdgeInsets.only(top: 45),
+                margin: const EdgeInsets.only(top: 35),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white54),

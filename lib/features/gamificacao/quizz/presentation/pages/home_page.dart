@@ -69,7 +69,7 @@ class _HomePageQuizzState extends State<HomePageQuizz> {
                       thickness: 1.0,
                     ),
                     const SizedBox(
-                      height: 70.0,
+                      height: 20.0,
                     ),
                     questions[index].imageQuestion == true
                         ? questionImage(index)
@@ -177,8 +177,8 @@ class _HomePageQuizzState extends State<HomePageQuizz> {
 
   questionImage(index) {
     return SizedBox(
-      height: 100,
-      width: 100,
+      height: MediaQuery.of(context).size.height * 0.14,
+      width: MediaQuery.of(context).size.width * 0.15,
       child: Image.asset(questions[index].question!),
     );
   }

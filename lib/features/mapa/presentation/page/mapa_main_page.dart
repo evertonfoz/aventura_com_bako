@@ -12,7 +12,7 @@ import 'package:aventura_com_bako/features/qrcode/presentation/pages/qrcode_scan
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+//import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../../informacoes_especies/presentation/controller/informacoes_controller.dart';
@@ -133,7 +133,7 @@ class MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+    //SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
     return WillPopScope(
       onWillPop: () async {
         final sair = await showDialogSairDoMapa();

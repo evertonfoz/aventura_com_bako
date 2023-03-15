@@ -2,23 +2,23 @@ import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 
 class MemoryGameModel {
-  final String hiddenCardPath = 'assets/images/hidden.png';
+  final String hiddenCardPath = 'assets/hidden.png';
   List<String>? gameImg;
   final int cardCount = 12;
 
   final List<String> cardsList = [
-    "assets/games/jogo_memoria/circle.png",
-    "assets/games/jogo_memoria/heart.png",
-    "assets/games/jogo_memoria/star.png",
-    "assets/games/jogo_memoria/triangle.png",
-    "assets/games/jogo_memoria/circle.png",
-    "assets/games/jogo_memoria/heart.png",
-    "assets/games/jogo_memoria/star.png",
-    "assets/games/jogo_memoria/triangle.png",
-    "assets/games/jogo_memoria/circle.png",
-    "assets/games/jogo_memoria/heart.png",
-    "assets/games/jogo_memoria/circle.png",
-    "assets/games/jogo_memoria/heart.png",
+    "assets/saco-de-sementes.png",
+    "assets/plant_icon.png",
+    "assets/score_icon.png",
+    "assets/bako_vetor.png",
+    "assets/saco-de-sementes.png",
+    "assets/plant_icon.png",
+    "assets/score_icon.png",
+    "assets/bako_vetor.png",
+    "assets/saco-de-sementes.png",
+    "assets/plant_icon.png",
+    "assets/saco-de-sementes.png",
+    "assets/plant_icon.png",
   ];
 
   List<GlobalKey<FlipCardState>> cardStateKeys = [

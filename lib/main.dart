@@ -25,7 +25,6 @@ Future<void> main() async {
       statusBarColor: Colors.transparent,
       navigationBarColor: Colors.green,
       darkContent: false);
-
   runApp(const MyApp());
 }
 

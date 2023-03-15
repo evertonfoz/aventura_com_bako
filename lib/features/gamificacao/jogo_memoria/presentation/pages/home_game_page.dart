@@ -45,9 +45,9 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
               cabecalho('MEMORY', pontos, tentativas),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 40, horizontal: 10),
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 child: SizedBox(
-                  height: MediaQuery.of(context).size.height - 325,
+                  height: MediaQuery.of(context).size.height * 0.60,
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     color: Colors.transparent,

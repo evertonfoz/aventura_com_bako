@@ -2,14 +2,14 @@ import '../model/question_model.dart';
 
 List<QuestionModel> questions = [
   QuestionModel(
-    "assets/plant_icon.png",
+    "Question 1?",
     {
-      "assets/plant_icon.png": false,
-      "assets/score_icon.png": false,
-      "assets/icon-2.png": true,
-      "assets/icon-3.png": false,
+      "false": false,
+      "false2": false,
+      "true": true,
+      "false3": false,
     },
-    true,
+    false,
   ),
   QuestionModel(
     "When does a cat purr ?",
@@ -22,7 +22,7 @@ List<QuestionModel> questions = [
     false,
   ),
   QuestionModel(
-    "What is the averge nulber of kittens in a litter ?",
+    "What is the averge number of kittens in a litter ?",
     {
       "1 to 2": false,
       "3 to 5": true,
