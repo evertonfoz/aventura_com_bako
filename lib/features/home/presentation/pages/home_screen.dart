@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/features/galeria/presentation/pages/galeria_screen.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/pages/home_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
@@ -206,11 +207,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   ListTile(
-                    leading: Icon(Icons.label),
-                    title: const Text('Item 3'),
+                    leading: Icon(Icons.photo),
+                    title: const Text('Galeria'),
                     onTap: () {
-                      // Update the state of the app.
-                      // ...
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => GalleryScreen()));
                     },
                   ),
                   ListTile(
