@@ -14,14 +14,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/a1"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets":"assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 2,
@@ -38,14 +31,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/a2"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets":"assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 3,
@@ -62,14 +48,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/a3"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 4,
@@ -86,14 +65,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/a4"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   
   {
@@ -111,14 +83,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/a5"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 6,
@@ -135,14 +100,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 7,
@@ -159,14 +117,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 8,
@@ -183,14 +134,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 9,
@@ -207,14 +151,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 10,
@@ -231,14 +168,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 11,
@@ -255,14 +185,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 12,
@@ -279,14 +202,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 13,
@@ -303,14 +219,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 14,
@@ -327,14 +236,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 15,
@@ -351,14 +253,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 16,
@@ -375,14 +270,7 @@
     "flores": "coloração rosa-intenso, vistosas, pentâmeras e hermafroditas.",
     "folhas": "alternas, digitadas e pecioladas, com 5 a 8 folíolos.",
     "fruto": "cápsulas de até 17 cm contendo numerosas sementes envoltas por painas brancas.",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 17,
@@ -399,14 +287,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 18,
@@ -423,14 +304,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 19,
@@ -447,14 +321,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 20,
@@ -471,14 +338,7 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   },
   {
     "id": 21,
@@ -495,13 +355,6 @@
     "flores": "Teste",
     "folhas": "Teste",
     "fruto": "Teste",
-    "assets": [
-      {
-        "url": "assets/images_plants/Paineira-rosa-1.jpg"
-      },
-      {
-        "url": "assets/images_plants/Paineira-rosa-2.jpg"
-      }
-    ]
+    "assets": "assets/Paineira-rosa-1.jpg"
   }
 ]

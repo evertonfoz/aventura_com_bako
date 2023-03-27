@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:aventura_com_bako/features/informacoes_especies/helpers/enums/informacoes_especies_enum.dart';
+import 'package:flutter/material.dart';
 
 List<InformacoesModel> informacoesModelFromJson(String str) =>
     List<InformacoesModel>.from(
@@ -18,7 +19,7 @@ class InformacoesModel {
   String? flores;
   String? folhas;
   String? fruto;
-  List<Assets>? assets;
+  String? assets;
   InformacoesEspeciesEnum? informacoesEspeciesEnum;
   bool? especieDescoberta;
   int? numDescobertas;
@@ -60,6 +61,7 @@ class InformacoesModel {
         InformacoesEspeciesEnum.values.asNameMap()[json['enum']];
     especieDescoberta = false;
     numDescobertas = 0;
+    assets = json['assets'] as String?;
   }
 
   InformacoesModel copyWith({

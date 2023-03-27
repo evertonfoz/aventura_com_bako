@@ -1,7 +1,8 @@
+import 'package:aventura_com_bako/features/informacoes_especies/data/model/informacoes_model.dart';
+//import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
+//import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
-import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/categoria_especie_widget.dart';
-import 'package:get/get.dart';
+import 'dart:convert';
 
 class GalleryScreen extends StatefulWidget {
   const GalleryScreen({super.key});
@@ -11,14 +12,9 @@ class GalleryScreen extends StatefulWidget {
 }
 
 class _GalleryScreenState extends State<GalleryScreen> {
-  InformacoesEspeciesController controller =
-      Get.put(InformacoesEspeciesController());
-  final urlImages = [
-    'assets/Paineira-rosa-1.jpg',
-    'assets/Paineira-rosa-2.jpg',
-    'assets/Paineira-rosa-1.jpg',
-    'assets/Paineira-rosa-2.jpg',
-  ];
+  //InformacoesEspeciesController controller = Get.put(InformacoesEspeciesController());
+  InformacoesModel model = InformacoesModel();
+
 
   @override
   Widget build(BuildContext context) {
@@ -88,13 +84,13 @@ class _GalleryScreenState extends State<GalleryScreen> {
                 mainAxisSpacing: 5,
               ),
               itemBuilder: (context, index) {
+                final image = model.assets ?? 'assets/plant_icon.png';
                 return RawMaterialButton(
                   child: Container(
                     decoration: BoxDecoration(
+                      color: Colors.amber,
                       image: DecorationImage(
-                          image: AssetImage(
-                              '${controller.especieLida.value.assets}'),
-                          fit: BoxFit.cover),
+                          image: AssetImage('${image}'), fit: BoxFit.cover),
                     ),
                   ),
                   onPressed: () {
@@ -108,7 +104,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                   },
                 );
               },
-              itemCount: urlImages.length,
+              itemCount: 6,
             )),
       ],
     ));
