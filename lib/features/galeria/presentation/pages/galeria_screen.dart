@@ -1,8 +1,10 @@
 import 'package:aventura_com_bako/features/informacoes_especies/data/model/informacoes_model.dart';
-//import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
-//import 'package:get/get.dart';
+import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
+
+import '../../../informacoes_especies/data/repositories/informacoes_repository_implementation.dart';
 
 class GalleryScreen extends StatefulWidget {
   const GalleryScreen({super.key});
@@ -12,9 +14,10 @@ class GalleryScreen extends StatefulWidget {
 }
 
 class _GalleryScreenState extends State<GalleryScreen> {
-  //InformacoesEspeciesController controller = Get.put(InformacoesEspeciesController());
-  InformacoesModel model = InformacoesModel();
-
+  InformacoesEspeciesController controller =
+      Get.put(InformacoesEspeciesController());
+  InformacoesRepositoryImplementation model =
+      InformacoesRepositoryImplementation();
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +87,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                 mainAxisSpacing: 5,
               ),
               itemBuilder: (context, index) {
-                final image = model.assets ?? 'assets/plant_icon.png';
+                final image = model.getInformacoes();
                 return RawMaterialButton(
                   child: Container(
                     decoration: BoxDecoration(
