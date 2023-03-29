@@ -1,23 +1,24 @@
-import 'package:aventura_com_bako/features/informacoes_especies/data/model/informacoes_model.dart';
-import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
+import 'package:aventura_com_bako/features/galeria/controller/galeria_controller.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'dart:convert';
-
-import '../../../informacoes_especies/data/repositories/informacoes_repository_implementation.dart';
 
 class GalleryScreen extends StatefulWidget {
-  const GalleryScreen({super.key});
+  const GalleryScreen({Key? key}) : super(key: key);
 
   @override
   State<GalleryScreen> createState() => _GalleryScreenState();
 }
 
 class _GalleryScreenState extends State<GalleryScreen> {
-  InformacoesEspeciesController controller =
-      Get.put(InformacoesEspeciesController());
-  InformacoesRepositoryImplementation model =
-      InformacoesRepositoryImplementation();
+  InformacoesGalleryController controller =
+      Get.put(InformacoesGalleryController());
+
+  @override
+  void initState() {
+    super.initState();
+    controller.getAllInformacoesEspecies();
+  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -81,13 +82,14 @@ class _GalleryScreenState extends State<GalleryScreen> {
         Container(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 150),
             child: GridView.builder(
+              itemCount: controller.informacoesEspeciesList.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 crossAxisSpacing: 5,
                 mainAxisSpacing: 5,
               ),
               itemBuilder: (context, index) {
-                final image = model.getInformacoes();
+                final image = controller.informacoesEspeciesList[index].assets;
                 return RawMaterialButton(
                   child: Container(
                     decoration: BoxDecoration(
@@ -107,7 +109,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
                   },
                 );
               },
-              itemCount: 6,
             )),
       ],
     ));

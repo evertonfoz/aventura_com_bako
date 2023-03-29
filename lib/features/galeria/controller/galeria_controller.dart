@@ -8,7 +8,6 @@ class InformacoesGalleryController extends GetxController {
       InformacoesRepositoryImplementation();
 
   var informacoesEspeciesList = <InformacoesModel>[].obs;
-  Rx<InformacoesModel> especieLida = InformacoesModel().obs;
 
   Future getAllInformacoesEspecies() async {
     var response = await informacoesRepositoryImplementation.getInformacoes();
@@ -18,7 +17,4 @@ class InformacoesGalleryController extends GetxController {
     }
   }
 
-  void resertEspecieLida() {
-    especieLida = InformacoesModel().obs;
-  }
 }
