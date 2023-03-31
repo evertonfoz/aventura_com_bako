@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: double.infinity,
             width: double.infinity,
             child: Image.asset(
-              'assets/background_forest.jpg',
+              'assets/images/Tela_Inicial2.png',
               fit: BoxFit.cover,
             ),
           ),

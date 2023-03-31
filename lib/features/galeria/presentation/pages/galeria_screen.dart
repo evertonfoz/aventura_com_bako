@@ -1,4 +1,5 @@
 import 'package:aventura_com_bako/features/galeria/controller/galeria_controller.dart';
+import 'package:aventura_com_bako/features/galeria/presentation/pages/Informacoes_especie_galeria.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
@@ -15,10 +16,14 @@ class _GalleryScreenState extends State<GalleryScreen> {
 
   @override
   void initState() {
-    super.initState();
     controller.getAllInformacoesEspecies();
+    super.initState();
+    reload();
   }
-  
+
+  reload() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,23 +94,19 @@ class _GalleryScreenState extends State<GalleryScreen> {
                 mainAxisSpacing: 5,
               ),
               itemBuilder: (context, index) {
-                final image = controller.informacoesEspeciesList[index].assets;
                 return RawMaterialButton(
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.amber,
                       image: DecorationImage(
-                          image: AssetImage('${image}'), fit: BoxFit.cover),
+                          image: AssetImage('${controller.informacoesEspeciesList[index].assets}'), fit: BoxFit.cover),
                     ),
                   ),
                   onPressed: () {
-                    /*Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => GalleryWidget(
-                                            urlImages: urlImages,
-                                            index: index,
-                                          )));*/
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => InformacoesGalleryPage(controller: controller, id: index,)));
                   },
                 );
               },
