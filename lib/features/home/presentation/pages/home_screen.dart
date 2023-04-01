@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
             width: double.infinity,
             child: Image.asset(
               'assets/images/Tela_Inicial2.png',
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
           // Center(
@@ -78,6 +78,22 @@ class _HomeScreenState extends State<HomeScreen> {
           //     ],
           //   ),
           // ),
+          Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/Bako.png',
+                    fit: BoxFit.contain,
+                    height: MediaQuery.of(context).size.height * 0.45,
+                  )
+                ],
+              ),
+            ),
+          ),
           Align(
             alignment: Alignment.bottomRight,
             child: Padding(
