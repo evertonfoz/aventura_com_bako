@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: double.infinity,
             width: double.infinity,
             child: Image.asset(
-              'assets/images/Tela_Inicial2.png',
+              'assets/images/Inicial2_1080x1920.png',
               fit: BoxFit.fill,
             ),
           ),
@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/Bako.png',
+                    'assets/Bako_1281x1423.png',
                     fit: BoxFit.contain,
                     height: MediaQuery.of(context).size.height * 0.45,
                   )
