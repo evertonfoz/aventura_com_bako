@@ -91,7 +91,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: ExactAssetImage(
-                          'assets/bako_vetor.png'), //TODO Constantes
+                          'assets/Bako_1281x1423.png'), //TODO Constantes
                       fit: BoxFit.fitHeight,
                     ),
                   ),

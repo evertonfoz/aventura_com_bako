@@ -54,10 +54,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width * 0.3,
-                  height: MediaQuery.of(context).size.height * 0.13,
+                  height: MediaQuery.of(context).size.height * 0.15,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: ExactAssetImage('assets/bako_vetor.png'),
+                      image: ExactAssetImage('assets/Bako_1281x1423.png'),
                       fit: BoxFit.fitHeight,
                     ),
                   ),
@@ -76,7 +76,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                   height: MediaQuery.of(context).size.height * 0.15,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: ExactAssetImage('assets/bako_vetor.png'),
+                      image: ExactAssetImage('assets/Bako_1281x1423.png'),
                       fit: BoxFit.fitHeight,
                     ),
                   ),

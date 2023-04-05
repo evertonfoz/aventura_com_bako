@@ -94,8 +94,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
           },
           direction: FlipDirection.HORIZONTAL,
           flipOnTouch: _gameModel.cardFlips[index],
-          front: _faceConfigFlipCard(
-              Colors.amber, 'assets/images/launch_screen.png'),
+          front: _faceConfigFlipCard(Colors.green, 'assets/hidden.png'),
           back: _faceConfigFlipCard(Colors.white, _gameModel.cardsList[index]),
         );
       },

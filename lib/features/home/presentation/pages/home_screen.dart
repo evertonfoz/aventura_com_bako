@@ -18,11 +18,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final MemoryGameModel _gameModel = MemoryGameModel();
   final GamificationUser gamificationUser = GamificationUser();
-  @override
-  void initState() {
-    super.initState();
-    _gameModel.initGame();
-  }
 
   @override
   Widget build(BuildContext context) {
