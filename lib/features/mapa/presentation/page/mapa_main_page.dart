@@ -59,7 +59,7 @@ class MapPageState extends State<MapPage> {
                 height: 70.00,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: ExactAssetImage('assets/bako_vetor.png'),
+                    image: ExactAssetImage('assets/Bako.png'),
                     fit: BoxFit.contain,
                   ),
                 ),

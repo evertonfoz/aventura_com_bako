@@ -488,7 +488,7 @@ packages:
     source: hosted
     version: "0.6.14"
   flutter_mobx:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_mobx
       sha256: "0da4add0016387a7bf309a0d0c41d36c6b3ae25ed7a176409267f166509e723e"

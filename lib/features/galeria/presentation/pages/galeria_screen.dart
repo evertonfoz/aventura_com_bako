@@ -1,12 +1,15 @@
 import 'package:aventura_com_bako/features/galeria/controller/galeria_controller.dart';
 import 'package:aventura_com_bako/features/galeria/presentation/pages/Informacoes_especie_galeria.dart';
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 class GalleryScreen extends StatefulWidget {
-  const GalleryScreen({Key? key}) : super(key: key);
+  GalleryScreen({required this.user, Key? key}) : super(key: key);
 
+  GamificationUser user;
   @override
   State<GalleryScreen> createState() => _GalleryScreenState();
 }
@@ -19,11 +22,66 @@ class _GalleryScreenState extends State<GalleryScreen> {
   void initState() {
     controller.getAllInformacoesEspecies();
     super.initState();
-    reload();
   }
 
-  reload() {
-    setState(() {});
+  Future<bool?> showDialogEspecieNaoEncontrada() {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          actionsAlignment: MainAxisAlignment.center,
+          elevation: 8,
+          title: Text(
+            'Você ainda não descobriu essa espécie!',
+            style: TextStyle(
+              color: Colors.green[900],
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          content: Row(
+            children: [
+              Container(
+                width: 70.00,
+                height: 70.00,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: ExactAssetImage('assets/Bako.png'),
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Text(
+                  'Se deseja aprender mais sobre essa espécie vá até o bosque e procure o QRcode.',
+                  style: TextStyle(
+                    color: Colors.green[900],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context, false),
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  backgroundColor: Colors.amber),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text(
+                  'Voltar',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      backgroundColor: Colors.amber),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -104,37 +162,44 @@ class _GalleryScreenState extends State<GalleryScreen> {
                     mainAxisSpacing: 5,
                   ),
                   itemBuilder: (context, index) {
-                    return RawMaterialButton(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.lightGreen,
-                              style: BorderStyle.solid,
-                              width: 5),
-                          borderRadius: BorderRadius.zero,
-                          shape: BoxShape.rectangle,
-                          boxShadow: const <BoxShadow>[
-                            BoxShadow(
-                              color: Colors.green,
-                              blurRadius: 1.0,
-                              spreadRadius: 1.0,
-                            )
-                          ],
-                          image: DecorationImage(
-                              image: AssetImage(
-                                  '${controller.informacoesEspeciesList[index].assets}'),
-                              fit: BoxFit.cover),
+                    return Observer(
+                      builder: (_) => RawMaterialButton(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.lightGreen,
+                                style: BorderStyle.solid,
+                                width: 5),
+                            borderRadius: BorderRadius.zero,
+                            shape: BoxShape.rectangle,
+                            boxShadow: const <BoxShadow>[
+                              BoxShadow(
+                                color: Colors.green,
+                                blurRadius: 1.0,
+                                spreadRadius: 1.0,
+                              )
+                            ],
+                            image: DecorationImage(
+                                image: AssetImage(
+                                    '${widget.user.especieDescoberta[index] ? controller.informacoesEspeciesList[index].assets : 'assets/hidden.png'}'),
+                                fit: BoxFit.cover),
+                          ),
                         ),
+                        onPressed: () {
+                          if (widget.user.especieDescoberta[index]) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        InformacoesGalleryPage(
+                                          controller: controller,
+                                          id: index,
+                                        )));
+                          } else {
+                            showDialogEspecieNaoEncontrada();
+                          }
+                        },
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => InformacoesGalleryPage(
-                                      controller: controller,
-                                      id: index,
-                                    )));
-                      },
                     );
                   },
                 ),

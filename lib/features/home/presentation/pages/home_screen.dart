@@ -16,7 +16,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final MemoryGameModel _gameModel = MemoryGameModel();
   final GamificationUser gamificationUser = GamificationUser();
 
   @override
@@ -224,7 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => GalleryScreen()));
+                              builder: (context) => GalleryScreen(user: gamificationUser,)));
                     },
                   ),
                   ListTile(
