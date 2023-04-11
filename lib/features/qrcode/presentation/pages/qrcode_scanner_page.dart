@@ -1,5 +1,7 @@
 import 'dart:typed_data';
 
+import 'package:aventura_com_bako/features/gamificacao/gamification.dart';
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
 import 'package:aventura_com_bako/features/qrcode/presentation/pages/controller/qrcode_scanner_controller.dart';
 import 'package:flutter/material.dart';
@@ -11,12 +13,11 @@ import '../../../informacoes_especies/presentation/controller/informacoes_contro
 import '../../../informacoes_especies/presentation/widgets/carregando_pagina_widget.dart';
 
 class QrCodeScannerPage extends StatefulWidget {
-  const QrCodeScannerPage({
-    Key? key,
-    required this.mapa,
-  }) : super(key: key);
+  QrCodeScannerPage({Key? key, required this.mapa, required this.user})
+      : super(key: key);
 
   final MapScreen mapa;
+  GamificationUser user = GamificationUser();
 
   @override
   State<QrCodeScannerPage> createState() => _QrCodeScannerPageState();
@@ -182,6 +183,8 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
       } else if (informacoesEspeciesController
               .especieLida.value.especieDescoberta ==
           false) {
+        widget.user.especieDescoberta[
+            informacoesEspeciesController.especieLida.value.id ?? 0] = true;
         widget.mapa.overlays.add('InformacoesEspeciesPage');
       } else {
         widget.mapa.overlays.add('EspecieRepetidaPage');

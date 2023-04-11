@@ -8,6 +8,7 @@ List<InformacoesModel> informacoesModelFromJson(String str) =>
         json.decode(str).map((x) => InformacoesModel.fromJson(x)));
 
 class InformacoesModel {
+  int? id;
   String? idEspecie;
   String? nomeCientifico;
   String? nomesPopulares;
@@ -28,6 +29,7 @@ class InformacoesModel {
       informacoesEspeciesEnum == InformacoesEspeciesEnum.AspidospermaPolyneuron;
 
   InformacoesModel({
+    this.id,
     this.idEspecie,
     this.nomeCientifico,
     this.nomesPopulares,
@@ -46,6 +48,7 @@ class InformacoesModel {
   });
 
   InformacoesModel.fromJson(Map<String, dynamic> json) {
+    id = json['id'] as int?;
     idEspecie = json['idEspecie'] as String?;
     nomeCientifico = json['nomeCientifico'] as String?;
     nomesPopulares = json['nomesPopulares'] as String?;

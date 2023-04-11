@@ -1,12 +1,13 @@
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/instrucoes_timeline_page.dart';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:eca_packages/eca_packages.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
-  const WelcomePage({
-    Key? key,
-  }) : super(key: key);
+  WelcomePage({Key? key, required this.user}) : super(key: key);
+
+  GamificationUser user = GamificationUser();
 
   @override
   State<WelcomePage> createState() => _WelcomePageState();
@@ -111,7 +112,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => InstrucoesTimelinePage(),
+                        builder: (context) => InstrucoesTimelinePage(user: widget.user),
                       ),
                     );
                   },

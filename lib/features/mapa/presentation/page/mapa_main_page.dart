@@ -19,8 +19,9 @@ import '../../../informacoes_especies/presentation/controller/informacoes_contro
 import '../../../informacoes_especies/presentation/pages/especie_repetida_page.dart';
 
 class MapPage extends StatefulWidget {
-  const MapPage({Key? key}) : super(key: key);
+  MapPage({Key? key, required this.user}) : super(key: key);
 
+  GamificationUser user = GamificationUser();
   @override
   MapPageState createState() => MapPageState();
 }
@@ -152,7 +153,7 @@ class MapPageState extends State<MapPage> {
                       gamification: gamification,
                     ),
                 'QrCodePage': (BuildContext context, MapScreen mapa) =>
-                    QrCodeScannerPage(mapa: mapa),
+                    QrCodeScannerPage(mapa: mapa, user: widget.user,),
                 'JoyStick': (BuildContext context, MapScreen mapa) => Padding(
                       padding: const EdgeInsets.only(bottom: 5),
                       child: Align(

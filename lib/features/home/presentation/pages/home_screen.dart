@@ -167,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const WelcomePage(),
+                          builder: (context) => WelcomePage(user: gamificationUser,),
                         ),
                       );
                     },
@@ -223,7 +223,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => GalleryScreen(user: gamificationUser,)));
+                              builder: (context) => GalleryScreen(
+                                    user: gamificationUser,
+                                  )));
                     },
                   ),
                   ListTile(

@@ -2,8 +2,8 @@ class GamificationUser {
   String userName = '';
   int pontuacao = 0;
   List<bool> especieDescoberta = [
-    true,
-    true,
+    false,
+    false,
     false,
     false,
     false,

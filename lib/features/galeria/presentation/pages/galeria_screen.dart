@@ -162,44 +162,41 @@ class _GalleryScreenState extends State<GalleryScreen> {
                     mainAxisSpacing: 5,
                   ),
                   itemBuilder: (context, index) {
-                    return Observer(
-                      builder: (_) => RawMaterialButton(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Colors.lightGreen,
-                                style: BorderStyle.solid,
-                                width: 5),
-                            borderRadius: BorderRadius.zero,
-                            shape: BoxShape.rectangle,
-                            boxShadow: const <BoxShadow>[
-                              BoxShadow(
-                                color: Colors.green,
-                                blurRadius: 1.0,
-                                spreadRadius: 1.0,
-                              )
-                            ],
-                            image: DecorationImage(
-                                image: AssetImage(
-                                    '${widget.user.especieDescoberta[index] ? controller.informacoesEspeciesList[index].assets : 'assets/hidden.png'}'),
-                                fit: BoxFit.cover),
-                          ),
+                    return RawMaterialButton(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: Colors.lightGreen,
+                              style: BorderStyle.solid,
+                              width: 5),
+                          borderRadius: BorderRadius.zero,
+                          shape: BoxShape.rectangle,
+                          boxShadow: const <BoxShadow>[
+                            BoxShadow(
+                              color: Colors.green,
+                              blurRadius: 1.0,
+                              spreadRadius: 1.0,
+                            )
+                          ],
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  '${widget.user.especieDescoberta[index] ? controller.informacoesEspeciesList[index].assets : 'assets/hidden.png'}'),
+                              fit: BoxFit.cover),
                         ),
-                        onPressed: () {
-                          if (widget.user.especieDescoberta[index]) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        InformacoesGalleryPage(
-                                          controller: controller,
-                                          id: index,
-                                        )));
-                          } else {
-                            showDialogEspecieNaoEncontrada();
-                          }
-                        },
                       ),
+                      onPressed: () {
+                        if (widget.user.especieDescoberta[index]) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => InformacoesGalleryPage(
+                                        controller: controller,
+                                        id: index,
+                                      )));
+                        } else {
+                          showDialogEspecieNaoEncontrada();
+                        }
+                      },
                     );
                   },
                 ),
