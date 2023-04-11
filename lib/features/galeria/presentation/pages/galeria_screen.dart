@@ -86,6 +86,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(milliseconds: 10), () {
+      setState(() {});
+    });
+
     return Scaffold(
         body: Stack(
       children: [

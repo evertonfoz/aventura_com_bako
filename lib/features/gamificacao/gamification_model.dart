@@ -22,7 +22,8 @@ class GamificationUser {
     false,
     false,
     false,
-    false
+    false,
+    true
   ];
 
   void updatePontuacao(int pontos) {
