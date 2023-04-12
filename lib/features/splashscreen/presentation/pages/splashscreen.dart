@@ -21,7 +21,7 @@ class SplashScreenPage extends StatelessWidget {
               image: DecorationImage(
                 image: ExactAssetImage(
                     //TODO Organizar as imagens em pastas em assets
-                    'assets/background-splash.jpg'), //TODO Constants
+                    'assets/images/Tela_Inicial2.png'), //TODO Constants
                 fit: BoxFit.cover,
               ),
             ),
@@ -44,7 +44,7 @@ class SplashScreenPage extends StatelessWidget {
             margin: const EdgeInsets.only(bottom: 50.0),
             alignment: Alignment.bottomCenter,
             child: Image.asset(
-              'assets/bako_vetor.png',
+              'assets/Bako_1281x1423.png',
               fit: BoxFit.fitWidth,
               height: size.width * 0.8,
             ),

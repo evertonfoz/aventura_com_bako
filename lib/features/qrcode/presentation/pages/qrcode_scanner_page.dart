@@ -184,7 +184,7 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
               .especieLida.value.especieDescoberta ==
           false) {
         widget.user.especieDescoberta[
-            informacoesEspeciesController.especieLida.value.id ?? 22] = true;
+            informacoesEspeciesController.especieLida.value.id ?? 21] = true;
         widget.mapa.overlays.add('InformacoesEspeciesPage');
       } else {
         widget.mapa.overlays.add('EspecieRepetidaPage');
