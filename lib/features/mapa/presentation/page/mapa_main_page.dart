@@ -171,14 +171,14 @@ class MapPageState extends State<MapPage> {
                         ),
                       ),
                     ),
-                'QrcodeButton': (BuildContext context, MapScreen mapa) =>
+                'QrCodeButton': (BuildContext context, MapScreen mapa) =>
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 150),
+                      padding: EdgeInsets.only(bottom: 150),
                       child: Align(
                         alignment: Alignment.bottomLeft,
                         child: Padding(
-                          padding: const EdgeInsets.all(32.0),
-                          child: QrcodeButton(),
+                          padding: EdgeInsets.all(32.0),
+                          child: QrcodeButton(mapa: mapa),
                         ),
                       ),
                     ),
