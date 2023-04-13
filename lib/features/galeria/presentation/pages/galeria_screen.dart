@@ -4,8 +4,8 @@ import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 
+// ignore: must_be_immutable
 class GalleryScreen extends StatefulWidget {
   GalleryScreen({required this.user, Key? key}) : super(key: key);
 
@@ -124,14 +124,12 @@ class _GalleryScreenState extends State<GalleryScreen> {
                     ),
                   ),
                 ),
-                Container(
-                  child: Text(
-                    'Galeria',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 60,
-                        overflow: TextOverflow.clip),
-                  ),
+                const Text(
+                  'Galeria',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 60,
+                      overflow: TextOverflow.clip),
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.3,

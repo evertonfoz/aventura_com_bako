@@ -3,7 +3,6 @@ import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.da
 import 'package:aventura_com_bako/features/mapa/presentation/widgets/bako_widget.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flutter/widgets.dart';
 
 class Plants extends PositionComponent
     with GestureHitboxes, CollisionCallbacks {
@@ -46,10 +45,7 @@ class Plants extends PositionComponent
         mapa.pontoCapturado = informacoesEspeciesEnum;
         mapa.overlays.add('QrCodeButton');
       }
-    } else {
-      mapa.overlays.remove('QrCodeButton');
     }
-
     super.onCollisionStart(intersectionPoints, other);
   }
 }
