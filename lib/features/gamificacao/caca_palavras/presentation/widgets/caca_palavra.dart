@@ -51,7 +51,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
           ),
           alignment: Alignment.topCenter,
           width: 380,
-          height: 351,
+          height: 356,
           padding: EdgeInsets.all(padding),
           margin: EdgeInsets.all(padding),
           child: areaJogavel(context),
@@ -271,8 +271,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
                       child: Text(
                         char.toUpperCase(),
                         textAlign: TextAlign.start,
-                        style: const TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                     );
                   },
@@ -292,7 +291,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
       'paineira', //5
       'arvores', //5
       'bosque', //3
-      'conservacao' //7
+      'conservação' //7
     ];
 
     // final List<String> wl2 = [

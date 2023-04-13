@@ -28,6 +28,7 @@ class MapScreen extends FlameGame with HasCollisionDetection {
 
     overlays.add('BotoesPage');
     overlays.add('JoyStick');
+    
 
     addActors(mapa.tileMap);
 

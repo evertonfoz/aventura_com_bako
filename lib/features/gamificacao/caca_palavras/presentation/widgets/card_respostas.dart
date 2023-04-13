@@ -50,7 +50,6 @@ class _CardRespostaState extends State<CardResposta> {
                     value[indexArray].wsLocation.word.toUpperCase(),
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
                       color: value[indexArray].done ? Colors.red : Colors.black,
                       decoration: value[indexArray].done
                           ? TextDecoration.lineThrough

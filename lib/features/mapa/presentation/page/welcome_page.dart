@@ -52,7 +52,7 @@ class _WelcomePageState extends State<WelcomePage> {
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
-                  height: MediaQuery.of(context).size.height * 0.30,
+                  height: MediaQuery.of(context).size.height * 0.32,
                   decoration: ShapeDecoration(
                     color: Colors.yellow,
                     shape: TooltipShapeBorder(
@@ -69,26 +69,31 @@ class _WelcomePageState extends State<WelcomePage> {
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
-                      children: [
-                        TextECA(
-                          text:
-                              'Olá, eu sou o Bako e vou te acompanhar nessa aventura!',
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                      children: const [
+                        Text(
+                          'Olá, eu sou o Bako e vou te acompanhar nessa aventura!',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 22,
+                              fontFamily: 'Letters_for_leaners',
+                              fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(height: 10),
-                        TextECA(
-                          text:
-                              'Pela nossa jornada, exploraremos a trilha do Bosque da UTFPR. A trilha do Bosque é um caminho de XXXXm e conta com 21 espécies diferentes para desbravarmos.',
-                          fontSize: 16,
+                        SizedBox(height: 10),
+                        Text(
+                          'Pela nossa jornada, exploraremos a trilha do Bosque da UTFPR. A trilha do Bosque é um caminho de XXXXm e conta com 21 espécies diferentes para desbravarmos.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontFamily: 'Letters_for_leaners',
+                          ),
                         ),
                       ],
                     ),
                   ),
                 ),
                 Container(
-                  width: 200.00,
-                  height: 200.00,
+                  width: 220.00,
+                  height: 220.00,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: ExactAssetImage(
@@ -112,7 +117,8 @@ class _WelcomePageState extends State<WelcomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => InstrucoesTimelinePage(user: widget.user),
+                        builder: (context) =>
+                            InstrucoesTimelinePage(user: widget.user),
                       ),
                     );
                   },

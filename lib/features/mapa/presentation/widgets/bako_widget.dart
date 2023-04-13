@@ -26,7 +26,7 @@ class Bako extends SpriteAnimationComponent
 
   Bako(Vector2? position)
       : super(
-          size: Vector2.all(55.0),
+          size: Vector2.all(40.0),
           position: position,
           anchor: Anchor.center,
         ) {
@@ -50,21 +50,21 @@ class Bako extends SpriteAnimationComponent
 
   Future<void> _loadAnimations() async {
     final spriteSheet = SpriteSheet(
-      image: await gameRef.images.load('Ciclo_bako_1890x2187.png'),
-      srcSize: Vector2(472.5, 546.75),
+      image: await gameRef.images.load('test_player_spritesheet.png'),
+      srcSize: Vector2(29, 32),
     );
 
     _runDownAnimation =
         spriteSheet.createAnimation(row: 0, stepTime: _animationSpeed, to: 4);
 
     _runLeftAnimation =
-        spriteSheet.createAnimation(row: 3, stepTime: _animationSpeed, to: 4);
-
-    _runUpAnimation =
         spriteSheet.createAnimation(row: 1, stepTime: _animationSpeed, to: 4);
 
-    _runRightAnimation =
+    _runUpAnimation =
         spriteSheet.createAnimation(row: 2, stepTime: _animationSpeed, to: 4);
+
+    _runRightAnimation =
+        spriteSheet.createAnimation(row: 3, stepTime: _animationSpeed, to: 4);
 
     _standingAnimation =
         spriteSheet.createAnimation(row: 0, stepTime: _animationSpeed, to: 1);

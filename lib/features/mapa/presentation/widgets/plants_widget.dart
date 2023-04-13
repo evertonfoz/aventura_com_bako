@@ -41,6 +41,7 @@ class Plants extends PositionComponent
   void onCollisionStart(
       Set<Vector2> intersectionPoints, PositionComponent other) {
     if (other is Bako) {
+      mapa.overlays.add('QrcodeButton');
       if (mapa.mostrarQrCodePage) {
         mapa.pontoCapturado = informacoesEspeciesEnum;
         mapa.overlays.add('QrCodePage');

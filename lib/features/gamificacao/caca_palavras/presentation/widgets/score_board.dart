@@ -41,12 +41,12 @@ Widget _placar(String title, int valor) {
       children: [
         Text(
           title.toUpperCase(),
-          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 5.0),
         Text(
           valor.toString(),
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       ],
     ),

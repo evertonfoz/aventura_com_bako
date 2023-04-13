@@ -62,7 +62,6 @@ class CategoriaEspecie extends StatelessWidget {
           body!,
           textAlign: TextAlign.justify,
           style: const TextStyle(
-            fontSize: 17,
             color: Colors.black54,
           ),
         ),

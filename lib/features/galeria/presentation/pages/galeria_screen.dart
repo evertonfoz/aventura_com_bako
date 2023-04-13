@@ -68,8 +68,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                   backgroundColor: Colors.amber),
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
+              child: const Padding(
+                padding: EdgeInsets.all(15.0),
                 child: Text(
                   'Voltar',
                   style: TextStyle(
@@ -129,7 +129,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                     'Galeria',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 45,
+                        fontSize: 60,
                         overflow: TextOverflow.clip),
                   ),
                 ),

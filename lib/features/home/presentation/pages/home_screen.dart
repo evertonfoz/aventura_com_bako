@@ -162,23 +162,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   ListTile(
                     leading: Icon(Icons.forest),
-                    title: const Text('Passeio no bosque'),
+                    title: const Text(
+                      'Passeio no bosque',
+                      style: TextStyle(fontSize: 20),
+                    ),
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => WelcomePage(user: gamificationUser,),
+                          builder: (context) => WelcomePage(
+                            user: gamificationUser,
+                          ),
                         ),
                       );
                     },
                   ),
                   ExpansionTile(
                     leading: Icon(Icons.videogame_asset),
-                    title: const Text('Jogos'),
+                    title: const Text(
+                      'Jogos',
+                      style: TextStyle(fontSize: 20),
+                    ),
                     children: [
                       ListTile(
                         leading: Icon(Icons.abc),
-                        title: const Text('Caça-Palavras'),
+                        title: const Text(
+                          'Caça-Palavras',
+                          style: TextStyle(fontSize: 20),
+                        ),
                         onTap: () {
                           Navigator.push(
                             context,
@@ -190,7 +201,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       ListTile(
                         leading: Icon(Icons.question_mark),
-                        title: const Text('Quizz'),
+                        title: const Text(
+                          'Quizz',
+                          style: TextStyle(fontSize: 20),
+                        ),
                         onTap: () {
                           Navigator.push(
                             context,
@@ -204,7 +218,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       ListTile(
                         leading: Icon(Icons.remember_me),
-                        title: const Text('Jogo da memória'),
+                        title: const Text(
+                          'Jogo da memória',
+                          style: TextStyle(fontSize: 20),
+                        ),
                         onTap: () {
                           Navigator.push(
                             context,
@@ -218,7 +235,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   ListTile(
                     leading: Icon(Icons.photo),
-                    title: const Text('Galeria'),
+                    title: const Text(
+                      'Galeria',
+                      style: TextStyle(fontSize: 20),
+                    ),
                     onTap: () {
                       Navigator.push(
                           context,
@@ -230,7 +250,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   ListTile(
                     leading: Icon(Icons.label),
-                    title: const Text('Item 4'),
+                    title: const Text(
+                      'Item 4',
+                      style: TextStyle(fontSize: 20),
+                    ),
                     onTap: () {
                       // Update the state of the app.
                       // ...

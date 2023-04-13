@@ -12,13 +12,13 @@ Widget cabecalho(String titlePage, int placar, int chances) {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+              children: const [
                 Text(
                   'Jogo da memória',
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w400,
-                      fontSize: 25.0),
+                      fontSize: 45.0),
                 ),
               ],
             )),

@@ -210,7 +210,6 @@ class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
                               child: Text(
                                 'Família ${widget.controller.informacoesEspeciesList[widget.id].familia}',
                                 style: TextStyle(
-                                  fontSize: 20,
                                   color: Color(
                                     ColorUtils.hexToInt("#94BF36"),
                                   ),
@@ -244,7 +243,6 @@ class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
                                 Text(
                                   'Nomes populares',
                                   style: TextStyle(
-                                    fontSize: 20,
                                     color: Color(
                                       ColorUtils.hexToInt("#94BF36"),
                                     ),
@@ -258,7 +256,6 @@ class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
                               '${widget.controller.informacoesEspeciesList[widget.id].nomesPopulares}',
                               textAlign: TextAlign.justify,
                               style: const TextStyle(
-                                fontSize: 17,
                                 color: Colors.black54,
                               ),
                             ),

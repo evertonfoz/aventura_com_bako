@@ -136,7 +136,7 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
                       height: MediaQuery.of(context).size.height * 0.15,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: ExactAssetImage('assets/bako_vetor.png'),
+                          image: ExactAssetImage('assets/Bako_1281x1423.png'),
                           fit: BoxFit.fitHeight,
                         ),
                       ),
@@ -156,7 +156,6 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
                         'Aponte a câmera do seu celular\n para o QrCode',
                         style: TextStyle(
                             color: Colors.green[900],
-                            fontSize: 15,
                             overflow: TextOverflow.clip),
                       ),
                     ),

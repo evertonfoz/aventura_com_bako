@@ -8,6 +8,7 @@ import 'package:aventura_com_bako/features/mapa/presentation/page/botoes_page.da
 import 'package:aventura_com_bako/features/mapa/presentation/page/descobriu_todas_as_especies_page.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/widgets/joystick_widget.dart';
+import 'package:aventura_com_bako/features/mapa/presentation/widgets/qrcodeButton_widget.dart';
 import 'package:aventura_com_bako/features/qrcode/presentation/pages/qrcode_scanner_page.dart';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flame/game.dart';
@@ -134,7 +135,9 @@ class MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
-    //SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+    Future.delayed(const Duration(milliseconds: 100), () {
+      setState(() {});
+    });
     return WillPopScope(
       onWillPop: () async {
         final sair = await showDialogSairDoMapa();
@@ -153,7 +156,10 @@ class MapPageState extends State<MapPage> {
                       gamification: gamification,
                     ),
                 'QrCodePage': (BuildContext context, MapScreen mapa) =>
-                    QrCodeScannerPage(mapa: mapa, user: widget.user,),
+                    QrCodeScannerPage(
+                      mapa: mapa,
+                      user: widget.user,
+                    ),
                 'JoyStick': (BuildContext context, MapScreen mapa) => Padding(
                       padding: const EdgeInsets.only(bottom: 5),
                       child: Align(
@@ -162,6 +168,17 @@ class MapPageState extends State<MapPage> {
                           padding: const EdgeInsets.all(32.0),
                           child: Joystick(
                               onDirectionChanged: onJoystickDirectionChanged),
+                        ),
+                      ),
+                    ),
+                'QrcodeButton': (BuildContext context, MapScreen mapa) =>
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 150),
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.all(32.0),
+                          child: QrcodeButton(),
                         ),
                       ),
                     ),

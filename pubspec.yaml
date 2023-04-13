@@ -63,6 +63,10 @@ flutter:
           style: italic
         - asset: fonts/Nunito-Bold.ttf
         - asset: fonts/Nunito-Light.ttf
+    - family: Letters_for_leaners
+      fonts:
+        - asset: fonts/Letters_for_Learners.ttf
+          
   assets:
     - assets/
     - assets/icons/

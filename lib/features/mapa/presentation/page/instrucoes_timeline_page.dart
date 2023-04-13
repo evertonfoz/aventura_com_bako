@@ -54,7 +54,7 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * 0.85,
-                height: MediaQuery.of(context).size.height * 0.22,
+                height: MediaQuery.of(context).size.height * 0.20,
                 decoration: ShapeDecoration(
                   color: Colors.yellow,
                   shape: TooltipShapeBorder(
@@ -71,16 +71,18 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
-                    children: [
-                      TextECA(
-                        text: 'Sua aventura está prestes a começar',
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                    children: const [
+                      Text(
+                        'Sua aventura está prestes a começar',
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
-                      TextECA(
-                        text: 'Mas antes, vamos à algumas orientações',
-                        fontSize: 16,
+                      Text(
+                        'Mas antes, vamos à algumas orientações',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
                       ),
                     ],
                   ),
@@ -139,7 +141,7 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
                         textosDeInformacao[index],
                         style: const TextStyle(
                           color: Colors.black54,
-                          fontSize: 14,
+                          fontSize: 20,
                         ),
                       ),
                     ],
