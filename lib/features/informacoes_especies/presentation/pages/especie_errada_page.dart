@@ -44,15 +44,18 @@ class EspecieErradaPage extends StatelessWidget {
                     height: 200.00,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: ExactAssetImage('assets/bako_vetor.png'),
+                        image: ExactAssetImage('assets/Bako_1281x1423.png'),
                         fit: BoxFit.fitHeight,
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   const Text(
                     'Ops!',
                     style: TextStyle(
-                      color: Colors.black54,
+                      fontWeight: FontWeight.bold,
                       fontSize: 24,
                     ),
                   ),
@@ -61,12 +64,11 @@ class EspecieErradaPage extends StatelessWidget {
                     'ponto em que você está! Tente novamente.',
                     style: TextStyle(
                       color: Colors.black54,
-                      fontSize: 18,
                     ),
                     textAlign: TextAlign.center,
                   ),
                   Container(
-                    padding: const EdgeInsets.only(bottom: 50, top: 20),
+                    padding: const EdgeInsets.only(bottom: 20, top: 20),
                     width: 220,
                     child: ElevatedButton(
                       onPressed: () {
@@ -85,7 +87,6 @@ class EspecieErradaPage extends StatelessWidget {
                         child: Text(
                           'Retomar',
                           style: TextStyle(
-                            fontSize: 20,
                             fontWeight: FontWeight.w800,
                             color: Color(
                               ColorUtils.hexToInt("#788A25"),

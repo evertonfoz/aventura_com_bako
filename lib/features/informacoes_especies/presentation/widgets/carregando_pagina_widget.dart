@@ -39,7 +39,7 @@ class CarregandoPaginaWidget extends StatelessWidget {
                     height: 200.00,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: ExactAssetImage('assets/bako_vetor.png'),
+                        image: ExactAssetImage('assets/Bako_1281x1423.png'),
                         fit: BoxFit.fitHeight,
                       ),
                     ),
@@ -50,7 +50,7 @@ class CarregandoPaginaWidget extends StatelessWidget {
                       Text(
                         'Carregando',
                         style: TextStyle(
-                          color: Colors.black54,
+                          fontWeight: FontWeight.bold,
                           fontSize: 24,
                         ),
                       ),

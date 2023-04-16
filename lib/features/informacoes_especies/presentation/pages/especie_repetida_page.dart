@@ -44,7 +44,7 @@ class EspecieRepetidaPage extends StatelessWidget {
                     height: 200.00,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
-                        image: ExactAssetImage('assets/bako_vetor.png'),
+                        image: ExactAssetImage('assets/Bako_1281x1423.png'),
                         fit: BoxFit.fitHeight,
                       ),
                     ),
@@ -52,7 +52,7 @@ class EspecieRepetidaPage extends StatelessWidget {
                   const Text(
                     'Ops!',
                     style: TextStyle(
-                      color: Colors.black54,
+                      fontWeight: FontWeight.bold,
                       fontSize: 24,
                     ),
                   ),
@@ -60,12 +60,11 @@ class EspecieRepetidaPage extends StatelessWidget {
                     'Lembre-se, você só pode descobrir uma especie uma unica vez! Tente descobrir uma nova.',
                     style: TextStyle(
                       color: Colors.black54,
-                      fontSize: 18,
                     ),
                     textAlign: TextAlign.center,
                   ),
                   Container(
-                    padding: const EdgeInsets.only(bottom: 50, top: 20),
+                    padding: const EdgeInsets.only(bottom: 20, top: 20),
                     width: 220,
                     child: ElevatedButton(
                       onPressed: () {

@@ -48,4 +48,12 @@ class Plants extends PositionComponent
     }
     super.onCollisionStart(intersectionPoints, other);
   }
+
+  @override
+  void onCollisionEnd(PositionComponent other) {
+    if (other is Bako) {
+      mapa.overlays.remove('QrCodeButton');
+    }
+    super.onCollisionEnd(other);
+  }
 }
