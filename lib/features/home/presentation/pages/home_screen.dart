@@ -161,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 runSpacing: 5,
                 children: [
                   ListTile(
-                    leading: Icon(Icons.forest),
+                    leading: const Icon(Icons.map),
                     title: const Text(
                       'Passeio no bosque',
                       style: TextStyle(fontSize: 20),

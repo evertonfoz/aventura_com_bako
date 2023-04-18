@@ -20,7 +20,6 @@ class SplashScreenPage extends StatelessWidget {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: ExactAssetImage(
-                    //TODO Organizar as imagens em pastas em assets
                     'assets/images/Tela_Inicial2.png'), //TODO Constants
                 fit: BoxFit.cover,
               ),
@@ -40,17 +39,17 @@ class SplashScreenPage extends StatelessWidget {
             //   ),
             // ),
           ),
+          // Container(
+          //   margin: const EdgeInsets.only(bottom: 50.0),
+          //   alignment: Alignment.bottomCenter,
+          //   child: Image.asset(
+          //     'assets/Bako_1281x1423.png',
+          //     fit: BoxFit.fitWidth,
+          //     height: size.width * 0.8,
+          //   ),
+          // ),
           Container(
-            margin: const EdgeInsets.only(bottom: 50.0),
-            alignment: Alignment.bottomCenter,
-            child: Image.asset(
-              'assets/Bako_1281x1423.png',
-              fit: BoxFit.fitWidth,
-              height: size.width * 0.8,
-            ),
-          ),
-          Container(
-            alignment: Alignment.topCenter,
+            alignment: Alignment.center,
             margin: EdgeInsets.only(
               top: size.height * 0.1,
             ),
