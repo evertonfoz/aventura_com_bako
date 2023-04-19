@@ -153,7 +153,7 @@ class _DescobriuTodasEspeciesPageState
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const HomeScreen(),
+                        builder: (context) => HomeScreen(),
                       ),
                     );
                   },

@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import '../widgets/caca_palavra.dart';
 
 class HomeCacaPalavras extends StatelessWidget {
-  HomeCacaPalavras({this.gamification, super.key});
+  HomeCacaPalavras({required this.user, required this.notifyParent, super.key});
 
-  GamificationUser? gamification;
+  final Function() notifyParent;
+  GamificationUser user;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class HomeCacaPalavras extends StatelessWidget {
                     image: AssetImage('assets/Padrão4.jpg'),
                     fit: BoxFit.cover)),
           ),
-          CacaPalavra(/*gamification: gamification!*/),
+          CacaPalavra(user: user, notifyParent: notifyParent),
         ],
       ),
     );

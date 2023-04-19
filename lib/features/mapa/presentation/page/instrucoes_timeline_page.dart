@@ -10,7 +10,7 @@ import 'welcome_page.dart';
 class InstrucoesTimelinePage extends StatefulWidget {
   InstrucoesTimelinePage({Key? key, required this.user}) : super(key: key);
 
-  GamificationUser user = GamificationUser();
+  GamificationUser user;
   @override
   State<InstrucoesTimelinePage> createState() => _InstrucoesTimelinePageState();
 }

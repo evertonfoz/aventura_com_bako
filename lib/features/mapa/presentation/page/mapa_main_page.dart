@@ -22,7 +22,7 @@ import '../../../informacoes_especies/presentation/pages/especie_repetida_page.d
 class MapPage extends StatefulWidget {
   MapPage({Key? key, required this.user}) : super(key: key);
 
-  GamificationUser user = GamificationUser();
+  GamificationUser user;
   @override
   MapPageState createState() => MapPageState();
 }

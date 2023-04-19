@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 class WelcomePage extends StatefulWidget {
   WelcomePage({Key? key, required this.user}) : super(key: key);
 
-  GamificationUser user = GamificationUser();
+  GamificationUser user;
 
   @override
   State<WelcomePage> createState() => _WelcomePageState();

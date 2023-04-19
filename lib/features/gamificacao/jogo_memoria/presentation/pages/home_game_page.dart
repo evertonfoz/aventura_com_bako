@@ -7,9 +7,10 @@ import 'package:flutter/material.dart';
 import '../widgets/score_board.dart';
 
 class HomePageMemoryGame extends StatefulWidget {
-  HomePageMemoryGame({/*required this.gamification,*/ Key? key})
+  HomePageMemoryGame({required this.user, required this.notifyParent, Key? key})
       : super(key: key);
-  //GamificationUser gamification;
+  GamificationUser user;
+  final Function() notifyParent;
 
   @override
   State<HomePageMemoryGame> createState() => _HomePageMemoryGameState();
@@ -17,9 +18,8 @@ class HomePageMemoryGame extends StatefulWidget {
 
 class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
   int tentativas = 15;
-  int pontos = 0;
   final MemoryGameModel _gameModel = MemoryGameModel();
-
+  int pontos = 0;
   int previousIndex = -1;
   bool flip = false;
 
@@ -42,7 +42,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              cabecalho('MEMORY', pontos, tentativas),
+              cabecalho('MEMORY', widget.user.pontuacao, tentativas),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -128,13 +128,15 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
             tentativas -= 1;
           });
           if (tentativas == 0) {
-            AlertGame(pontos: 0).alertTriesOver(context);
+            AlertGame(pontos: pontos).alertTriesOver(context);
           }
         } else {
           _gameModel.cardFlips[previousIndex] = false;
           _gameModel.cardFlips[index] = false;
           setState(() {
             pontos += 5;
+            widget.user.pontuacao += 5;
+            widget.notifyParent();
           });
           if (_gameModel.cardFlips.every((t) => t == false)) {
             //widget.gamification.updatePontuacao(pontos);

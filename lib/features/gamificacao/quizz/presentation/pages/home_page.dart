@@ -7,9 +7,11 @@ import '../../data/model/questions_list.dart';
 import '../widgets/quizz_colors.dart';
 
 class HomePageQuizz extends StatefulWidget {
-  HomePageQuizz({required this.gamification, Key? key}) : super(key: key);
+  HomePageQuizz({required this.user, required this.notifyParent, Key? key})
+      : super(key: key);
 
-  GamificationUser gamification;
+  GamificationUser user;
+  final Function() notifyParent;
 
   @override
   State<HomePageQuizz> createState() => _HomePageQuizzState();
@@ -40,7 +42,7 @@ class _HomePageQuizzState extends State<HomePageQuizz> {
           ),
           Padding(
             padding: const EdgeInsets.all(15.0),
-            child: cabecalho('titlePage', score, 0),
+            child: cabecalho('titlePage', widget.user.pontuacao, 0),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 60.0, left: 20, right: 20),
@@ -112,6 +114,8 @@ class _HomePageQuizzState extends State<HomePageQuizz> {
                 });
                 if (questions[index].answer.entries.toList()[i].value) {
                   score += 5;
+                  widget.user.pontuacao += 5;
+                  widget.notifyParent();
                 }
               },
         child: Text(
@@ -134,7 +138,6 @@ class _HomePageQuizzState extends State<HomePageQuizz> {
           onPressed: isPressed
               ? index + 1 == questions.length
                   ? () {
-                      widget.gamification.updatePontuacao(score);
                       AlertGame(pontos: score).alertWin(context);
                     }
                   : () {
@@ -203,7 +206,8 @@ class _HomePageQuizzState extends State<HomePageQuizz> {
                       });
                       if (questions[index].answer.entries.toList()[i].value) {
                         score += 10;
-                        print(score);
+                        widget.user.pontuacao += 10;
+                        widget.notifyParent();
                       }
                     },
               child: SizedBox(

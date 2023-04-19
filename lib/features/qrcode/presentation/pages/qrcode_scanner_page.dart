@@ -17,7 +17,7 @@ class QrCodeScannerPage extends StatefulWidget {
       : super(key: key);
 
   final MapScreen mapa;
-  GamificationUser user = GamificationUser();
+  GamificationUser user;
 
   @override
   State<QrCodeScannerPage> createState() => _QrCodeScannerPageState();

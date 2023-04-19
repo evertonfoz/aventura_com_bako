@@ -9,7 +9,9 @@ import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.d
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({/*required this.username,*/ Key? key}) : super(key: key);
+
+  /*final String username;*/
   @override
   // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
@@ -17,6 +19,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final GamificationUser gamificationUser = GamificationUser();
+
+  refresh() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -130,6 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       endDrawer: Drawer(
+        backgroundColor: Colors.lightGreen,
         child: ListView(
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
@@ -152,6 +159,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(width: 15),
                   ],
                 ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.all(5),
+                    height: 60,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white60,
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('MylongUsername'),
+                    ),
+                  ),
+                  _placar(gamificationUser.pontuacao),
+                ],
               ),
             ),
             Container(
@@ -194,7 +224,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomeCacaPalavras(),
+                              builder: (context) => HomeCacaPalavras(
+                                  user: gamificationUser,
+                                  notifyParent: refresh),
                             ),
                           );
                         },
@@ -210,7 +242,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => HomePageQuizz(
-                                gamification: gamificationUser,
+                                user: gamificationUser,
+                                notifyParent: refresh,
                               ),
                             ),
                           );
@@ -226,7 +259,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomePageMemoryGame(),
+                              builder: (context) => HomePageMemoryGame(
+                                user: gamificationUser,
+                                notifyParent: refresh,
+                              ),
                             ),
                           );
                         },
@@ -262,23 +298,62 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            Opacity(
-              opacity: 0.5,
-              child: Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image:
-                        ExactAssetImage('assets/Padrão4.jpg'), //TODO Constantes
-                    fit: BoxFit.fitHeight,
-                  ),
-                ),
-              ),
-            ),
+            // Opacity(
+            //   opacity: 0.5,
+            //   child: Container(
+            //     height: MediaQuery.of(context).size.height,
+            //     width: MediaQuery.of(context).size.width,
+            //     decoration: const BoxDecoration(
+            //       image: DecorationImage(
+            //         image:
+            //             ExactAssetImage('assets/Padrão4.jpg'), //TODO Constantes
+            //         fit: BoxFit.fitHeight,
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
     );
   }
+}
+
+Widget _placar(valor) {
+  return Container(
+    alignment: Alignment.center,
+    padding: const EdgeInsets.all(5),
+    width: 100,
+    height: 60,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+      color: Colors.white60,
+    ),
+    child: Column(
+      children: [
+        const Text('Sementes:'),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              height: 25,
+              width: 25,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/saco-de-sementes.png'),
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ),
+            Text(
+              valor.toString(),
+              overflow: TextOverflow.fade,
+              style: const TextStyle(
+                  color: Colors.green, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
 }

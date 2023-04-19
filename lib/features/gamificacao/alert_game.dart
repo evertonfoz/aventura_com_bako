@@ -44,7 +44,7 @@ class AlertGame extends StatelessWidget {
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text('PARABENS ZE'),
+                Text('PARABENS VOCÊ'),
                 Text('VOCE GANHOU MAIS $pontos SEMENTES !!!!!'),
               ],
             ),

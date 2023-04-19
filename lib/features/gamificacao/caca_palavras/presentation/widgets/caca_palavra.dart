@@ -8,9 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:word_search_safety/word_search_safety.dart';
 
 class CacaPalavra extends StatefulWidget {
-  CacaPalavra({/*required this.gamification,*/ Key? key}) : super(key: key);
+  CacaPalavra({required this.user, required this.notifyParent, Key? key})
+      : super(key: key);
 
-  //GamificationUser gamification;
+  final Function() notifyParent;
+  GamificationUser user;
 
   @override
   _CacaPalavraState createState() => _CacaPalavraState();
@@ -19,7 +21,6 @@ class CacaPalavra extends StatefulWidget {
 class _CacaPalavraState extends State<CacaPalavra> {
   int numBox = 11;
   double padding = 5;
-  int placarJogo = 0;
   Size sizeBox = Size.zero;
   late ValueNotifier<List<List<String>>> listaPalavras;
   late ValueNotifier<List<RespostasCacaPalavra>> listaResposta;
@@ -42,7 +43,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        cabecalho('Caça-Palavras', placarJogo, 0),
+        cabecalho('Caça-Palavras', widget.user.pontuacao, 0),
         const SizedBox(height: 15),
         Container(
           decoration: BoxDecoration(
@@ -91,7 +92,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
       acertos += 1;
       if (acertos == 6) {
         //widget.gamification.updatePontuacao(placarJogo);
-        AlertGame(pontos: placarJogo).alertWin(context);
+        AlertGame(pontos: widget.user.pontuacao).alertWin(context);
       }
       palavrasFeitas.notifyListeners();
       listaResposta.notifyListeners();
@@ -103,32 +104,38 @@ class _CacaPalavraState extends State<CacaPalavra> {
     switch (tamPalavra) {
       case 4:
         setState(() {
-          placarJogo += 3;
+          widget.user.pontuacao += 3;
+          widget.notifyParent();
         });
         break;
       case 6:
         setState(() {
-          placarJogo += 3;
+          widget.user.pontuacao += 3;
+          widget.notifyParent();
         });
         break;
       case 7:
         setState(() {
-          placarJogo += 5;
+          widget.user.pontuacao += 5;
+          widget.notifyParent();
         });
         break;
       case 8:
         setState(() {
-          placarJogo += 5;
+          widget.user.pontuacao += 5;
+          widget.notifyParent();
         });
         break;
       case 9:
         setState(() {
-          placarJogo += 7;
+          widget.user.pontuacao += 7;
+          widget.notifyParent();
         });
         break;
       case 11:
         setState(() {
-          placarJogo += 7;
+          widget.user.pontuacao += 7;
+          widget.notifyParent();
         });
         break;
       default:
