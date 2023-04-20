@@ -9,17 +9,15 @@ import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.d
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({/*required this.username,*/ Key? key}) : super(key: key);
+  HomeScreen({required this.user, Key? key}) : super(key: key);
 
-  /*final String username;*/
+  GamificationUser user;
   @override
   // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final GamificationUser gamificationUser = GamificationUser();
-
   refresh() {
     setState(() {});
   }
@@ -175,12 +173,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.white60,
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('MylongUsername'),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(widget.user.userName.toString()),
                     ),
                   ),
-                  _placar(gamificationUser.pontuacao),
+                  _placar(widget.user.pontuacao),
                 ],
               ),
             ),
@@ -201,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => WelcomePage(
-                            user: gamificationUser,
+                            user: widget.user,
                           ),
                         ),
                       );
@@ -225,8 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => HomeCacaPalavras(
-                                  user: gamificationUser,
-                                  notifyParent: refresh),
+                                  user: widget.user, notifyParent: refresh),
                             ),
                           );
                         },
@@ -242,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => HomePageQuizz(
-                                user: gamificationUser,
+                                user: widget.user,
                                 notifyParent: refresh,
                               ),
                             ),
@@ -260,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => HomePageMemoryGame(
-                                user: gamificationUser,
+                                user: widget.user,
                                 notifyParent: refresh,
                               ),
                             ),
@@ -280,7 +277,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => GalleryScreen(
-                                    user: gamificationUser,
+                                    user: widget.user,
                                   )));
                     },
                   ),

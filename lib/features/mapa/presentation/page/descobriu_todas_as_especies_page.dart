@@ -150,12 +150,7 @@ class _DescobriuTodasEspeciesPageState
                 width: 220,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomeScreen(),
-                      ),
-                    );
+                    Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(

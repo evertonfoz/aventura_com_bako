@@ -88,3 +88,4 @@ class MapScreen extends FlameGame with HasCollisionDetection {
     bako.direction = direction;
   }
 }
+

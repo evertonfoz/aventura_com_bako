@@ -91,120 +91,90 @@ class _GalleryScreenState extends State<GalleryScreen> {
     });
 
     return Scaffold(
+        appBar: AppBar(
+          title: const Text('Galeria'),
+        ),
         body: Stack(
-      children: [
-        Opacity(
-          opacity: 0.5,
-          child: Container(
-            height: double.maxFinite,
-            width: double.maxFinite,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: ExactAssetImage('assets/Padrão4.jpg'), //TODO Constantes
-                fit: BoxFit.fitHeight,
+          children: [
+            Opacity(
+              opacity: 0.5,
+              child: Container(
+                height: double.maxFinite,
+                width: double.maxFinite,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image:
+                        ExactAssetImage('assets/Padrão4.jpg'), //TODO Constantes
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.topLeft,
-          child: Container(
-            margin: const EdgeInsets.only(top: 40),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: ExactAssetImage('assets/Bako_1281x1423.png'),
-                      fit: BoxFit.fitHeight,
-                    ),
-                  ),
-                ),
-                const Text(
-                  'Galeria',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 60,
-                      overflow: TextOverflow.clip),
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: ExactAssetImage('assets/Bako_1281x1423.png'),
-                      fit: BoxFit.fitHeight,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-              height: MediaQuery.of(context).size.height * 0.8,
-              width: MediaQuery.of(context).size.width * 0.95,
-              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-              child: CupertinoScrollbar(
-                thickness: 8,
-                radiusWhileDragging: const Radius.circular(10),
-                scrollbarOrientation: ScrollbarOrientation.right,
-                radius: const Radius.circular(10),
-                child: GridView.builder(
-                  itemCount: controller.informacoesEspeciesList.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 5,
-                    mainAxisSpacing: 5,
-                  ),
-                  itemBuilder: (context, index) {
-                    return RawMaterialButton(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.lightGreen,
-                              style: BorderStyle.solid,
-                              width: 5),
-                          borderRadius: BorderRadius.zero,
-                          shape: BoxShape.rectangle,
-                          boxShadow: const <BoxShadow>[
-                            BoxShadow(
-                              color: Colors.green,
-                              blurRadius: 1.0,
-                              spreadRadius: 1.0,
-                            )
-                          ],
-                          image: DecorationImage(
-                              image: AssetImage(
-                                  '${widget.user.especieDescoberta[index] ? controller.informacoesEspeciesList[index].assets : 'assets/hidden.png'}'),
-                              fit: BoxFit.cover),
-                        ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.black12,
+                  child: CupertinoScrollbar(
+                    thickness: 8,
+                    radiusWhileDragging: const Radius.circular(10),
+                    scrollbarOrientation: ScrollbarOrientation.right,
+                    radius: const Radius.circular(20),
+                    child: GridView.builder(
+                      itemCount: controller.informacoesEspeciesList.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 0,
+                        mainAxisSpacing: 0,
                       ),
-                      onPressed: () {
-                        if (widget.user.especieDescoberta[index]) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => InformacoesGalleryPage(
-                                        controller: controller,
-                                        id: index,
-                                      )));
-                        } else {
-                          showDialogEspecieNaoEncontrada();
-                        }
+                      itemBuilder: (context, index) {
+                        return RawMaterialButton(
+                          padding: const EdgeInsets.all(5),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              border: Border.all(
+                                  color: Colors.lightGreen,
+                                  style: BorderStyle.solid,
+                                  width: 5),
+                              borderRadius: BorderRadius.circular(20),
+                              shape: BoxShape.rectangle,
+                              boxShadow: const <BoxShadow>[
+                                BoxShadow(
+                                  offset: Offset(2, 2),
+                                  color: Colors.black87,
+                                  blurRadius: 1.0,
+                                  spreadRadius: 1.0,
+                                )
+                              ],
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      '${widget.user.especieDescoberta[index] ? controller.informacoesEspeciesList[index].assets : 'assets/hidden.png'}'),
+                                  fit: BoxFit.cover),
+                            ),
+                          ),
+                          onPressed: () {
+                            if (widget.user.especieDescoberta[index]) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          InformacoesGalleryPage(
+                                            controller: controller,
+                                            id: index,
+                                          )));
+                            } else {
+                              showDialogEspecieNaoEncontrada();
+                            }
+                          },
+                        );
                       },
-                    );
-                  },
-                ),
-              )),
-        ),
-      ],
-    ));
+                    ),
+                  )),
+            ),
+          ],
+        ));
   }
 }

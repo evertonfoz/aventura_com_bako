@@ -52,7 +52,7 @@ class _WelcomePageState extends State<WelcomePage> {
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
-                  height: MediaQuery.of(context).size.height * 0.32,
+                  height: MediaQuery.of(context).size.height * 0.30,
                   decoration: ShapeDecoration(
                     color: Colors.yellow,
                     shape: TooltipShapeBorder(
@@ -69,17 +69,17 @@ class _WelcomePageState extends State<WelcomePage> {
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
-                      children: const [
+                      children: [
                         Text(
-                          'Olá, eu sou o Bako e vou te acompanhar nessa aventura!',
+                          'Olá, ${widget.user.userName}!',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 22,
                               fontFamily: 'Letters_for_leaners',
                               fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(height: 10),
-                        Text(
+                        const SizedBox(height: 10),
+                        const Text(
                           'Pela nossa jornada, exploraremos a trilha do Bosque da UTFPR. A trilha do Bosque é um caminho de XXXXm e conta com 21 espécies diferentes para desbravarmos.',
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -92,8 +92,8 @@ class _WelcomePageState extends State<WelcomePage> {
                   ),
                 ),
                 Container(
-                  width: 220.00,
-                  height: 220.00,
+                  width: 250.00,
+                  height: 250.00,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: ExactAssetImage(
