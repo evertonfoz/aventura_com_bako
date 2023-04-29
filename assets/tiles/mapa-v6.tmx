@@ -12,7 +12,7 @@
  <tileset firstgid="4470" name="contorno-com-textura-v3" tilewidth="16" tileheight="16" tilecount="4096" columns="64">
   <image source="../images/contorno-com-textura-v3.png" width="1024" height="1024"/>
  </tileset>
- <tileset firstgid="8566" name="contorno-com-textura-v5" tilewidth="16" tileheight="16" tilecount="4096" columns="64">
+ <tileset firstgid="8566" name="contorno-com-textura-v5.png" tilewidth="16" tileheight="16" tilecount="4096" columns="64">
   <image source="../images/contorno-com-textura-v5.png" width="1024" height="1024"/>
  </tileset>
  <layer id="1" name="Camada de Tiles 1" width="64" height="64">

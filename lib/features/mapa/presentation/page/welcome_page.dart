@@ -17,6 +17,7 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: const Text('Passeio no bosque')),
       body: Stack(
         children: [
           Opacity(
@@ -34,22 +35,23 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
           ),
           Align(
-            alignment: Alignment.topCenter,
-            child: Container(
-              width: 300.00,
-              height: 150.00,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: ExactAssetImage('assets/idv.png'), //TODO Constantes
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-          ),
-          Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: MediaQuery.of(context).size.width * 0.2,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image:
+                            ExactAssetImage('assets/idv.png'), //TODO Constantes
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
                   height: MediaQuery.of(context).size.height * 0.30,
@@ -102,33 +104,33 @@ class _WelcomePageState extends State<WelcomePage> {
                     ),
                   ),
                 ),
-              ],
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: SizedBox(
-                width: 80,
-                height: 80,
-                child: FloatingActionButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            InstrucoesTimelinePage(user: widget.user),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: 80,
+                      height: 80,
+                      child: FloatingActionButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  InstrucoesTimelinePage(user: widget.user),
+                            ),
+                          );
+                        },
+                        child: const Icon(
+                          Icons.arrow_forward,
+                          size: 60,
+                          // color: kBrandColor,
+                        ),
                       ),
-                    );
-                  },
-                  child: const Icon(
-                    Icons.arrow_forward,
-                    size: 60,
-                    // color: kBrandColor,
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ),
         ],

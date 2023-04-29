@@ -42,9 +42,9 @@ class _CacaPalavraState extends State<CacaPalavra> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         cabecalho('Caça-Palavras', widget.user.pontuacao, 0),
-        const SizedBox(height: 15),
         Container(
           decoration: BoxDecoration(
             border: Border.all(color: Colors.green.shade700, width: 2),
@@ -57,7 +57,6 @@ class _CacaPalavraState extends State<CacaPalavra> {
           margin: EdgeInsets.all(padding),
           child: areaJogavel(context),
         ),
-        const SizedBox(height: 35),
         Container(
           alignment: Alignment.center,
           child: CardResposta(

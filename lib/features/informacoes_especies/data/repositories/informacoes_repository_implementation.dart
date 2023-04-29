@@ -5,7 +5,6 @@ class InformacoesRepositoryImplementation {
   Future<List<InformacoesModel>> getInformacoes() async {
     var jsonString =
         await rootBundle.loadString('assets/informacoesEspecies.json');
-
     return informacoesModelFromJson(jsonString);
   }
 }

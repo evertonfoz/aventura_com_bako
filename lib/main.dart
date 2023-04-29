@@ -12,18 +12,14 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
-  // await StatusBarControl.setColor(Colors.transparent);
-  // await StatusBarControl.setTranslucent(true);
-  // await StatusBarControl.setNavigationBarColor(Colors.transparent);
-  // await StatusBarControl.setNavigationBarStyle(NavigationBarStyle.DARK);
-  // await StatusBarControl.setFullscreen(true);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
   await Firebase.initializeApp();
 
-  await showStatusBarAndSetColorToNavigationBar(
+  /*await showStatusBarAndSetColorToNavigationBar(
       statusBarColor: Colors.transparent,
       navigationBarColor: Colors.green,
-      darkContent: false);
+      darkContent: false);*/
   runApp(const MyApp());
 }
 

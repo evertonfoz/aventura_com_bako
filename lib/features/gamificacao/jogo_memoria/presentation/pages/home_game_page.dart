@@ -1,8 +1,12 @@
 import 'package:aventura_com_bako/features/gamificacao/alert_game.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/data/model/game_model.dart';
+import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/informacoes_jogo_da_memoria/presentation/controller/jogoMemoria_controller.dart';
+import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/informacoes_jogo_da_memoria/presentation/pages/Informacoes_memoria_page.dart';
+import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widgets/score_board.dart';
 
@@ -17,6 +21,10 @@ class HomePageMemoryGame extends StatefulWidget {
 }
 
 class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
+  InformacoesJogoDaMemoriaController controller =
+      Get.put(InformacoesJogoDaMemoriaController());
+  InformacoesEspeciesController controller2 =
+      Get.put(InformacoesEspeciesController());
   int tentativas = 15;
   final MemoryGameModel _gameModel = MemoryGameModel();
   int pontos = 0;
@@ -47,7 +55,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.60,
+                  height: MediaQuery.of(context).size.height * 0.57,
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     color: Colors.transparent,
@@ -95,7 +103,8 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
           direction: FlipDirection.HORIZONTAL,
           flipOnTouch: _gameModel.cardFlips[index],
           front: _faceConfigFlipCard(Colors.green, 'assets/hidden.png'),
-          back: _faceConfigFlipCard(Colors.white, _gameModel.cardsList[index]),
+          back: _faceConfigFlipCard(
+              Colors.white, _gameModel.shuffleCardsList![index]),
         );
       },
     );
@@ -120,8 +129,8 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
     } else {
       flip = false;
       if (previousIndex != index) {
-        if (_gameModel.cardsList[previousIndex] !=
-            _gameModel.cardsList[index]) {
+        if (_gameModel.shuffleCardsList![previousIndex] !=
+            _gameModel.shuffleCardsList![index]) {
           _gameModel.cardStateKeys[previousIndex].currentState!.toggleCard();
           previousIndex = index;
           setState(() {
@@ -137,6 +146,12 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
             pontos += 5;
             widget.user.pontuacao += 5;
             widget.notifyParent();
+            print(controller2.informacoesEspeciesList[index].assets);
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => InformacoesMemoriaPage(
+                        controller: controller, index: findIndex(index))));
           });
           if (_gameModel.cardFlips.every((t) => t == false)) {
             //widget.gamification.updatePontuacao(pontos);
@@ -149,5 +164,14 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
         });
       }
     }
+  }
+
+  int findIndex(int index) {
+    for (var i = 0; i < 6; i++) {
+      if (_gameModel.shuffleCardsList![index] == _gameModel.cardsList[i]) {
+        return i;
+      }
+    }
+    return -1;
   }
 }

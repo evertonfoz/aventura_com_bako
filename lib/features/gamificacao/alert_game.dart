@@ -8,7 +8,7 @@ class AlertGame extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container();
   }
-
+  
   void alertWin(BuildContext context) {
     showDialog(
       context: context,
@@ -78,7 +78,7 @@ class AlertGame extends StatelessWidget {
             )
           ],
           title: const Text(
-            'Parabéns!!',
+            'Que pena!!',
             style: TextStyle(
                 fontSize: 20,
                 decorationStyle: TextDecorationStyle.double,

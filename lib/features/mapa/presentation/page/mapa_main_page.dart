@@ -81,13 +81,10 @@ class MapPageState extends State<MapPage> {
               child: ElevatedButton(
                 onPressed: () => Navigator.pop(context, false),
                 style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  primary: Color(
-                    ColorUtils.hexToInt("#FEE784"),
-                  ),
-                ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    backgroundColor: Colors.amber),
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Text(
@@ -106,13 +103,10 @@ class MapPageState extends State<MapPage> {
               child: ElevatedButton(
                 onPressed: () => Navigator.pop(context, true),
                 style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  primary: Color(
-                    ColorUtils.hexToInt("#FEE784"),
-                  ),
-                ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    backgroundColor: Colors.amber),
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Text(
@@ -144,6 +138,7 @@ class MapPageState extends State<MapPage> {
         return sair ?? false;
       },
       child: Scaffold(
+        appBar: AppBar(title: const Text('Passeio no bosque')),
         backgroundColor: const Color.fromRGBO(0, 0, 0, 1),
         body: Stack(
           children: [
