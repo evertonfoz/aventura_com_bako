@@ -7,9 +7,9 @@
     },
     {
         "id": 1,
-        "titulo": "Teste1",
-        "texto": "Teste1",
-        "assets": "assets/Paineira-rosa-1.jpg"
+        "titulo": "Sementes",
+        "texto": "As sementes são tão importantes que, sem elas, não teríamos frutas, verduras, flores, árvores e outras plantas que são essenciais para a nossa sobrevivência e para a vida dos animais. As plantas produzem oxigênio, que é fundamental para que possamos respirar e viver. Além disso, as sementes podem ser usadas para produzir alimentos e remédios, além de serem usadas na fabricação de roupas e outros produtos que usamos no nosso dia a dia. Por isso, é muito importante cuidarmos das sementes e das plantas, para que elas possam continuar nos fornecendo tudo o que precisamos para viver. Se vocês tiverem sementes em casa, não as joguem fora! Plantem-nas em um vasinho e cuidem delas com carinho, para que possam crescer e se transformar em plantas lindas e saudáveis.",
+        "assets": "assets/saco-de-sementes.png"
     },
     {
         "id": 2,

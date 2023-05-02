@@ -33,6 +33,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
 
   @override
   void initState() {
+    controller.getAllInformacoesJogoDaMemoria();
     super.initState();
     _gameModel.cardFlips.every((element) => element = true);
     _gameModel.initGame();
@@ -146,7 +147,6 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
             pontos += 5;
             widget.user.pontuacao += 5;
             widget.notifyParent();
-            print(controller2.informacoesEspeciesList[index].assets);
             Navigator.push(
                 context,
                 MaterialPageRoute(
