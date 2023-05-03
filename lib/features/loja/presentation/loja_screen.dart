@@ -13,8 +13,21 @@ class LojaScreen extends StatefulWidget {
 }
 
 class _LojaScreenState extends State<LojaScreen> {
-  _canBuy(int price) {
-    if (price >= widget.user.pontuacao) {
+  _bought(index) {
+    if (!itensLoja[index].bought) {
+      return Colors.grey;
+    } else if (itensLoja[index].active) {
+      return Colors.lightGreen;
+    } else if (!itensLoja[index].active) {
+      return Colors.red;
+    }
+  }
+
+  _canBuy(price, index) {
+    if (itensLoja[index].bought) {
+      return Colors.transparent;
+    }
+    if (price > widget.user.pontuacao) {
       return Colors.red;
     } else {
       return Colors.green;
@@ -103,7 +116,7 @@ class _LojaScreenState extends State<LojaScreen> {
           ),
           Container(
             decoration: const BoxDecoration(
-              color: Colors.green,
+              color: Colors.amber,
               boxShadow: <BoxShadow>[
                 BoxShadow(
                   color: Colors.black38,
@@ -154,7 +167,7 @@ class _LojaScreenState extends State<LojaScreen> {
                   return Column(
                     children: [
                       RawMaterialButton(
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(15),
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.3,
                           decoration: BoxDecoration(
@@ -163,9 +176,7 @@ class _LojaScreenState extends State<LojaScreen> {
                                 fit: BoxFit.fill),
                             color: Colors.green,
                             border: Border.all(
-                                color: itensLoja[index].active
-                                    ? Colors.lightGreen
-                                    : Colors.red,
+                                color: _bought(index),
                                 style: BorderStyle.solid,
                                 width: 5),
                             borderRadius: BorderRadius.circular(20),
@@ -181,25 +192,35 @@ class _LojaScreenState extends State<LojaScreen> {
                           ),
                         ),
                         onPressed: () {
-                          if (!itensLoja[index].active) {
+                          if (!itensLoja[index].bought) {
                             if (itensLoja[index].price <=
                                 widget.user.pontuacao) {
                               setState(() {
                                 widget.user.pontuacao = widget.user.pontuacao -
                                     itensLoja[index].price;
+                                itensLoja[index].bought = true;
                                 itensLoja[index].active = true;
                               });
                             } else {
                               _alertCantBuy();
                             }
+                          } else {
+                            setState(() {
+                              itensLoja[index].active =
+                                  !itensLoja[index].active;
+                            });
                           }
                         },
                       ),
-                      Text(itensLoja[index].title),
+                      Text(
+                        itensLoja[index].title,
+                        style: TextStyle(fontSize: 30),
+                      ),
                       Text(
                         "Preço: ${itensLoja[index].price} sementes",
-                        style:
-                            TextStyle(color: _canBuy(itensLoja[index].price)),
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: _canBuy(itensLoja[index].price, index)),
                       )
                     ],
                   );
@@ -207,6 +228,28 @@ class _LojaScreenState extends State<LojaScreen> {
               ),
             ),
           ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: FloatingActionButton(
+                heroTag: 'btn1',
+                child: Text('+30'),
+                onPressed: () {
+                  setState(() {
+                    widget.user.pontuacao += 30;
+                  });
+                }),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: FloatingActionButton(
+                heroTag: 'btn2',
+                child: Text('-30'),
+                onPressed: () {
+                  setState(() {
+                    widget.user.pontuacao -= 30;
+                  });
+                }),
+          )
         ],
       ),
     );

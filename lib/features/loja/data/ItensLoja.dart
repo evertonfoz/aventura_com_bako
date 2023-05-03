@@ -1,7 +1,7 @@
 class ItemLoja {
   final String asset, title, desc;
   final int id, price;
-  bool active = false;
+  bool active = false, bought = false;
   ItemLoja(this.id, this.title, this.price, this.asset, this.desc);
 }
 
