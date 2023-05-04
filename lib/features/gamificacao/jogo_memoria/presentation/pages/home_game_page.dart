@@ -11,10 +11,15 @@ import 'package:get/get.dart';
 import '../widgets/score_board.dart';
 
 class HomePageMemoryGame extends StatefulWidget {
-  HomePageMemoryGame({required this.user, required this.notifyParent, Key? key})
+  HomePageMemoryGame(
+      {required this.isEasy,
+      required this.user,
+      required this.notifyParent,
+      Key? key})
       : super(key: key);
   GamificationUser user;
   final Function() notifyParent;
+  bool isEasy;
 
   @override
   State<HomePageMemoryGame> createState() => _HomePageMemoryGameState();
@@ -26,7 +31,9 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
   InformacoesEspeciesController controller2 =
       Get.put(InformacoesEspeciesController());
   int tentativas = 15;
-  final MemoryGameModel _gameModel = MemoryGameModel();
+  final MemoryGameModelEasy _gameModelEasy = MemoryGameModelEasy();
+  final MemoryGameModelHard _gameModelHard = MemoryGameModelHard();
+
   int pontos = 0;
   int previousIndex = -1;
   bool flip = false;
@@ -35,8 +42,18 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
   void initState() {
     controller.getAllInformacoesJogoDaMemoria();
     super.initState();
-    _gameModel.cardFlips.every((element) => element = true);
-    _gameModel.initGame();
+    _gameModelEasy.cardFlips.every((element) => element = true);
+    _gameModelEasy.initGame();
+    _gameModelHard.cardFlips.every((element) => element = true);
+    _gameModelHard.initGame();
+  }
+
+  _isEasy(isEasy) {
+    if (isEasy) {
+      return _gameModelEasy;
+    } else {
+      return _gameModelHard;
+    }
   }
 
   @override
@@ -88,24 +105,24 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
 
   Widget _gridCards(context) {
     return GridView.builder(
-      itemCount: _gameModel.gameImg!.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        crossAxisSpacing: 15.0,
+      itemCount: _isEasy(widget.isEasy).gameImg!.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: widget.isEasy ? 3 : 4,
+        crossAxisSpacing: widget.isEasy ? 16.0 : 8,
         mainAxisSpacing: 16.0,
       ),
       padding: const EdgeInsets.all(10.0),
       itemBuilder: (context, index) {
         return FlipCard(
-          key: _gameModel.cardStateKeys[index],
+          key: _isEasy(widget.isEasy).cardStateKeys[index],
           onFlip: () {
             logicMatch(index, context);
           },
           direction: FlipDirection.HORIZONTAL,
-          flipOnTouch: _gameModel.cardFlips[index],
+          flipOnTouch: _isEasy(widget.isEasy).cardFlips[index],
           front: _faceConfigFlipCard(Colors.green, 'assets/hidden.png'),
           back: _faceConfigFlipCard(
-              Colors.white, _gameModel.shuffleCardsList![index]),
+              Colors.white, _isEasy(widget.isEasy).shuffleCardsList![index]),
         );
       },
     );
@@ -130,9 +147,12 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
     } else {
       flip = false;
       if (previousIndex != index) {
-        if (_gameModel.shuffleCardsList![previousIndex] !=
-            _gameModel.shuffleCardsList![index]) {
-          _gameModel.cardStateKeys[previousIndex].currentState!.toggleCard();
+        if (_isEasy(widget.isEasy).shuffleCardsList![previousIndex] !=
+            _isEasy(widget.isEasy).shuffleCardsList![index]) {
+          _isEasy(widget.isEasy)
+              .cardStateKeys[previousIndex]
+              .currentState!
+              .toggleCard();
           previousIndex = index;
           setState(() {
             tentativas -= 1;
@@ -141,8 +161,8 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
             AlertGame(pontos: pontos).alertTriesOver(context);
           }
         } else {
-          _gameModel.cardFlips[previousIndex] = false;
-          _gameModel.cardFlips[index] = false;
+          _isEasy(widget.isEasy).cardFlips[previousIndex] = false;
+          _isEasy(widget.isEasy).cardFlips[index] = false;
           setState(() {
             pontos += 5;
             widget.user.pontuacao += 5;
@@ -153,7 +173,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
                     builder: (context) => InformacoesMemoriaPage(
                         controller: controller, index: findIndex(index))));
           });
-          if (_gameModel.cardFlips.every((t) => t == false)) {
+          if (_isEasy(widget.isEasy).cardFlips.every((t) => t == false)) {
             //widget.gamification.updatePontuacao(pontos);
             AlertGame(pontos: pontos).alertWin(context);
           }
@@ -167,8 +187,15 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
   }
 
   int findIndex(int index) {
-    for (var i = 0; i < 6; i++) {
-      if (_gameModel.shuffleCardsList![index] == _gameModel.cardsList[i]) {
+    int numOfInf;
+    if (widget.isEasy) {
+      numOfInf = 6;
+    } else {
+      numOfInf = 10;
+    }
+    for (var i = 0; i < numOfInf; i++) {
+      if (_isEasy(widget.isEasy).shuffleCardsList![index] ==
+          _isEasy(widget.isEasy).cardsList[i]) {
         return i;
       }
     }

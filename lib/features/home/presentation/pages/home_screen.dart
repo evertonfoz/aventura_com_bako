@@ -254,15 +254,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           style: TextStyle(fontSize: 20),
                         ),
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomePageMemoryGame(
-                                user: widget.user,
-                                notifyParent: refresh,
-                              ),
-                            ),
-                          );
+                          alertDificulty();
                         },
                       ),
                     ],
@@ -318,6 +310,118 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Future<bool?> alertDificulty() {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          actionsAlignment: MainAxisAlignment.center,
+          elevation: 8,
+          title: Text(
+            'Qual Dificuldade deseja Jogar?',
+            style: TextStyle(
+              color: Colors.green[900],
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          actions: [
+            Align(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePageMemoryGame(
+                          isEasy: false,
+                          user: widget.user,
+                          notifyParent: refresh,
+                        ),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      backgroundColor: Colors.amber),
+                  child: const Padding(
+                    padding: EdgeInsets.all(15.0),
+                    child: Text(
+                      'Difícil',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          backgroundColor: Colors.amber),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePageMemoryGame(
+                          isEasy: true,
+                          user: widget.user,
+                          notifyParent: refresh,
+                        ),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      backgroundColor: Colors.amber),
+                  child: const Padding(
+                    padding: EdgeInsets.all(15.0),
+                    child: Text(
+                      'Fácil',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          backgroundColor: Colors.amber),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  onPressed: () => Navigator.pop(context, false),
+                  style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      backgroundColor: Colors.amber),
+                  child: const Padding(
+                    padding: EdgeInsets.all(15.0),
+                    child: Text(
+                      'Voltar',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          backgroundColor: Colors.amber),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

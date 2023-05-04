@@ -8,7 +8,7 @@ class AlertGame extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container();
   }
-  
+
   void alertWin(BuildContext context) {
     showDialog(
       context: context,
