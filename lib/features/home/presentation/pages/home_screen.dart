@@ -1,3 +1,5 @@
+import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
+import 'package:aventura_com_bako/features/configuracoes/presentarion/configuracoesPage.dart';
 import 'package:aventura_com_bako/features/galeria/presentation/pages/galeria_screen.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/pages/home_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification.dart';
@@ -10,9 +12,11 @@ import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.d
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({required this.user, Key? key}) : super(key: key);
+  HomeScreen({required this.user, required this.audioController, Key? key})
+      : super(key: key);
 
   GamificationUser user;
+  AudioController audioController;
   @override
   // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
@@ -185,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Container(
               color: Colors.amber,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Wrap(
                 runSpacing: 5,
                 children: [
@@ -200,6 +204,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => WelcomePage(
+                            audioController: widget.audioController,
                             user: widget.user,
                           ),
                         ),
@@ -207,14 +212,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   ExpansionTile(
-                    leading: Icon(Icons.videogame_asset),
+                    leading: const Icon(Icons.videogame_asset),
                     title: const Text(
                       'Jogos',
                       style: TextStyle(fontSize: 20),
                     ),
                     children: [
                       ListTile(
-                        leading: Icon(Icons.abc),
+                        leading: const Icon(Icons.abc),
                         title: const Text(
                           'Caça-Palavras',
                           style: TextStyle(fontSize: 20),
@@ -230,7 +235,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                       ListTile(
-                        leading: Icon(Icons.question_mark),
+                        leading: const Icon(Icons.question_mark),
                         title: const Text(
                           'Quizz',
                           style: TextStyle(fontSize: 20),
@@ -248,7 +253,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                       ListTile(
-                        leading: Icon(Icons.remember_me),
+                        leading: const Icon(Icons.remember_me),
                         title: const Text(
                           'Jogo da memória',
                           style: TextStyle(fontSize: 20),
@@ -260,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   ListTile(
-                    leading: Icon(Icons.photo),
+                    leading: const Icon(Icons.photo),
                     title: const Text(
                       'Galeria',
                       style: TextStyle(fontSize: 20),
@@ -275,7 +280,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.shopping_cart),
+                    leading: const Icon(Icons.shopping_cart),
                     title: const Text(
                       'Loja',
                       style: TextStyle(fontSize: 20),
@@ -288,6 +293,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                     user: widget.user,
                                     notifyParent: refresh,
                                   )));
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.settings),
+                    title: const Text(
+                      'Opções',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ConfiguracoesScreen()));
                     },
                   ),
                 ],

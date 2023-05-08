@@ -1,5 +1,6 @@
+import 'package:audioplayers/audioplayers.dart';
+import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
-
 import 'package:flutter/material.dart';
 
 import '../../../home/presentation/pages/home_screen.dart';
@@ -13,10 +14,17 @@ class StartScreen extends StatefulWidget {
 
 class _StartScreenState extends State<StartScreen> {
   final GamificationUser gamificationUser = GamificationUser();
+  final audioPlayer = AudioController();
   bool _validate = false;
   @override
+  void initState() {
+    super.initState();
+    audioPlayer.playBGM();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final _usernameController = TextEditingController();
+    final usernameController = TextEditingController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -83,7 +91,7 @@ class _StartScreenState extends State<StartScreen> {
                               child: TextField(
                                   autofocus: false,
                                   maxLength: 20,
-                                  controller: _usernameController,
+                                  controller: usernameController,
                                   decoration: InputDecoration(
                                     labelText: 'Digite seu nome aqui',
                                     labelStyle:
@@ -98,13 +106,14 @@ class _StartScreenState extends State<StartScreen> {
                             Expanded(
                                 child: FloatingActionButton(
                               onPressed: () {
-                                if (_usernameController.text.isNotEmpty) {
+                                if (usernameController.text.isNotEmpty) {
                                   gamificationUser.userName =
-                                      _usernameController.text;
+                                      usernameController.text;
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => HomeScreen(
+                                                audioController: audioPlayer,
                                                 user: gamificationUser,
                                               )));
                                 } else {

@@ -1,3 +1,5 @@
+import 'package:audioplayers/audioplayers.dart';
+import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/instrucoes_timeline_page.dart';
 import 'package:basic_utils/basic_utils.dart';
@@ -5,15 +7,35 @@ import 'package:eca_packages/eca_packages.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
-  WelcomePage({Key? key, required this.user}) : super(key: key);
+  WelcomePage({Key? key, required this.user, required this.audioController})
+      : super(key: key);
 
   GamificationUser user;
+  AudioController audioController;
 
   @override
   State<WelcomePage> createState() => _WelcomePageState();
 }
 
 class _WelcomePageState extends State<WelcomePage> {
+  bool audioIsPlaying = true;
+  @override
+  void initState() {
+    super.initState();
+    widget.audioController.playFalaWelcomePage();
+    widget.audioController.playerFala.onPlayerStateChanged.listen((state) {
+      setState(() {
+        audioIsPlaying = state == PlayerState.PLAYING;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    widget.audioController.playerFala.stop();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +58,7 @@ class _WelcomePageState extends State<WelcomePage> {
           ),
           Align(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Align(
                   alignment: Alignment.topCenter,
@@ -104,31 +126,67 @@ class _WelcomePageState extends State<WelcomePage> {
                     ),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: 80,
-                      height: 80,
-                      child: FloatingActionButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  InstrucoesTimelinePage(user: widget.user),
+                Row(
+                  children: [
+                    Expanded(
+                        child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          width: 80,
+                          height: 80,
+                          child: FloatingActionButton(
+                            heroTag: 'dispose',
+                            onPressed: () async {
+                              if (audioIsPlaying) {
+                                await widget.audioController.playerFala.pause();
+                              } else {
+                                await widget.audioController.playerFala
+                                    .resume();
+                              }
+                            },
+                            child: Icon(
+                              audioIsPlaying ? Icons.pause : Icons.play_arrow,
+                              size: 60,
+                              // color: kBrandColor,
                             ),
-                          );
-                        },
-                        child: const Icon(
-                          Icons.arrow_forward,
-                          size: 60,
-                          // color: kBrandColor,
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+                    )),
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: 80,
+                            height: 80,
+                            child: FloatingActionButton(
+                              heroTag: 'instrucoes',
+                              onPressed: () {
+                                widget.audioController.playerFala.pause();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        InstrucoesTimelinePage(
+                                            user: widget.user),
+                                  ),
+                                );
+                              },
+                              child: const Icon(
+                                Icons.arrow_forward,
+                                size: 60,
+                                // color: kBrandColor,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ],
             ),

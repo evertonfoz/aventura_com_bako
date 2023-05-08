@@ -1,6 +1,5 @@
 import 'package:aventura_com_bako/core/routes.dart';
 import 'package:aventura_com_bako/features/splashscreen/presentation/pages/splashscreen.dart';
-import 'package:eca_packages/eca_packages.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,7 +14,6 @@ Future<void> main() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
   await Firebase.initializeApp();
-
   /*await showStatusBarAndSetColorToNavigationBar(
       statusBarColor: Colors.transparent,
       navigationBarColor: Colors.green,
