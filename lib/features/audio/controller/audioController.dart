@@ -4,8 +4,9 @@ class AudioController {
   final playerBGMCache = AudioCache();
   final playerBGM = AudioPlayer();
   final playerFalaCache = AudioCache();
-    final playerFala = AudioPlayer();
-  double volume = 1.0;
+  final playerFala = AudioPlayer();
+  double volumeFala = 1.0;
+  double volumeBGM = 1.0;
 
   playBGM() async {
     playerBGM.setReleaseMode(ReleaseMode.LOOP);
@@ -14,7 +15,7 @@ class AudioController {
     await playerBGM.resume();
   }
 
-  playFalaWelcomePage() async{
+  playFalaWelcomePage() async {
     final url = await playerFalaCache.load('audio/falaMapaWelcomePage.mp3');
     playerFala.setUrl(url.path, isLocal: true);
     await playerFala.resume();

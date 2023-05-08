@@ -30,7 +30,8 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
       Get.put(InformacoesJogoDaMemoriaController());
   InformacoesEspeciesController controller2 =
       Get.put(InformacoesEspeciesController());
-  int tentativas = 15;
+  int tentativasEasy = 15;
+  int tentativasHard = 25;
   final MemoryGameModelEasy _gameModelEasy = MemoryGameModelEasy();
   final MemoryGameModelHard _gameModelHard = MemoryGameModelHard();
 
@@ -68,7 +69,8 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              cabecalho('MEMORY', widget.user.pontuacao, tentativas),
+              cabecalho('MEMORY', widget.user.pontuacao,
+                  widget.isEasy ? tentativasEasy : tentativasHard),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -155,9 +157,9 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
               .toggleCard();
           previousIndex = index;
           setState(() {
-            tentativas -= 1;
+            widget.isEasy ? tentativasEasy : tentativasHard -= 1;
           });
-          if (tentativas == 0) {
+          if (tentativasEasy == 0 || tentativasHard == 0) {
             AlertGame(pontos: pontos).alertTriesOver(context);
           }
         } else {
@@ -180,7 +182,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
         }
       } else {
         setState(() {
-          tentativas -= 1;
+          widget.isEasy ? tentativasEasy : tentativasHard -= 1;
         });
       }
     }

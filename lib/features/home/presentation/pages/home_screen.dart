@@ -305,7 +305,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ConfiguracoesScreen()));
+                              builder: (context) => ConfiguracoesScreen(
+                                    audioController: widget.audioController,
+                                  )));
                     },
                   ),
                 ],

@@ -77,10 +77,10 @@ class MemoryGameModelHard {
     "assets/score_icon.png",
     "assets/plant_icon.png",
     "assets/Bako_1281x1423.png",
-    "assets/icon-9.png",
-    "assets/score_icon.png",
-    "assets/plant_icon.png",
-    "assets/Bako_1281x1423.png",
+    "assets/icon-8.png",
+    "assets/icon-7.png",
+    "assets/icon-6.png",
+    "assets/icon-5.png",
     //
     "assets/trofeu_icon.png",
     "assets/saco-de-sementes.png",
@@ -88,10 +88,10 @@ class MemoryGameModelHard {
     "assets/plant_icon.png",
     "assets/score_icon.png",
     "assets/Bako_1281x1423.png",
-    "assets/icon-9.png",
-    "assets/score_icon.png",
-    "assets/plant_icon.png",
-    "assets/Bako_1281x1423.png",
+    "assets/icon-8.png",
+    "assets/icon-7.png",
+    "assets/icon-6.png",
+    "assets/icon-5.png",
   ];
 
   List<GlobalKey<FlipCardState>> cardStateKeys = [
@@ -115,7 +115,6 @@ class MemoryGameModelHard {
     GlobalKey<FlipCardState>(),
     GlobalKey<FlipCardState>(),
     GlobalKey<FlipCardState>(),
-    
   ];
 
   List<bool> cardFlips = [
@@ -139,7 +138,6 @@ class MemoryGameModelHard {
     true,
     true,
     true,
-    
   ];
 
   List<Map<int, String>> matchCheck = [];
