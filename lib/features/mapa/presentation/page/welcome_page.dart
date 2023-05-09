@@ -5,6 +5,7 @@ import 'package:aventura_com_bako/features/mapa/presentation/page/instrucoes_tim
 import 'package:basic_utils/basic_utils.dart';
 import 'package:eca_packages/eca_packages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WelcomePage extends StatefulWidget {
   WelcomePage({Key? key, required this.user, required this.audioController})
@@ -21,13 +22,8 @@ class _WelcomePageState extends State<WelcomePage> {
   bool audioIsPlaying = true;
   @override
   void initState() {
-    super.initState();
     widget.audioController.playFalaWelcomePage();
-    widget.audioController.playerFala.onPlayerStateChanged.listen((state) {
-      setState(() {
-        audioIsPlaying = state == PlayerState.PLAYING;
-      });
-    });
+    super.initState();
   }
 
   @override
@@ -38,6 +34,11 @@ class _WelcomePageState extends State<WelcomePage> {
 
   @override
   Widget build(BuildContext context) {
+    widget.audioController.playerFala.onPlayerStateChanged.listen((state) {
+      setState(() {
+        audioIsPlaying = state == PlayerState.PLAYING;
+      });
+    });
     return Scaffold(
       appBar: AppBar(title: const Text('Passeio no bosque')),
       body: Stack(
@@ -126,70 +127,71 @@ class _WelcomePageState extends State<WelcomePage> {
                     ),
                   ),
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                        child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SizedBox(
-                          width: 80,
-                          height: 80,
-                          child: FloatingActionButton(
-                            heroTag: 'dispose',
-                            onPressed: () async {
-                              if (audioIsPlaying) {
-                                await widget.audioController.playerFala.pause();
-                              } else {
-                                await widget.audioController.playerFala
-                                    .resume();
-                              }
-                            },
-                            child: Icon(
-                              audioIsPlaying ? Icons.pause : Icons.play_arrow,
-                              size: 60,
-                              // color: kBrandColor,
-                            ),
-                          ),
-                        ),
-                      ),
-                    )),
-                    Expanded(
-                      child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: SizedBox(
-                            width: 80,
-                            height: 80,
-                            child: FloatingActionButton(
-                              heroTag: 'instrucoes',
-                              onPressed: () {
-                                widget.audioController.playerFala.pause();
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        InstrucoesTimelinePage(
-                                            user: widget.user),
-                                  ),
-                                );
-                              },
-                              child: const Icon(
-                                Icons.arrow_forward,
-                                size: 60,
-                                // color: kBrandColor,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.1,
+                )
               ],
             ),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: SizedBox(
+                    width: 80,
+                    height: 80,
+                    child: FloatingActionButton(
+                      heroTag: 'pauseWelcome',
+                      onPressed: () async {
+                        if (audioIsPlaying) {
+                          await widget.audioController.playerFala.pause();
+                        } else {
+                          await widget.audioController.playerFala.resume();
+                        }
+                      },
+                      child: Icon(
+                        audioIsPlaying ? Icons.pause : Icons.play_arrow,
+                        size: 60,
+                        // color: kBrandColor,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: SizedBox(
+                    width: 80,
+                    height: 80,
+                    child: FloatingActionButton(
+                      heroTag: 'instrucoes',
+                      onPressed: () {
+                        widget.audioController.playerFala.pause();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => InstrucoesTimelinePage(
+                              user: widget.user,
+                              audioController: widget.audioController,
+                            ),
+                          ),
+                        );
+                      },
+                      child: const Icon(
+                        Icons.arrow_forward,
+                        size: 60,
+                        // color: kBrandColor,
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
         ],
       ),

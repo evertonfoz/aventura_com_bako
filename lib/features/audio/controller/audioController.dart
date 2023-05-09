@@ -20,4 +20,10 @@ class AudioController {
     playerFala.setUrl(url.path, isLocal: true);
     await playerFala.resume();
   }
+  playFalaInstrucoesPage() async {
+    final url = await playerFalaCache.load('audio/falaMapaInstrucoesPage.mp3');
+    playerFala.setUrl(url.path, isLocal: true);
+    await playerFala.resume();
+  }
+
 }
