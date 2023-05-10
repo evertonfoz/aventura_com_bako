@@ -3,7 +3,6 @@ import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/data/model/game_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/informacoes_jogo_da_memoria/presentation/controller/jogoMemoria_controller.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/informacoes_jogo_da_memoria/presentation/pages/Informacoes_memoria_page.dart';
-import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,8 +27,7 @@ class HomePageMemoryGame extends StatefulWidget {
 class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
   InformacoesJogoDaMemoriaController controller =
       Get.put(InformacoesJogoDaMemoriaController());
-  InformacoesEspeciesController controller2 =
-      Get.put(InformacoesEspeciesController());
+
   int tentativasEasy = 15;
   int tentativasHard = 25;
   final MemoryGameModelEasy _gameModelEasy = MemoryGameModelEasy();
@@ -157,7 +155,11 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
               .toggleCard();
           previousIndex = index;
           setState(() {
-            widget.isEasy ? tentativasEasy : tentativasHard -= 1;
+            if (widget.isEasy) {
+              tentativasEasy -= 1;
+            } else {
+              tentativasHard -= 1;
+            }
           });
           if (tentativasEasy == 0 || tentativasHard == 0) {
             AlertGame(pontos: pontos).alertTriesOver(context);
@@ -182,7 +184,11 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
         }
       } else {
         setState(() {
-          widget.isEasy ? tentativasEasy : tentativasHard -= 1;
+          if (widget.isEasy) {
+            tentativasEasy -= 1;
+          } else {
+            tentativasHard -= 1;
+          }
         });
       }
     }
@@ -190,12 +196,15 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
 
   int findIndex(int index) {
     int numOfInf;
+    int numInicial;
     if (widget.isEasy) {
+      numInicial = 0;
       numOfInf = 6;
     } else {
-      numOfInf = 10;
+      numInicial = 6;
+      numOfInf = 16;
     }
-    for (var i = 0; i < numOfInf; i++) {
+    for (var i = numInicial; i < numOfInf; i++) {
       if (_isEasy(widget.isEasy).shuffleCardsList![index] ==
           _isEasy(widget.isEasy).cardsList[i]) {
         return i;

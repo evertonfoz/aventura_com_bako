@@ -21,11 +21,11 @@ class InstrucoesTimelinePage extends StatefulWidget {
 }
 
 class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
-  bool audioIsPlaying = true;
+  bool audioIsPlaying = false;
   @override
   void initState() {
     super.initState();
-    widget.audioController.playFalaInstrucoesPage();
+    widget.audioController.loadFalaInstrucoesPage();
   }
 
   @override
@@ -44,7 +44,7 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
     return WillPopScope(
       onWillPop: () {
         Navigator.pop(context);
-        return widget.audioController.playFalaWelcomePage();
+        return widget.audioController.loadFalaHistoria();
       },
       child: Scaffold(
           appBar: AppBar(title: const Text('Passeio no bosque')),
@@ -67,7 +67,7 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Align(
                       alignment: Alignment.topCenter,
@@ -85,7 +85,6 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.85,
-                      height: MediaQuery.of(context).size.height * 0.20,
                       decoration: ShapeDecoration(
                         color: Colors.yellow,
                         shape: TooltipShapeBorder(
@@ -120,8 +119,8 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
                       ),
                     ),
                     Container(
-                      width: 200.00,
-                      height: 200.00,
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      height: MediaQuery.of(context).size.height * 0.25,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: ExactAssetImage(

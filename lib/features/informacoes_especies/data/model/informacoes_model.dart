@@ -13,13 +13,7 @@ class InformacoesModel {
   String? nomeCientifico;
   String? nomesPopulares;
   String? familia;
-  String? fenologia;
-  String? altura;
-  String? copa;
-  String? tronco;
-  String? flores;
-  String? folhas;
-  String? fruto;
+  String? exposicao;
   String? assets;
   InformacoesEspeciesEnum? informacoesEspeciesEnum;
   bool? especieDescoberta;
@@ -34,13 +28,7 @@ class InformacoesModel {
     this.nomeCientifico,
     this.nomesPopulares,
     this.familia,
-    this.fenologia,
-    this.altura,
-    this.copa,
-    this.tronco,
-    this.flores,
-    this.folhas,
-    this.fruto,
+    this.exposicao,
     this.informacoesEspeciesEnum,
     this.assets,
     this.especieDescoberta,
@@ -53,13 +41,7 @@ class InformacoesModel {
     nomeCientifico = json['nomeCientifico'] as String?;
     nomesPopulares = json['nomesPopulares'] as String?;
     familia = json['familia'] as String?;
-    fenologia = json['fenologia'] as String?;
-    altura = json['altura'] as String?;
-    copa = json['copa'] as String?;
-    tronco = json['tronco'] as String?;
-    flores = json['flores'] as String?;
-    folhas = json['folhas'] as String?;
-    fruto = json['fruto'] as String?;
+    exposicao = json['exposicao'] as String?;
     informacoesEspeciesEnum =
         InformacoesEspeciesEnum.values.asNameMap()[json['enum']];
     especieDescoberta = false;
@@ -78,13 +60,7 @@ class InformacoesModel {
       nomeCientifico: nomeCientifico,
       nomesPopulares: nomesPopulares,
       familia: familia,
-      fenologia: fenologia,
-      altura: altura,
-      copa: copa,
-      tronco: tronco,
-      flores: flores,
-      folhas: folhas,
-      fruto: fruto,
+      exposicao: exposicao,
       informacoesEspeciesEnum: informacoesEspeciesEnum,
       assets: assets,
     );

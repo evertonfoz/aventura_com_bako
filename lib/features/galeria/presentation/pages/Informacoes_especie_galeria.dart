@@ -259,55 +259,6 @@ class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
                                 color: Colors.black54,
                               ),
                             ),
-                            CategoriaEspecie(
-                              title: 'Fenologia',
-                              body: widget.controller
-                                  .informacoesEspeciesList[widget.id].fenologia,
-                              imageIcon: 'assets/icon-4.png',
-                              color: Colors.cyan.shade100,
-                            ),
-                            CategoriaEspecie(
-                              title: 'Altura',
-                              body: widget.controller
-                                  .informacoesEspeciesList[widget.id].altura,
-                              imageIcon: 'assets/icon-8.png',
-                              color: Colors.pink.shade100,
-                            ),
-                            CategoriaEspecie(
-                              title: 'Copa',
-                              body: widget.controller
-                                  .informacoesEspeciesList[widget.id].copa,
-                              imageIcon: 'assets/icon-2.png',
-                              color: Colors.green.shade100,
-                            ),
-                            CategoriaEspecie(
-                              title: 'Tronco',
-                              body: widget.controller
-                                  .informacoesEspeciesList[widget.id].tronco,
-                              imageIcon: 'assets/icon-3.png',
-                              color: Colors.orange.shade100,
-                            ),
-                            CategoriaEspecie(
-                              title: 'Flores',
-                              body: widget.controller
-                                  .informacoesEspeciesList[widget.id].flores,
-                              imageIcon: 'assets/icon-6.png',
-                              color: Colors.red.shade100,
-                            ),
-                            CategoriaEspecie(
-                              title: 'Folhas',
-                              body: widget.controller
-                                  .informacoesEspeciesList[widget.id].folhas,
-                              imageIcon: 'assets/icon-5.png',
-                              color: Colors.teal.shade100,
-                            ),
-                            CategoriaEspecie(
-                              title: 'Fruto',
-                              body: widget.controller
-                                  .informacoesEspeciesList[widget.id].fruto,
-                              imageIcon: 'assets/icon-7.png',
-                              color: Colors.lime.shade100,
-                            ),
                           ],
                         ),
                       ),

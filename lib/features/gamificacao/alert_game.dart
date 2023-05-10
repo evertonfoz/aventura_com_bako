@@ -23,6 +23,7 @@ class AlertGame extends StatelessWidget {
               child: ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                   child: const Text(
                     'Fechar',
@@ -67,6 +68,7 @@ class AlertGame extends StatelessWidget {
               padding: const EdgeInsets.only(right: 20.0, bottom: 10),
               child: ElevatedButton(
                   onPressed: () {
+                    Navigator.pop(context);
                     Navigator.pop(context);
                   },
                   child: const Text(

@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
+import 'package:aventura_com_bako/features/mapa/presentation/page/historia_bosque_page.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/instrucoes_timeline_page.dart';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:eca_packages/eca_packages.dart';
@@ -19,10 +20,10 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
-  bool audioIsPlaying = true;
+  bool audioIsPlaying = false;
   @override
   void initState() {
-    widget.audioController.playFalaWelcomePage();
+    widget.audioController.loadFalaWelcomePage();
     super.initState();
   }
 
@@ -117,8 +118,8 @@ class _WelcomePageState extends State<WelcomePage> {
                   ),
                 ),
                 Container(
-                  width: 250.00,
-                  height: 250.00,
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.3,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: ExactAssetImage(
@@ -175,7 +176,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => InstrucoesTimelinePage(
+                            builder: (context) => HistoriaPage(
                               user: widget.user,
                               audioController: widget.audioController,
                             ),

@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:aventura_com_bako/features/gamificacao/gamification.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/categoria_especie_widget.dart';
@@ -290,48 +289,6 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                                 fontSize: 17,
                                 color: Colors.black54,
                               ),
-                            ),
-                            CategoriaEspecie(
-                              title: 'Fenologia',
-                              body: controller.especieLida.value.fenologia,
-                              imageIcon: 'assets/icon-4.png',
-                              color: Colors.cyan.shade100,
-                            ),
-                            CategoriaEspecie(
-                              title: 'Altura',
-                              body: controller.especieLida.value.altura,
-                              imageIcon: 'assets/icon-8.png',
-                              color: Colors.pink.shade100,
-                            ),
-                            CategoriaEspecie(
-                              title: 'Copa',
-                              body: controller.especieLida.value.copa,
-                              imageIcon: 'assets/icon-2.png',
-                              color: Colors.green.shade100,
-                            ),
-                            CategoriaEspecie(
-                              title: 'Tronco',
-                              body: controller.especieLida.value.tronco,
-                              imageIcon: 'assets/icon-3.png',
-                              color: Colors.orange.shade100,
-                            ),
-                            CategoriaEspecie(
-                              title: 'Flores',
-                              body: controller.especieLida.value.flores,
-                              imageIcon: 'assets/icon-6.png',
-                              color: Colors.red.shade100,
-                            ),
-                            CategoriaEspecie(
-                              title: 'Folhas',
-                              body: controller.especieLida.value.folhas,
-                              imageIcon: 'assets/icon-5.png',
-                              color: Colors.teal.shade100,
-                            ),
-                            CategoriaEspecie(
-                              title: 'Fruto',
-                              body: controller.especieLida.value.fruto,
-                              imageIcon: 'assets/icon-7.png',
-                              color: Colors.lime.shade100,
                             ),
                           ],
                         ),

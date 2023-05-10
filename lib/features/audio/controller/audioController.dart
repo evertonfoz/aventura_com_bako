@@ -15,15 +15,18 @@ class AudioController {
     await playerBGM.resume();
   }
 
-  playFalaWelcomePage() async {
+  loadFalaWelcomePage() async {
     final url = await playerFalaCache.load('audio/falaMapaWelcomePage.mp3');
     playerFala.setUrl(url.path, isLocal: true);
-    await playerFala.resume();
   }
-  playFalaInstrucoesPage() async {
+
+  loadFalaHistoria() async{
+    
+  }
+
+  loadFalaInstrucoesPage() async {
     final url = await playerFalaCache.load('audio/falaMapaInstrucoesPage.mp3');
     playerFala.setUrl(url.path, isLocal: true);
-    await playerFala.resume();
   }
 
 }
