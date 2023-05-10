@@ -1,165 +1,183 @@
+import 'package:audioplayers/audioplayers.dart';
+import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/informacoes_jogo_da_memoria/presentation/controller/jogoMemoria_controller.dart';
+import 'package:basic_utils/basic_utils.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../mapa/presentation/page/welcome_page.dart';
 
 class InformacoesMemoriaPage extends StatefulWidget {
   InformacoesMemoriaPage(
-      {required this.controller, required this.index, super.key});
+      {required this.controller,
+      required this.index,
+      required this.audioController,
+      super.key});
 
   int index;
   InformacoesJogoDaMemoriaController controller;
+  AudioController audioController;
 
   @override
   State<InformacoesMemoriaPage> createState() => _InformacoesMemoriaPageState();
 }
 
 class _InformacoesMemoriaPageState extends State<InformacoesMemoriaPage> {
+  bool audioIsPlaying = false;
+  @override
+  void initState() {
+    widget.audioController.loadFalaFromJson(
+        widget.controller.informacoesJogoDaMemoriaList[widget.index].audioURL!);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    widget.audioController.playerFala.stop();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    widget.audioController.playerFala.onPlayerStateChanged.listen((state) {
+      setState(() {
+        audioIsPlaying = state == PlayerState.PLAYING;
+      });
+    });
     return Scaffold(
-      body: Stack(
-        children: [
-          Opacity(
-            opacity: 0.5,
-            child: Container(
-              height: double.maxFinite,
-              width: double.maxFinite,
-              decoration: const BoxDecoration(
+      appBar: AppBar(
+        title: const Text('Memorizando com Baki'),
+      ),
+      backgroundColor: Colors.lightGreen,
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.35,
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image:
-                      ExactAssetImage('assets/Padrão4.jpg'), //TODO Constantes
+                  image: AssetImage(
+                    widget.controller.informacoesJogoDaMemoriaList[widget.index]
+                            .assets ??
+                        'assets/hidden.png',
+                  ),
                   fit: BoxFit.fitHeight,
+                ),
+                color: Colors.transparent,
+              ),
+            ),
+            Visibility(
+              visible: widget.controller
+                      .informacoesJogoDaMemoriaList[widget.index].titulo !=
+                  null,
+              child: Padding(
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.33),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25),
+                    ),
+                    color: Color.fromARGB(255, 255, 244, 145),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.only(right: 50),
+                          alignment: Alignment.centerLeft,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                '${widget.controller.informacoesJogoDaMemoriaList[widget.index].titulo}',
+                                overflow: TextOverflow.fade,
+                                style: TextStyle(
+                                    fontSize: 35,
+                                    color: Color(
+                                      ColorUtils.hexToInt("#94BF36"),
+                                    ),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Container(
+                                height: 25,
+                                width: 25,
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage('assets/plant_icon.png'),
+                                    fit: BoxFit.fitHeight,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          padding: const EdgeInsets.only(right: 40),
+                        ),
+                        const Divider(),
+                        Text(
+                          '${widget.controller.informacoesJogoDaMemoriaList[widget.index].texto}',
+                          textAlign: TextAlign.justify,
+                          style: const TextStyle(
+                            color: Colors.black54,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              height: MediaQuery.of(context).size.height * 0.3,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: ExactAssetImage(
+                                      'assets/Bako_1281x1423.png'), //TODO Constantes
+                                  fit: BoxFit.fitHeight,
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: SizedBox(
+                                  width: 80,
+                                  height: 80,
+                                  child: FloatingActionButton(
+                                    heroTag: 'pauseWelcome',
+                                    onPressed: () async {
+                                      if (audioIsPlaying) {
+                                        await widget.audioController.playerFala
+                                            .pause();
+                                      } else {
+                                        await widget.audioController.playerFala
+                                            .resume();
+                                      }
+                                    },
+                                    child: Icon(
+                                      audioIsPlaying
+                                          ? Icons.pause
+                                          : Icons.play_arrow,
+                                      size: 60,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
-          Align(
-            alignment: Alignment.topCenter,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  widget.controller.informacoesJogoDaMemoriaList[widget.index]
-                          .titulo ??
-                      '--',
-                  style: TextStyle(color: Colors.white, fontSize: 50),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: ShapeDecoration(
-                      color: Colors.yellow,
-                      shape: TooltipShapeBorder(
-                        arrowArc: 0.5,
-                        arrowHeight: 20,
-                      ),
-                      shadows: const [
-                        BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 4.0,
-                            offset: Offset(2, 2))
-                      ],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                            child: Container(
-                              height: MediaQuery.of(context).size.height * 0.25,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    width: 4,
-                                    color: Colors.green,
-                                    style: BorderStyle.solid),
-                                borderRadius: BorderRadius.circular(20),
-                                boxShadow: const <BoxShadow>[
-                                  BoxShadow(
-                                    offset: Offset(2, 2),
-                                    color: Colors.black87,
-                                    blurRadius: 1.0,
-                                    spreadRadius: 1.0,
-                                  )
-                                ],
-                                image: DecorationImage(
-                                    image: AssetImage(widget
-                                            .controller
-                                            .informacoesJogoDaMemoriaList[
-                                                widget.index]
-                                            .assets ??
-                                        'assets/hidden.png'),
-                                    fit: BoxFit.fill),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            widget
-                                    .controller
-                                    .informacoesJogoDaMemoriaList[widget.index]
-                                    .texto ??
-                                '--',
-                            textAlign: TextAlign.justify,
-                            style: TextStyle(fontSize: 19),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  //width: MediaQuery.of(context).size.width * 0.2,
-                  height: MediaQuery.of(context).size.height * 0.18,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: ExactAssetImage(
-                          'assets/Bako_1281x1423.png'), //TODO Constantes
-                      fit: BoxFit.fitHeight,
-                    ),
-                  ),
-                ),
-
-                // Padding(
-                //   padding: const EdgeInsets.all(8.0),
-                //   child: Container(
-                //     decoration: const BoxDecoration(
-                //       color: Colors.green,
-                //       boxShadow: <BoxShadow>[
-                //         BoxShadow(
-                //           color: Colors.green,
-                //           blurRadius: 1.0,
-                //           spreadRadius: 3.0,
-                //         )
-                //       ],
-                //     ),
-                //     child: Text(
-                //       widget
-                //               .controller
-                //               .informacoesJogoDaMemoriaList[widget.index]
-                //               .texto ??
-                //           '--',
-                //       style: TextStyle(color: Colors.white),
-                //       textAlign: TextAlign.justify,
-                //     ),
-                //   ),
-                // ),
-              ],
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: ElevatedButton(
-                    child:
-                        const Text('Continuar', style: TextStyle(fontSize: 30)),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    })),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

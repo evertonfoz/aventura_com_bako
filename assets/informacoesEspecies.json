@@ -3,12 +3,13 @@
     "id": 0,
     "idEspecie": "Angico-Vermelho",
     "descricao": "Angico-Vermelho",
-    "nomeCientifico": "Teste",
-    "nomesPopulares": "Teste",
+    "nomeCientifico": "Parapiptadenia rigida",
+    "nomesPopulares": "Angico-Vermelho",
     "enum": "ParapiptadeniaRigida",
-    "familia": "Teste",
-    "exposicao": "",
-    "assets":"assets/Paineira-rosa-1.jpg"
+    "familia": "Fabaceae",
+    "exposicao": "É uma árvore decídua (perde suas folhas na época seca e fria do ano), espécie pioneira que atinge altura entre 13-20 metros. Sua ocorrência se dá nas regiões do Sul da Bahia, Espírito Santos, Rio de Janeiro e Mata Pluvial Atlântica. Seu fruto é do tipo legume deiscente (vagem que se abre). A época da sua floração é entre os meses de setembro-novembro e suas flores são de coloração branca/amarelada e são visitadas por abelhas e vários insetos (seus polinizadores). Sua forma de dispersão de sementes é autocórica, aquela que acontece sem ajuda de nenhum fator e a anemocórica que é a dispersão pelo vento.",
+    "assets":"assets/Paineira-rosa-1.jpg",
+    "audioURL":"audio/Angico_Vermelho.mp3"
   },
   {
     "id": 1,
@@ -19,7 +20,8 @@
     "enum": "DiatenopteryxSorbifolia",
     "familia": "Teste",
     "exposicao": "",
-    "assets":"assets/Paineira-rosa-2.jpg"
+    "assets":"assets/Paineira-rosa-2.jpg",
+    "audioURL":""
   },
   {
     "id": 2,
@@ -30,7 +32,8 @@
     "enum": "AlchorneaGlandulosa",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 3,
@@ -41,7 +44,8 @@
     "enum": "AstroniumGraveolens",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-2.jpg"
+    "assets": "assets/Paineira-rosa-2.jpg",
+    "audioURL":""
   },
   
   {
@@ -53,7 +57,8 @@
     "enum": "CampomanesiaXanthocarpa",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 5,
@@ -64,7 +69,8 @@
     "enum": "NectandraMegapotamica",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 6,
@@ -75,7 +81,8 @@
     "enum": "FicusGuaranitica",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 7,
@@ -86,7 +93,8 @@
     "enum": "GarciniaGardneriana",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 8,
@@ -97,7 +105,8 @@
     "enum": "AnnonaNeosalicifolia",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 9,
@@ -108,7 +117,8 @@
     "enum": "GuareaKunthiana",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 10,
@@ -119,7 +129,8 @@
     "enum": "HolocalyxBalansae",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 11,
@@ -130,7 +141,8 @@
     "enum": "PliniaRivularis",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 12,
@@ -141,7 +153,8 @@
      "enum": "SoroceaBonplandii",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 13,
@@ -152,7 +165,8 @@
      "enum": "AspidospermaPolyneuron",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 14,
@@ -163,7 +177,8 @@
      "enum": "AraliaWarmingiana",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 15,
@@ -174,7 +189,8 @@
    "enum": "CeibaSpeciosa",
     "familia": "Malvaceae",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 16,
@@ -185,7 +201,8 @@
      "enum": "",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 17,
@@ -196,7 +213,8 @@
      "enum": "JacarandaMicrantha",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 18,
@@ -207,7 +225,8 @@
      "enum": "MacluraTinctoria",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 19,
@@ -218,7 +237,8 @@
      "enum": "CaseariaDecandra",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   },
   {
     "id": 20,
@@ -229,6 +249,7 @@
      "enum": "JacaratiaSpinosa",
     "familia": "Teste",
     "exposicao": "",
-    "assets": "assets/Paineira-rosa-1.jpg"
+    "assets": "assets/Paineira-rosa-1.jpg",
+    "audioURL":""
   }
 ]

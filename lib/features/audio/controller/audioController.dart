@@ -20,13 +20,15 @@ class AudioController {
     playerFala.setUrl(url.path, isLocal: true);
   }
 
-  loadFalaHistoria() async{
-    
-  }
+  loadFalaHistoria() async {}
 
   loadFalaInstrucoesPage() async {
     final url = await playerFalaCache.load('audio/falaMapaInstrucoesPage.mp3');
     playerFala.setUrl(url.path, isLocal: true);
   }
 
+  loadFalaFromJson(String urlFromJson) async {
+    final url = await playerFalaCache.load(urlFromJson);
+    playerFala.setUrl(url.path, isLocal: true);
+  }
 }

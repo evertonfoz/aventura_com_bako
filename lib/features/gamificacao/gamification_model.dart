@@ -9,7 +9,7 @@ class GamificationUser {
     false,
   ];
   List<bool> especieDescoberta = [
-    false,
+    true,
     false,
     false,
     false,

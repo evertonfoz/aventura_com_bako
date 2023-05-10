@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/galeria/controller/galeria_controller.dart';
 import 'package:aventura_com_bako/features/galeria/presentation/pages/Informacoes_especie_galeria.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
@@ -7,9 +8,11 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class GalleryScreen extends StatefulWidget {
-  GalleryScreen({required this.user, Key? key}) : super(key: key);
+  GalleryScreen({required this.user, required this.audioController, Key? key})
+      : super(key: key);
 
   GamificationUser user;
+  AudioController audioController;
   @override
   State<GalleryScreen> createState() => _GalleryScreenState();
 }
@@ -162,6 +165,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
                                   MaterialPageRoute(
                                       builder: (context) =>
                                           InformacoesGalleryPage(
+                                            audioController:
+                                                widget.audioController,
                                             controller: controller,
                                             id: index,
                                           )));

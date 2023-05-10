@@ -15,6 +15,7 @@ class InformacoesModel {
   String? familia;
   String? exposicao;
   String? assets;
+  String? audioURL;
   InformacoesEspeciesEnum? informacoesEspeciesEnum;
   bool? especieDescoberta;
   int? numDescobertas;
@@ -31,6 +32,7 @@ class InformacoesModel {
     this.exposicao,
     this.informacoesEspeciesEnum,
     this.assets,
+    this.audioURL,
     this.especieDescoberta,
     this.numDescobertas,
   });
@@ -42,6 +44,7 @@ class InformacoesModel {
     nomesPopulares = json['nomesPopulares'] as String?;
     familia = json['familia'] as String?;
     exposicao = json['exposicao'] as String?;
+    audioURL = json['audioURL'] as String?;
     informacoesEspeciesEnum =
         InformacoesEspeciesEnum.values.asNameMap()[json['enum']];
     especieDescoberta = false;
@@ -63,6 +66,7 @@ class InformacoesModel {
       exposicao: exposicao,
       informacoesEspeciesEnum: informacoesEspeciesEnum,
       assets: assets,
+      audioURL: audioURL,
     );
   }
 }

@@ -7,6 +7,7 @@ import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../audio/controller/audioController.dart';
 import '../widgets/score_board.dart';
 
 class HomePageMemoryGame extends StatefulWidget {
@@ -14,9 +15,11 @@ class HomePageMemoryGame extends StatefulWidget {
       {required this.isEasy,
       required this.user,
       required this.notifyParent,
+      required this.audioController,
       Key? key})
       : super(key: key);
   GamificationUser user;
+  AudioController audioController;
   final Function() notifyParent;
   bool isEasy;
 
@@ -175,7 +178,9 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
                 context,
                 MaterialPageRoute(
                     builder: (context) => InformacoesMemoriaPage(
-                        controller: controller, index: findIndex(index))));
+                        audioController: widget.audioController,
+                        controller: controller,
+                        index: findIndex(index))));
           });
           if (_isEasy(widget.isEasy).cardFlips.every((t) => t == false)) {
             //widget.gamification.updatePontuacao(pontos);

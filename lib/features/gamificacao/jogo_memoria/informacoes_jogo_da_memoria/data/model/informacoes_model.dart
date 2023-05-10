@@ -11,6 +11,7 @@ class InformacoesModel {
   String? titulo;
   String? texto;
   String? assets;
+  String? audioURL;
   InformacoesEspeciesEnum? informacoesEspeciesEnum;
   bool? especieDescoberta;
   int? numDescobertas;
@@ -24,6 +25,7 @@ class InformacoesModel {
     this.texto,
     this.informacoesEspeciesEnum,
     this.assets,
+    this.audioURL,
     this.especieDescoberta,
     this.numDescobertas,
   });
@@ -37,6 +39,7 @@ class InformacoesModel {
     especieDescoberta = false;
     numDescobertas = 0;
     assets = json['assets'] as String?;
+    audioURL = json['audioURL'] as String?;
   }
 
   InformacoesModel copyWith({
@@ -50,6 +53,7 @@ class InformacoesModel {
       texto: texto,
       informacoesEspeciesEnum: informacoesEspeciesEnum,
       assets: assets,
+      audioURL: audioURL,
     );
   }
 }

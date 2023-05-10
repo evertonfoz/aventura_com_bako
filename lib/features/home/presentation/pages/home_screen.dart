@@ -275,6 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => GalleryScreen(
+                                    audioController: widget.audioController,
                                     user: widget.user,
                                   )));
                     },
@@ -358,6 +359,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => HomePageMemoryGame(
+                          audioController: widget.audioController,
                           isEasy: false,
                           user: widget.user,
                           notifyParent: refresh,
@@ -392,6 +394,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => HomePageMemoryGame(
+                          audioController: widget.audioController,
                           isEasy: true,
                           user: widget.user,
                           notifyParent: refresh,

@@ -191,7 +191,7 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                           topLeft: Radius.circular(25),
                           topRight: Radius.circular(25),
                         ),
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 255, 244, 145),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
@@ -208,7 +208,8 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                                     '${controller.especieLida.value.nomeCientifico}',
                                     overflow: TextOverflow.fade,
                                     style: TextStyle(
-                                        fontSize: 40,
+                                        fontSize: 35,
+                                        fontStyle: FontStyle.italic,
                                         color: Color(
                                           ColorUtils.hexToInt("#94BF36"),
                                         ),
@@ -231,7 +232,6 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                             Container(
                               alignment: Alignment.centerLeft,
                               padding: const EdgeInsets.only(right: 40),
-                              child: const Divider(),
                             ),
                             Container(
                               alignment: Alignment.centerLeft,
@@ -265,14 +265,13 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                                       image: AssetImage('assets/icon-1.png'),
                                       fit: BoxFit.fitHeight,
                                     ),
-                                    color: Colors.yellow[200],
+                                    color: Colors.green[200],
                                   ),
                                 ),
                                 const SizedBox(width: 5),
                                 Text(
                                   'Nomes populares',
                                   style: TextStyle(
-                                    fontSize: 20,
                                     color: Color(
                                       ColorUtils.hexToInt("#94BF36"),
                                     ),
@@ -286,8 +285,26 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                               '${controller.especieLida.value.nomesPopulares}',
                               textAlign: TextAlign.justify,
                               style: const TextStyle(
-                                fontSize: 17,
+                                  fontSize: 25,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              '${controller.especieLida.value.exposicao}',
+                              textAlign: TextAlign.justify,
+                              style: const TextStyle(
                                 color: Colors.black54,
+                              ),
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              height: MediaQuery.of(context).size.height * 0.3,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: ExactAssetImage(
+                                      'assets/Bako_1281x1423.png'), //TODO Constantes
+                                  fit: BoxFit.fitHeight,
+                                ),
                               ),
                             ),
                           ],

@@ -1,3 +1,5 @@
+import 'package:audioplayers/audioplayers.dart';
+import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/galeria/controller/galeria_controller.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/categoria_especie_widget.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
@@ -11,9 +13,11 @@ class InformacoesGalleryPage extends StatefulWidget {
   InformacoesGalleryPage({
     required this.controller,
     required this.id,
+    required this.audioController,
     Key? key,
   }) : super(key: key);
 
+  AudioController audioController;
   InformacoesGalleryController controller;
   int id;
   @override
@@ -21,80 +25,38 @@ class InformacoesGalleryPage extends StatefulWidget {
 }
 
 class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
+  bool audioIsPlaying = false;
+
+  @override
+  void initState() {
+    widget.audioController.loadFalaFromJson(
+        widget.controller.informacoesEspeciesList[widget.id].audioURL!);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    widget.audioController.playerFala.stop();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    widget.audioController.playerFala.onPlayerStateChanged.listen((state) {
+      setState(() {
+        audioIsPlaying = state == PlayerState.PLAYING;
+      });
+    });
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Galeria'),
+      ),
       backgroundColor: Colors.white,
       body: Obx(
         () {
           return SingleChildScrollView(
             child: Stack(
               children: [
-                Visibility(
-                  visible: widget.controller.informacoesEspeciesList[widget.id]
-                          .nomeCientifico ==
-                      null,
-                  child: Container(
-                    color: Colors.green,
-                    height: MediaQuery.of(context).size.height,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            // width: MediaQuery.of(context).size.width * 0.85,
-                            // height: 200,
-                            decoration: ShapeDecoration(
-                              color: Colors.yellow,
-                              shape: TooltipShapeBorder(
-                                arrowArc: 0.5,
-                                arrowHeight: 35,
-                              ),
-                              shadows: const [
-                                BoxShadow(
-                                    color: Colors.black26,
-                                    blurRadius: 4.0,
-                                    offset: Offset(2, 2))
-                              ],
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Column(
-                                children: [
-                                  TextECA(
-                                    text:
-                                        'Olá, eu sou o Bako e vou te acompanhar nessa aventura!',
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                  const SizedBox(height: 10),
-                                  TextECA(
-                                    text:
-                                        'Pelo visto, algum problema ocorreu com o QR CODE lido. Pode tentar novamente, pois não identifiquei nele dados da espécie.',
-                                    fontSize: 16,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 200.00,
-                          height: 200.00,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: ExactAssetImage(
-                                  'assets/bako_vetor.png'), //TODO Constantes
-                              fit: BoxFit.fitHeight,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 30),
-                      ],
-                    ),
-                  ),
-                ),
                 CarouselSlider.builder(
                   options: CarouselOptions(
                     height: 300,
@@ -126,31 +88,6 @@ class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
                     ),
                   ),
                 ),
-                Positioned(
-                  right: 5,
-                  top: 10,
-                  child: Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Color(
-                        ColorUtils.hexToInt("#FEE784"),
-                      ),
-                      border:
-                          Border.all(width: 0.5, color: Colors.grey.shade500),
-                    ),
-                    child: GestureDetector(
-                      child: Icon(
-                        Icons.close,
-                        color: Color(
-                          ColorUtils.hexToInt("#788A25"),
-                        ),
-                      ),
-                      onTap: () {},
-                    ),
-                  ),
-                ),
                 Visibility(
                   visible: widget.controller.informacoesEspeciesList[widget.id]
                           .nomeCientifico !=
@@ -163,7 +100,7 @@ class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
                           topLeft: Radius.circular(25),
                           topRight: Radius.circular(25),
                         ),
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 255, 244, 145),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
@@ -180,7 +117,8 @@ class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
                                     '${widget.controller.informacoesEspeciesList[widget.id].nomeCientifico}',
                                     overflow: TextOverflow.fade,
                                     style: TextStyle(
-                                        fontSize: 40,
+                                        fontStyle: FontStyle.italic,
+                                        fontSize: 35,
                                         color: Color(
                                           ColorUtils.hexToInt("#94BF36"),
                                         ),
@@ -203,7 +141,6 @@ class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
                             Container(
                               alignment: Alignment.centerLeft,
                               padding: const EdgeInsets.only(right: 40),
-                              child: const Divider(),
                             ),
                             Container(
                               alignment: Alignment.centerLeft,
@@ -217,7 +154,7 @@ class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 50),
+                            const Divider(),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
@@ -236,7 +173,7 @@ class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
                                       image: AssetImage('assets/icon-1.png'),
                                       fit: BoxFit.fitHeight,
                                     ),
-                                    color: Colors.yellow[200],
+                                    color: Colors.green[200],
                                   ),
                                 ),
                                 const SizedBox(width: 5),
@@ -256,8 +193,65 @@ class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
                               '${widget.controller.informacoesEspeciesList[widget.id].nomesPopulares}',
                               textAlign: TextAlign.justify,
                               style: const TextStyle(
+                                  fontSize: 25,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            const Divider(),
+                            Text(
+                              '${widget.controller.informacoesEspeciesList[widget.id].exposicao}',
+                              textAlign: TextAlign.justify,
+                              style: const TextStyle(
                                 color: Colors.black54,
                               ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.5,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.3,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      image: ExactAssetImage(
+                                          'assets/Bako_1281x1423.png'), //TODO Constantes
+                                      fit: BoxFit.fitHeight,
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(16.0),
+                                    child: SizedBox(
+                                      width: 80,
+                                      height: 80,
+                                      child: FloatingActionButton(
+                                        heroTag: 'pauseWelcome',
+                                        onPressed: () async {
+                                          if (audioIsPlaying) {
+                                            await widget
+                                                .audioController.playerFala
+                                                .pause();
+                                          } else {
+                                            await widget
+                                                .audioController.playerFala
+                                                .resume();
+                                          }
+                                        },
+                                        child: Icon(
+                                          audioIsPlaying
+                                              ? Icons.pause
+                                              : Icons.play_arrow,
+                                          size: 60,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
