@@ -8,9 +8,16 @@ class AudioController {
   double volumeFala = 1.0;
   double volumeBGM = 1.0;
 
-  playBGM() async {
+  playBGM1() async {
     playerBGM.setReleaseMode(ReleaseMode.LOOP);
     final url = await playerBGMCache.load('audio/bgm1.mp3');
+    playerBGM.setUrl(url.path, isLocal: true);
+    await playerBGM.resume();
+  }
+
+  playBGM2() async {
+    playerBGM.setReleaseMode(ReleaseMode.LOOP);
+    final url = await playerBGMCache.load('audio/bgm2.mp3');
     playerBGM.setUrl(url.path, isLocal: true);
     await playerBGM.resume();
   }

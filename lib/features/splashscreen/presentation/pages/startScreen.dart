@@ -16,10 +16,12 @@ class _StartScreenState extends State<StartScreen> {
   final GamificationUser gamificationUser = GamificationUser();
   final audioPlayer = AudioController();
   bool _validate = false;
+  bool muteBGM = false;
+  bool muteFala = false;
   @override
   void initState() {
     super.initState();
-    audioPlayer.playBGM();
+    audioPlayer.playBGM1();
   }
 
   @override
@@ -45,8 +47,57 @@ class _StartScreenState extends State<StartScreen> {
           ),
           Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FloatingActionButton(
+                      onPressed: () async {
+                        if (!muteBGM) {
+                          setState(() {
+                            muteBGM = true;
+                            audioPlayer.volumeBGM = 0;
+                            audioPlayer.playerBGM.setVolume(0);
+                          });
+                        } else {
+                          setState(() {
+                            muteBGM = false;
+                            audioPlayer.volumeBGM = 1;
+                            audioPlayer.playerBGM.setVolume(1);
+                          });
+                        }
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child:
+                            Icon(muteBGM ? Icons.music_note : Icons.music_off),
+                      ),
+                    ),
+                    FloatingActionButton(
+                      onPressed: () async {
+                        if (!muteFala) {
+                          setState(() {
+                            muteFala = true;
+                            audioPlayer.volumeFala = 0;
+                            audioPlayer.playerFala.setVolume(0);
+                          });
+                        } else {
+                          setState(() {
+                            muteFala = false;
+                            audioPlayer.volumeFala = 1;
+                            audioPlayer.playerFala.setVolume(1);
+                          });
+                        }
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child:
+                            Icon(muteFala ? Icons.volume_up : Icons.volume_off),
+                      ),
+                    )
+                  ],
+                ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
                   height: MediaQuery.of(context).size.height * 0.38,
@@ -144,23 +195,23 @@ class _StartScreenState extends State<StartScreen> {
                     ),
                   ),
                 ),
-              ],
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/idv.png',
-                    fit: BoxFit.contain,
-                    height: 70,
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/idv.png',
+                          fit: BoxFit.contain,
+                          height: 70,
+                        ),
+                      ],
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

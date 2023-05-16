@@ -1,3 +1,5 @@
+import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
+
 abstract class ItemLoja {
   final String asset, title, desc;
   final int id, price;
@@ -5,8 +7,8 @@ abstract class ItemLoja {
   ItemLoja(this.id, this.title, this.price, this.asset, this.desc);
 }
 
-class Item1 extends ItemLoja {
-  Item1(super.id, super.title, super.price, super.asset, super.desc);
+class BGM2 extends ItemLoja {
+  BGM2(super.id, super.title, super.price, super.asset, super.desc);
   metodo() {}
 }
 
@@ -31,7 +33,8 @@ class Item5 extends ItemLoja {
 }
 
 List<ItemLoja> itensLoja = [
-  Item1(0, 'titulo 1', 30, 'assets/hidden.png', 'desc 1'),
+  BGM2(0, 'Musica', 30, 'assets/images/notamusical.png',
+      'Nova musica de fundo!'),
   Item2(1, 'titulo 2', 30, 'assets/hidden.png', 'desc 2'),
   Item3(2, 'titulo 3', 30, 'assets/hidden.png', 'desc 3'),
   Item4(3, 'titulo 4', 30, 'assets/hidden.png', 'desc 4'),

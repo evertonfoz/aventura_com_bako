@@ -46,7 +46,7 @@ class _InformacoesMemoriaPageState extends State<InformacoesMemoriaPage> {
     });
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Memorizando com Baki'),
+        title: const Text('Memorizando com Bako'),
       ),
       backgroundColor: Colors.lightGreen,
       body: SingleChildScrollView(

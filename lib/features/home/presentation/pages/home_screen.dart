@@ -291,6 +291,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           context,
                           MaterialPageRoute(
                               builder: (context) => LojaScreen(
+                                    audioController: widget.audioController,
                                     user: widget.user,
                                     notifyParent: refresh,
                                   )));

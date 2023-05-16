@@ -1,12 +1,18 @@
+import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:aventura_com_bako/features/loja/data/ItensLoja.dart';
 
 class LojaScreen extends StatefulWidget {
-  LojaScreen({super.key, required this.user, required this.notifyParent});
+  LojaScreen(
+      {super.key,
+      required this.audioController,
+      required this.user,
+      required this.notifyParent});
 
   GamificationUser user;
+  AudioController audioController;
   final Function() notifyParent;
 
   @override
@@ -322,7 +328,7 @@ class _LojaScreenState extends State<LojaScreen> {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage(itensLoja[index].asset),
-                      fit: BoxFit.fill),
+                      fit: BoxFit.contain),
                   color: Colors.green,
                   border: Border.all(
                       color: _boughtColor(index),
