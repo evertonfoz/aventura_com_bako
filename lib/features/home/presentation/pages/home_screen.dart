@@ -235,6 +235,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                       ListTile(
+                        leading: const Icon(Icons.remember_me),
+                        title: const Text(
+                          'Jogo da memória',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        onTap: () {
+                          alertDificulty();
+                        },
+                      ),
+                      ListTile(
                         leading: const Icon(Icons.question_mark),
                         title: const Text(
                           'Quizz',
@@ -250,16 +260,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                           );
-                        },
-                      ),
-                      ListTile(
-                        leading: const Icon(Icons.remember_me),
-                        title: const Text(
-                          'Jogo da memória',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        onTap: () {
-                          alertDificulty();
                         },
                       ),
                     ],

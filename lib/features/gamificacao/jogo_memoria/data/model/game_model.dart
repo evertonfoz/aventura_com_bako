@@ -8,14 +8,14 @@ class MemoryGameModelEasy {
   final int cardCount = 12;
 
   final cardsList = [
-    "assets/trofeu_icon.png",
+    "assets/testeJM.png",
     "assets/saco-de-sementes.png",
     "assets/icon-9.png",
     "assets/score_icon.png",
     "assets/plant_icon.png",
     "assets/Bako_1281x1423.png",
     //
-    "assets/trofeu_icon.png",
+    "assets/testeJM.png",
     "assets/saco-de-sementes.png",
     "assets/icon-9.png",
     "assets/plant_icon.png",
