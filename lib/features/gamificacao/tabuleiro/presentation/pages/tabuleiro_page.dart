@@ -25,34 +25,34 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
   int pos = 0;
   int? dice;
   var gridState = [
-    {'gridPos': 0},
-    {'gridPos': 1},
+    {'gridPos': 0, 'decoration': true, 'mapPos': '🌳'},
+    {'gridPos': 1, 'decoration': true, 'mapPos': '🌱'},
     {'gridPos': 2},
-    {'gridPos': 3, "index": 15, 'mapPos': 'FIM'},
+    {'gridPos': 3, 'index': 15, 'mapPos': 'FIM'},
     {'gridPos': 4, 'index': 11, 'mapPos': '11'},
-    {'gridPos': 5, "index": 12, 'mapPos': '12'},
+    {'gridPos': 5, 'index': 12, 'mapPos': '12'},
     {'gridPos': 6, 'index': 13, 'mapPos': '13'},
-    {'gridPos': 7, "index": 14, 'mapPos': '14'},
+    {'gridPos': 7, 'index': 14, 'mapPos': '14'},
     {'gridPos': 8, 'index': 10, 'mapPos': '10'},
     {'gridPos': 9},
-    {'gridPos': 10},
+    {'gridPos': 10, 'decoration': true, 'mapPos': '🌳'},
     {'gridPos': 11},
-    {'gridPos': 12, "index": 9, 'mapPos': '9'},
-    {'gridPos': 13, "index": 8, 'mapPos': '8'},
-    {'gridPos': 14, "index": 7, 'mapPos': '7'},
-    {'gridPos': 15, "index": 6, 'mapPos': '6'},
-    {'gridPos': 16},
+    {'gridPos': 12, 'index': 9, 'mapPos': '9'},
+    {'gridPos': 13, 'index': 8, 'mapPos': '8'},
+    {'gridPos': 14, 'index': 7, 'mapPos': '7'},
+    {'gridPos': 15, 'index': 6, 'mapPos': '6'},
+    {'gridPos': 16, 'decoration': true, 'mapPos': '🌳'},
     {'gridPos': 17},
-    {'gridPos': 18},
-    {'gridPos': 19, "index": 5, 'mapPos': '5'},
+    {'gridPos': 18, 'decoration': true, 'mapPos': '🐕'},
+    {'gridPos': 19, 'index': 5, 'mapPos': '5'},
     {'gridPos': 20, 'index': 1, 'mapPos': '1'},
-    {'gridPos': 21, "index": 2, 'mapPos': '2'},
+    {'gridPos': 21, 'index': 2, 'mapPos': '2'},
     {'gridPos': 22, 'index': 3, 'mapPos': '3'},
-    {'gridPos': 23, "index": 4, 'mapPos': '4'},
+    {'gridPos': 23, 'index': 4, 'mapPos': '4'},
     {'gridPos': 24, 'index': 0, 'mapPos': 'INICIO'},
-    {'gridPos': 25},
+    {'gridPos': 25, 'decoration': true, 'mapPos': '🌳'},
     {'gridPos': 26},
-    {'gridPos': 27},
+    {'gridPos': 27, 'decoration': true, 'mapPos': '🦋'},
   ];
 
   @override
@@ -70,12 +70,6 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
       ),
       body: Stack(
         children: [
-          SizedBox(
-              width: double.infinity,
-              height: double.infinity,
-              child: Container(
-                color: Colors.lightGreen,
-              )),
           Column(
             children: <Widget>[
               Container(
@@ -83,6 +77,7 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
                 padding: const EdgeInsets.all(8.0),
                 margin: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
+                    color: Colors.lightGreen,
                     border: Border.all(color: Colors.brown, width: 2.0)),
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -225,6 +220,16 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
               border: Border.all(color: Colors.orange, width: 1)),
           child: Center(
             child: Image.asset('assets/Bako_1281x1423.png'),
+          ));
+    } else if (gridState[index]['decoration'] == true) {
+      return Container(
+          width: double.infinity,
+          height: double.infinity,
+          child: Center(
+            child: Text(
+              "${gridState[index]['mapPos']}",
+              style: TextStyle(fontSize: 50),
+            ),
           ));
     } else if (gridState[index]["index"] == null) {
       return Container();
