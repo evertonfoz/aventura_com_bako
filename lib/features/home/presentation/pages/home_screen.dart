@@ -11,6 +11,9 @@ import 'package:aventura_com_bako/features/loja/presentation/loja_screen.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../../gamificacao/tabuleiro/presentation/pages/tabuleiro_page.dart';
+
+
 class HomeScreen extends StatefulWidget {
   HomeScreen({required this.user, required this.audioController, Key? key})
       : super(key: key);
@@ -229,6 +232,22 @@ class _HomeScreenState extends State<HomeScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => HomeCacaPalavras(
+                                  user: widget.user, notifyParent: refresh),
+                            ),
+                          );
+                        },
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.grid_view),
+                        title: const Text(
+                          'Tabuleiro',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TabuleiroPage(
                                   user: widget.user, notifyParent: refresh),
                             ),
                           );
