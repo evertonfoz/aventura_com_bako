@@ -2,9 +2,7 @@ import 'package:aventura_com_bako/features/audio/controller/audioController.dart
 import 'package:aventura_com_bako/features/configuracoes/presentarion/configuracoesPage.dart';
 import 'package:aventura_com_bako/features/galeria/presentation/pages/galeria_screen.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/pages/home_page.dart';
-import 'package:aventura_com_bako/features/gamificacao/gamification.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
-import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/data/model/game_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/presentation/pages/home_game_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/pages/home_page.dart';
 import 'package:aventura_com_bako/features/loja/presentation/loja_screen.dart';
@@ -18,8 +16,8 @@ class HomeScreen extends StatefulWidget {
   HomeScreen({required this.user, required this.audioController, Key? key})
       : super(key: key);
 
-  GamificationUser user;
-  AudioController audioController;
+   final GamificationUser user;
+   final AudioController audioController;
   @override
   // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();

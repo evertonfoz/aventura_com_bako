@@ -1,4 +1,3 @@
-import 'package:aventura_com_bako/features/home/presentation/pages/home_screen.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';

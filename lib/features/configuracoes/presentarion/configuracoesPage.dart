@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -6,7 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 class ConfiguracoesScreen extends StatefulWidget {
   ConfiguracoesScreen({super.key, required this.audioController});
 
-  AudioController audioController;
+  final AudioController audioController;
   @override
   State<ConfiguracoesScreen> createState() => _ConfiguracoesScreenState();
 }

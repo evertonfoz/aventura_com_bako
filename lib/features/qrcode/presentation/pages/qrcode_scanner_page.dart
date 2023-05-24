@@ -1,13 +1,10 @@
-import 'dart:typed_data';
 
-import 'package:aventura_com_bako/features/gamificacao/gamification.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
 import 'package:aventura_com_bako/features/qrcode/presentation/pages/controller/qrcode_scanner_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:flutter/services.dart';
 
 import '../../../informacoes_especies/presentation/controller/informacoes_controller.dart';
 import '../../../informacoes_especies/presentation/widgets/carregando_pagina_widget.dart';
@@ -17,7 +14,7 @@ class QrCodeScannerPage extends StatefulWidget {
       : super(key: key);
 
   final MapScreen mapa;
-  GamificationUser user;
+  final GamificationUser user;
 
   @override
   State<QrCodeScannerPage> createState() => _QrCodeScannerPageState();

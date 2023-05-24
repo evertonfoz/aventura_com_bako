@@ -2,7 +2,6 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:basic_utils/basic_utils.dart';
-import 'package:eca_packages/eca_packages.dart';
 import 'package:flutter/material.dart';
 import 'package:timelines/timelines.dart';
 
@@ -14,8 +13,8 @@ class InstrucoesTimelinePage extends StatefulWidget {
       {Key? key, required this.user, required this.audioController})
       : super(key: key);
 
-  GamificationUser user;
-  AudioController audioController;
+  final GamificationUser user;
+  final AudioController audioController;
   @override
   State<InstrucoesTimelinePage> createState() => _InstrucoesTimelinePageState();
 }

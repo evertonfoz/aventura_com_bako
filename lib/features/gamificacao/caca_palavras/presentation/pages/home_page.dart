@@ -1,5 +1,4 @@
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
-import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/caca_palavra.dart';
@@ -8,7 +7,7 @@ class HomeCacaPalavras extends StatelessWidget {
   HomeCacaPalavras({required this.user, required this.notifyParent, super.key});
 
   final Function() notifyParent;
-  GamificationUser user;
+  final GamificationUser user;
 
   @override
   Widget build(BuildContext context) {

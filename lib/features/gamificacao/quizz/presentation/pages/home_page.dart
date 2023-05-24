@@ -1,6 +1,5 @@
 import 'package:aventura_com_bako/features/gamificacao/alert_game.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
-import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/widgets/result_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/widgets/score_board.dart';
 import 'package:flutter/material.dart';
 import '../../data/model/questions_list.dart';
@@ -10,7 +9,7 @@ class HomePageQuizz extends StatefulWidget {
   HomePageQuizz({required this.user, required this.notifyParent, Key? key})
       : super(key: key);
 
-  GamificationUser user;
+  final GamificationUser user;
   final Function() notifyParent;
 
   @override

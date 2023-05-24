@@ -1,4 +1,3 @@
-import 'package:aventura_com_bako/features/informacoes_especies/data/model/informacoes_model.dart';
 import 'package:aventura_com_bako/features/mapa/helpers/enums/direction_enum.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/widgets/bako_widget.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/widgets/collisionPoints_widget.dart';

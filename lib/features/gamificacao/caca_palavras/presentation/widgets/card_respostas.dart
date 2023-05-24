@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CardResposta extends StatefulWidget {
   CardResposta({required this.toFind, super.key});
-  ValueNotifier<List<RespostasCacaPalavra>> toFind;
+  final ValueNotifier<List<RespostasCacaPalavra>> toFind;
 
   @override
   State<CardResposta> createState() => _CardRespostaState();

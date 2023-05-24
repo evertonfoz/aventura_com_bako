@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:flutter/material.dart';

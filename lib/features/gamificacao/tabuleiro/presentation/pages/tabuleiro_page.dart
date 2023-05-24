@@ -4,7 +4,6 @@ import 'dart:math';
 import 'package:aventura_com_bako/features/gamificacao/tabuleiro/presentation/controller/tabuleiroController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -12,7 +11,7 @@ import '../../../gamification_model.dart';
 
 class TabuleiroPage extends StatefulWidget {
   TabuleiroPage({super.key, required this.notifyParent, required this.user});
-  GamificationUser user;
+  final GamificationUser user;
   final Function() notifyParent;
 
   @override

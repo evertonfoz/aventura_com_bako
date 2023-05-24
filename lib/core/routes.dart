@@ -1,4 +1,3 @@
-import 'package:aventura_com_bako/features/home/presentation/pages/home_screen.dart';
 import 'package:aventura_com_bako/features/splashscreen/presentation/pages/splashscreen.dart';
 import 'package:aventura_com_bako/features/tutorial/presentation/pages/tutorial_screen.dart';
 import 'package:flutter/material.dart';

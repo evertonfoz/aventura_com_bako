@@ -1,4 +1,3 @@
-import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 
 abstract class ItemLoja {
   final String asset, title, desc;

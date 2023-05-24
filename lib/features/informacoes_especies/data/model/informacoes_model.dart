@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:aventura_com_bako/features/informacoes_especies/helpers/enums/informacoes_especies_enum.dart';
-import 'package:flutter/material.dart';
 
 List<InformacoesModel> informacoesModelFromJson(String str) =>
     List<InformacoesModel>.from(

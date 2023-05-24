@@ -2,21 +2,18 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/informacoes_jogo_da_memoria/presentation/controller/jogoMemoria_controller.dart';
 import 'package:basic_utils/basic_utils.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../mapa/presentation/page/welcome_page.dart';
-
 class InformacoesMemoriaPage extends StatefulWidget {
-  InformacoesMemoriaPage(
+  const InformacoesMemoriaPage(
       {required this.controller,
       required this.index,
       required this.audioController,
       super.key});
 
-  int index;
-  InformacoesJogoDaMemoriaController controller;
-  AudioController audioController;
+  final int index;
+  final InformacoesJogoDaMemoriaController controller;
+  final AudioController audioController;
 
   @override
   State<InformacoesMemoriaPage> createState() => _InformacoesMemoriaPageState();

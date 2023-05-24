@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/controller/informacoes_controller.dart';
-import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/categoria_especie_widget.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/mapa_screen.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:basic_utils/basic_utils.dart';

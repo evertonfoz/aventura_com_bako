@@ -155,6 +155,7 @@ class Bako extends SpriteAnimationComponent
 
   @override
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollision(intersectionPoints, other);
     if (other is CollisionPoints) {
       if (!_hasCollided) {
         _hasCollided = true;
@@ -165,6 +166,7 @@ class Bako extends SpriteAnimationComponent
 
   @override
   void onCollisionEnd(PositionComponent other) {
+    super.onCollisionEnd(other);
     if (other is CollisionPoints) {
       _hasCollided = false;
     }

@@ -18,10 +18,10 @@ class HomePageMemoryGame extends StatefulWidget {
       required this.audioController,
       Key? key})
       : super(key: key);
-  GamificationUser user;
-  AudioController audioController;
+  final GamificationUser user;
+  final AudioController audioController;
   final Function() notifyParent;
-  bool isEasy;
+  final bool isEasy;
 
   @override
   State<HomePageMemoryGame> createState() => _HomePageMemoryGameState();

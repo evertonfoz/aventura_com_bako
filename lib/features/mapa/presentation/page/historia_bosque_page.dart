@@ -9,8 +9,8 @@ import '../../../splashscreen/presentation/pages/startScreen.dart';
 class HistoriaPage extends StatefulWidget {
   HistoriaPage({super.key, required this.audioController, required this.user});
 
-  GamificationUser user;
-  AudioController audioController;
+  final GamificationUser user;
+  final AudioController audioController;
 
   @override
   State<HistoriaPage> createState() => _HistoriaPageState();

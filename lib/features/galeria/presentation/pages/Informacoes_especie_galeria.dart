@@ -1,11 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/galeria/controller/galeria_controller.dart';
-import 'package:aventura_com_bako/features/informacoes_especies/presentation/widgets/categoria_especie_widget.dart';
-import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:eca_packages/eca_packages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,9 +14,9 @@ class InformacoesGalleryPage extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-  AudioController audioController;
-  InformacoesGalleryController controller;
-  int id;
+  final AudioController audioController;
+  final InformacoesGalleryController controller;
+  final int id;
   @override
   State<InformacoesGalleryPage> createState() => _InformacoesGalleryPageState();
 }

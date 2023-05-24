@@ -12,7 +12,7 @@ class CacaPalavra extends StatefulWidget {
       : super(key: key);
 
   final Function() notifyParent;
-  GamificationUser user;
+  final GamificationUser user;
 
   @override
   _CacaPalavraState createState() => _CacaPalavraState();

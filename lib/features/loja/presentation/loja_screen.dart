@@ -11,8 +11,8 @@ class LojaScreen extends StatefulWidget {
       required this.user,
       required this.notifyParent});
 
-  GamificationUser user;
-  AudioController audioController;
+  final GamificationUser user;
+  final AudioController audioController;
   final Function() notifyParent;
 
   @override
