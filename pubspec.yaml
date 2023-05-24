@@ -74,6 +74,7 @@ flutter:
     - assets/images/
     - assets/tiles/
     - assets/audio/
+    - assets/games/
   uses-material-design: true
 
   # flutter pub run flutter_native_splash:create

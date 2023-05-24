@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:aventura_com_bako/features/gamificacao/tabuleiro/presentation/controller/tabuleiroController.dart';
@@ -23,10 +24,26 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
       Get.put(InformacoesTabuleiroController());
 
   int pos = 0;
-  int? dice;
+  int dice = 0;
+  int diceImageIndex = 0;
+  int counter = 1;
+
+  List<String> diceImage = [
+    'assets/games/dice1.png',
+    'assets/games/dice2.png',
+    'assets/games/dice3.png',
+    'assets/games/dice4.png',
+    'assets/games/dice5.png',
+    'assets/games/dice6.png',
+  ];
+
   var gridState = [
-    {'gridPos': 0, 'decoration': true, 'mapPos': '🌳'},
-    {'gridPos': 1, 'decoration': true, 'mapPos': '🌱'},
+    {
+      'gridPos': 0,
+      'decoration': true,
+      'mapPos': 'assets/images/borboleta2.png'
+    },
+    {'gridPos': 1, 'decoration': true, 'mapPos': 'assets/images/arvore1.png'},
     {'gridPos': 2},
     {'gridPos': 3, 'index': 15, 'mapPos': 'FIM'},
     {'gridPos': 4, 'index': 11, 'mapPos': '11'},
@@ -35,24 +52,24 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
     {'gridPos': 7, 'index': 14, 'mapPos': '14'},
     {'gridPos': 8, 'index': 10, 'mapPos': '10'},
     {'gridPos': 9},
-    {'gridPos': 10, 'decoration': true, 'mapPos': '🌳'},
+    {'gridPos': 10, 'decoration': true, 'mapPos': 'assets/images/arbusto3.png'},
     {'gridPos': 11},
     {'gridPos': 12, 'index': 9, 'mapPos': '9'},
     {'gridPos': 13, 'index': 8, 'mapPos': '8'},
     {'gridPos': 14, 'index': 7, 'mapPos': '7'},
     {'gridPos': 15, 'index': 6, 'mapPos': '6'},
-    {'gridPos': 16, 'decoration': true, 'mapPos': '🌳'},
+    {'gridPos': 16, 'decoration': true, 'mapPos': 'assets/images/arvore2.png'},
     {'gridPos': 17},
-    {'gridPos': 18, 'decoration': true, 'mapPos': '🐕'},
+    {'gridPos': 18, 'decoration': true, 'mapPos': 'assets/images/bananao.png'},
     {'gridPos': 19, 'index': 5, 'mapPos': '5'},
     {'gridPos': 20, 'index': 1, 'mapPos': '1'},
     {'gridPos': 21, 'index': 2, 'mapPos': '2'},
     {'gridPos': 22, 'index': 3, 'mapPos': '3'},
     {'gridPos': 23, 'index': 4, 'mapPos': '4'},
     {'gridPos': 24, 'index': 0, 'mapPos': 'INICIO'},
-    {'gridPos': 25, 'decoration': true, 'mapPos': '🌳'},
+    {'gridPos': 25, 'decoration': true, 'mapPos': 'assets/images/folhas2.png'},
     {'gridPos': 26},
-    {'gridPos': 27, 'decoration': true, 'mapPos': '🦋'},
+    {'gridPos': 27, 'decoration': true, 'mapPos': 'assets/images/pedra1.png'},
   ];
 
   @override
@@ -70,19 +87,21 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
       ),
       body: Stack(
         children: [
+          const SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: Image(
+                image: AssetImage('assets/images/fundinho.png'),
+                fit: BoxFit.fill),
+          ),
           Column(
             children: <Widget>[
               Container(
                 height: MediaQuery.of(context).size.height * 0.74,
                 padding: const EdgeInsets.all(8.0),
                 margin: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                    color: Colors.lightGreen,
-                    border: Border.all(color: Colors.brown, width: 2.0)),
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisSpacing: 2,
-                      mainAxisSpacing: 2,
                       crossAxisCount: 4),
                   itemBuilder: (BuildContext context, index) {
                     return _buildGridItems(context, index);
@@ -92,28 +111,65 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 650),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text("$pos"),
-                Text("${dice ?? '0'}"),
-                FloatingActionButton(
-                    child: const Icon(Icons.crop_square),
-                    onPressed: () {
-                      setState(() {
-                        dice = Random().nextInt(6) + 1;
-                        pos = pos + dice!;
-                        if (pos >= 15) {
-                          pos = 15;
-                          _finalDialog();
-                        } else {
-                          _informacaoDialog(pos - 1);
-                        }
-                      });
-                    })
-              ],
+          Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.7),
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.height * 0.15,
+                decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Colors.brown,
+                        style: BorderStyle.solid,
+                        width: 5),
+                    color: const Color.fromARGB(255, 186, 140, 99),
+                    borderRadius: BorderRadius.circular(50)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Transform.rotate(
+                      angle: Random().nextDouble() * 180,
+                      child: Image.asset(
+                        diceImage[diceImageIndex],
+                        height: MediaQuery.of(context).size.height * 0.1,
+                      ),
+                    ),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.brown),
+                        child: const Text('Role!'),
+                        onPressed: () async {
+                          Timer.periodic(const Duration(milliseconds: 80),
+                              (timer) {
+                            counter++;
+                            setState(() {
+                              diceImageIndex = Random().nextInt(6);
+                            });
+                            if (counter >= 13) {
+                              timer.cancel();
+                              setState(() {
+                                counter = 1;
+                              });
+                            }
+                          });
+                          await Future.delayed(const Duration(seconds: 2), () {
+                            setState(() {
+                              dice = diceImageIndex + 1;
+                              pos = pos + dice;
+                              if (pos >= 15) {
+                                pos = 15;
+                                _finalDialog();
+                              } else {
+                                _informacaoDialog(pos - 1);
+                              }
+                            });
+                          });
+                        })
+                  ],
+                ),
+              ),
             ),
           )
         ],
@@ -199,51 +255,75 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
   }
 
   _buildGridItems(BuildContext context, int index) {
-    int gridStateLength = gridState.length;
     return GridTile(
-      child: Container(
-        child: Center(
-          child: _buildGridItem(index),
-        ),
+      child: Center(
+        child: _buildGridItem(index),
       ),
     );
   }
 
   _buildGridItem(int index) {
-    if (pos == gridState[index]["index"]) {
-      return Container(
+    if (gridState[index]['decoration'] == true) {
+      return SizedBox(
           width: double.infinity,
           height: double.infinity,
-          decoration: BoxDecoration(
-              color: Colors.orangeAccent,
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.orange, width: 1)),
-          child: Center(
-            child: Image.asset('assets/Bako_1281x1423.png'),
-          ));
-    } else if (gridState[index]['decoration'] == true) {
-      return Container(
-          width: double.infinity,
-          height: double.infinity,
-          child: Center(
-            child: Text(
-              "${gridState[index]['mapPos']}",
-              style: TextStyle(fontSize: 50),
-            ),
+          child: Image(
+            image: AssetImage("${gridState[index]['mapPos']}"),
+            fit: BoxFit.fill,
           ));
     } else if (gridState[index]["index"] == null) {
       return Container();
     } else {
-      return Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: Colors.orangeAccent,
-              border: Border.all(color: Colors.orange, width: 1)),
-          child: Center(
-            child: Text("${gridState[index]['mapPos']}"),
-          ));
+      return Stack(
+        children: [
+          Image(image: _pathgenerator(index), fit: BoxFit.cover),
+          _bakoPos(index),
+        ],
+      );
+    }
+  }
+
+  _bakoPos(int index) {
+    if (pos == gridState[index]["index"]) {
+      return Center(
+        child: Image.asset('assets/Bako_1281x1423.png'),
+      );
+    } else {
+      return Center(
+        child: Stack(
+          children: [
+            Text(
+              "${gridState[index]['mapPos']}",
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontSize: 28,
+                foreground: Paint()
+                  ..style = PaintingStyle.stroke
+                  ..strokeWidth = 2
+                  ..color = Colors.black,
+              ),
+            ),
+            Text(
+              "${gridState[index]['mapPos']}",
+              overflow: TextOverflow.visible,
+              style: const TextStyle(
+                fontSize: 28,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+
+  _pathgenerator(int index) {
+    if (index % 3 == 0) {
+      return const AssetImage('assets/images/caminho_1.png');
+    } else if (index % 4 == 0) {
+      return const AssetImage('assets/images/caminho_2.png');
+    } else {
+      return const AssetImage('assets/images/caminho_3.png');
     }
   }
 }
