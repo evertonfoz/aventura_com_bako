@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/gamificacao/tabuleiro/presentation/controller/tabuleiroController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -10,9 +11,14 @@ import 'package:get/get_core/src/get_main.dart';
 import '../../../gamification_model.dart';
 
 class TabuleiroPage extends StatefulWidget {
-  TabuleiroPage({super.key, required this.notifyParent, required this.user});
+  TabuleiroPage(
+      {super.key,
+      required this.notifyParent,
+      required this.user,
+      required this.audioController});
   final GamificationUser user;
   final Function() notifyParent;
+  final AudioController audioController;
 
   @override
   State<TabuleiroPage> createState() => _TabuleiroPageState();
@@ -65,7 +71,7 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
     {'gridPos': 21, 'index': 2, 'mapPos': '2'},
     {'gridPos': 22, 'index': 3, 'mapPos': '3'},
     {'gridPos': 23, 'index': 4, 'mapPos': '4'},
-    {'gridPos': 24, 'index': 0, 'mapPos': 'INICIO'},
+    {'gridPos': 24, 'index': 0, 'mapPos': '↑'},
     {'gridPos': 25, 'decoration': true, 'mapPos': 'assets/images/folhas2.png'},
     {'gridPos': 26},
     {'gridPos': 27, 'decoration': true, 'mapPos': 'assets/images/pedra1.png'},
@@ -116,7 +122,7 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
               padding: EdgeInsets.only(
                   top: MediaQuery.of(context).size.height * 0.7),
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.8,
+                width: MediaQuery.of(context).size.width * 0.45,
                 height: MediaQuery.of(context).size.height * 0.15,
                 decoration: BoxDecoration(
                     border: Border.all(
@@ -128,18 +134,16 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Transform.rotate(
-                      angle: Random().nextDouble() * 180,
-                      child: Image.asset(
-                        diceImage[diceImageIndex],
-                        height: MediaQuery.of(context).size.height * 0.1,
-                      ),
-                    ),
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.brown),
-                        child: const Text('Role!'),
+                    IconButton(
+                        iconSize: MediaQuery.of(context).size.height * 0.1,
+                        icon: Transform.rotate(
+                          angle: Random().nextDouble() * 180,
+                          child: Image.asset(
+                            diceImage[diceImageIndex],
+                          ),
+                        ),
                         onPressed: () async {
+                          widget.audioController.playDiceAudio();
                           Timer.periodic(const Duration(milliseconds: 80),
                               (timer) {
                             counter++;
@@ -295,7 +299,7 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
               "${gridState[index]['mapPos']}",
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 35,
                 foreground: Paint()
                   ..style = PaintingStyle.stroke
                   ..strokeWidth = 2
@@ -306,7 +310,7 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
               "${gridState[index]['mapPos']}",
               overflow: TextOverflow.visible,
               style: const TextStyle(
-                fontSize: 28,
+                fontSize: 35,
                 color: Colors.white,
               ),
             ),

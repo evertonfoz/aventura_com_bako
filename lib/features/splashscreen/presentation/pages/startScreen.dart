@@ -30,72 +30,26 @@ class _StartScreenState extends State<StartScreen> {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          Opacity(
-            opacity: 0.5,
-            child: Container(
-              width: double.maxFinite,
-              height: double.maxFinite,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image:
-                      ExactAssetImage('assets/Padrão4.jpg'), //TODO Constantes
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
+          SizedBox(
+            height: double.infinity,
+            width: double.infinity,
+            child: Image.asset(
+              'assets/images/Inicial2_1080x1920.png',
+              fit: BoxFit.fill,
             ),
           ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FloatingActionButton(
-                      onPressed: () async {
-                        if (!muteBGM) {
-                          setState(() {
-                            muteBGM = true;
-                            audioPlayer.volumeBGM = 0;
-                            audioPlayer.playerBGM.setVolume(0);
-                          });
-                        } else {
-                          setState(() {
-                            muteBGM = false;
-                            audioPlayer.volumeBGM = 1;
-                            audioPlayer.playerBGM.setVolume(1);
-                          });
-                        }
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child:
-                            Icon(muteBGM ? Icons.music_note : Icons.music_off),
-                      ),
+                Align(
+                  alignment: Alignment.center,
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    child: const Image(
+                      image: AssetImage('assets/idv.png'),
                     ),
-                    FloatingActionButton(
-                      onPressed: () async {
-                        if (!muteFala) {
-                          setState(() {
-                            muteFala = true;
-                            audioPlayer.volumeFala = 0;
-                            audioPlayer.playerFala.setVolume(0);
-                          });
-                        } else {
-                          setState(() {
-                            muteFala = false;
-                            audioPlayer.volumeFala = 1;
-                            audioPlayer.playerFala.setVolume(1);
-                          });
-                        }
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child:
-                            Icon(muteFala ? Icons.volume_up : Icons.volume_off),
-                      ),
-                    )
-                  ],
+                  ),
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
@@ -195,17 +149,63 @@ class _StartScreenState extends State<StartScreen> {
                   ),
                 ),
                 Align(
-                  alignment: Alignment.bottomRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                  alignment: Alignment.center,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.lightGreen,
+                        border: Border.all(color: Colors.green, width: 5)),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Image.asset(
-                          'assets/idv.png',
-                          fit: BoxFit.contain,
-                          height: 70,
+                        FloatingActionButton(
+                          heroTag: 'muteBGM',
+                          onPressed: () async {
+                            if (!muteBGM) {
+                              setState(() {
+                                muteBGM = true;
+                                audioPlayer.volumeBGM = 0;
+                                audioPlayer.playerBGM.setVolume(0);
+                              });
+                            } else {
+                              setState(() {
+                                muteBGM = false;
+                                audioPlayer.volumeBGM = 1;
+                                audioPlayer.playerBGM.setVolume(1);
+                              });
+                            }
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Icon(
+                                muteBGM ? Icons.music_note : Icons.music_off),
+                          ),
                         ),
+                        FloatingActionButton(
+                          heroTag: 'mudeAudio',
+                          onPressed: () async {
+                            if (!muteFala) {
+                              setState(() {
+                                muteFala = true;
+                                audioPlayer.volumeFala = 0;
+                                audioPlayer.playerFala.setVolume(0);
+                              });
+                            } else {
+                              setState(() {
+                                muteFala = false;
+                                audioPlayer.volumeFala = 1;
+                                audioPlayer.playerFala.setVolume(1);
+                              });
+                            }
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Icon(
+                                muteFala ? Icons.volume_up : Icons.volume_off),
+                          ),
+                        )
                       ],
                     ),
                   ),

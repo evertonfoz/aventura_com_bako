@@ -40,17 +40,14 @@ class _WelcomePageState extends State<WelcomePage> {
       appBar: AppBar(title: const Text('Passeio no bosque')),
       body: Stack(
         children: [
-          Opacity(
-            opacity: 0.5,
-            child: Container(
-              width: double.maxFinite,
-              height: double.maxFinite,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image:
-                      ExactAssetImage('assets/Padrão4.jpg'), //TODO Constantes
-                  fit: BoxFit.fitHeight,
-                ),
+          Container(
+            width: double.maxFinite,
+            height: double.maxFinite,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: ExactAssetImage(
+                    'assets/images/Inicial2_1080x1920.png'), //TODO Constantes
+                fit: BoxFit.fitHeight,
               ),
             ),
           ),
@@ -58,20 +55,6 @@ class _WelcomePageState extends State<WelcomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    height: MediaQuery.of(context).size.width * 0.2,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image:
-                            ExactAssetImage('assets/idv.png'), //TODO Constantes
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
                   height: MediaQuery.of(context).size.height * 0.30,
@@ -96,9 +79,7 @@ class _WelcomePageState extends State<WelcomePage> {
                           'Olá, ${widget.user.userName}!',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                              fontSize: 22,
-                              fontFamily: 'Letters_for_leaners',
-                              fontWeight: FontWeight.bold),
+                              fontSize: 22, fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 10),
                         const Text(
@@ -106,7 +87,6 @@ class _WelcomePageState extends State<WelcomePage> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 22,
-                            fontFamily: 'Letters_for_leaners',
                           ),
                         ),
                       ],
@@ -124,71 +104,81 @@ class _WelcomePageState extends State<WelcomePage> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
-                )
-              ],
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: SizedBox(
-                    width: 80,
-                    height: 80,
-                    child: FloatingActionButton(
-                      heroTag: 'pauseWelcome',
-                      onPressed: () async {
-                        if (audioIsPlaying) {
-                          await widget.audioController.playerFala.pause();
-                        } else {
-                          await widget.audioController.playerFala.resume();
-                        }
-                      },
-                      child: Icon(
-                        audioIsPlaying ? Icons.pause : Icons.play_arrow,
-                        size: 60,
-                        // color: kBrandColor,
+                Align(
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.4,
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Colors.lightGreen,
+                            border: Border.all(color: Colors.green, width: 5)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Icon(
+                              Icons.volume_up,
+                              size: MediaQuery.of(context).size.width * 0.15,
+                              color: Colors.white,
+                            ),
+                            FloatingActionButton(
+                              heroTag: 'pauseWelcome',
+                              onPressed: () async {
+                                if (audioIsPlaying) {
+                                  await widget.audioController.playerFala
+                                      .pause();
+                                } else {
+                                  await widget.audioController.playerFala
+                                      .resume();
+                                }
+                              },
+                              child: Icon(
+                                audioIsPlaying ? Icons.pause : Icons.play_arrow,
+                                size: MediaQuery.of(context).size.width * 0.15,
+                                // color: kBrandColor,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: SizedBox(
-                    width: 80,
-                    height: 80,
-                    child: FloatingActionButton(
-                      heroTag: 'instrucoes',
-                      onPressed: () {
-                        widget.audioController.playerFala.pause();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HistoriaPage(
-                              user: widget.user,
-                              audioController: widget.audioController,
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: SizedBox(
+                            width: 80,
+                            height: 80,
+                            child: FloatingActionButton(
+                              heroTag: 'instrucoes',
+                              onPressed: () {
+                                widget.audioController.playerFala.pause();
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => HistoriaPage(
+                                      user: widget.user,
+                                      audioController: widget.audioController,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: const Icon(
+                                Icons.arrow_forward,
+                                size: 60,
+                                // color: kBrandColor,
+                              ),
                             ),
                           ),
-                        );
-                      },
-                      child: const Icon(
-                        Icons.arrow_forward,
-                        size: 60,
-                        // color: kBrandColor,
-                      ),
-                    ),
+                        ),
+                      )
+                    ],
                   ),
                 ),
-              )
-            ],
+              ],
+            ),
           ),
         ],
       ),

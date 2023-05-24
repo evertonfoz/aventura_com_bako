@@ -11,13 +11,12 @@ import 'package:flutter/material.dart';
 
 import '../../../gamificacao/tabuleiro/presentation/pages/tabuleiro_page.dart';
 
-
 class HomeScreen extends StatefulWidget {
   HomeScreen({required this.user, required this.audioController, Key? key})
       : super(key: key);
 
-   final GamificationUser user;
-   final AudioController audioController;
+  final GamificationUser user;
+  final AudioController audioController;
   @override
   // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
@@ -246,7 +245,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => TabuleiroPage(
-                                  user: widget.user, notifyParent: refresh),
+                                user: widget.user,
+                                notifyParent: refresh,
+                                audioController: widget.audioController,
+                              ),
                             ),
                           );
                         },

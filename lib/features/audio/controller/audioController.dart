@@ -38,4 +38,10 @@ class AudioController {
     final url = await playerFalaCache.load(urlFromJson);
     playerFala.setUrl(url.path, isLocal: true);
   }
+
+  playDiceAudio() async {
+    final url = await playerFalaCache.load('audio/diceRoll.mp3');
+    playerFala.setUrl(url.path, isLocal: true);
+    playerFala.resume();
+  }
 }
