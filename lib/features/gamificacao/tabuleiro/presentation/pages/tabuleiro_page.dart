@@ -287,7 +287,10 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
     } else {
       return Stack(
         children: [
-          Image(image: _pathgenerator(index), fit: BoxFit.cover),
+          Image(
+            image: _pathgenerator(index),
+            fit: BoxFit.cover,
+          ),
           _bakoPos(index),
         ],
       );

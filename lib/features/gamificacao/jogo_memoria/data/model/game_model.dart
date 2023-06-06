@@ -10,14 +10,14 @@ class MemoryGameModelEasy {
   final cardsList = [
     "assets/testeJM2.png",
     "assets/saco-de-sementes.png",
-    "assets/icon-9.png",
+    "assets/images/abeia.png",
     "assets/score_icon.png",
     "assets/plant_icon.png",
     "assets/Bako_1281x1423.png",
     //
     "assets/testeJM2.png",
     "assets/saco-de-sementes.png",
-    "assets/icon-9.png",
+    "assets/images/abeia.png",
     "assets/plant_icon.png",
     "assets/score_icon.png",
     "assets/Bako_1281x1423.png",

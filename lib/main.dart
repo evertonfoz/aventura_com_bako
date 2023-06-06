@@ -1,6 +1,8 @@
 import 'package:aventura_com_bako/core/routes.dart';
 import 'package:aventura_com_bako/features/splashscreen/presentation/pages/splashscreen.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -18,7 +20,12 @@ Future<void> main() async {
       statusBarColor: Colors.transparent,
       navigationBarColor: Colors.green,
       darkContent: false);*/
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -27,6 +34,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      useInheritedMediaQuery: true,
+      builder: DevicePreview.appBuilder,
+      locale: DevicePreview.locale(context),
+      //----------------
       title: 'Aventura com Bako',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
