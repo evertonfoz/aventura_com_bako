@@ -32,6 +32,7 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
   int dice = 0;
   int diceImageIndex = 0;
   int counter = 1;
+  int bakoAnimation = 0;
 
   List<String> diceImage = [
     'assets/games/dice1.png',
@@ -136,15 +137,12 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
                   children: [
                     IconButton(
                         iconSize: MediaQuery.of(context).size.height * 0.1,
-                        icon: Transform.rotate(
-                          angle: Random().nextDouble() * 180,
-                          child: Image.asset(
-                            diceImage[diceImageIndex],
-                          ),
+                        icon: Image.asset(
+                          diceImage[diceImageIndex],
                         ),
                         onPressed: () async {
                           widget.audioController.playDiceAudio();
-                          Timer.periodic(const Duration(milliseconds: 80),
+                          Timer.periodic(const Duration(milliseconds: 100),
                               (timer) {
                             counter++;
                             setState(() {
@@ -160,13 +158,23 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
                           await Future.delayed(const Duration(seconds: 2), () {
                             setState(() {
                               dice = diceImageIndex + 1;
-                              pos = pos + dice;
-                              if (pos >= 15) {
-                                pos = 15;
-                                _finalDialog();
-                              } else {
-                                _informacaoDialog(pos - 1);
-                              }
+                              Timer.periodic(const Duration(milliseconds: 500),
+                                  (timer) {
+                                setState(() {
+                                  bakoAnimation++;
+                                  pos++;
+                                });
+                                if (bakoAnimation == dice || pos >= 15) {
+                                  bakoAnimation = 0;
+                                  timer.cancel();
+                                  if (pos >= 15) {
+                                    pos = 15;
+                                    _finalDialog();
+                                  } else {
+                                    _informacaoDialog(pos - 1);
+                                  }
+                                }
+                              });
                             });
                           });
                         })

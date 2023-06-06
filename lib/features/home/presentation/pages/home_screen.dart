@@ -369,75 +369,80 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           actions: [
-            Align(
-              alignment: Alignment.center,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePageMemoryGame(
-                          audioController: widget.audioController,
-                          isEasy: false,
-                          user: widget.user,
-                          notifyParent: refresh,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Align(
+                  alignment: Alignment.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePageMemoryGame(
+                              audioController: widget.audioController,
+                              isEasy: false,
+                              user: widget.user,
+                              notifyParent: refresh,
+                            ),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          backgroundColor: Colors.amber),
+                      child: const Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Text(
+                          'Difícil',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              backgroundColor: Colors.amber),
                         ),
                       ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      backgroundColor: Colors.amber),
-                  child: const Padding(
-                    padding: EdgeInsets.all(15.0),
-                    child: Text(
-                      'Difícil',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          backgroundColor: Colors.amber),
                     ),
                   ),
                 ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => HomePageMemoryGame(
-                          audioController: widget.audioController,
-                          isEasy: true,
-                          user: widget.user,
-                          notifyParent: refresh,
+                Align(
+                  alignment: Alignment.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePageMemoryGame(
+                              audioController: widget.audioController,
+                              isEasy: true,
+                              user: widget.user,
+                              notifyParent: refresh,
+                            ),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          backgroundColor: Colors.amber),
+                      child: const Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Text(
+                          'Fácil',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              backgroundColor: Colors.amber),
                         ),
                       ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      backgroundColor: Colors.amber),
-                  child: const Padding(
-                    padding: EdgeInsets.all(15.0),
-                    child: Text(
-                      'Fácil',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          backgroundColor: Colors.amber),
                     ),
                   ),
                 ),
-              ),
+              ],
             ),
             Align(
               alignment: Alignment.center,
