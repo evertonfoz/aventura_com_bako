@@ -97,20 +97,23 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Image.asset(
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Image.asset(
                     'assets/idv.png',
                     fit: BoxFit.contain,
                     height: 70,
                   ),
-                  const SizedBox(width: 8),
-                  Builder(
+                ),
+                const SizedBox(width: 8),
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: Builder(
                     builder: (context) => SizedBox(
                       width: 80,
                       height: 80,
@@ -132,8 +135,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],

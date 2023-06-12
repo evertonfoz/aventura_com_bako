@@ -30,7 +30,7 @@ class _HistoriaPageState extends State<HistoriaPage> {
     super.dispose();
   }
 
-  Future<bool?> showDialogFotoBosque() {
+  Future<bool?> showDialogHistoriaBosque() {
     return showDialog(
       context: context,
       builder: (context) {
@@ -56,9 +56,11 @@ class _HistoriaPageState extends State<HistoriaPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Image(
-                      image: AssetImage('assets/images/BOSQUE.jpg'),
-                      fit: BoxFit.cover,
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text(
+                        'Toda a região onde hoje está a Utfpr era recoberta pela Floresta Estacional Semidecidual. Com o passar do tempo, a cidade de Medianeira foi crescendo e com isso boa parte de sua vegetação nativa foi dando lugar a áreas urbanas, fazendo com que essa vegetação acabasse ficando restrita a pequenos fragmentos, como é o caso do Bosque da Utfpr. O bosque foi adquirido pela universidade em 2013 com o intuito de ser utilizado para fins de estudos pelos cursos da área ambiental. Hoje, também faz parte das atividades de extensão do campus, sendo utilizado por várias crianças do município que o visitam em busca de uma aventura do conhecimento.',
+                      ),
                     ),
                     ElevatedButton(
                       onPressed: () => Navigator.pop(context, false),
@@ -121,7 +123,7 @@ class _HistoriaPageState extends State<HistoriaPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.85,
+                    width: MediaQuery.of(context).size.width * 0.90,
                     decoration: ShapeDecoration(
                       color: Colors.yellow,
                       shape: TooltipShapeBorder(
@@ -147,11 +149,13 @@ class _HistoriaPageState extends State<HistoriaPage> {
                                 fontFamily: 'Letters_for_leaners',
                                 fontWeight: FontWeight.bold),
                           ),
+                          const SizedBox(height: 10),
                           const Text(
-                            'Toda a região onde hoje está a utfpr já foi área , região de Floresta Estacional Semidecidual. Esse é um tipo de formação florestal onde não existe a predominância de nenhuma espécie e cerca de 30% das suas espécies arbóreas perdem suas folhas durante a estação mais seca do ano. Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsumLorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum',
-                            textAlign: TextAlign.center,
+                            'A história do bosque da UTFPR é muito importante! Clique no botão abaixo para saber mais sobre ela!',
+                            textAlign: TextAlign.justify,
                             style: TextStyle(
                               fontFamily: 'Letters_for_leaners',
+                              fontSize: 22,
                             ),
                           ),
                           Padding(
@@ -167,7 +171,7 @@ class _HistoriaPageState extends State<HistoriaPage> {
                                 ),
                                 Container(
                                   height:
-                                      MediaQuery.of(context).size.height * 0.05,
+                                      MediaQuery.of(context).size.height * 0.07,
                                   width:
                                       MediaQuery.of(context).size.width * 0.20,
                                   decoration: BoxDecoration(
@@ -175,11 +179,13 @@ class _HistoriaPageState extends State<HistoriaPage> {
                                       borderRadius: BorderRadius.circular(10)),
                                   child: IconButton(
                                     color: Colors.green,
-                                    icon: const Image(
-                                        image:
-                                            AssetImage('assets/icons/map.png')),
+                                    icon: const Icon(
+                                      Icons.history_edu,
+                                      color: Colors.white,
+                                      size: 40,
+                                    ),
                                     onPressed: () {
-                                      showDialogFotoBosque();
+                                      showDialogHistoriaBosque();
                                     },
                                   ),
                                 ),
@@ -192,7 +198,7 @@ class _HistoriaPageState extends State<HistoriaPage> {
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.4,
-                    height: MediaQuery.of(context).size.height * 0.25,
+                    height: MediaQuery.of(context).size.height * 0.30,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: ExactAssetImage(

@@ -29,6 +29,63 @@ class _WelcomePageState extends State<WelcomePage> {
     super.dispose();
   }
 
+  Future<bool?> showDialogFotoBosque() {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          shadowColor: Colors.black,
+          insetPadding: EdgeInsets.all(8.0),
+          elevation: 8,
+          child: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                height: MediaQuery.of(context).size.height * 0.7,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      'Bosque UTFPR Medianeira!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.green[900],
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Image(
+                      image: AssetImage('assets/images/BOSQUE.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                    ElevatedButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          backgroundColor: Colors.amber),
+                      child: const Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Text(
+                          'Voltar',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              backgroundColor: Colors.amber),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     widget.audioController.playerFala.onPlayerStateChanged.listen((state) {
@@ -57,7 +114,7 @@ class _WelcomePageState extends State<WelcomePage> {
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
-                  height: MediaQuery.of(context).size.height * 0.30,
+                  height: MediaQuery.of(context).size.height * 0.45,
                   decoration: ShapeDecoration(
                     color: Colors.yellow,
                     shape: TooltipShapeBorder(
@@ -83,10 +140,40 @@ class _WelcomePageState extends State<WelcomePage> {
                         ),
                         const SizedBox(height: 10),
                         const Text(
-                          'Pela nossa jornada, exploraremos a trilha do Bosque da UTFPR. A trilha do Bosque é um caminho de XXXXm e conta com 21 espécies diferentes para desbravarmos.',
+                          'O bosque da UTFPR é um pequeno fragmento florestal de 5500 m2 que conta com mais de 350 indivíduos arbóreos de 61 espécies pertencentes à 26 famílias botânicas. Dentro do bosque, você poderá percorrer uma trilha que tem xx m onde 22 espécies receberam identificação. Vamos conhecê-las melhor?',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 22,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              const Text(
+                                'Clique aqui:',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 25),
+                              ),
+                              Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.05,
+                                width: MediaQuery.of(context).size.width * 0.20,
+                                decoration: BoxDecoration(
+                                    color: Colors.green,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: IconButton(
+                                  color: Colors.green,
+                                  icon: const Image(
+                                      image:
+                                          AssetImage('assets/icons/map.png')),
+                                  onPressed: () {
+                                    showDialogFotoBosque();
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -95,7 +182,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.height * 0.3,
+                  height: MediaQuery.of(context).size.height * 0.25,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: ExactAssetImage(

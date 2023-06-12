@@ -41,11 +41,13 @@ class MyApp extends StatelessWidget {
       title: 'Aventura com Bako',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: kBrandColor,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          textTheme: Theme.of(context)
-              .textTheme
-              .apply(fontFamily: 'Letters_for_leaners', fontSizeFactor: 1.5)),
+        primarySwatch: kBrandColor,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: Theme.of(context).textTheme.apply(
+              fontFamily: 'Letters_for_leaners',
+              fontSizeFactor: 1.5,
+            ),
+      ),
       onGenerateRoute: Routes.generateRoute,
       navigatorKey: Routes.navigatorKey,
       initialRoute: Routes.splashScreen,

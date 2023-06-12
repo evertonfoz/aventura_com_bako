@@ -68,25 +68,19 @@ class _StartScreenState extends State<StartScreen> {
                     ],
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         const Text(
                           'Olá, eu sou o Bako e vou te acompanhar nessa aventura!',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 22,
-                              fontFamily: 'Letters_for_leaners',
-                              fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(height: 10),
+                        //const SizedBox(height: 10),
                         const Text(
                           'Antes de nós iniciarmos nossa aventura. Como você gostaria de ser chamado?',
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontFamily: 'Letters_for_leaners',
-                          ),
                         ),
                         Row(
                           children: [
@@ -126,9 +120,9 @@ class _StartScreenState extends State<StartScreen> {
                                   });
                                 }
                               },
-                              child: const Icon(
+                              child: Icon(
                                 Icons.check,
-                                size: 35,
+                                size: MediaQuery.of(context).size.height * 0.05,
                               ),
                             ))
                           ],
@@ -138,8 +132,7 @@ class _StartScreenState extends State<StartScreen> {
                   ),
                 ),
                 Container(
-                  width: 270.00,
-                  height: 270.00,
+                  height: MediaQuery.of(context).size.height * 0.33,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: ExactAssetImage(
