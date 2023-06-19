@@ -103,10 +103,12 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
           Column(
             children: <Widget>[
               Container(
-                height: MediaQuery.of(context).size.height * 0.74,
+                height: MediaQuery.of(context).size.height * 0.8,
                 padding: const EdgeInsets.all(8.0),
                 margin: const EdgeInsets.all(8.0),
                 child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 4),
                   itemBuilder: (BuildContext context, index) {
@@ -332,12 +334,11 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
   }
 
   _pathgenerator(int index) {
-    if (index % 3 == 0) {
-      return const AssetImage('assets/images/caminho_1.png');
-    } else if (index % 4 == 0) {
-      return const AssetImage('assets/images/caminho_2.png');
+    if (index % 2 == 0) {
+      return const AssetImage('assets/images/caminho_teste1.png');
+    
     } else {
-      return const AssetImage('assets/images/caminho_3.png');
+      return const AssetImage('assets/images/caminho_teste2.png');
     }
   }
 }

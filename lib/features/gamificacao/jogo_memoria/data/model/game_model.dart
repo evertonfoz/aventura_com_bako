@@ -9,18 +9,18 @@ class MemoryGameModelEasy {
 
   final cardsList = [
     "assets/testeJM2.png",
-    "assets/saco-de-sementes.png",
+    "assets/images/folhas_manga.png",
     "assets/images/abeia.png",
-    "assets/score_icon.png",
-    "assets/plant_icon.png",
-    "assets/Bako_1281x1423.png",
+    "assets/images/morgueso.png",
+    "assets/images/bosque.png",
+    "assets/images/hibisco.png",
     //
     "assets/testeJM2.png",
-    "assets/saco-de-sementes.png",
+    "assets/images/folhas_manga.png",
     "assets/images/abeia.png",
-    "assets/plant_icon.png",
-    "assets/score_icon.png",
-    "assets/Bako_1281x1423.png",
+    "assets/images/morgueso.png",
+    "assets/images/bosque.png",
+    "assets/images/hibisco.png",
   ];
 
   List<GlobalKey<FlipCardState>> cardStateKeys = [

@@ -131,6 +131,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text(
                           'Olá, ${widget.user.userName}!',
