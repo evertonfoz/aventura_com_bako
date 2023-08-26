@@ -1,99 +1,113 @@
 [
     {
         "id": 1,
-        "titulo": "titulo1",
-        "texto": "Teste1",
+        "value": 3,
+        "result": "Avance 3 casas",
+        "texto": "Parabéns! Você ajudou o bosque plantando uma árvore",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 2,
-        "titulo": "titulo2",
-        "texto": "Teste2",
+        "value": 0,
+        "result": "Permaneça no jogo",
+        "texto": "Você sabia que os bosques são importantes para o abrigo de pássaros que se alimentam dos frutos de suas árvores?",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 3,
-        "titulo": "titulo3",
-        "texto": "Teste3",
+        "value": 2,
+        "result": "Avance 2 casas",
+        "texto": "Muito bom! Você ajudou a manter o bosque limpo durante seu passeio.",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 4,
-        "titulo": "titulo4",
-        "texto": "Teste4",
+        "value": -3, 
+        "result": "Volte 3 casas",
+        "texto": "Poxa! O lixo gerado durante o passeio na trilha não teve o destino correto.",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 5,
-        "titulo": "titulo5",
-        "texto": "Teste5",
+        "value": 0,
+        "result": "Permaneça no jogo",
+        "texto": "Você sabia que em determinadas épocas do ano algumas espécies de árvores perdem suas folhas? Essas espécies são chamadas de espécies caducifólias e são características da Floresta Estacional Semidecidual, que é o tipo florestal do nosso bosque. Nesse tipo de formação florestal, até 30% das suas espécies perdem suas folhas na época seca do ano",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 6,
-        "titulo": "titulo6",
-        "texto": "Teste6",
+        "value": -4,
+        "result": "Volte 4 casas",
+        "texto": " Nada bom! Você esqueceu de cuidar da árvore que plantou e ela acabou morrendo.",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 7,
-        "titulo": "titulo7",
-        "texto": "Teste7",
+        "value": 4,
+        "result": "Avance 4 casas",
+        "texto": "Nota 10! Você ajudou a plantar e cuidar de várias espécies de flores no Jardim Sensorial.",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 8,
-        "titulo": "titulo8",
-        "texto": "Teste8",
+        "value": 0,
+        "result": "Permaneça no jogo",
+        "texto": "Você sabia que as árvores que estão presentes no nosso bosque são do grupo das angiospermas? Sua principal característica é a presença de flores e frutos, que são extremamente importantes para o processo de reprodução delas.",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 9,
-        "titulo": "titulo9",
-        "texto": "Teste9",
+        "value": 3,
+        "result": "Avance 3 casas",
+        "texto": "Você sabia que as áreas verdes dentro das cidades, como o nosso bosque, ajudam a reduzir efeitos da poluição e dos ruídos, agem diretamente na redução da temperatura e na velocidade dos ventos, além de influenciarem no balanço hídrico e ainda podem servir de abrigo a diversos animais silvestres que vivem nas cidades, como pássaros, insetos e até macacos. Você ajudou a preservar uma área verde urbana.",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 10,
-        "titulo": "titulo10",
-        "texto": "Teste10",
+        "value": -2,
+        "result": "Volte 2 casas",
+        "texto": "Pisou na bola! Você encontrou lixos pela trilha, volte e dê a destinação correta à eles.",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 11,
-        "titulo": "titulo11",
-        "texto": "Teste11",
+        "value": 0,
+        "result": "Permaneça no jogo",
+        "texto": "Essa foi boa!  Você aprendeu sobre a importância das áreas verdes urbanas para o meio ambiente e, portanto, sabe que elas são essenciais para o equilíbrio do nosso planeta.",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 12,
-        "titulo": "titulo12",
-        "texto": "Teste12",
+        "value": 0,
+        "result": "Permaneça no jogo",
+        "texto": "Não desista! Você sabia que o dia da árvore é comemorado no dia 21 de setembro? Faça sua parte e ajude o meio ambiente, plante uma linda árvore.",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 13,
-        "titulo": "titulo13",
-        "texto": "Teste13",
+        "value": 1,
+        "result": "Avance 1 casa",
+        "texto": "Está quase lá! Você conheceu o bosque e agora sabe da importância da preservação das nossas árvores, suas atitudes farão um futuro melhor.",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     },
     {
         "id": 14,
-        "titulo": "titulo14",
-        "texto": "Teste14",
+        "value": -5,
+        "result": "Volte 5 casas",
+        "texto": "Vish, passou despercebido.... Você sabia que as abelhas são muito importantes para o planeta? Volte a trilha e observe as abelhas que vivem no nosso bosque.",
         "assets": "assets/Paineira-rosa-1.jpg",
         "audioURL":""
     }

@@ -50,22 +50,22 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
       'mapPos': 'assets/images/borboleta2.png'
     },
     {'gridPos': 1, 'decoration': true, 'mapPos': 'assets/images/arvore1.png'},
-    {'gridPos': 2},
+    {'gridPos': 2, 'decoration': true, 'mapPos': 'assets/images/arvore2.png'},
     {'gridPos': 3, 'index': 15, 'mapPos': 'FIM'},
     {'gridPos': 4, 'index': 11, 'mapPos': '11'},
     {'gridPos': 5, 'index': 12, 'mapPos': '12'},
     {'gridPos': 6, 'index': 13, 'mapPos': '13'},
     {'gridPos': 7, 'index': 14, 'mapPos': '14'},
     {'gridPos': 8, 'index': 10, 'mapPos': '10'},
-    {'gridPos': 9},
+    {'gridPos': 9, 'decoration': true, 'mapPos': 'assets/images/arvore2.png'},
     {'gridPos': 10, 'decoration': true, 'mapPos': 'assets/images/arbusto3.png'},
-    {'gridPos': 11},
+    {'gridPos': 11, 'decoration': true, 'mapPos': 'assets/images/arvore2.png'},
     {'gridPos': 12, 'index': 9, 'mapPos': '9'},
     {'gridPos': 13, 'index': 8, 'mapPos': '8'},
     {'gridPos': 14, 'index': 7, 'mapPos': '7'},
     {'gridPos': 15, 'index': 6, 'mapPos': '6'},
     {'gridPos': 16, 'decoration': true, 'mapPos': 'assets/images/arvore2.png'},
-    {'gridPos': 17},
+    {'gridPos': 17, 'decoration': true, 'mapPos': 'assets/images/arvore1.png'},
     {'gridPos': 18, 'decoration': true, 'mapPos': 'assets/images/bananao.png'},
     {'gridPos': 19, 'index': 5, 'mapPos': '5'},
     {'gridPos': 20, 'index': 1, 'mapPos': '1'},
@@ -73,8 +73,8 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
     {'gridPos': 22, 'index': 3, 'mapPos': '3'},
     {'gridPos': 23, 'index': 4, 'mapPos': '4'},
     {'gridPos': 24, 'index': 0, 'mapPos': '↑'},
-    {'gridPos': 25, 'decoration': true, 'mapPos': 'assets/images/folhas2.png'},
-    {'gridPos': 26},
+    {'gridPos': 25, 'decoration': true, 'mapPos': 'assets/images/arvore2.png'},
+    {'gridPos': 26, 'decoration': true, 'mapPos': 'assets/images/arbusto3.png'},
     {'gridPos': 27, 'decoration': true, 'mapPos': 'assets/images/pedra1.png'},
   ];
 
@@ -228,12 +228,31 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
         });
   }
 
+  _resultAction(int index) {
+    Future.delayed(const Duration(seconds: 2));
+    Timer.periodic(const Duration(milliseconds: 500), (timer) {
+      setState(() {
+        bakoAnimation++;
+        if (controller.informacoesTabuleiroList[index].value!.isNegative) {
+          pos--;
+        } else {
+          pos++;
+        }
+        if (bakoAnimation ==
+            controller.informacoesTabuleiroList[index].value!.abs()) {
+          bakoAnimation = 0;
+          timer.cancel();
+        }
+      });
+    });
+  }
+
   _informacaoDialog(int index) {
     return showDialog(
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text('${controller.informacoesTabuleiroList[index].titulo}'),
+            title: Text('${controller.informacoesTabuleiroList[index].result}'),
             content:
                 Text('${controller.informacoesTabuleiroList[index].texto}'),
             actions: [
@@ -244,6 +263,10 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.pop(context);
+                      if (controller.informacoesTabuleiroList[index].value !=
+                          0) {
+                        _resultAction(index);
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
@@ -336,7 +359,6 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
   _pathgenerator(int index) {
     if (index % 2 == 0) {
       return const AssetImage('assets/images/caminho_teste1.png');
-    
     } else {
       return const AssetImage('assets/images/caminho_teste2.png');
     }

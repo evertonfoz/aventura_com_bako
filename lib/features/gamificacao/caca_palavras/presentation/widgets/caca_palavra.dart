@@ -51,8 +51,8 @@ class _CacaPalavraState extends State<CacaPalavra> {
             borderRadius: BorderRadius.circular(5),
           ),
           alignment: Alignment.topCenter,
-          width: 380,
-          height: 356,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(padding),
           margin: EdgeInsets.all(padding),
           child: areaJogavel(context),
@@ -251,7 +251,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
               mainAxisSpacing: padding,
             ),
             itemCount: numBox * numBox,
-            physics: const ScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
               String char =
                   listaPalavras.value.expand((e) => e).toList()[index];

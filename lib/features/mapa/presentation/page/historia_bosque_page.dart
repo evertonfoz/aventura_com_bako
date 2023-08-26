@@ -38,11 +38,13 @@ class _HistoriaPageState extends State<HistoriaPage> {
           shadowColor: Colors.black,
           insetPadding: EdgeInsets.all(8.0),
           elevation: 8,
+          shape: CircleBorder(),
           child: Stack(
             children: [
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
+                  color: const Color.fromARGB(255, 255, 244, 145),
                 ),
                 height: MediaQuery.of(context).size.height * 0.7,
                 child: Column(
@@ -57,10 +59,11 @@ class _HistoriaPageState extends State<HistoriaPage> {
                       ),
                     ),
                     const Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(16.0),
                       child: Text(
-                        'Toda a região onde hoje está a Utfpr era recoberta pela Floresta Estacional Semidecidual. Com o passar do tempo, a cidade de Medianeira foi crescendo e com isso boa parte de sua vegetação nativa foi dando lugar a áreas urbanas, fazendo com que essa vegetação acabasse ficando restrita a pequenos fragmentos, como é o caso do Bosque da Utfpr. O bosque foi adquirido pela universidade em 2013 com o intuito de ser utilizado para fins de estudos pelos cursos da área ambiental. Hoje, também faz parte das atividades de extensão do campus, sendo utilizado por várias crianças do município que o visitam em busca de uma aventura do conhecimento.',
-                      ),
+                          'Toda a região onde hoje está a Utfpr era recoberta pela Floresta Estacional Semidecidual. Com o passar do tempo, a cidade de Medianeira foi crescendo e com isso boa parte de sua vegetação nativa foi dando lugar a áreas urbanas, fazendo com que essa vegetação acabasse ficando restrita a pequenos fragmentos, como é o caso do Bosque da Utfpr. O bosque foi adquirido pela universidade em 2013 com o intuito de ser utilizado para fins de estudos pelos cursos da área ambiental. Hoje, também faz parte das atividades de extensão do campus, sendo utilizado por várias crianças do município que o visitam em busca de uma aventura do conhecimento.',
+                          style: TextStyle(),
+                          textAlign: TextAlign.justify),
                     ),
                     ElevatedButton(
                       onPressed: () => Navigator.pop(context, false),

@@ -76,7 +76,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 child: SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.57,
+                  height: MediaQuery.of(context).size.width * 1.28,
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     color: Colors.transparent,
@@ -108,6 +108,8 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
 
   Widget _gridCards(context) {
     return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: _isEasy(widget.isEasy).gameImg!.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: widget.isEasy ? 3 : 4,
@@ -170,6 +172,10 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
         } else {
           _isEasy(widget.isEasy).cardFlips[previousIndex] = false;
           _isEasy(widget.isEasy).cardFlips[index] = false;
+          if (_isEasy(widget.isEasy).cardFlips.every((t) => t == false)) {
+            //widget.gamification.updatePontuacao(pontos);
+            AlertGame(pontos: pontos).alertWin(context);
+          }
           setState(() {
             pontos += 5;
             widget.user.pontuacao += 5;
@@ -182,10 +188,6 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
                         controller: controller,
                         index: findIndex(index))));
           });
-          if (_isEasy(widget.isEasy).cardFlips.every((t) => t == false)) {
-            //widget.gamification.updatePontuacao(pontos);
-            AlertGame(pontos: pontos).alertWin(context);
-          }
         }
       } else {
         setState(() {

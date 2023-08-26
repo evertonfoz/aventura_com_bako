@@ -1,57 +1,40 @@
 import 'dart:convert';
 
-import 'package:aventura_com_bako/features/informacoes_especies/helpers/enums/informacoes_especies_enum.dart';
-
 List<InformacoesModel> informacoesModelFromJson(String str) =>
     List<InformacoesModel>.from(
         json.decode(str).map((x) => InformacoesModel.fromJson(x)));
 
 class InformacoesModel {
   int? id;
-  String? titulo;
+  int? value;
+  String? result;
   String? texto;
   String? assets;
   String? audioURL;
-  InformacoesEspeciesEnum? informacoesEspeciesEnum;
-  bool? especieDescoberta;
-  int? numDescobertas;
-
-  bool get especieRepetidaNaTrilha =>
-      informacoesEspeciesEnum == InformacoesEspeciesEnum.AspidospermaPolyneuron;
 
   InformacoesModel({
+    this.value,
     this.id,
-    this.titulo,
+    this.result,
     this.texto,
-    this.informacoesEspeciesEnum,
     this.assets,
     this.audioURL,
-    this.especieDescoberta,
-    this.numDescobertas,
   });
 
   InformacoesModel.fromJson(Map<String, dynamic> json) {
     id = json['id'] as int?;
-    titulo = json['titulo'] as String?;
+    value = json['value'] as int?;
+    result = json['result'] as String?;
     texto = json['texto'] as String?;
-    informacoesEspeciesEnum =
-        InformacoesEspeciesEnum.values.asNameMap()[json['enum']];
-    especieDescoberta = false;
-    numDescobertas = 0;
     assets = json['assets'] as String?;
     audioURL = json['audioURL'] as String?;
   }
 
-  InformacoesModel copyWith({
-    bool? especieDescoberta,
-    int? numDescobertas,
-  }) {
+  InformacoesModel copyWith() {
     return InformacoesModel(
-      especieDescoberta: especieDescoberta ?? this.especieDescoberta,
-      numDescobertas: numDescobertas ?? this.numDescobertas,
-      titulo: titulo,
+      value: value,
+      result: result,
       texto: texto,
-      informacoesEspeciesEnum: informacoesEspeciesEnum,
       assets: assets,
       audioURL: audioURL,
     );
