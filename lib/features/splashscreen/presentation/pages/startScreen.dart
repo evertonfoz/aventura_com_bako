@@ -54,13 +54,13 @@ class _StartScreenState extends State<StartScreen> {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
                   height: MediaQuery.of(context).size.height * 0.38,
-                  decoration: ShapeDecoration(
+                  decoration: const ShapeDecoration(
                     color: Colors.yellow,
                     shape: TooltipShapeBorder(
                       arrowArc: 0.5,
                       arrowHeight: 35,
                     ),
-                    shadows: const [
+                    shadows: [
                       BoxShadow(
                           color: Colors.black26,
                           blurRadius: 4.0,
@@ -218,7 +218,7 @@ class TooltipShapeBorder extends ShapeBorder {
   final double arrowArc;
   final double radius;
 
-  TooltipShapeBorder({
+  const TooltipShapeBorder({
     this.radius = 16.0,
     this.arrowWidth = 20.0,
     this.arrowHeight = 10.0,

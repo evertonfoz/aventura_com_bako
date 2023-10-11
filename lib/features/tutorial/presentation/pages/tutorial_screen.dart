@@ -1,10 +1,11 @@
 import 'package:aventura_com_bako/core/routes.dart';
 import 'package:aventura_com_bako/features/tutorial/data/models/tutorial_model.dart';
 import 'package:aventura_com_bako/features/tutorial/presentation/widgets/card_tutorial_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TutorialPage extends StatefulWidget {
+  const TutorialPage({super.key});
+
   @override
   _TutorialPageState createState() => _TutorialPageState();
 }
@@ -33,7 +34,7 @@ class _TutorialPageState extends State<TutorialPage> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
+          SizedBox(
             // Holds the background and all the content
             height: MediaQuery.of(context).size.height,
             child: Image.asset(
@@ -42,7 +43,7 @@ class _TutorialPageState extends State<TutorialPage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               // Holds all the content
               children: [
@@ -52,7 +53,7 @@ class _TutorialPageState extends State<TutorialPage> {
                 Expanded(
                   child: PageView.builder(
                     controller: _pageController,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     onPageChanged: _onPageChanged,
                     itemCount: cardList.length,
                     itemBuilder: (context, i) {
@@ -67,7 +68,7 @@ class _TutorialPageState extends State<TutorialPage> {
                   // Buttons "Anterior" and "Próximo"
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
                         // "Anterior" button
                         height: MediaQuery.of(context).size.height * 0.05,
                         width: currentPage != 0
@@ -109,7 +110,7 @@ class _TutorialPageState extends State<TutorialPage> {
                           ? MediaQuery.of(context).size.width * 0.08
                           : null,
                     ),
-                    Container(
+                    SizedBox(
                       // "Próximo" or "Finalizar" button
                       height: MediaQuery.of(context).size.height * 0.05,
                       width: currentPage != 0
@@ -166,7 +167,7 @@ class _TutorialPageState extends State<TutorialPage> {
                   ],
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                Container(
+                SizedBox(
                   height: MediaQuery.of(context).size.height * 0.35,
                   child: Center(
                     child: Image.asset('assets/bako_vetor.png'),

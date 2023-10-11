@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import '../../../gamificacao/tabuleiro/presentation/pages/tabuleiro_page.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({required this.user, required this.audioController, Key? key})
+  const HomeScreen({required this.user, required this.audioController, Key? key})
       : super(key: key);
 
   final GamificationUser user;
@@ -162,13 +162,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       fit: BoxFit.contain,
                       height: 70,
                     ),
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
                   ],
                 ),
               ),
             ),
             Container(
-              padding: EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,

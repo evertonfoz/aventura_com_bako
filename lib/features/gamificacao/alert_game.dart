@@ -45,7 +45,7 @@ class AlertGame extends StatelessWidget {
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text('PARABENS VOCÊ'),
+                const Text('PARABENS VOCÊ'),
                 Text('VOCE GANHOU MAIS $pontos SEMENTES !!!!!'),
               ],
             ),
@@ -88,7 +88,7 @@ class AlertGame extends StatelessWidget {
                 color: Colors.yellow,
                 decorationColor: Colors.green),
           ),
-          content: SingleChildScrollView(
+          content: const SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
                 Text('Que pena!!'),
