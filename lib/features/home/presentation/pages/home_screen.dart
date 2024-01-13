@@ -5,6 +5,7 @@ import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentatio
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/presentation/pages/home_game_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/pages/home_page.dart';
+import 'package:aventura_com_bako/features/gamificacao/quebra_cabeca/main.dart';
 import 'package:aventura_com_bako/features/loja/presentation/loja_screen.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,8 @@ import 'package:flutter/material.dart';
 import '../../../gamificacao/tabuleiro/presentation/pages/tabuleiro_page.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({required this.user, required this.audioController, Key? key})
+  const HomeScreen(
+      {required this.user, required this.audioController, Key? key})
       : super(key: key);
 
   final GamificationUser user;
@@ -269,17 +271,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ListTile(
                         leading: const Icon(Icons.question_mark),
                         title: const Text(
-                          'Quizz',
+                          'quebra_cabeca',
                           style: TextStyle(fontSize: 20),
                         ),
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomePageQuizz(
-                                user: widget.user,
-                                notifyParent: refresh,
-                              ),
+                              builder: (context) => SlidingPuzzle(),
                             ),
                           );
                         },
