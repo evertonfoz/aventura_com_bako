@@ -96,7 +96,7 @@ class _HistoriaPageState extends State<HistoriaPage> {
   Widget build(BuildContext context) {
     widget.audioController.playerFala.onPlayerStateChanged.listen((state) {
       setState(() {
-        audioIsPlaying = state == PlayerState.PLAYING;
+        audioIsPlaying = state == PlayerState.playing;
       });
     });
     return WillPopScope(

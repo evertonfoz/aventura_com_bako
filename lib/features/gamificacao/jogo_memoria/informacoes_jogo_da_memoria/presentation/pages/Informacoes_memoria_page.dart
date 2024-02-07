@@ -38,7 +38,7 @@ class _InformacoesMemoriaPageState extends State<InformacoesMemoriaPage> {
   Widget build(BuildContext context) {
     widget.audioController.playerFala.onPlayerStateChanged.listen((state) {
       setState(() {
-        audioIsPlaying = state == PlayerState.PLAYING;
+        audioIsPlaying = state == PlayerState.playing;
       });
     });
     return Scaffold(

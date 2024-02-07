@@ -37,7 +37,7 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
   Widget build(BuildContext context) {
     widget.audioController.playerFala.onPlayerStateChanged.listen((state) {
       setState(() {
-        audioIsPlaying = state == PlayerState.PLAYING;
+        audioIsPlaying = state == PlayerState.playing;
       });
     });
     return WillPopScope(

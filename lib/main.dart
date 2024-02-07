@@ -20,12 +20,13 @@ Future<void> main() async {
       statusBarColor: Colors.transparent,
       navigationBarColor: Colors.green,
       darkContent: false);*/
-  runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => const MyApp(),
-    ),
-  );
+  // runApp(
+  //   DevicePreview(
+  //    enabled: !kReleaseMode,
+  //    builder: (context) => const MyApp(),
+  //   ),
+  // );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -35,8 +36,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       useInheritedMediaQuery: true,
-      builder: DevicePreview.appBuilder,
-      locale: DevicePreview.locale(context),
+      //builder: DevicePreview.appBuilder,
+      //locale: DevicePreview.locale(context),
       //----------------
       title: 'Aventura com Bako',
       debugShowCheckedModeBanner: false,
