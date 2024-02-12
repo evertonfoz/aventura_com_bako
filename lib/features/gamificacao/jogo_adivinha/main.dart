@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './widgets/pergunta.dart';
 import './widgets/quiz.dart';
 
-void main() {
+main() {
   runApp(const Adivinha());
 }
 

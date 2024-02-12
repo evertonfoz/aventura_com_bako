@@ -9,6 +9,7 @@ import 'package:aventura_com_bako/features/loja/presentation/loja_screen.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../../gamificacao/quebra_cabeca/main_quebra.dart';
 import '../../../gamificacao/tabuleiro/presentation/pages/tabuleiro_page.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -278,6 +279,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => Adivinha(),
+                            ),
+                          );
+                        },
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.question_mark),
+                        title: const Text(
+                          'Quebra-Cabeça',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Quebra_cabeca(),
                             ),
                           );
                         },

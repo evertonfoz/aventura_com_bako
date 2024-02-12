@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Quiz',
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -93,9 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     color: Colors.green[200],
                     borderRadius: BorderRadius.circular(10),
@@ -104,11 +104,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       Text(
                         perguntaAtual.descricao,
-                        style: TextStyle(fontSize: 18),
+                        style: const TextStyle(fontSize: 18),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 8),
-                      Text(
+                      const SizedBox(height: 8),
+                      const Text(
                         'Qual Fruta é esta?',
                         style: TextStyle(
                           fontSize: 16,
@@ -135,50 +135,50 @@ class _MyHomePageState extends State<MyHomePage> {
                         verificarResposta(perguntaAtual.opcoesIncorretas[0]);
                       },
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 24),
+                        padding: const EdgeInsets.symmetric(vertical: 24),
                         primary: Colors.green,
                       ),
                       child: Text(perguntaAtual.opcoesIncorretas[0]),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     ElevatedButton(
                       onPressed: () {
                         verificarResposta(perguntaAtual.opcoesIncorretas[1]);
                       },
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 24),
+                        padding: const EdgeInsets.symmetric(vertical: 24),
                         primary: Colors.green,
                       ),
                       child: Text(perguntaAtual.opcoesIncorretas[1]),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     ElevatedButton(
                       onPressed: () {
                         verificarResposta(perguntaAtual.opcoesIncorretas[2]);
                       },
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 24),
+                        padding: const EdgeInsets.symmetric(vertical: 24),
                         primary: Colors.green,
                       ),
                       child: Text(perguntaAtual.opcoesIncorretas[2]),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     ElevatedButton(
                       onPressed: () {
                         verificarResposta(perguntaAtual.opcoesIncorretas[3]);
                       },
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 24),
+                        padding: const EdgeInsets.symmetric(vertical: 24),
                         primary: Colors.green,
                       ),
                       child: Text(perguntaAtual.opcoesIncorretas[3]),
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(
                   resposta,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.red,
@@ -209,7 +209,7 @@ class ParabensPage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.green,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'Parabéns! Você acertou!',
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -228,7 +228,7 @@ class ErroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Erro!',
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -242,14 +242,14 @@ class ErroPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Você errou a questão.',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: onRetryPressed,
-              child: Text('Tentar Novamente'),
+              child: const Text('Tentar Novamente'),
             ),
           ],
         ),

@@ -53,10 +53,10 @@ class ErroPage extends StatelessWidget {
               'Você errou a questão.',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: onRetryPressed,
-              child: Text('Tentar Novamente'),
+              child: const Text('Tentar Novamente'),
             ),
           ],
         ),
