@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-import 'dart:ui' as ui;
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -24,32 +23,46 @@ class PuzzleGame extends StatefulWidget {
 class _PuzzleGameState extends State<PuzzleGame> {
   late List<img.Image?> puzzlePieces;
   late List<img.Image?> originalPieces;
-  int gridSize = 3; // Puzzle size (3x3 in this example)
-  late int emptyRow; // Row of the empty piece
-  late int emptyCol; // Column of the empty piece
-  int movesCount = 0; // Moves counter
+  late List<String> imagePaths = [
+    'assets/background_forest.jpg',
+    'assets/background-splash.jpg',
+  ];
+  late img.Image
+      referenceImage; // Variável para armazenar a imagem de referência
+  bool isLoading = true; // Variável para controlar o estado de carregamento
+  int gridSize = 3;
+  late int emptyRow;
+  late int emptyCol;
+  int movesCount = 0;
 
   @override
   void initState() {
     super.initState();
-    puzzlePieces = List.generate(gridSize * gridSize, (index) => null);
-    originalPieces = List.generate(gridSize * gridSize - 1, (index) => null);
-    initializePuzzle();
+    loadReferenceImage(); // Carrega a imagem de referência durante a inicialização
+  }
+
+  Future<void> loadReferenceImage() async {
+    String randomImagePath = imagePaths[Random().nextInt(imagePaths.length)];
+    final ByteData data = await rootBundle.load(randomImagePath);
+    final List<int> bytes = data.buffer.asUint8List();
+    img.Image image = img.decodeImage(Uint8List.fromList(bytes))!;
+    setState(() {
+      referenceImage = image;
+      isLoading = false; // Indica que o carregamento foi concluído
+      initializePuzzle(); // Chama initializePuzzle após o carregamento da imagem de referência
+    });
   }
 
   Future<void> initializePuzzle() async {
-    final ByteData data = await rootBundle.load('assets/Paineira-rosa-1.jpg');
-    final List<int> bytes = data.buffer.asUint8List();
-    img.Image image = img.decodeImage(Uint8List.fromList(bytes))!;
-
     setState(() {
       originalPieces = List.generate(gridSize * gridSize - 1, (index) {
-        int pieceSize = image.width ~/ gridSize;
+        int pieceSize =
+            referenceImage.width ~/ gridSize; // Usar referenceImage aqui
         int row = index ~/ gridSize;
         int col = index % gridSize;
 
         img.Image piece = img.copyCrop(
-          image,
+          referenceImage, // Usar referenceImage aqui
           x: col * pieceSize,
           y: row * pieceSize,
           width: pieceSize,
@@ -191,7 +204,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Parabéns!'),
+          title: Text('Parabéns!'),
           content:
               Text('Você completou o quebra-cabeça em $movesCount movimentos!'),
           actions: <Widget>[
@@ -200,7 +213,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
                 Navigator.of(context).pop();
                 resetPuzzle(); // Change to call resetPuzzle
               },
-              child: const Text('Reiniciar'),
+              child: Text('Reiniciar'),
             ),
           ],
         );
@@ -228,25 +241,9 @@ class _PuzzleGameState extends State<PuzzleGame> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(kToolbarHeight),
-        child: AppBar(
-          flexibleSpace: Container(
-            alignment: Alignment.center,
-            color: Colors.green, // Mudar a cor de fundo do título
-            padding: const EdgeInsets.only(
-                bottom: 0), // Adiciona um espaçamento inferior
-            child: const Text(
-              'Quebra-Cabeça',
-              style: TextStyle(
-                color: Colors.white, // Mudar a cor do texto do título
-                fontSize: 20, // Ajustar o tamanho da fonte do título
-              ),
-            ),
-          ),
-        ),
+      appBar: AppBar(
+        title: Text('Slide Puzzle'),
       ),
-      backgroundColor: Colors.green,
       body: Column(
         children: [
           // Display the puzzle
@@ -258,6 +255,11 @@ class _PuzzleGameState extends State<PuzzleGame> {
               itemBuilder: (context, index) {
                 int row = index ~/ gridSize;
                 int col = index % gridSize;
+
+                if (isLoading) {
+                  // Exibe um indicador de carregamento enquanto a imagem está sendo carregada
+                  return Center(child: CircularProgressIndicator());
+                }
 
                 //Código comentado para que numeros não apareçam no meio das imagens
                 // if (puzzlePieces[index] != null) {
@@ -313,14 +315,14 @@ class _PuzzleGameState extends State<PuzzleGame> {
           Text('Moves: $movesCount'),
 
           // Display the reference image below the puzzle and in a smaller size
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            child: Image.asset(
-              'assets/Paineira-rosa-1.jpg',
+          if (!isLoading) // Exibe a imagem apenas se o carregamento estiver concluído
+            Container(
+              padding: EdgeInsets.all(16.0),
               height: 150.0, // Adjust the height as needed
-              width: 150.0, // Adjust the width as needed
+              width: 150.0,
+              child: Image.memory(Uint8List.fromList(
+                  img.encodePng(referenceImage))), // Adjust the width as needed
             ),
-          ),
         ],
       ),
     );
