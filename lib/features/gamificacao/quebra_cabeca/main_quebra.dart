@@ -24,8 +24,9 @@ class _PuzzleGameState extends State<PuzzleGame> {
   late List<img.Image?> puzzlePieces;
   late List<img.Image?> originalPieces;
   late List<String> imagePaths = [
+    'assets/',
     'assets/background_forest.jpg',
-    'assets/background-splash.jpg',
+    'assets\background_forest.jpg',
   ];
   late img.Image
       referenceImage; // Variável para armazenar a imagem de referência
@@ -204,7 +205,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Parabéns!'),
+          title: const Text('Parabéns!'),
           content:
               Text('Você completou o quebra-cabeça em $movesCount movimentos!'),
           actions: <Widget>[
@@ -213,7 +214,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
                 Navigator.of(context).pop();
                 resetPuzzle(); // Change to call resetPuzzle
               },
-              child: Text('Reiniciar'),
+              child: const Text('Reiniciar'),
             ),
           ],
         );
@@ -242,7 +243,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Slide Puzzle'),
+        title: const Text('Quebracabeça'),
       ),
       body: Column(
         children: [
@@ -258,7 +259,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
 
                 if (isLoading) {
                   // Exibe um indicador de carregamento enquanto a imagem está sendo carregada
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
 
                 //Código comentado para que numeros não apareçam no meio das imagens
@@ -317,7 +318,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
           // Display the reference image below the puzzle and in a smaller size
           if (!isLoading) // Exibe a imagem apenas se o carregamento estiver concluído
             Container(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               height: 150.0, // Adjust the height as needed
               width: 150.0,
               child: Image.memory(Uint8List.fromList(
