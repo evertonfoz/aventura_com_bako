@@ -41,7 +41,7 @@ class _InformacoesGalleryPageState extends State<InformacoesGalleryPage> {
   Widget build(BuildContext context) {
     widget.audioController.playerFala.onPlayerStateChanged.listen((state) {
       setState(() {
-        audioIsPlaying = state == PlayerState.playing;
+        audioIsPlaying = state == PlayerState.PLAYING;
       });
     });
     return Scaffold(
