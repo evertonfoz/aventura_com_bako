@@ -4,8 +4,8 @@ import 'package:aventura_com_bako/features/mapa/presentation/widgets/collisionPo
 import 'package:aventura_com_bako/features/mapa/presentation/widgets/plants_widget.dart';
 import 'package:flame/game.dart';
 import 'package:flame_tiled/flame_tiled.dart';
-//import 'package:flutter/widgets.dart';
-//import 'package:tiled/tiled.dart';
+import 'package:flutter/widgets.dart';
+import 'package:tiled/tiled.dart';
 
 import '../../../informacoes_especies/helpers/enums/informacoes_especies_enum.dart';
 
@@ -30,7 +30,8 @@ class MapScreen extends FlameGame with HasCollisionDetection {
 
     addActors(mapa.tileMap);
 
-    camera.follow(bako);
+    camera.followComponent(bako,
+        worldBounds: Rect.fromLTWH(0, 0, mapWidth, mapHeight));
 
     return super.onLoad();
   }
@@ -86,4 +87,3 @@ class MapScreen extends FlameGame with HasCollisionDetection {
     bako.direction = direction;
   }
 }
-
