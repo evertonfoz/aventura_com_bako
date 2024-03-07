@@ -4,15 +4,15 @@ Widget cabecalho(String titlePage, int placar, int chances) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      Padding(
-        padding: const EdgeInsets.all(10.0),
+      const Padding(
+        padding: EdgeInsets.all(10.0),
         child: SizedBox(
             height: 75,
             width: 350,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   'Jogo da memória',
                   style: TextStyle(

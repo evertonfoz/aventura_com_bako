@@ -64,13 +64,13 @@ class _InformacoesEspeciesPageState extends State<InformacoesEspeciesPage> {
                           child: Container(
                             // width: MediaQuery.of(context).size.width * 0.85,
                             // height: 200,
-                            decoration: ShapeDecoration(
+                            decoration: const ShapeDecoration(
                               color: Colors.yellow,
                               shape: TooltipShapeBorder(
                                 arrowArc: 0.5,
                                 arrowHeight: 35,
                               ),
-                              shadows: const [
+                              shadows: [
                                 BoxShadow(
                                     color: Colors.black26,
                                     blurRadius: 4.0,

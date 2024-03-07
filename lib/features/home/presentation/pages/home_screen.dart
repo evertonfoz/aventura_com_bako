@@ -3,16 +3,19 @@ import 'package:aventura_com_bako/features/configuracoes/presentarion/configurac
 import 'package:aventura_com_bako/features/galeria/presentation/pages/galeria_screen.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/pages/home_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
+import 'package:aventura_com_bako/features/gamificacao/jogo_adivinha/main.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/presentation/pages/home_game_page.dart';
 //import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/pages/home_page.dart';
 //import 'package:aventura_com_bako/features/loja/presentation/loja_screen.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../../gamificacao/quebra_cabeca/main_quebra.dart';
 import '../../../gamificacao/tabuleiro/presentation/pages/tabuleiro_page.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({required this.user, required this.audioController, Key? key})
+  const HomeScreen(
+      {required this.user, required this.audioController, Key? key})
       : super(key: key);
 
   final GamificationUser user;
@@ -162,13 +165,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       fit: BoxFit.contain,
                       height: 70,
                     ),
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
                   ],
                 ),
               ),
             ),
             Container(
-              padding: EdgeInsets.all(5),
+              padding: const EdgeInsets.all(5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -266,24 +269,36 @@ class _HomeScreenState extends State<HomeScreen> {
                           alertDificulty();
                         },
                       ),
-                      // ListTile(
-                      //   leading: const Icon(Icons.question_mark),
-                      //   title: const Text(
-                      //     'Quizz',
-                      //     style: TextStyle(fontSize: 20),
-                      //   ),
-                      //   onTap: () {
-                      //     Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //         builder: (context) => HomePageQuizz(
-                      //           user: widget.user,
-                      //           notifyParent: refresh,
-                      //         ),
-                      //       ),
-                      //     );
-                      //   },
-                      // ),
+                      ListTile(
+                        leading: const Icon(Icons.question_mark),
+                        title: const Text(
+                          'Adivinha',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Adivinha(),
+                            ),
+                          );
+                        },
+                      ),
+                      ListTile(
+                        leading: const Icon(Icons.question_mark),
+                        title: const Text(
+                          'Quebra-Cabeça',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Quebra_cabeca(),
+                            ),
+                          );
+                        },
+                      ),
                     ],
                   ),
                   ListTile(

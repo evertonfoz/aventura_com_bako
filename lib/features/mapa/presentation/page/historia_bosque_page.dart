@@ -7,7 +7,7 @@ import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import '../../../splashscreen/presentation/pages/startScreen.dart';
 
 class HistoriaPage extends StatefulWidget {
-  HistoriaPage({super.key, required this.audioController, required this.user});
+  const HistoriaPage({super.key, required this.audioController, required this.user});
 
   final GamificationUser user;
   final AudioController audioController;
@@ -36,7 +36,7 @@ class _HistoriaPageState extends State<HistoriaPage> {
       builder: (context) {
         return Dialog(
           shadowColor: Colors.black,
-          insetPadding: EdgeInsets.all(8.0),
+          insetPadding: const EdgeInsets.all(8.0),
           elevation: 8,
           shape: CircleBorder(),
           child: Stack(
@@ -127,13 +127,13 @@ class _HistoriaPageState extends State<HistoriaPage> {
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width * 0.90,
-                    decoration: ShapeDecoration(
+                    decoration: const ShapeDecoration(
                       color: Colors.yellow,
                       shape: TooltipShapeBorder(
                         arrowArc: 0.5,
                         arrowHeight: 35,
                       ),
-                      shadows: const [
+                      shadows: [
                         BoxShadow(
                             color: Colors.black26,
                             blurRadius: 4.0,

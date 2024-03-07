@@ -5,7 +5,7 @@ import 'package:aventura_com_bako/features/mapa/presentation/page/historia_bosqu
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
-  WelcomePage({Key? key, required this.user, required this.audioController})
+  const WelcomePage({Key? key, required this.user, required this.audioController})
       : super(key: key);
 
   final GamificationUser user;
@@ -35,7 +35,7 @@ class _WelcomePageState extends State<WelcomePage> {
       builder: (context) {
         return Dialog(
           shadowColor: Colors.black,
-          insetPadding: EdgeInsets.all(8.0),
+          insetPadding: const EdgeInsets.all(8.0),
           elevation: 8,
           child: Stack(
             children: [
@@ -115,13 +115,13 @@ class _WelcomePageState extends State<WelcomePage> {
                 Container(
                   width: MediaQuery.of(context).size.width * 0.85,
                   height: MediaQuery.of(context).size.height * 0.45,
-                  decoration: ShapeDecoration(
+                  decoration: const ShapeDecoration(
                     color: Colors.yellow,
                     shape: TooltipShapeBorder(
                       arrowArc: 0.5,
                       arrowHeight: 35,
                     ),
-                    shadows: const [
+                    shadows: [
                       BoxShadow(
                           color: Colors.black26,
                           blurRadius: 4.0,
@@ -280,7 +280,7 @@ class TooltipShapeBorder extends ShapeBorder {
   final double arrowArc;
   final double radius;
 
-  TooltipShapeBorder({
+  const TooltipShapeBorder({
     this.radius = 16.0,
     this.arrowWidth = 20.0,
     this.arrowHeight = 10.0,

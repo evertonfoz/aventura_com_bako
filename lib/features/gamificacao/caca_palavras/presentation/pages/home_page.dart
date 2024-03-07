@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../widgets/caca_palavra.dart';
 
 class HomeCacaPalavras extends StatelessWidget {
-  HomeCacaPalavras({required this.user, required this.notifyParent, super.key});
+  const HomeCacaPalavras({required this.user, required this.notifyParent, super.key});
 
   final Function() notifyParent;
   final GamificationUser user;

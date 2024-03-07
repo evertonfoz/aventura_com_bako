@@ -18,7 +18,7 @@ class Routes {
       case home:
       //return MaterialPageRoute(builder: (_) => HomeScreen(user));
       case tutorial:
-        return MaterialPageRoute(builder: (_) => TutorialPage());
+        return MaterialPageRoute(builder: (_) => const TutorialPage());
       default:
         return _errorRoute();
     }

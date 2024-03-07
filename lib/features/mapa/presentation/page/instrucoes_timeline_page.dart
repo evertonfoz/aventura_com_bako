@@ -9,7 +9,7 @@ import 'mapa_main_page.dart';
 import 'welcome_page.dart';
 
 class InstrucoesTimelinePage extends StatefulWidget {
-  InstrucoesTimelinePage(
+  const InstrucoesTimelinePage(
       {Key? key, required this.user, required this.audioController})
       : super(key: key);
 
@@ -84,23 +84,23 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.85,
-                      decoration: ShapeDecoration(
+                      decoration: const ShapeDecoration(
                         color: Colors.yellow,
                         shape: TooltipShapeBorder(
                           arrowArc: 0.5,
                           arrowHeight: 35,
                         ),
-                        shadows: const [
+                        shadows: [
                           BoxShadow(
                               color: Colors.black26,
                               blurRadius: 4.0,
                               offset: Offset(2, 2))
                         ],
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
+                      child: const Padding(
+                        padding: EdgeInsets.all(16.0),
                         child: Column(
-                          children: const [
+                          children: [
                             Text(
                               'Sua aventura está prestes a começar!',
                               style: TextStyle(

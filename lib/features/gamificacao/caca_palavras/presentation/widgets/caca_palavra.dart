@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:word_search_safety/word_search_safety.dart';
 
 class CacaPalavra extends StatefulWidget {
-  CacaPalavra({required this.user, required this.notifyParent, Key? key})
+  const CacaPalavra({required this.user, required this.notifyParent, Key? key})
       : super(key: key);
 
   final Function() notifyParent;
@@ -68,8 +68,6 @@ class _CacaPalavraState extends State<CacaPalavra> {
   }
 
   void endClick(PointerUpEvent? event) {
-    if (currentClick.value.currentLine == null) return;
-
     currentClick.value.currentLine.clear();
     currentClick.notifyListeners();
   }
@@ -179,10 +177,6 @@ class _CacaPalavraState extends State<CacaPalavra> {
 
   void generateLineOnDrag(PointerMoveEvent event) {
     // ignore: prefer_conditional_assignment
-    if (currentClick.value.currentLine == null) {
-      currentClick.value.currentLine = <int>[];
-    }
-
     int indexBase = calculateIndexBasePosLocal(event.localPosition);
 
     if (indexBase >= 0) {

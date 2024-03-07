@@ -57,7 +57,7 @@ class _TutorialCardState extends State<TutorialCard> {
                       Container(
                           // Icon, if currentPage is not 0
                           child: widget.index != 0
-                              ? Container(
+                              ? SizedBox(
                                   height: widget.index != 5
                                       ? MediaQuery.of(context).size.height *
                                           0.13

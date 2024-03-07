@@ -11,7 +11,7 @@ import '../../../../audio/controller/audioController.dart';
 import '../widgets/score_board.dart';
 
 class HomePageMemoryGame extends StatefulWidget {
-  HomePageMemoryGame(
+  const HomePageMemoryGame(
       {required this.isEasy,
       required this.user,
       required this.notifyParent,

@@ -5,7 +5,6 @@ import 'package:aventura_com_bako/features/mapa/presentation/widgets/plants_widg
 import 'package:flame/game.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tiled/tiled.dart';
 
 import '../../../informacoes_especies/helpers/enums/informacoes_especies_enum.dart';
 
