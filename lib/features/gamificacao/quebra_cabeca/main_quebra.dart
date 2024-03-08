@@ -105,11 +105,9 @@ class _PuzzleGameState extends State<PuzzleGame> {
           int? emptyIndex = puzzlePieces.indexOf(null);
 
           // Swap the piece with the empty piece if not null
-          if (emptyIndex != null) {
-            img.Image? temp = puzzlePieces[randomIndex];
-            puzzlePieces[randomIndex] = puzzlePieces[emptyIndex];
-            puzzlePieces[emptyIndex] = temp;
-          }
+          img.Image? temp = puzzlePieces[randomIndex];
+          puzzlePieces[randomIndex] = puzzlePieces[emptyIndex];
+          puzzlePieces[emptyIndex] = temp;
         }
       }
 

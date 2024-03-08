@@ -15,19 +15,34 @@ import '../../../gamificacao/tabuleiro/presentation/pages/tabuleiro_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen(
-      {required this.user, required this.audioController, Key? key})
-      : super(key: key);
+      {required this.user,
+      required this.audioController,
+      super.key,
+      required this.muteBGM,
+      required this.muteFala});
 
   final GamificationUser user;
   final AudioController audioController;
+  final bool muteBGM;
+  final bool muteFala;
   @override
   // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool? muteBGM;
+  bool? muteFala;
+
   refresh() {
     setState(() {});
+  }
+
+  @override
+  void initState() {
+    muteBGM = widget.muteBGM;
+    muteFala = widget.muteFala;
+    super.initState();
   }
 
   @override
@@ -84,6 +99,71 @@ class _HomeScreenState extends State<HomeScreen> {
           //     ],
           //   ),
           // ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.5,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.lightGreen,
+                    border: Border.all(color: Colors.green, width: 5)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    FloatingActionButton(
+                      heroTag: 'muteBGMHomepage',
+                      onPressed: () async {
+                        if (!muteBGM!) {
+                          setState(() {
+                            muteBGM = true;
+                            widget.audioController.volumeBGM = 0;
+                            widget.audioController.playerBGM.setVolume(0);
+                          });
+                        } else {
+                          setState(() {
+                            muteBGM = false;
+                            widget.audioController.volumeBGM = 1;
+                            widget.audioController.playerBGM.setVolume(1);
+                          });
+                        }
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child:
+                            Icon(muteBGM! ? Icons.music_off : Icons.music_note),
+                      ),
+                    ),
+                    FloatingActionButton(
+                      heroTag: 'mudeAudioHomePage',
+                      onPressed: () async {
+                        if (!muteFala!) {
+                          setState(() {
+                            muteFala = true;
+                            widget.audioController.volumeFala = 0;
+                            widget.audioController.playerFala.setVolume(0);
+                          });
+                        } else {
+                          setState(() {
+                            muteFala = false;
+                            widget.audioController.volumeFala = 1;
+                            widget.audioController.playerFala.setVolume(1);
+                          });
+                        }
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(
+                            muteFala! ? Icons.volume_off : Icons.volume_up),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
           Align(
             alignment: Alignment.center,
             child: Padding(

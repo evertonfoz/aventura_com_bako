@@ -5,7 +5,8 @@ import 'package:aventura_com_bako/features/mapa/presentation/page/historia_bosqu
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatefulWidget {
-  const WelcomePage({Key? key, required this.user, required this.audioController})
+  const WelcomePage(
+      {Key? key, required this.user, required this.audioController})
       : super(key: key);
 
   final GamificationUser user;
@@ -141,7 +142,7 @@ class _WelcomePageState extends State<WelcomePage> {
                         ),
                         const SizedBox(height: 10),
                         const Text(
-                          'O bosque da UTFPR é um pequeno fragmento florestal de 5500 m2 que conta com mais de 350 indivíduos arbóreos de 61 espécies pertencentes à 26 famílias botânicas. Dentro do bosque, você poderá percorrer uma trilha que tem xx m onde 22 espécies receberam identificação. Vamos conhecê-las melhor?',
+                          'O bosque da UTFPR é um pequeno fragmento florestal de 5500 m2 que conta com mais de 350 indivíduos arbóreos de 61 espécies pertencentes à 26 famílias botânicas. Dentro do bosque, você poderá percorrer uma trilha que tem 240 m onde 22 espécies receberam identificação. Vamos conhecê-las melhor?',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 22,

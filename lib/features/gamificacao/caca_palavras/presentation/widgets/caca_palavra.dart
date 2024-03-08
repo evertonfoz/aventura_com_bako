@@ -286,7 +286,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
 
   void geradorRandomicoPalavras() {
     final List<String> wl = [
-      'angicopos', //7
+      'angico', //7
       'bako', //3
       'paineira', //5
       'arvores', //5

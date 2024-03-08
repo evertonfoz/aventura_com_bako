@@ -113,6 +113,8 @@ class _StartScreenState extends State<StartScreen> {
                                           builder: (context) => HomeScreen(
                                                 audioController: audioPlayer,
                                                 user: gamificationUser,
+                                                muteBGM: muteBGM,
+                                                muteFala: muteFala,
                                               )));
                                 } else {
                                   setState(() {
@@ -173,7 +175,7 @@ class _StartScreenState extends State<StartScreen> {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Icon(
-                                muteBGM ? Icons.music_note : Icons.music_off),
+                                muteBGM ? Icons.music_off : Icons.music_note),
                           ),
                         ),
                         FloatingActionButton(
@@ -196,7 +198,7 @@ class _StartScreenState extends State<StartScreen> {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Icon(
-                                muteFala ? Icons.volume_up : Icons.volume_off),
+                                muteFala ? Icons.volume_off : Icons.volume_up),
                           ),
                         )
                       ],
