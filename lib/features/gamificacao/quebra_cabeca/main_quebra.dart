@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:image/image.dart' as img;
 
-void main() => runApp(Quebra_cabeca());
+// void main() => runApp(Quebra_cabeca());
 
 class Quebra_cabeca extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: PuzzleGame(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -24,9 +25,8 @@ class _PuzzleGameState extends State<PuzzleGame> {
   late List<img.Image?> puzzlePieces;
   late List<img.Image?> originalPieces;
   late List<String> imagePaths = [
-    'assets/',
     'assets/background_forest.jpg',
-    'assets\background_forest.jpg',
+    'assets/background_forest.jpg',
   ];
   late img.Image
       referenceImage; // Variável para armazenar a imagem de referência
@@ -243,7 +243,8 @@ class _PuzzleGameState extends State<PuzzleGame> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Quebracabeça'),
+        title: const Center(child: Text('Quebra-cabeça')),
+        backgroundColor: Colors.green,
       ),
       body: Column(
         children: [
@@ -313,14 +314,17 @@ class _PuzzleGameState extends State<PuzzleGame> {
           ),
 
           // Display moves count
-          Text('Moves: $movesCount'),
+          Text('Moves: $movesCount',
+              style: const TextStyle(
+                fontSize: 20,
+              )),
 
           // Display the reference image below the puzzle and in a smaller size
           if (!isLoading) // Exibe a imagem apenas se o carregamento estiver concluído
             Container(
               padding: const EdgeInsets.all(16.0),
-              height: 150.0, // Adjust the height as needed
-              width: 150.0,
+              height: 300.0, // Adjust the height as needed
+              width: 300.0,
               child: Image.memory(Uint8List.fromList(
                   img.encodePng(referenceImage))), // Adjust the width as needed
             ),
