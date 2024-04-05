@@ -8,19 +8,19 @@ class MemoryGameModelEasy {
   final int cardCount = 12;
 
   final cardsList = [
-    "assets/testeJM2.png",
-    "assets/images/folhas_manga.png",
-    "assets/images/abeia.png",
-    "assets/images/morgueso.png",
-    "assets/images/bosque.png",
-    "assets/images/hibisco.png",
+    "assets/games/Memoria/abelha.png",
+    "assets/games/Memoria/agua.png",
+    "assets/games/Memoria/BEIJAFLOR.png",
+    "assets/games/Memoria/bosque.png",
+    "assets/games/Memoria/cactos.png",
+    "assets/games/Memoria/cipo.png",
     //
-    "assets/testeJM2.png",
-    "assets/images/folhas_manga.png",
-    "assets/images/abeia.png",
-    "assets/images/morgueso.png",
-    "assets/images/bosque.png",
-    "assets/images/hibisco.png",
+    "assets/games/Memoria/abelha.png",
+    "assets/games/Memoria/agua.png",
+    "assets/games/Memoria/BEIJAFLOR.png",
+    "assets/games/Memoria/bosque.png",
+    "assets/games/Memoria/cactos.png",
+    "assets/games/Memoria/cipo.png",
   ];
 
   List<GlobalKey<FlipCardState>> cardStateKeys = [
@@ -71,27 +71,27 @@ class MemoryGameModelHard {
   final int cardCount = 20;
 
   final cardsList = [
-    "assets/trofeu_icon.png",
-    "assets/saco-de-sementes.png",
-    "assets/icon-9.png",
-    "assets/score_icon.png",
-    "assets/plant_icon.png",
-    "assets/Bako_1281x1423.png",
-    "assets/icon-8.png",
-    "assets/icon-7.png",
-    "assets/icon-6.png",
-    "assets/icon-5.png",
+    "assets/games/Memoria/epifita.png",
+    "assets/games/Memoria/ervdepassarinho.png",
+    "assets/games/Memoria/folhas de manga.png",
+    "assets/games/Memoria/frutomanga.png",
+    "assets/games/Memoria/fungo.jpeg",
+    "assets/games/Memoria/hibisco.png",
+    "assets/games/Memoria/morgueso.png",
+    "assets/games/Memoria/sementeauracauria.png",
+    "assets/games/Memoria/serra.png",
+    "assets/games/Memoria/solo.png",
     //
-    "assets/trofeu_icon.png",
-    "assets/saco-de-sementes.png",
-    "assets/icon-9.png",
-    "assets/plant_icon.png",
-    "assets/score_icon.png",
-    "assets/Bako_1281x1423.png",
-    "assets/icon-8.png",
-    "assets/icon-7.png",
-    "assets/icon-6.png",
-    "assets/icon-5.png",
+    "assets/games/Memoria/epifita.png",
+    "assets/games/Memoria/ervdepassarinho.png",
+    "assets/games/Memoria/folhas de manga.png",
+    "assets/games/Memoria/frutomanga.png",
+    "assets/games/Memoria/fungo.jpeg",
+    "assets/games/Memoria/hibisco.png",
+    "assets/games/Memoria/morgueso.png",
+    "assets/games/Memoria/sementeauracauria.png",
+    "assets/games/Memoria/serra.png",
+    "assets/games/Memoria/solo.png",
   ];
 
   List<GlobalKey<FlipCardState>> cardStateKeys = [

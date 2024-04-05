@@ -5,6 +5,7 @@ import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/informacoes_
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/informacoes_jogo_da_memoria/presentation/pages/Informacoes_memoria_page.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 
 import '../../../../audio/controller/audioController.dart';
@@ -16,8 +17,7 @@ class HomePageMemoryGame extends StatefulWidget {
       required this.user,
       required this.notifyParent,
       required this.audioController,
-      Key? key})
-      : super(key: key);
+      super.key});
   final GamificationUser user;
   final AudioController audioController;
   final Function() notifyParent;
@@ -118,16 +118,20 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
       ),
       padding: const EdgeInsets.all(10.0),
       itemBuilder: (context, index) {
-        return FlipCard(
-          key: _isEasy(widget.isEasy).cardStateKeys[index],
-          onFlip: () {
-            logicMatch(index, context);
-          },
-          direction: FlipDirection.HORIZONTAL,
-          flipOnTouch: _isEasy(widget.isEasy).cardFlips[index],
-          front: _faceConfigFlipCard(Colors.green, 'assets/hidden.png'),
-          back: _faceConfigFlipCard(
-              Colors.white, _isEasy(widget.isEasy).shuffleCardsList![index]),
+        return Animate(
+          effects: const [FlipEffect()],
+          child: FlipCard(
+            key: _isEasy(widget.isEasy).cardStateKeys[index],
+            onFlip: () {
+              logicMatch(index, context);
+            },
+            speed: 300,
+            direction: FlipDirection.HORIZONTAL,
+            flipOnTouch: _isEasy(widget.isEasy).cardFlips[index],
+            front: _faceConfigFlipCard(Colors.green, 'assets/hidden.png'),
+            back: _faceConfigFlipCard(
+                Colors.white, _isEasy(widget.isEasy).shuffleCardsList![index]),
+          ),
         );
       },
     );
@@ -180,13 +184,15 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
             pontos += 5;
             widget.user.pontuacao += 5;
             widget.notifyParent();
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => InformacoesMemoriaPage(
-                        audioController: widget.audioController,
-                        controller: controller,
-                        index: findIndex(index))));
+            Future.delayed(const Duration(milliseconds: 1500), () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => InformacoesMemoriaPage(
+                          audioController: widget.audioController,
+                          controller: controller,
+                          index: findIndex(index))));
+            });
           });
         }
       } else {
