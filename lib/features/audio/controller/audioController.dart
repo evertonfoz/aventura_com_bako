@@ -5,7 +5,10 @@ class AudioController {
   final playerBGM = AudioPlayer();
   final playerFalaCache = AudioCache();
   final playerFala = AudioPlayer();
+  final playerSFXCache = AudioCache();
+  final playerSFX = AudioPlayer();
   double volumeFala = 1.0;
+  double volumeSFX = 1.0;
   double volumeBGM = 1.0;
 
   playBGM1() async {
@@ -40,8 +43,14 @@ class AudioController {
   }
 
   playDiceAudio() async {
-    final url = await playerFalaCache.load('audio/diceRoll.mp3');
-    playerFala.setUrl(url.path);
-    playerFala.resume();
+    final url = await playerSFXCache.load('audio/diceRoll.mp3');
+    playerSFX.setUrl(url.path);
+    playerSFX.resume();
+  }
+
+  playMatchCardAudio() async {
+    final url = await playerSFXCache.load('audio/match_sfx.mp3');
+    playerSFX.setUrl(url.path);
+    playerSFX.resume();
   }
 }

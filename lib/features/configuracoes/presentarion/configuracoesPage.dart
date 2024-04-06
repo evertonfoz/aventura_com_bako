@@ -107,15 +107,54 @@ class _ConfiguracoesScreenState extends State<ConfiguracoesScreen> {
                           });
                         }),
                     Align(
-                        alignment: Alignment.bottomRight,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                                '${(widget.audioController.volumeFala * 100).toInt()}%'),
-                          ],
-                        )),
+                      alignment: Alignment.bottomRight,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                              '${(widget.audioController.volumeFala * 100).toInt()}%'),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: const BoxDecoration(
+                  color: Colors.green,
+                ),
+                child: Column(
+                  children: [
+                    const Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        'Efeitos:',
+                        style: TextStyle(fontSize: 25),
+                      ),
+                    ),
+                    Slider(
+                        activeColor: Colors.amber,
+                        inactiveColor: Colors.amber[800],
+                        value: widget.audioController.volumeSFX,
+                        onChanged: (value) async {
+                          setState(() {
+                            widget.audioController.volumeSFX = value;
+                            widget.audioController.playerSFX.setVolume(value);
+                          });
+                        }),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                              '${(widget.audioController.volumeSFX * 100).toInt()}%'),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

@@ -184,6 +184,7 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
             pontos += 5;
             widget.user.pontuacao += 5;
             widget.notifyParent();
+            widget.audioController.playMatchCardAudio();
             Future.delayed(const Duration(milliseconds: 1500), () {
               Navigator.push(
                   context,
