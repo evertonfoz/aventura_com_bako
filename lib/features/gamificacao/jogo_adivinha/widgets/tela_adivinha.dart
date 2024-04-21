@@ -136,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 24),
-                        primary: Colors.green,
+                        backgroundColor: Colors.green, //primary: Colors.green,
                       ),
                       child: Text(perguntaAtual.opcoesIncorretas[0]),
                     ),
@@ -147,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 24),
-                        primary: Colors.green,
+                        backgroundColor: Colors.green, //primary: Colors.green,
                       ),
                       child: Text(perguntaAtual.opcoesIncorretas[1]),
                     ),
@@ -158,7 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 24),
-                        primary: Colors.green,
+                        backgroundColor: Colors.green, //primary: Colors.green,
                       ),
                       child: Text(perguntaAtual.opcoesIncorretas[2]),
                     ),
@@ -169,7 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 24),
-                        primary: Colors.green,
+                        backgroundColor: Colors.green, //primary: Colors.green,
                       ),
                       child: Text(perguntaAtual.opcoesIncorretas[3]),
                     ),

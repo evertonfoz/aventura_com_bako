@@ -39,6 +39,7 @@ dependencies:
   timelines: ^0.1.0
   flip_card: ^0.7.0
   word_search_safety: ^0.1.2-nullsafety.1
+  permission_handler: ^11.3.1
 
 
 dev_dependencies:
@@ -76,6 +77,7 @@ flutter:
     - assets/tiles/
     - assets/audio/
     - assets/games/
+    - assets/games/caca_arvores/
   uses-material-design: true
 
   # flutter pub run flutter_native_splash:create

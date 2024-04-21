@@ -1,6 +1,7 @@
 import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/configuracoes/presentarion/configuracoesPage.dart';
 import 'package:aventura_com_bako/features/galeria/presentation/pages/galeria_screen.dart';
+import 'package:aventura_com_bako/features/gamificacao/caca_arvores/presentation/pages/caca_arvores_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/pages/home_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_adivinha/main.dart';
@@ -379,6 +380,23 @@ class _HomeScreenState extends State<HomeScreen> {
                           );
                         },
                       ),
+                      //Inicio modificação Felipe Beskow
+                      ListTile(
+                        leading: const Icon(Icons.search),
+                        title: const Text(
+                          'Caça às Árvores',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    CacaArvoresPage(user: widget.user)),
+                          );
+                        },
+                      )
+                      //Fim modificação Felipe Beskow
                     ],
                   ),
                   ListTile(
