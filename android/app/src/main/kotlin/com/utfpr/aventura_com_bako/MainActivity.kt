@@ -24,7 +24,7 @@ class MainActivity: FlutterActivity() {
 
 
         EventChannel(flutterEngine.dartExecutor.binaryMessenger, "ble_scanner/event/devices")
-            .setStreamHandler(BleScanEventChannel(context))
+            .setStreamHandler(BleScanEventChannel.with(context))
 
         btManager = getSystemService(BluetoothManager::class.java)
         bleScanRunner = BleScanRunner(btManager,0,context)

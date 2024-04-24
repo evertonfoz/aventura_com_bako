@@ -1,10 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.utfpr.aventura_com_bako">
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
          In most cases you can leave this as-is, but you if you want to provide
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
+
+    <!--<uses-permission android:name="android.permission.CAMERA"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />-->
 
     <uses-permission android:name="android.permission.BLUETOOTH"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
@@ -13,6 +17,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
+
 
     <application
         android:name="${applicationName}"
@@ -55,14 +60,19 @@
             android:value="2" />
 
         <!-- Add by Felipe Beskow
+            Using this for access to camera -->
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+
+
+        <!-- Add by Felipe Beskow
             Required to broadcast message of refresh bluetooth devices -->
-        <receiver android:name="com.utfpr.aventura_com_bako" android:enabled="true" android:exported="true">
-            <!-- tools:ignore="Instantiatable"> -->
+        <!--<receiver android:name="com.utfpr.aventura_com_bako.blescanner.BleScanEventChannel" android:enabled="true" android:exported="true"
+            tools:ignore="Instantiatable">
 
             <intent-filter>
                 <action android:name="com.utfpr.aventura_com_bako" />
             </intent-filter>
-        </receiver>
+        </receiver>-->
     </application>
 
     <!-- Add by Felipe Beskow

@@ -1,16 +1,20 @@
+import 'package:aventura_com_bako/features/gamificacao/caca_arvores/channels/ble_scanner_channel.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_arvores/presentation/pages/result_caca_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_arvores/tree_shuffle/model/tree.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class RadarTree extends StatelessWidget {
   const RadarTree({
     super.key,
     required this.tree,
     required this.distance,
+    required this.bleScanner,
   });
 
   final Tree tree;
   final double distance;
+  final BleScannerChannel bleScanner;
 
   @override
   Widget build(BuildContext context) {
@@ -154,17 +158,7 @@ class RadarTree extends StatelessWidget {
 
   Widget qrCode(context) {
     return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ResultCacaPage(
-              tree: tree,
-              isCorrect: true,
-            ),
-          ),
-        );
-      },
+      onTap: () => {scanQRCode(context)}, //scanQRCode(context),
       child: SizedBox(
         height: 150,
         width: 150,
@@ -186,5 +180,32 @@ class RadarTree extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  scanQRCode(context) async {
+    bool isCorrect = false;
+    String code = "";
+    try {
+      code = await FlutterBarcodeScanner.scanBarcode(
+        '#00ff00',
+        'Voltar',
+        true,
+        ScanMode.QR,
+      );
+    } finally {
+      isCorrect = code == tree.popularName;
+      print("Arvore:${tree.popularName} - Leitura:$code - Tag:$isCorrect");
+      bleScanner.stopScan();
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ResultCacaPage(
+            tree: tree,
+            isCorrect: isCorrect,
+            bleScanner: bleScanner,
+          ),
+        ),
+      );
+    }
   }
 }

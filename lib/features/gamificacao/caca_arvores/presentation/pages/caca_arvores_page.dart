@@ -31,7 +31,6 @@ class _CacaArvoresPageState extends State<CacaArvoresPage> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              //const Header(),
               StreamBuilder(
                 stream: _channelDevices.stream,
                 builder: (context, snapshop) {
@@ -59,7 +58,8 @@ class _CacaArvoresPageState extends State<CacaArvoresPage> {
       if (data.isNotEmpty) {
         distance = double.parse(data[3].replaceAll(',', '.'));
       }
-      return RadarTree(tree: treeChoice, distance: distance);
+      return RadarTree(
+          tree: treeChoice, distance: distance, bleScanner: _channelDevices);
     }
     //_channelDevices.startScan();
     //se não tiver dados dos dispositivos bluetooth, informa que está procurando arvores ainda

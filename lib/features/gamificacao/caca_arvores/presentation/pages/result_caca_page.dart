@@ -1,14 +1,20 @@
+import 'package:aventura_com_bako/features/gamificacao/caca_arvores/channels/ble_scanner_channel.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_arvores/presentation/widgets/background.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_arvores/presentation/widgets/resul_card.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_arvores/tree_shuffle/model/tree.dart';
 import 'package:flutter/material.dart';
 
 class ResultCacaPage extends StatefulWidget {
-  const ResultCacaPage(
-      {super.key, required this.tree, required this.isCorrect});
+  const ResultCacaPage({
+    super.key,
+    required this.tree,
+    required this.isCorrect,
+    required this.bleScanner,
+  });
 
   final Tree tree;
   final bool isCorrect;
+  final BleScannerChannel bleScanner;
 
   @override
   State<ResultCacaPage> createState() => _ResultCacaPageState();
@@ -23,6 +29,7 @@ class _ResultCacaPageState extends State<ResultCacaPage> {
       ),
       body: InkWell(
         onTap: () {
+          //widget.bleScanner.startScan();
           Navigator.pop(context);
         },
         child: Stack(

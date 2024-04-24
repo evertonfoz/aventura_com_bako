@@ -4,11 +4,20 @@ import android.content.*
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.EventChannel.EventSink
 
-
-class BleScanEventChannel(context: Context):EventChannel.StreamHandler {
+class BleScanEventChannel private constructor(private var applicationContext: Context) : BroadcastReceiver(), EventChannel.StreamHandler {
 
     private var devicesState: BroadcastReceiver? = null
-    private var applicationContext: Context = context
+
+    companion object {
+        fun with(context: Context): BleScanEventChannel {
+            return BleScanEventChannel(context)
+        }
+    }
+    override fun onReceive(context: Context, intent: Intent) {
+        this.applicationContext = context
+        val devices = intent.getSerializableExtra("device") as ArrayList<*>
+        // Aqui você pode usar um EventSink para enviar os dispositivos para o Flutter
+    }
 
     override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
         devicesState = createDeviceState(events!!)
@@ -31,6 +40,4 @@ class BleScanEventChannel(context: Context):EventChannel.StreamHandler {
             }
         }
     }
-
-
 }
