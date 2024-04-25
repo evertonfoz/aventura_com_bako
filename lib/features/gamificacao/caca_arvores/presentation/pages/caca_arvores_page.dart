@@ -61,7 +61,6 @@ class _CacaArvoresPageState extends State<CacaArvoresPage> {
       return RadarTree(
           tree: treeChoice, distance: distance, bleScanner: _channelDevices);
     }
-    //_channelDevices.startScan();
     //se não tiver dados dos dispositivos bluetooth, informa que está procurando arvores ainda
     return const DevicesNotFound();
   }

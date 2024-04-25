@@ -38,7 +38,10 @@ class ResultCard extends StatelessWidget {
             children: [
               Text(
                 text,
-                style: const TextStyle(fontSize: 32.0, color: Colors.white),
+                style: const TextStyle(
+                  fontSize: 32.0,
+                  color: Colors.white,
+                ),
               ),
               Icon(
                 image,

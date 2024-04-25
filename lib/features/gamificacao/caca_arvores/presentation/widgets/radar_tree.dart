@@ -1,8 +1,8 @@
 import 'package:aventura_com_bako/features/gamificacao/caca_arvores/channels/ble_scanner_channel.dart';
-import 'package:aventura_com_bako/features/gamificacao/caca_arvores/presentation/pages/result_caca_page.dart';
+import 'package:aventura_com_bako/features/gamificacao/caca_arvores/presentation/widgets/qrcode.dart';
+import 'package:aventura_com_bako/features/gamificacao/caca_arvores/presentation/widgets/quente_frio.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_arvores/tree_shuffle/model/tree.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class RadarTree extends StatelessWidget {
   const RadarTree({
@@ -60,7 +60,9 @@ class RadarTree extends StatelessWidget {
             color: Colors.green,
             borderRadius: BorderRadius.circular(8.0),
             image: DecorationImage(
-                image: AssetImage(radarSignalImage), fit: BoxFit.cover),
+              image: AssetImage(radarSignalImage),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
       ),
@@ -69,7 +71,7 @@ class RadarTree extends StatelessWidget {
 
   Widget infoTree() {
     return SizedBox(
-      width: 400,
+      width: 350,
       child: Card(
         color: Colors.transparent,
         shape: RoundedRectangleBorder(
@@ -81,32 +83,34 @@ class RadarTree extends StatelessWidget {
             color: Colors.green,
             borderRadius: BorderRadius.circular(8.0),
           ),
-          child: Column(children: [
-            Text(
-              tree.popularName,
-              style: const TextStyle(fontSize: 32.0, color: Colors.white),
-            ),
-            Text(
-              tree.scienceName,
-              style: const TextStyle(
-                  fontStyle: FontStyle.italic,
-                  fontSize: 26.0,
-                  color: Colors.white),
-            ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20), // Image border
-              child: Image(
-                image: tree.image!.image,
-                fit: BoxFit.contain,
-                height: 200,
+          child: Column(
+            children: [
+              Text(
+                tree.popularName,
+                style: const TextStyle(
+                  fontSize: 32.0,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            Text(
-              "$distance metros distante",
-              style: const TextStyle(fontSize: 26.0, color: Colors.white),
-            ),
-            const SizedBox(height: 10.0),
-          ]),
+              Text(
+                tree.scienceName,
+                style: const TextStyle(
+                    fontStyle: FontStyle.italic,
+                    fontSize: 26.0,
+                    color: Colors.white),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20), // Image border
+                child: Image(
+                  image: tree.image!.image,
+                  fit: BoxFit.contain,
+                  height: 200,
+                ),
+              ),
+              QuenteFrio(distance: distance),
+              const SizedBox(height: 10.0),
+            ],
+          ),
         ),
       ),
     );
@@ -114,7 +118,10 @@ class RadarTree extends StatelessWidget {
 
   Widget footerComplement(context) {
     if (distance < 1) {
-      return qrCode(context);
+      return QRCode(
+        tree: tree,
+        bleScanner: bleScanner,
+      );
     }
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -123,7 +130,7 @@ class RadarTree extends StatelessWidget {
         Container(
           alignment: Alignment.center,
           padding: const EdgeInsets.all(5),
-          width: 400,
+          width: 350,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Colors.white60,
@@ -138,14 +145,7 @@ class RadarTree extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   itemCount: tree.tips.length,
                   itemBuilder: (context, index) {
-                    return Text(
-                      tree.tips[index],
-                      overflow: TextOverflow.fade,
-                      style: const TextStyle(
-                        color: Colors.green,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    );
+                    return Text(tree.tips[index]);
                   },
                 ),
               ),
@@ -154,58 +154,5 @@ class RadarTree extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  Widget qrCode(context) {
-    return InkWell(
-      onTap: () => {scanQRCode(context)}, //scanQRCode(context),
-      child: SizedBox(
-        height: 150,
-        width: 150,
-        child: Card(
-          color: Colors.transparent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          child: Container(
-            padding: const EdgeInsets.all(15.0),
-            decoration: BoxDecoration(
-              color: Colors.green,
-              borderRadius: BorderRadius.circular(8.0),
-              image: const DecorationImage(
-                  image: AssetImage('assets/icons/qr_code2.png'),
-                  fit: BoxFit.cover),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  scanQRCode(context) async {
-    bool isCorrect = false;
-    String code = "";
-    try {
-      code = await FlutterBarcodeScanner.scanBarcode(
-        '#00ff00',
-        'Voltar',
-        true,
-        ScanMode.QR,
-      );
-    } finally {
-      isCorrect = code == tree.popularName;
-      print("Arvore:${tree.popularName} - Leitura:$code - Tag:$isCorrect");
-      bleScanner.stopScan();
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ResultCacaPage(
-            tree: tree,
-            isCorrect: isCorrect,
-            bleScanner: bleScanner,
-          ),
-        ),
-      );
-    }
   }
 }

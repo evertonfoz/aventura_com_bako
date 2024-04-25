@@ -1,4 +1,5 @@
 import 'package:aventura_com_bako/features/gamificacao/caca_arvores/channels/ble_scanner_channel.dart';
+import 'package:aventura_com_bako/features/gamificacao/caca_arvores/presentation/pages/caca_arvores_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_arvores/presentation/widgets/background.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_arvores/presentation/widgets/resul_card.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_arvores/tree_shuffle/model/tree.dart';
@@ -29,8 +30,17 @@ class _ResultCacaPageState extends State<ResultCacaPage> {
       ),
       body: InkWell(
         onTap: () {
-          //widget.bleScanner.startScan();
-          Navigator.pop(context);
+          if (widget.isCorrect) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const CacaArvoresPage(),
+              ),
+            );
+          } else {
+            widget.bleScanner.startScan();
+            Navigator.pop(context);
+          }
         },
         child: Stack(
           children: [
