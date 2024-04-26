@@ -32,15 +32,22 @@ List<Pergunta> obterListaDePerguntas() {
   return [
     Pergunta(
       imagePath: 'assets/Paineira-rosa-1.jpg',
-      descricao: 'Descrição 1...',
-      respostaCorreta: 'Paineira',
-      opcoesIncorretas: ['Margarita', 'Rosa do deserto', 'Girasol'],
+      descricao:
+          'O bosque da UTFPR faz parte de um tipo de floresta chamada Floresta Estacional Semidecidual. Qual é a principal característica desse tipo de formação florestal?',
+      respostaCorreta:
+          'Parte das suas espécies (até 30%) perdem as suas folhas na época seca do ano',
+      opcoesIncorretas: [
+        'Possuem somente pinheiros.',
+        'Só possuem espécies que são árvores',
+        'Todas as suas espécies perdem as suas folhas em julho'
+      ],
     ),
     Pergunta(
       imagePath: 'assets/Paineira-rosa-2.jpg',
-      descricao: 'Descrição 1...',
-      respostaCorreta: 'Paineira',
-      opcoesIncorretas: ['Ariticum', 'Bacupari', 'Figueira'],
+      descricao:
+          'A mascote do Bosque, o Bako, é uma homenagem ao fruto de uma das árvores presentes na trilha, a Garcinia gardeneriana, o popular bacupari. Sobre esse fruto assinale a cor dele.',
+      respostaCorreta: 'Amarelo',
+      opcoesIncorretas: ['Roxo', 'Vermelho', 'Azul'],
     ),
   ];
 }

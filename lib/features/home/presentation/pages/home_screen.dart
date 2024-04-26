@@ -3,7 +3,7 @@ import 'package:aventura_com_bako/features/configuracoes/presentarion/configurac
 import 'package:aventura_com_bako/features/galeria/presentation/pages/galeria_screen.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/pages/home_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
-import 'package:aventura_com_bako/features/gamificacao/jogo_adivinha/main.dart';
+import 'package:aventura_com_bako/features/gamificacao/jogo_adivinha/quizz_main.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/presentation/pages/home_game_page.dart';
 //import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/pages/home_page.dart';
 //import 'package:aventura_com_bako/features/loja/presentation/loja_screen.dart';
@@ -321,7 +321,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                       ListTile(
-                        leading: const Icon(Icons.grid_view),
+                        leading: const Icon(Icons.casino),
                         title: const Text(
                           'Tabuleiro',
                           style: TextStyle(fontSize: 20),
@@ -352,20 +352,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       ListTile(
                         leading: const Icon(Icons.question_mark),
                         title: const Text(
-                          'Adivinha',
+                          'Quizz',
                           style: TextStyle(fontSize: 20),
                         ),
                         onTap: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Adivinha(),
+                              builder: (context) => const Adivinha(),
                             ),
                           );
                         },
                       ),
                       ListTile(
-                        leading: const Icon(Icons.question_mark),
+                        leading: const Icon(Icons.extension),
                         title: const Text(
                           'Quebra-Cabeça',
                           style: TextStyle(fontSize: 20),
@@ -374,7 +374,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Quebra_cabeca(),
+                              builder: (context) => const PuzzleGame(),
                             ),
                           );
                         },
