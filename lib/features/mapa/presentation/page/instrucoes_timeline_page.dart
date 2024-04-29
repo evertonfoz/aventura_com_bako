@@ -222,7 +222,7 @@ class _InstrucoesTimelinePageState extends State<InstrucoesTimelinePage> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    MapPage(user: widget.user),
+                                    MapPage(user: widget.user, audioController: widget.audioController),
                               ),
                             );
                           },

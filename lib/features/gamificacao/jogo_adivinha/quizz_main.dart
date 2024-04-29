@@ -1,10 +1,12 @@
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_adivinha/widgets/tela_adivinha.dart';
 import 'package:flutter/material.dart';
 import './widgets/pergunta.dart';
 
 class Adivinha extends StatelessWidget {
-  const Adivinha({super.key});
-
+  const Adivinha({super.key, required this.user, required this.notifyParent});
+  final GamificationUser user;
+  final Function notifyParent;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,8 +15,8 @@ class Adivinha extends StatelessWidget {
           'Quizz',
         ),
       ),
-      body: const Stack(children: [
-        QuizzPage(),
+      body: Stack(children: [
+        QuizzPage(notifyParent: notifyParent, user: user),
       ]),
     );
   }

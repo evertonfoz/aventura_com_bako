@@ -1,3 +1,4 @@
+import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/informacoes_especies/presentation/pages/especie_errada_page.dart';
 
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
@@ -20,9 +21,10 @@ import '../../../informacoes_especies/presentation/controller/informacoes_contro
 import '../../../informacoes_especies/presentation/pages/especie_repetida_page.dart';
 
 class MapPage extends StatefulWidget {
-  const MapPage({Key? key, required this.user}) : super(key: key);
+  const MapPage({super.key, required this.user, required this.audioController});
 
   final GamificationUser user;
+  final AudioController audioController;
   @override
   MapPageState createState() => MapPageState();
 }
@@ -180,7 +182,9 @@ class MapPageState extends State<MapPage> {
                 'InformacoesEspeciesPage':
                     (BuildContext context, MapScreen mapa) =>
                         InformacoesEspeciesPage(
-                            mapa: mapa, gamification: gamification),
+                            mapa: mapa,
+                            gamification: gamification,
+                            audioController: widget.audioController),
                 'DescobriuTodasEspeciesPage':
                     (BuildContext context, MapScreen mapa) =>
                         DescobriuTodasEspeciesPage(

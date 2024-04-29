@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,10 @@ import '../quizz_main.dart';
 import 'pergunta.dart';
 
 class QuizzPage extends StatefulWidget {
-  const QuizzPage({super.key});
+  const QuizzPage({super.key, required this.user, required this.notifyParent});
+
+  final GamificationUser user;
+  final Function notifyParent;
 
   @override
   _QuizzPageState createState() => _QuizzPageState();
@@ -45,6 +49,8 @@ class _QuizzPageState extends State<QuizzPage> {
   void verificarResposta(String opcaoSelecionada) {
     if (opcaoSelecionada == perguntaAtual.respostaCorreta) {
       _showDialog(true).then((_) {
+        widget.user.updatePontuacao(perguntaAtual.recompensa);
+        widget.notifyParent();
         carregarPergunta();
       });
     } else {
@@ -67,13 +73,37 @@ class _QuizzPageState extends State<QuizzPage> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text(isRight ? 'Correto!' : 'Incorreto!',
+            title: Text(isRight ? 'Correto!' : 'Que Pena!',
                 style:
                     const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                 textAlign: TextAlign.center),
-            content: Text(
-              isRight ? 'Parabéns!' : 'Tente novamente.',
-              textAlign: TextAlign.center,
+            content: SizedBox(
+              height: MediaQuery.of(context).size.height * 0.1,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    isRight ? 'Parabéns!' : 'Boa Sorte na proxima!.',
+                    textAlign: TextAlign.center,
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      text: 'Você ganhou: ',
+                      style: DefaultTextStyle.of(context).style,
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: isRight ? '${perguntaAtual.recompensa}' : '0',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green,
+                            )),
+                        const TextSpan(text: ' sementes'),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
             actions: [
               Align(

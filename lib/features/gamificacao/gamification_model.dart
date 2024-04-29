@@ -34,9 +34,6 @@ class GamificationUser {
   ];
 
   void updatePontuacao(int pontos) {
-    print(pontuacao);
-
     pontuacao += pontos;
-    print(pontuacao);
   }
 }

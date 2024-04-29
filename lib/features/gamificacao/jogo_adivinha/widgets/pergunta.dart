@@ -2,11 +2,13 @@ class Pergunta {
   final String imagePath;
   final String descricao;
   final String respostaCorreta;
+  final int recompensa;
   final List<String> opcoesIncorretas;
 
   Pergunta({
     required this.imagePath,
     required this.descricao,
+    required this.recompensa,
     required this.respostaCorreta,
     required this.opcoesIncorretas,
   });
@@ -22,6 +24,7 @@ class Pergunta {
     return Pergunta(
       imagePath: pergunta.imagePath,
       descricao: pergunta.descricao,
+      recompensa: pergunta.recompensa,
       respostaCorreta: pergunta.respostaCorreta,
       opcoesIncorretas: opcoes,
     );
@@ -31,6 +34,7 @@ class Pergunta {
 List<Pergunta> obterListaDePerguntas() {
   return [
     Pergunta(
+      recompensa: 10,
       imagePath: 'assets/Paineira-rosa-1.jpg',
       descricao:
           'O bosque da UTFPR faz parte de um tipo de floresta chamada Floresta Estacional Semidecidual. Qual é a principal característica desse tipo de formação florestal?',
@@ -43,6 +47,7 @@ List<Pergunta> obterListaDePerguntas() {
       ],
     ),
     Pergunta(
+      recompensa: 5,
       imagePath: 'assets/Paineira-rosa-2.jpg',
       descricao:
           'A mascote do Bosque, o Bako, é uma homenagem ao fruto de uma das árvores presentes na trilha, a Garcinia gardeneriana, o popular bacupari. Sobre esse fruto assinale a cor dele.',
