@@ -10,7 +10,9 @@ class Background extends StatelessWidget {
         image: DecorationImage(
           colorFilter: ColorFilter.mode(Colors.white38, BlendMode.screen),
           fit: BoxFit.cover,
-          image: AssetImage('assets/Padrão4.jpg'),
+          image: AssetImage(
+            'assets/images/Tela_Inicial2.png',
+          ), //AssetImage('assets/Padrão4.jpg'),
         ),
       ),
     );

@@ -10,11 +10,13 @@ class RadarTree extends StatelessWidget {
     required this.tree,
     required this.distance,
     required this.bleScanner,
+    required this.trees,
   });
 
   final Tree tree;
   final double distance;
   final BleScannerChannel bleScanner;
+  final List<Tree> trees;
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +27,16 @@ class RadarTree extends StatelessWidget {
         children: [
           const SizedBox(height: 10.0),
           infoTree(),
-          const SizedBox(height: 30.0),
-          radarBuild(),
-          const SizedBox(height: 30.0),
+          const SizedBox(height: 20.0),
+          tips(context),
+          const SizedBox(height: 20.0),
           footerComplement(context),
         ],
       ),
     );
   }
 
-  Widget radarBuild() {
+  Widget radarBuild(context) {
     String radarSignalImage;
     if (distance < 3) {
       radarSignalImage = 'assets/games/caca_arvores/near_plus.png';
@@ -47,8 +49,8 @@ class RadarTree extends StatelessWidget {
     }
 
     return SizedBox(
-      height: 200,
-      width: 200,
+      height: MediaQuery.of(context).size.width * 0.35,
+      width: MediaQuery.of(context).size.width * 0.35,
       child: Card(
         color: Colors.transparent,
         shape: RoundedRectangleBorder(
@@ -71,34 +73,19 @@ class RadarTree extends StatelessWidget {
 
   Widget infoTree() {
     return SizedBox(
-      width: 350,
       child: Card(
         color: Colors.transparent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
         child: Container(
-          padding: const EdgeInsets.all(1.0),
+          padding: const EdgeInsets.all(10.0),
           decoration: BoxDecoration(
             color: Colors.green,
             borderRadius: BorderRadius.circular(8.0),
           ),
           child: Column(
             children: [
-              Text(
-                tree.popularName,
-                style: const TextStyle(
-                  fontSize: 32.0,
-                  color: Colors.white,
-                ),
-              ),
-              Text(
-                tree.scienceName,
-                style: const TextStyle(
-                    fontStyle: FontStyle.italic,
-                    fontSize: 26.0,
-                    color: Colors.white),
-              ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(20), // Image border
                 child: Image(
@@ -107,8 +94,6 @@ class RadarTree extends StatelessWidget {
                   height: 200,
                 ),
               ),
-              QuenteFrio(distance: distance),
-              const SizedBox(height: 10.0),
             ],
           ),
         ),
@@ -117,12 +102,25 @@ class RadarTree extends StatelessWidget {
   }
 
   Widget footerComplement(context) {
-    if (distance < 1) {
-      return QRCode(
-        tree: tree,
-        bleScanner: bleScanner,
-      );
-    }
+    //return QuenteFrio(distance: distance);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        if (distance < 1)
+          QRCode(
+            tree: tree,
+            bleScanner: bleScanner,
+            trees: trees,
+          )
+        else
+          radarBuild(context),
+        QuenteFrio(distance: distance),
+      ],
+    );
+  }
+
+  Widget tips(context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.center,

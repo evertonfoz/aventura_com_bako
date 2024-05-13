@@ -9,10 +9,12 @@ class QRCode extends StatelessWidget {
     super.key,
     required this.tree,
     required this.bleScanner,
+    required this.trees,
   });
 
   final Tree tree;
   final BleScannerChannel bleScanner;
+  final List<Tree> trees;
 
   @override
   Widget build(BuildContext context) {
@@ -51,31 +53,26 @@ class QRCode extends StatelessWidget {
         true,
         ScanMode.QR,
       );
-    } finally {
-      isCorrect = code == tree.popularName;
-      bleScanner.stopScan();
-      if (isCorrect) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ResultCacaPage(
-              tree: tree,
-              isCorrect: isCorrect,
-              bleScanner: bleScanner,
-            ),
-          ),
-        );
-      }
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ResultCacaPage(
-            tree: tree,
-            isCorrect: isCorrect,
-            bleScanner: bleScanner,
-          ),
-        ),
-      );
+    } catch (e) {
+      // ignore: avoid_print
+      print('Erro ao escanear QR Code: $e');
     }
+    isCorrect = code == tree.popularName;
+    bleScanner.stopScan();
+    navigateToResultPage(isCorrect, context);
+  }
+
+  navigateToResultPage(isCorrect, context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResultCacaPage(
+          tree: tree,
+          isCorrect: isCorrect,
+          bleScanner: bleScanner,
+          trees: trees,
+        ),
+      ),
+    );
   }
 }
