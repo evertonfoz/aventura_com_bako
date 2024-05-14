@@ -10,7 +10,7 @@ import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/presentation
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../../gamificacao/quebra_cabeca/main_quebra.dart';
+import '../../../gamificacao/quebra_cabeca/presentation/quebra_cabeca_page.dart';
 import '../../../gamificacao/tabuleiro/presentation/pages/tabuleiro_page.dart';
 
 class HomeScreen extends StatefulWidget {

@@ -14,11 +14,10 @@ import 'package:get/get.dart';
 
 class InformacoesEspeciesPage extends StatefulWidget {
   const InformacoesEspeciesPage(
-      {Key? key,
+      {super.key,
       required this.mapa,
       required this.gamification,
-      required this.audioController})
-      : super(key: key);
+      required this.audioController});
 
   final MapScreen mapa;
   final GamificationUser gamification;

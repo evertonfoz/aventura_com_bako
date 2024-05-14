@@ -61,8 +61,6 @@ class AlertGame extends StatelessWidget {
       barrierDismissible: false,
       builder: (_) {
         return AlertDialog(
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(32.0))),
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 20.0, bottom: 10),
@@ -82,10 +80,8 @@ class AlertGame extends StatelessWidget {
           title: const Text(
             'Que pena!!',
             style: TextStyle(
-                fontSize: 20,
                 decorationStyle: TextDecorationStyle.double,
                 fontWeight: FontWeight.bold,
-                color: Colors.yellow,
                 decorationColor: Colors.green),
           ),
           content: const SingleChildScrollView(
