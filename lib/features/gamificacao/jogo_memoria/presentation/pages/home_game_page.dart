@@ -215,13 +215,17 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
       numInicial = 0;
       numOfInf = 6;
     } else {
-      numInicial = 6;
-      numOfInf = 16;
+      numInicial = 0;
+      numOfInf = 10;
     }
     for (var i = numInicial; i < numOfInf; i++) {
       if (_isEasy(widget.isEasy).shuffleCardsList![index] ==
           _isEasy(widget.isEasy).cardsList[i]) {
-        return i;
+        if (widget.isEasy) {
+          return i;
+        } else {
+          return i + 6;
+        }
       }
     }
     return -1;

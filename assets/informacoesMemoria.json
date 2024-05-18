@@ -1,114 +1,114 @@
 [
     {
         "id": 0,
-        "titulo": "Facil0",
-        "texto": "Teste0",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Abelhas",
+        "texto": "Ei, galera! Vocês sabiam que se não fossem as abelhas não teríamos uma série dos nossos alimentos? E sabem porque? Porque as abelhas são um dos principais grupos de agentes polinizadores, essenciais para a reprodução das angiospermas (plantas com flores). Elas transferem pólen de uma flor para outra, permitindo a produção de frutos e sementes. Existem mais de 20.000 espécies descritas no mundo, mas a mais conhecida de todas é a Apis mellifera, que apesar de não ser nativa brasileira (abelha africana) está presente em todo território nacional e é a mais criada para a produção de mel. Mas, o Brasil se destaca no número de espécies de abelhas nativas, são mais de 1.500 espécies, com destaque para as abelhas-sem-ferrão que possuem mais de 300 espécies, com importante papel no processo de polinização.",
+        "assets": "assets/games/Memoria/abelha.png",
         "audioURL":""
     },
     {
         "id": 1,
-        "titulo": "Sementes",
-        "texto": "As sementes são tão importantes que, sem elas, não teríamos frutas, verduras, flores, árvores e outras plantas que são essenciais para a nossa sobrevivência e para a vida dos animais. As plantas produzem oxigênio, que é fundamental para que possamos respirar e viver. Além disso, as sementes podem ser usadas para produzir alimentos e remédios, além de serem usadas na fabricação de roupas e outros produtos que usamos no nosso dia a dia. Por isso, é muito importante cuidarmos das sementes e das plantas, para que elas possam continuar nos fornecendo tudo o que precisamos para viver. Se vocês tiverem sementes em casa, não as joguem fora! Plantem-nas em um vasinho e cuidem delas com carinho, para que possam crescer e se transformar em plantas lindas e saudáveis.",
-        "assets": "assets/saco-de-sementes.png",
-        "audioURL":"audio/jogoDaMemoria_Semente.mp3"
+        "titulo": "Água",
+        "texto": "Ei, pessoal! Todo mundo sabe que beber água é mega importante, né? Mas vocês já se perguntaram por quê? Descubra agora! A água é como o super-herói do nosso planeta! Ela faz um monte de coisas incríveis, tipo ajudar a dissolver substâncias,  transportar nutrientes e oxigênio para nossas células. Além disso, ela nos ajuda a manter a temperatura do corpo, nos protege e até mesmo nos refresca quando suamos! Além disso, aproximadamente 71% da superfície do nosso planeta é coberta por água e nós só estamos aqui porque ela existe e faz a vida acontecer. Então, não se esqueçam: precisamos cuidar do nosso bem mais precioso!",
+        "assets": "assets/games/Memoria/agua.png",
+        "audioURL":""
     },
     {
         "id": 2,
-        "titulo": "Facil2",
-        "texto": "Teste2",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Beija-Flor",
+        "texto": "Ei, pessoal! Vamos falar sobre essa ave super especial: O beija-flor! Eles são pássaros pequenos e coloridos, conhecidos por suas penas brilhantes e por serem capazes de voar rapidamente, inclusive pairar no ar como um helicóptero. Eles tem um bico fino e longo, perfeito para beber o néctar das flores e por isso são mega importantes para a polinização de muitos tipos de plantas. Quando eles voam de flor em flor para beber o néctar, o pólen gruda em seus bicos e penas. Ao visitar a próxima flor, eles deixam um pouco desse pólen, ajudando a planta a produzir frutos e sementes. Sem os beija-flores, muitas plantas teriam dificuldade para se reproduzir.",
+        "assets": "assets/games/Memoria/BEIJAFLOR.png",
         "audioURL":""
     },
     {
         "id": 3,
-        "titulo": "Facil3",
-        "texto": "Teste3",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Bosque",
+        "texto": "Ei, pessoal! Você sabe o que é um bosque? As cidades cresceram e suas áreas verdes foram trocadas por ruas, casas, avenidas, mas, às vezes, ainda sobram alguns pequenos pontos verdes dentro de cidades, que chamamos de bosques. É como se fosse uma floresta menor, um pedaço mágico de natureza, cheio de árvores, plantas e animais, onde a gente pode passear, respirar ar puro, se conectar com a natureza e aprender muitas coisas. Então, se você quiser se aventurar e descobrir um mundo natural cheio de surpresas, é só visitar o bosque da UTFPR.",
+        "assets": "assets/games/Memoria/bosque.png",
         "audioURL":""
     },
     {
         "id": 4,
-        "titulo": "Facil4",
-        "texto": "Teste4",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Cactos",
+        "texto": "Dessa vez você encontrou os cactos, vamos falar sobre eles? Eles são plantas adaptadas para viver em lugares secos, com caules que armazenam água, folhas modificadas na forma de espinhos e raízes que capturam a água eficientemente. Mas você sabia que eles também podem viver dentro de florestas? E que nesse ambiente florestal muitos são epífitos? Eles crescem em cima de outras árvores para conseguir captar luz de maneira mais eficiente sem competir com as demais árvores no chão da floresta, mas ainda mantêm a capacidade de passar tranquilamente por períodos mais secos. E você, já encontrou um cacto dentro do Bosque da UTFPR?",
+        "assets": "assets/games/Memoria/cactos.png",
         "audioURL":""
     },
     {
         "id": 5,
-        "titulo": "Facil5",
-        "texto": "Teste5",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Lianas",
+        "texto": "Ei, pessoal! Vocês sabiam que as lianas também são conhecidas como cipós? Os cipós são plantas trepadeiras lenhosas que crescem em florestas, usando outras árvores como suporte para subir em direção à luz do sol. Elas começam a crescer no chão da floresta e, à medida que crescem, precisam se enrolar em torno dos troncos e galhos das árvores para se apoiar e subir. São importantes para a floresta, pois ajudam a criar novos espaços para outras plantas e animais viverem. Então, na próxima vez que estiverem passeando pela floresta, fiquem de olho nos cipós, esses verdadeiros acrobatas da natureza!",
+        "assets": "assets/games/Memoria/cipo.png",
         "audioURL":""
     },
     {
         "id":6,
-        "titulo": "Dificil0",
-        "texto": "Teste6",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Epífitas",
+        "texto": "E aí, galera! Vocês já ouviram falar de epífitas? Elas são plantas muito especiais que vivem em cima de outras plantas, como árvores, mas não são parasitas. Isso significa que elas não prejudicam as árvores em que vivem, apenas  usam as árvores apenas como suporte para chegar a locais mais altos, onde podem receber mais luz solar e ar. As epífitas são como jardineiros do ar! Elas ficam no alto e dali se alimentam de nutrientes que capturam do ar e da chuva, ajudando a reciclar esses elementos no ecossistema. Você sabia que bromélias e orquídeas são exemplos de epífitas? Além de serem lindas, as epífitas também são muito importantes para o ambiente. Elas também fornecem abrigo e comida para muitos animais, como pássaros, anfíbios,  insetos e outros pequenos animais. Então, da próxima vez que estiver na floresta, olhe para cima e veja se consegue encontrar algumas dessas plantas incríveis, vivendo bem no topo das árvores!",
+        "assets": "assets/games/Memoria/epifita.png",
         "audioURL":""
     },
     {
         "id": 7,
-        "titulo": "Dificil1",
-        "texto": "Teste7",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Erva de Passarinho",
+        "texto": "Oi galera, vamos falar da erva de passarinho? Essa planta recebe esse nome engraçado porque, às vezes, ela parece um ninho verde, como se fosse feita para os passarinhos descansarem. Mas na verdade, ela é uma planta parasita, o que significa que ela tira seus nutrientes e água das árvores em que se agarra, e, por isso, pode levar à morte da planta hospedeira se a infestação for muito grande. Apesar desse impacto negativo ela também serve de fonte de alimento para alguns pássaros e daí vem o seu nome, pois ela tem uma maneira muito especial de se espalhar, quando os pássaros comem os frutos, as sementes pegajosas grudam no bico ou nas fezes desses pássaros e são espalhadas para outras árvores, onde podem germinar e crescer, normalmente no alto delas.",
+        "assets": "assets/games/Memoria/ervdepassarinho.png",
         "audioURL":""
     },
     {
         "id": 8,
-        "titulo": "Dificil2",
-        "texto": "Teste8",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Folhas",
+        "texto": "Que legal, você encontrou mais um par e dessa vez foi um par de folhas! Vamos conversar sobre elas? As folhas são partes super importantes das plantas. Elas têm diferentes formas, tamanhos e cores, mas a maioria delas é verde. As folhas são como fábricas de alimentos para a planta. Elas usam a luz do sol, o ar (CO2) e a água para fazer comida através de um processo chamado fotossíntese. Esse processo ocorre dentro de pequenas partes das folhas chamadas cloroplastos, que contêm uma substância verde chamada clorofila. E olha que legal: algumas dessas folhas a gente pode até comer! Sabe aquelas saladas deliciosas? Elas são feitas com folhas super nutritivas, tipo o espinafre, a couve, a alface e a rúcula! E o mais legal é que além de gostosas, elas fazem um bem danado pra nossa saúde, pois são cheias de nutrientes importantes para a nossa saúde.",
+        "assets": "assets/games/Memoria/folhas de manga.png",
         "audioURL":""
     },
     {
         "id": 9,
-        "titulo": "Dificil3",
-        "texto": "Teste9",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Fruto",
+        "texto": "Ei, galera! Vamos falar sobre uma parte super legal das plantas: os frutos!  Existem muitos tipos de frutos, como laranja, goiaba, tomate, melancia, ou seja, com várias formas, tamanhos e cores. Além de serem uma fonte de alimento deliciosa para nós, humanos, e também para outros tipos de animais,  os frutos são super importantes, pois protegem as sementes das plantas do tipo angiospermas. Eles se formam a partir das flores depois que a planta é polinizada. Além disso, eles também servem para atrair animais que virão em busca de comida e, assim, acabam levando as sementes para longe, fazendo com que novas plantas nasçam em outros lugares.",
+        "assets": "assets/games/Memoria/frutomanga.png",
         "audioURL":""
     },
     {
         "id": 10,
-        "titulo": "Dificil4",
-        "texto": "Teste9",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Fungos",
+        "texto": "Vocês sabiam que os fungos são super importantes na natureza? Os fungos desempenham um papel fundamental no processo de reciclagem de nutrientes em ecossistemas florestais, atuando como os principais agentes de decomposição. Eles desempenham um papel vital na quebra de matéria orgânica morta, como folhas caídas, galhos, cascas de árvores e outros detritos de plantas, transformando esses materiais em nutrientes essenciais que podem ser reutilizados pelas plantas para seu crescimento e desenvolvimento. Este processo é crucial para a manutenção da saúde do ecossistema florestal e para o ciclo contínuo de nutrientes na natureza.",
+        "assets": "assets/games/Memoria/fungo.jpeg",
         "audioURL":""
     },
     {
         "id": 11,
-        "titulo": "Dificil5",
-        "texto": "Teste9",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Flor",
+        "texto": "Ei, pessoal! Vocês sabem porque as flores existem? Além de lindas elas são super importantes para as plantas! Elas são responsáveis pelo nascimento de novas plantas do grupo das angiospermas, sabia? Dentro delas, têm os órgãos que ajudam na reprodução, como o pólen e os óvulos. E olha só que legal: as flores têm uma superestrutura toda especial, com cores vibrantes, formatos diferentes aromas atraentes e néctar (espécie de suco bem doce) que servem para chamar a atenção dos seus polinizadores, como insetos, pássaros e morcegos. Esses polinizadores são tipo os mensageiros das flores, ajudando a transferir o pólen de uma flor para outra, o que aumenta as chances de novas plantas nascerem. Incrível, né?",
+        "assets": "assets/games/Memoria/hibisco.png",
         "audioURL":""
     },
     {
         "id": 12,
-        "titulo": "Dificil6",
-        "texto": "Teste9",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Morcegos",
+        "texto": "Oi, pessoal, vocês sabiam que os morcegos são mamíferos muito interessantes? Eles têm asas que são, na verdade, suas mãos com dedos muito alongados cobertos por uma fina pele. Existem muitos tipos de morcegos, e eles podem viver em cavernas, árvores e até mesmo em cidades. Apesar de muitas pessoas terem medo deles e acharem que são assustadores, várias espécies de morcegos são essenciais para a polinização de muitas plantas, especialmente aquelas que florescem à noite. Quando eles voam de flor em flor para beber néctar, o pólen gruda em seus corpos. Depois, ao visitar outra flor, eles deixam um pouco desse pólen, ajudando a planta a produzir frutos e sementes, o que ajuda para a manutenção de ecossistemas saudáveis. Isso não é incrível?",
+        "assets": "assets/games/Memoria/morgueso.png",
         "audioURL":""
     },
     {
         "id": 13,
-        "titulo": "Dificil7",
-        "texto": "Teste9",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Sementes",
+        "texto": "E aí, pessoal! As sementes são pequenas partes das plantas que podem crescer e se transformar em novas plantas. Elas são encontradas dentro dos frutos. Cada semente contém um embrião (como se fosse o bebê da planta), que é uma planta jovem em miniatura, e uma reserva de alimentos que ajuda a planta a começar a crescer. As sementes são importantes porque garantem que as plantas possam se reproduzir e continuar a existir. Elas podem ser espalhadas de várias maneiras: pelo vento, pela água, ou quando animais comem os frutos e depois deixam as sementes cair em outro lugar. Algumas sementes são pequenas e leves, enquanto outras são grandes e duras. Para crescer, as sementes precisam de boas condições, como solo, água e luz solar. Quando essas condições são ideais, a semente germina, e a nova planta começa a se desenvolver.",
+        "assets": "assets/games/Memoria/sementeauracauria.png",
         "audioURL":""
     },
     {
         "id": 14,
-        "titulo": "Dificil8",
-        "texto": "Teste9",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Serrapilheira",
+        "texto": "O que você encontrou desta vez? A serrapilheira, que é uma camada de folhas, galhos, frutos e outros materiais orgânicos que caem no chão da floresta. Essa camada cobre o solo e é muito importante para o ambiente, pois protege o solo, fornece nutrientes, abriga pequenos animais e ajuda a manter a umidade, funcionando como uma coberta deixando o solo mais quente ou até mais fresquinho conforme a necessidade.  E sabe o mais? Dentro dessa serrapilheira, ficam escondidas sementes, que são como tesouros guardados, prontas para germinarem quando a natureza precisar delas.",
+        "assets": "assets/games/Memoria/serra.png",
         "audioURL":""
     },
     {
         "id": 15,
-        "titulo": "Dificil9",
-        "texto": "Teste9",
-        "assets": "assets/Paineira-rosa-1.jpg",
+        "titulo": "Solo",
+        "texto": "Dessa vez iremos falar de outra coisa super importante, o solo. O solo é a camada de terra que cobre a superfície da Terra. É onde crescem as plantas e onde muitos animais vivem. O solo é feito de pequenas partículas de rochas quebradas, matéria orgânica (restos de plantas e animais), água e ar. O solo tem várias camadas, chamadas de horizontes, que vão desde a camada mais superficial, rica em matéria orgânica, até as camadas mais profundas, feitas principalmente de rochas e minerais. Então, o solo é a camada de terra onde crescem as plantas, e é essencial para a vida, fornecendo nutrientes, suporte e um habitat para muitos seres vivos.",
+        "assets": "assets/games/Memoria/solo.png",
         "audioURL":""
     }
 

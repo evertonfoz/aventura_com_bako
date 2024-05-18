@@ -50,27 +50,27 @@ class _InformacoesMemoriaPageState extends State<InformacoesMemoriaPage> {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.35,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    widget.controller.informacoesJogoDaMemoriaList[widget.index]
-                            .assets ??
-                        'assets/hidden.png',
-                  ),
-                  fit: BoxFit.fitHeight,
-                ),
-                color: Colors.transparent,
-              ),
-            ),
+            // Container(
+            //   height: MediaQuery.of(context).size.height * 0.35,
+            //   decoration: BoxDecoration(
+            //     image: DecorationImage(
+            //       image: AssetImage(
+            //         widget.controller.informacoesJogoDaMemoriaList[widget.index]
+            //                 .assets ??
+            //             'assets/hidden.png',
+            //       ),
+            //       fit: BoxFit.fitHeight,
+            //     ),
+            //     color: Colors.transparent,
+            //   ),
+            // ),
             Visibility(
               visible: widget.controller
                       .informacoesJogoDaMemoriaList[widget.index].titulo !=
                   null,
               child: Padding(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.33),
+                    top: MediaQuery.of(context).size.height * 0.025),
                 child: Column(
                   children: [
                     Container(

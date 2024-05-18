@@ -279,24 +279,25 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Wrap(
                 runSpacing: 5,
                 children: [
-                  ListTile(
-                    leading: const Icon(Icons.map),
-                    title: const Text(
-                      'Passeio no bosque',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => WelcomePage(
-                            audioController: widget.audioController,
-                            user: widget.user,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                  //TODO: AJUSTAR PASSEIO NO BOSQUE
+                  // ListTile(
+                  //   leading: const Icon(Icons.map),
+                  //   title: const Text(
+                  //     'Passeio no bosque',
+                  //     style: TextStyle(fontSize: 20),
+                  //   ),
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (context) => WelcomePage(
+                  //           audioController: widget.audioController,
+                  //           user: widget.user,
+                  //         ),
+                  //       ),
+                  //     );
+                  //   },
+                  // )
                   ExpansionTile(
                     leading: const Icon(Icons.videogame_asset),
                     title: const Text(
@@ -382,22 +383,23 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  ListTile(
-                    leading: const Icon(Icons.photo),
-                    title: const Text(
-                      'Galeria',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => GalleryScreen(
-                                    audioController: widget.audioController,
-                                    user: widget.user,
-                                  )));
-                    },
-                  ),
+                  //TODO: AJUSTAR GALLERY NO BOSQUE
+                  // ListTile(
+                  //   leading: const Icon(Icons.photo),
+                  //   title: const Text(
+                  //     'Galeria',
+                  //     style: TextStyle(fontSize: 20),
+                  //   ),
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //         context,
+                  //         MaterialPageRoute(
+                  //             builder: (context) => GalleryScreen(
+                  //                   audioController: widget.audioController,
+                  //                   user: widget.user,
+                  //                 )));
+                  //   },
+                  // ),
                   // ListTile(
                   //   leading: const Icon(Icons.shopping_cart),
                   //   title: const Text(

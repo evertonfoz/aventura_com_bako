@@ -24,7 +24,7 @@ class _PuzzleGameState extends State<PuzzleGame> {
       referenceImage; // Variável para armazenar a imagem de referência
   bool isLoading = true; // Variável para controlar o estado de carregamento
   double dificultyMultiplier = 0.5;
-  int gridSize = 2;
+  int gridSize = 3;
   late int emptyRow;
   late int emptyCol;
 
@@ -163,18 +163,15 @@ class _PuzzleGameState extends State<PuzzleGame> {
   void handlePieceTap(int tappedRow, int tappedCol) {
     if ((tappedRow == emptyRow && (tappedCol - emptyCol).abs() == 1) ||
         (tappedCol == emptyCol && (tappedRow - emptyRow).abs() == 1)) {
-      setState(() {
-        int tappedIndex = tappedRow * gridSize + tappedCol;
-        img.Image? temp = puzzlePieces[tappedIndex];
-        puzzlePieces[tappedIndex] =
-            puzzlePieces[emptyRow * gridSize + emptyCol];
-        puzzlePieces[emptyRow * gridSize + emptyCol] = temp;
-        emptyRow = tappedRow;
-        emptyCol = tappedCol;
+      int tappedIndex = tappedRow * gridSize + tappedCol;
+      img.Image? temp = puzzlePieces[tappedIndex];
+      puzzlePieces[tappedIndex] = puzzlePieces[emptyRow * gridSize + emptyCol];
+      puzzlePieces[emptyRow * gridSize + emptyCol] = temp;
+      emptyRow = tappedRow;
+      emptyCol = tappedCol;
 
-        _quebraCabecaMobx.newMovesCount = _quebraCabecaMobx.movesCount + 1;
-        //print(_quebraCabecaMobx.movesCount);
-      });
+      _quebraCabecaMobx.newMovesCount = _quebraCabecaMobx.movesCount + 1;
+      setState(() {});
 
       if (isPuzzleSolved()) {
         showCongratulationsDialog();
@@ -399,74 +396,74 @@ class _PuzzleGameState extends State<PuzzleGame> {
                       height: MediaQuery.of(context).size.height * 0.5,
                       width: MediaQuery.of(context).size.width,
                     ),
-                    child: Observer(
-                      builder: (_) => GridView.builder(
-                        shrinkWrap: true,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: gridSize,
-                          crossAxisSpacing: 5.0,
-                          mainAxisSpacing: 5.0,
-                        ),
-                        itemBuilder: (context, index) {
-                          int row = index ~/ gridSize;
-                          int col = index % gridSize;
+                    child: GridView.builder(
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: gridSize,
+                        crossAxisSpacing: 5.0,
+                        mainAxisSpacing: 5.0,
+                      ),
+                      itemBuilder: (context, index) {
+                        int row = index ~/ gridSize;
+                        int col = index % gridSize;
 
-                          if (isLoading) {
-                            // Exibe um indicador de carregamento enquanto a imagem está sendo carregada
-                            return const Center(
-                                child: CircularProgressIndicator());
-                          }
+                        if (isLoading) {
+                          // Exibe um indicador de carregamento enquanto a imagem está sendo carregada
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        }
 
-                          //Código comentado para que numeros não apareçam no meio das imagens
-                          // if (puzzlePieces[index] != null) {
-                          //   return GestureDetector(
-                          //     onTap: () => handlePieceTap(row, col),
-                          //     child: Stack(
-                          //       alignment: Alignment.center,
-                          //       children: [
-                          //         Image.memory(Uint8List.fromList(
-                          //             img.encodePng(puzzlePieces[index]!))),
-                          //         Text(
-                          //           '${originalPieces.indexOf(puzzlePieces[index])}',
-                          //           style: const TextStyle(
-                          //             color: Colors.red,
-                          //             fontWeight: FontWeight.bold,
-                          //           ),
-                          //         ),
-                          //       ],
-                          //     ),
-                          //   );
-                          // } else {
-                          //   return Container(
-                          //     color: Colors.grey,
-                          //     child: Center(
-                          //       child: Text(
-                          //         '${originalPieces.indexOf(null)}',
-                          //         style: const TextStyle(
-                          //           color: Colors.red,
-                          //           fontWeight: FontWeight.bold,
-                          //         ),
-                          //       ),
-                          //     ),
-                          //   );
-                          // }
-                          if (puzzlePieces[index] != null) {
-                            return ClipRRect(
-                              borderRadius: BorderRadius.circular(16.0),
-                              child: GestureDetector(
+                        //Código comentado para que numeros não apareçam no meio das imagens
+                        // if (puzzlePieces[index] != null) {
+                        //   return GestureDetector(
+                        //     onTap: () => handlePieceTap(row, col),
+                        //     child: Stack(
+                        //       alignment: Alignment.center,
+                        //       children: [
+                        //         Image.memory(Uint8List.fromList(
+                        //             img.encodePng(puzzlePieces[index]!))),
+                        //         Text(
+                        //           '${originalPieces.indexOf(puzzlePieces[index])}',
+                        //           style: const TextStyle(
+                        //             color: Colors.red,
+                        //             fontWeight: FontWeight.bold,
+                        //           ),
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   );
+                        // } else {
+                        //   return Container(
+                        //     color: Colors.grey,
+                        //     child: Center(
+                        //       child: Text(
+                        //         '${originalPieces.indexOf(null)}',
+                        //         style: const TextStyle(
+                        //           color: Colors.red,
+                        //           fontWeight: FontWeight.bold,
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   );
+                        // }
+                        if (puzzlePieces[index] != null) {
+                          return ClipRRect(
+                            borderRadius: BorderRadius.circular(16.0),
+                            child: Observer(
+                              builder: (context) => GestureDetector(
                                 onTap: () => handlePieceTap(row, col),
                                 child: Image.memory(Uint8List.fromList(
                                     img.encodePng(puzzlePieces[index]!))),
                               ),
-                            );
-                          } else {
-                            return Container(
-                              color: Colors.transparent,
-                            );
-                          }
-                        },
-                        itemCount: gridSize * gridSize,
-                      ),
+                            ),
+                          );
+                        } else {
+                          return Container(
+                            color: Colors.transparent,
+                          );
+                        }
+                      },
+                      itemCount: gridSize * gridSize,
                     ),
                   ),
                 ),
