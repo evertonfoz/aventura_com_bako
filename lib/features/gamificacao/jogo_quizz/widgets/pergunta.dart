@@ -127,7 +127,7 @@ List<Pergunta> obterListaDePerguntas() {
       descricao:
           'Todas as árvores que conhecemos são de um grupo de plantas chamadas angiospermas. A principal característica desse grupo é produzir flores. Você sabe para que servem as flores na natureza e na vida dessas árvores?',
       respostaCorreta:
-          'Elas ajudam as plantas a fazerem novas sementes. Quando um inseto como uma abelha visita a flor, ele ajuda a levar o pólen de uma flor para outra, fazendo com que as sementes cresçam.',
+          'Elas ajudam as plantas a fazer novas sementes. Quando uma abelha visita a flor, ela leva o pólen de uma flor para outra, fazendo as sementes crescerem.',
       opcoesIncorretas: [
         'Elas servem para deixar a árvore bonita.',
         'Servem para deixar o ambiente cheiroso.'

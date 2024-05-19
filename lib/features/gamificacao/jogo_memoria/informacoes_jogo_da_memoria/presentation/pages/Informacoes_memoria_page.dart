@@ -46,146 +46,163 @@ class _InformacoesMemoriaPageState extends State<InformacoesMemoriaPage> {
       appBar: AppBar(
         title: const Text('Memorizando com Bako'),
       ),
-      backgroundColor: Colors.lightGreen,
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            // Container(
-            //   height: MediaQuery.of(context).size.height * 0.35,
-            //   decoration: BoxDecoration(
-            //     image: DecorationImage(
-            //       image: AssetImage(
-            //         widget.controller.informacoesJogoDaMemoriaList[widget.index]
-            //                 .assets ??
-            //             'assets/hidden.png',
-            //       ),
-            //       fit: BoxFit.fitHeight,
-            //     ),
-            //     color: Colors.transparent,
-            //   ),
-            // ),
-            Visibility(
-              visible: widget.controller
-                      .informacoesJogoDaMemoriaList[widget.index].titulo !=
-                  null,
-              child: Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.025),
-                child: Column(
-                  children: [
-                    Container(
-                      decoration: const ShapeDecoration(
-                        // borderRadius: BorderRadius.only(
-                        //   topLeft: Radius.circular(25),
-                        //   topRight: Radius.circular(25),
-                        // ),
-                        color: Color.fromARGB(255, 255, 244, 145),
-                        shape:
-                            TooltipShapeBorder(arrowArc: 0.5, arrowHeight: 20),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Column(
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.only(right: 50),
-                              alignment: Alignment.centerLeft,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    '${widget.controller.informacoesJogoDaMemoriaList[widget.index].titulo}',
-                                    overflow: TextOverflow.fade,
-                                    style: TextStyle(
-                                        fontSize: 35,
-                                        color: Color(
-                                          ColorUtils.hexToInt("#94BF36"),
-                                        ),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Container(
-                                    height: 25,
-                                    width: 25,
-                                    decoration: const BoxDecoration(
-                                      image: DecorationImage(
-                                        image:
-                                            AssetImage('assets/plant_icon.png'),
-                                        fit: BoxFit.fitHeight,
+      body: Stack(
+        children: [
+          // Container(
+          //   height: MediaQuery.of(context).size.height * 0.35,
+          //   decoration: BoxDecoration(
+          //     image: DecorationImage(
+          //       image: AssetImage(
+          //         widget.controller.informacoesJogoDaMemoriaList[widget.index]
+          //                 .assets ??
+          //             'assets/hidden.png',
+          //       ),
+          //       fit: BoxFit.fitHeight,
+          //     ),
+          //     color: Colors.transparent,
+          //   ),
+          // ),
+          Container(
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    colorFilter:
+                        ColorFilter.mode(Colors.white38, BlendMode.screen),
+                    image: AssetImage('assets/Padrão4.jpg'),
+                    fit: BoxFit.cover)),
+          ),
+          Center(
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    color: Colors.amberAccent.withOpacity(0.7),
+                    blurRadius: MediaQuery.of(context).size.width * 2,
+                  )
+                ],
+              ),
+              height: MediaQuery.of(context).size.height,
+            ),
+          ),
+          Visibility(
+            visible: widget.controller
+                    .informacoesJogoDaMemoriaList[widget.index].titulo !=
+                null,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.025),
+              child: Column(
+                children: [
+                  Container(
+                    decoration: const ShapeDecoration(
+                      // borderRadius: BorderRadius.only(
+                      //   topLeft: Radius.circular(25),
+                      //   topRight: Radius.circular(25),
+                      // ),
+                      color: Color.fromARGB(255, 255, 244, 145),
+                      shape: TooltipShapeBorder(arrowArc: 0.5, arrowHeight: 20),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.only(right: 50),
+                            alignment: Alignment.centerLeft,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  '${widget.controller.informacoesJogoDaMemoriaList[widget.index].titulo}',
+                                  overflow: TextOverflow.fade,
+                                  style: TextStyle(
+                                      fontSize: 35,
+                                      color: Color(
+                                        ColorUtils.hexToInt("#94BF36"),
                                       ),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Container(
+                                  height: 25,
+                                  width: 25,
+                                  decoration: const BoxDecoration(
+                                    image: DecorationImage(
+                                      image:
+                                          AssetImage('assets/plant_icon.png'),
+                                      fit: BoxFit.fitHeight,
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              padding: const EdgeInsets.only(right: 40),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.only(right: 40),
+                          ),
+                          const Divider(),
+                          Text(
+                            '${widget.controller.informacoesJogoDaMemoriaList[widget.index].texto}',
+                            textAlign: TextAlign.justify,
+                            style: const TextStyle(
+                              color: Colors.black54,
                             ),
-                            const Divider(),
-                            Text(
-                              '${widget.controller.informacoesJogoDaMemoriaList[widget.index].texto}',
-                              textAlign: TextAlign.justify,
-                              style: const TextStyle(
-                                color: Colors.black54,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
-                    Stack(
-                      children: [
-                        Center(
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.55,
-                            height: MediaQuery.of(context).size.height * 0.3,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: ExactAssetImage(
-                                    'assets/Bako_1281x1423.png'), //TODO Constantes
-                                fit: BoxFit.fitHeight,
-                              ),
+                  ),
+                  Stack(
+                    children: [
+                      Center(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.55,
+                          height: MediaQuery.of(context).size.height * 0.3,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: ExactAssetImage(
+                                  'assets/Bako_1281x1423.png'), //TODO Constantes
+                              fit: BoxFit.fitHeight,
                             ),
                           ),
                         ),
-                        //TODO GRAVAR AUDIO
-                        // Align(
-                        //   alignment: Alignment.bottomRight,
-                        //   child: Padding(
-                        //     padding: const EdgeInsets.all(16.0),
-                        //     child: SizedBox(
-                        //       width: 80,
-                        //       height: 80,
-                        //       child: FloatingActionButton(
-                        //         heroTag: 'pauseWelcome',
-                        //         onPressed: () async {
-                        //           if (audioIsPlaying) {
-                        //             await widget.audioController.playerFala
-                        //                 .pause();
-                        //           } else {
-                        //             await widget.audioController.playerFala
-                        //                 .resume();
-                        //           }
-                        //         },
-                        //         child: Icon(
-                        //           audioIsPlaying
-                        //               ? Icons.pause
-                        //               : Icons.play_arrow,
-                        //           size: 60,
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                      //TODO GRAVAR AUDIO
+                      // Align(
+                      //   alignment: Alignment.bottomRight,
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.all(16.0),
+                      //     child: SizedBox(
+                      //       width: 80,
+                      //       height: 80,
+                      //       child: FloatingActionButton(
+                      //         heroTag: 'pauseWelcome',
+                      //         onPressed: () async {
+                      //           if (audioIsPlaying) {
+                      //             await widget.audioController.playerFala
+                      //                 .pause();
+                      //           } else {
+                      //             await widget.audioController.playerFala
+                      //                 .resume();
+                      //           }
+                      //         },
+                      //         child: Icon(
+                      //           audioIsPlaying
+                      //               ? Icons.pause
+                      //               : Icons.play_arrow,
+                      //           size: 60,
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
+                    ],
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
-import 'package:aventura_com_bako/features/gamificacao/jogo_adivinha/widgets/tela_adivinha.dart';
+import 'package:aventura_com_bako/features/gamificacao/jogo_quizz/widgets/tela_adivinha.dart';
 import 'package:flutter/material.dart';
 import './widgets/pergunta.dart';
 
