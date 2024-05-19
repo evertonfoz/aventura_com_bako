@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'dart:math';
 import 'package:aventura_com_bako/features/gamificacao/quebra_cabeca/mobx/quebra_cabeca_mobx.dart';
+import 'package:aventura_com_bako/features/gamificacao/quebra_cabeca/presentation/resolveu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -174,7 +175,8 @@ class _PuzzleGameState extends State<PuzzleGame> {
       setState(() {});
 
       if (isPuzzleSolved()) {
-        showCongratulationsDialog();
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const ResolveuPage()));
       }
     }
   }
@@ -187,47 +189,10 @@ class _PuzzleGameState extends State<PuzzleGame> {
       emptyCol = gridSize - 1;
 
       if (isPuzzleSolved()) {
-        showCongratulationsDialog();
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ResolveuPage()));
       }
     });
-  }
-
-  void showCongratulationsDialog() {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Parabéns!'),
-          content: Text(
-              'Você completou o quebra-cabeça em ${_quebraCabecaMobx.movesCount} movimentos!'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pop();
-              },
-              child: const Text('Sair',
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20)),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                resetPuzzle(); // Change to call resetPuzzle
-              },
-              child: const Text('Reiniciar',
-                  style: TextStyle(
-                      color: Colors.green,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20)),
-            ),
-          ],
-        );
-      },
-    );
   }
 
   void resetPuzzle() {

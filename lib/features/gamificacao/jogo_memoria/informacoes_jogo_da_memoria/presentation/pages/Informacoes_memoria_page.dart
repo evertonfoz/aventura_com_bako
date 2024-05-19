@@ -149,34 +149,35 @@ class _InformacoesMemoriaPageState extends State<InformacoesMemoriaPage> {
                             ),
                           ),
                         ),
-                        Align(
-                          alignment: Alignment.bottomRight,
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: SizedBox(
-                              width: 80,
-                              height: 80,
-                              child: FloatingActionButton(
-                                heroTag: 'pauseWelcome',
-                                onPressed: () async {
-                                  if (audioIsPlaying) {
-                                    await widget.audioController.playerFala
-                                        .pause();
-                                  } else {
-                                    await widget.audioController.playerFala
-                                        .resume();
-                                  }
-                                },
-                                child: Icon(
-                                  audioIsPlaying
-                                      ? Icons.pause
-                                      : Icons.play_arrow,
-                                  size: 60,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                        //TODO GRAVAR AUDIO
+                        // Align(
+                        //   alignment: Alignment.bottomRight,
+                        //   child: Padding(
+                        //     padding: const EdgeInsets.all(16.0),
+                        //     child: SizedBox(
+                        //       width: 80,
+                        //       height: 80,
+                        //       child: FloatingActionButton(
+                        //         heroTag: 'pauseWelcome',
+                        //         onPressed: () async {
+                        //           if (audioIsPlaying) {
+                        //             await widget.audioController.playerFala
+                        //                 .pause();
+                        //           } else {
+                        //             await widget.audioController.playerFala
+                        //                 .resume();
+                        //           }
+                        //         },
+                        //         child: Icon(
+                        //           audioIsPlaying
+                        //               ? Icons.pause
+                        //               : Icons.play_arrow,
+                        //           size: 60,
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ],
