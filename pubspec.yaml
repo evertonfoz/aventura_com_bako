@@ -55,8 +55,8 @@ dev_dependencies:
 flutter_icons:
   ios: true
   android: "launcher_icon"
-  image_path_ios: "assets/bako_vetor.png"
-  image_path_android: "assets/bako_vetor.png"
+  image_path_ios: "assets/Bako_1281x1423.png"
+  image_path_android: "assets/Bako_1281x1423.png"
   # adaptive_icon_background: "assets/launcher/background.png"
   # adaptive_icon_foreground: "assets/launcher/foreground.png"
 
@@ -85,8 +85,8 @@ flutter:
 
   # flutter pub run flutter_native_splash:create
 flutter_native_splash:
-  color: "#1B9D2C"
-  #  background_image: "assets/images/brand/brand_1407x295.png"
-  image: "assets/images/launch_screen.png"
+  #color: "#1B9D2C"
+  background_image: "assets/images/Splash.png"
+  #image: "assets/images/Splash.png"
   fullscreen: true
   web: false

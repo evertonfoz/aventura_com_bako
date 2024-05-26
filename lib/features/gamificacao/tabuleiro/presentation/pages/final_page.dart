@@ -1,15 +1,25 @@
-import 'package:aventura_com_bako/features/gamificacao/quebra_cabeca/presentation/quebra_cabeca_page.dart';
+import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
+import 'package:aventura_com_bako/features/gamificacao/tabuleiro/presentation/pages/tabuleiro_page.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:flutter/material.dart';
 
-class PuzzleResolveuPage extends StatelessWidget {
-  const PuzzleResolveuPage({super.key});
+class TabuleiroEndPage extends StatelessWidget {
+  const TabuleiroEndPage(
+      {super.key,
+      required this.refresh,
+      required this.user,
+      required this.audioController});
+
+  final Function() refresh;
+  final GamificationUser user;
+  final AudioController audioController;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Parabéns, resolvido!'),
+        title: const Text('Parabéns!'),
       ),
       body: Stack(
         children: [
@@ -63,7 +73,7 @@ class PuzzleResolveuPage extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Parabéns, você resolveu!',
+                                    'Parabéns, você chegou ao final!',
                                   ),
                                 ],
                               ),
@@ -82,7 +92,7 @@ class PuzzleResolveuPage extends StatelessWidget {
                             ),
                             const Divider(),
                             const Text(
-                              'Parabéns! 🎉 Você completou o quebra-cabeças e mostrou sua inteligência e dedicação. Cada peça no lugar certo ajuda a proteger o meio ambiente. Continue assim, pequeno guardião da natureza! 🌿🧩✨',
+                              'Parabéns! 🎉 Você chegou ao final da trilha e mostrou sua inteligência e dedicação. Cada ação conta na hora de ajudar a proteger o meio ambiente. Continue assim, pequeno guardião da natureza! 🌿🎲✨',
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 color: Colors.black54,
@@ -105,8 +115,12 @@ class PuzzleResolveuPage extends StatelessWidget {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              const PuzzleGame()),
+                                        builder: (context) => TabuleiroPage(
+                                          user: user,
+                                          notifyParent: refresh,
+                                          audioController: audioController,
+                                        ),
+                                      ),
                                     );
                                   },
                                 ),

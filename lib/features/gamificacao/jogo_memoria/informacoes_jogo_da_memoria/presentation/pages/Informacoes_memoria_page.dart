@@ -90,8 +90,11 @@ class _InformacoesMemoriaPageState extends State<InformacoesMemoriaPage> {
                 null,
             child: Padding(
               padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.025),
+                  left: MediaQuery.of(context).size.width * 0.01,
+                  right: MediaQuery.of(context).size.width * 0.01),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
                     decoration: const ShapeDecoration(
@@ -103,7 +106,7 @@ class _InformacoesMemoriaPageState extends State<InformacoesMemoriaPage> {
                       shape: TooltipShapeBorder(arrowArc: 0.5, arrowHeight: 20),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Column(
                         children: [
                           Container(
@@ -157,11 +160,11 @@ class _InformacoesMemoriaPageState extends State<InformacoesMemoriaPage> {
                       Center(
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.55,
-                          height: MediaQuery.of(context).size.height * 0.3,
+                          height: MediaQuery.of(context).size.height * 0.23,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                               image: ExactAssetImage(
-                                  'assets/Bako_1281x1423.png'), //TODO Constantes
+                                  'assets/Bako_com_grama.png'), //TODO Constantes
                               fit: BoxFit.fitHeight,
                             ),
                           ),

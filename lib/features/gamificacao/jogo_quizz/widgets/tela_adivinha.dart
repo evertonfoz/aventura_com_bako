@@ -166,111 +166,121 @@ class _QuizzPageState extends State<QuizzPage> {
           ),
           Visibility(
             visible: perguntaAtual.descricao.isNotEmpty,
-            child: Column(
-              children: [
-                Container(
-                  decoration: const ShapeDecoration(
-                    color: Color.fromARGB(255, 255, 244, 145),
-                    shape: TooltipShapeBorder(arrowArc: 0.5, arrowHeight: 20),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Column(
-                      children: [
-                        Column(
-                          children: [
-                            Text(
-                              perguntaAtual.descricao,
-                              style: TextStyle(
-                                color: Color(
-                                  ColorUtils.hexToInt("#94BF36"),
-                                ),
-                                fontWeight: FontWeight.bold,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                        const Divider(),
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
+            child: Padding(
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.01,
+                  left: MediaQuery.of(context).size.width * 0.01,
+                  right: MediaQuery.of(context).size.width * 0.01),
+              child: Column(
+                children: [
+                  Container(
+                    decoration: const ShapeDecoration(
+                      color: Color.fromARGB(255, 255, 244, 145),
+                      shape: TooltipShapeBorder(arrowArc: 0.5, arrowHeight: 20),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Column(
                             children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      verificarResposta(
-                                          perguntaAtual.opcoesIncorretas[0]);
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      padding: const EdgeInsets.all(16),
-                                    ),
-                                    child:
-                                        Text(perguntaAtual.opcoesIncorretas[0]),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      verificarResposta(
-                                          perguntaAtual.opcoesIncorretas[1]);
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      padding: const EdgeInsets.all(16),
-                                    ),
-                                    child:
-                                        Text(perguntaAtual.opcoesIncorretas[1]),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  ElevatedButton(
-                                    onPressed: () {
-                                      verificarResposta(
-                                          perguntaAtual.opcoesIncorretas[2]);
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      padding: const EdgeInsets.all(16),
-                                    ),
-                                    child:
-                                        Text(perguntaAtual.opcoesIncorretas[2]),
-                                  ),
-                                ],
-                              ),
                               Text(
-                                resposta,
-                                style: const TextStyle(
-                                  fontSize: 18,
+                                perguntaAtual.descricao,
+                                style: TextStyle(
+                                  color: Color(
+                                    ColorUtils.hexToInt("#94BF36"),
+                                  ),
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.red,
                                 ),
                                 textAlign: TextAlign.center,
                               ),
                             ],
                           ),
-                        ),
-                      ],
+                          const Divider(),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        verificarResposta(
+                                            perguntaAtual.opcoesIncorretas[0]);
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        padding: const EdgeInsets.all(16),
+                                      ),
+                                      child: Text(
+                                          perguntaAtual.opcoesIncorretas[0]),
+                                    ),
+                                    const SizedBox(height: 5),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        verificarResposta(
+                                            perguntaAtual.opcoesIncorretas[1]);
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        padding: const EdgeInsets.all(16),
+                                      ),
+                                      child: Text(
+                                          perguntaAtual.opcoesIncorretas[1]),
+                                    ),
+                                    const SizedBox(height: 5),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        verificarResposta(
+                                            perguntaAtual.opcoesIncorretas[2]);
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        padding: const EdgeInsets.all(16),
+                                      ),
+                                      child: Text(
+                                          perguntaAtual.opcoesIncorretas[2]),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    resposta,
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.red,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Stack(
-                  children: [
-                    Center(
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.55,
-                        height: MediaQuery.of(context).size.height * 0.3,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: ExactAssetImage(
-                                'assets/Bako_1281x1423.png'), //TODO Constantes
-                            fit: BoxFit.fitHeight,
+                  Stack(
+                    children: [
+                      Center(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.55,
+                          height: MediaQuery.of(context).size.height * 0.3,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: ExactAssetImage(
+                                  'assets/Bako_com_grama.png'), //TODO Constantes
+                              fit: BoxFit.fitHeight,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],

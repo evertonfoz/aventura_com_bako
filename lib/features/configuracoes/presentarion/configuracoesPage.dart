@@ -19,7 +19,7 @@ class _ConfiguracoesScreenState extends State<ConfiguracoesScreen> {
       body: Stack(
         children: [
           Opacity(
-            opacity: 0.5,
+            opacity: 0.6,
             child: Container(
               height: double.maxFinite,
               width: double.maxFinite,
@@ -36,7 +36,6 @@ class _ConfiguracoesScreenState extends State<ConfiguracoesScreen> {
             children: [
               Container(
                 padding: const EdgeInsets.all(8.0),
-                decoration: const BoxDecoration(color: Colors.green),
                 child: const Align(
                   alignment: Alignment.center,
                   child: Text(
@@ -47,9 +46,6 @@ class _ConfiguracoesScreenState extends State<ConfiguracoesScreen> {
               ),
               Container(
                 padding: const EdgeInsets.all(8.0),
-                decoration: const BoxDecoration(
-                  color: Colors.green,
-                ),
                 child: Column(
                   children: [
                     const Align(
@@ -82,49 +78,43 @@ class _ConfiguracoesScreenState extends State<ConfiguracoesScreen> {
                   ],
                 ),
               ),
+              // Container(
+              //   padding: const EdgeInsets.all(8.0),
+              //   child: Column(
+              //     children: [
+              //       const Align(
+              //         alignment: Alignment.topLeft,
+              //         child: Text(
+              //           'Falas:',
+              //           style: TextStyle(fontSize: 25),
+              //         ),
+              //       ),
+              //       Slider(
+              //           activeColor: Colors.amber,
+              //           inactiveColor: Colors.amber[800],
+              //           value: widget.audioController.volumeFala,
+              //           onChanged: (value) async {
+              //             setState(() {
+              //               widget.audioController.volumeFala = value;
+              //               widget.audioController.playerFala.setVolume(value);
+              //             });
+              //           }),
+              //       Align(
+              //         alignment: Alignment.bottomRight,
+              //         child: Row(
+              //           mainAxisSize: MainAxisSize.min,
+              //           mainAxisAlignment: MainAxisAlignment.start,
+              //           children: [
+              //             Text(
+              //                 '${(widget.audioController.volumeFala * 100).toInt()}%'),
+              //           ],
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               Container(
                 padding: const EdgeInsets.all(8.0),
-                decoration: const BoxDecoration(
-                  color: Colors.green,
-                ),
-                child: Column(
-                  children: [
-                    const Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        'Falas:',
-                        style: TextStyle(fontSize: 25),
-                      ),
-                    ),
-                    Slider(
-                        activeColor: Colors.amber,
-                        inactiveColor: Colors.amber[800],
-                        value: widget.audioController.volumeFala,
-                        onChanged: (value) async {
-                          setState(() {
-                            widget.audioController.volumeFala = value;
-                            widget.audioController.playerFala.setVolume(value);
-                          });
-                        }),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                              '${(widget.audioController.volumeFala * 100).toInt()}%'),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                decoration: const BoxDecoration(
-                  color: Colors.green,
-                ),
                 child: Column(
                   children: [
                     const Align(

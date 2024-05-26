@@ -7,7 +7,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="${applicationName}"
-        android:label="aventura_com_bako"
+        android:label="Aventura com Bako"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"

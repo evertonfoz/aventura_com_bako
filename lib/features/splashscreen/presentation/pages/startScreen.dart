@@ -178,29 +178,30 @@ class _StartScreenState extends State<StartScreen> {
                                 muteBGM ? Icons.music_off : Icons.music_note),
                           ),
                         ),
-                        FloatingActionButton(
-                          heroTag: 'mudeAudio',
-                          onPressed: () async {
-                            if (!muteFala) {
-                              setState(() {
-                                muteFala = true;
-                                audioPlayer.volumeFala = 0;
-                                audioPlayer.playerFala.setVolume(0);
-                              });
-                            } else {
-                              setState(() {
-                                muteFala = false;
-                                audioPlayer.volumeFala = 1;
-                                audioPlayer.playerFala.setVolume(1);
-                              });
-                            }
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Icon(
-                                muteFala ? Icons.volume_off : Icons.volume_up),
-                          ),
-                        )
+                        //TODO Habilitar depois
+                        // FloatingActionButton(
+                        //   heroTag: 'mudeAudio',
+                        //   onPressed: () async {
+                        //     if (!muteFala) {
+                        //       setState(() {
+                        //         muteFala = true;
+                        //         audioPlayer.volumeFala = 0;
+                        //         audioPlayer.playerFala.setVolume(0);
+                        //       });
+                        //     } else {
+                        //       setState(() {
+                        //         muteFala = false;
+                        //         audioPlayer.volumeFala = 1;
+                        //         audioPlayer.playerFala.setVolume(1);
+                        //       });
+                        //     }
+                        //   },
+                        //   child: Padding(
+                        //     padding: const EdgeInsets.all(8.0),
+                        //     child: Icon(
+                        //         muteFala ? Icons.volume_off : Icons.volume_up),
+                        //   ),
+                        // )
                       ],
                     ),
                   ),

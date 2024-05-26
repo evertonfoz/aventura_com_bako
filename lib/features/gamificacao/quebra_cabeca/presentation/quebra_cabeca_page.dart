@@ -175,8 +175,10 @@ class _PuzzleGameState extends State<PuzzleGame> {
       setState(() {});
 
       if (isPuzzleSolved()) {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const ResolveuPage()));
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const PuzzleResolveuPage()));
       }
     }
   }
@@ -189,8 +191,10 @@ class _PuzzleGameState extends State<PuzzleGame> {
       emptyCol = gridSize - 1;
 
       if (isPuzzleSolved()) {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ResolveuPage()));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const PuzzleResolveuPage()));
       }
     });
   }

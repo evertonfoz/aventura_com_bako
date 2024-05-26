@@ -1,6 +1,7 @@
 import 'package:aventura_com_bako/features/gamificacao/alert_game.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/data/model/current_obj.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/data/model/resposta.dart';
+import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/pages/resolveu_page.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/widgets/card_respostas.dart';
 import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/widgets/score_board.dart';
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
@@ -27,6 +28,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
   late ValueNotifier<CurrentObj> currentClick;
   late ValueNotifier<List<int>> palavrasFeitas;
   int acertos = 0;
+  int sementes = 0;
 
   @override
   void initState() {
@@ -55,7 +57,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
           height: MediaQuery.of(context).size.width,
           padding: EdgeInsets.all(padding),
           margin: EdgeInsets.all(padding),
-          child: areaJogavel(context),
+          child: areaJogavel(context, true),
         ),
         Container(
           alignment: Alignment.center,
@@ -89,7 +91,14 @@ class _CacaPalavraState extends State<CacaPalavra> {
       acertos += 1;
       if (acertos == 6) {
         //widget.gamification.updatePontuacao(placarJogo);
-        AlertGame(pontos: widget.user.pontuacao).alertWin(context);
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CacaPalavrasResolveuPage(
+                  user: widget.user,
+                  notifyParent: widget.notifyParent,
+                  areajogavel: areaJogavel(context, false)),
+            ));
       }
       palavrasFeitas.notifyListeners();
       listaResposta.notifyListeners();
@@ -102,36 +111,42 @@ class _CacaPalavraState extends State<CacaPalavra> {
       case 4:
         setState(() {
           widget.user.pontuacao += 3;
+          sementes += 3;
           widget.notifyParent();
         });
         break;
       case 6:
         setState(() {
           widget.user.pontuacao += 3;
+          sementes += 3;
           widget.notifyParent();
         });
         break;
       case 7:
         setState(() {
           widget.user.pontuacao += 5;
+          sementes += 5;
           widget.notifyParent();
         });
         break;
       case 8:
         setState(() {
           widget.user.pontuacao += 5;
+          sementes += 5;
           widget.notifyParent();
         });
         break;
       case 9:
         setState(() {
           widget.user.pontuacao += 7;
+          sementes += 7;
           widget.notifyParent();
         });
         break;
       case 11:
         setState(() {
           widget.user.pontuacao += 7;
+          sementes += 7;
           widget.notifyParent();
         });
         break;
@@ -230,10 +245,10 @@ class _CacaPalavraState extends State<CacaPalavra> {
     } catch (e) {}
   }
 
-  Widget areaJogavel(context) {
+  Widget areaJogavel(context, bool jogavel) {
     return Listener(
-      onPointerUp: (event) => endClick(event),
-      onPointerMove: (event) => updateClick(event, context),
+      onPointerUp: jogavel ? (event) => endClick(event) : null,
+      onPointerMove: jogavel ? (event) => updateClick(event, context) : null,
       child: LayoutBuilder(
         builder: (context, constraints) {
           sizeBox = Size(constraints.maxWidth, constraints.maxWidth);
@@ -250,7 +265,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
               String char =
                   listaPalavras.value.expand((e) => e).toList()[index];
               return Listener(
-                onPointerDown: (event) => startClick(index),
+                onPointerDown: jogavel ? (event) => startClick(index) : null,
                 child: ValueListenableBuilder(
                   valueListenable: currentClick,
                   builder: (context, CurrentObj value, child) {
@@ -259,7 +274,7 @@ class _CacaPalavraState extends State<CacaPalavra> {
                     if (value.currentLine.contains(index)) {
                       color = Colors.transparent;
                     } else if (palavrasFeitas.value.contains(index)) {
-                      color = Colors.green.shade800;
+                      color = Colors.green.shade500;
                     }
 
                     return Container(
@@ -271,7 +286,12 @@ class _CacaPalavraState extends State<CacaPalavra> {
                       child: Text(
                         char.toUpperCase(),
                         textAlign: TextAlign.start,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: jogavel
+                                ? DefaultTextStyle.of(context).style.fontSize
+                                : DefaultTextStyle.of(context).style.fontSize! *
+                                    0.6),
                       ),
                     );
                   },

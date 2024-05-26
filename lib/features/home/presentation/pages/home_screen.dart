@@ -136,29 +136,29 @@ class _HomeScreenState extends State<HomeScreen> {
                             Icon(muteBGM! ? Icons.music_off : Icons.music_note),
                       ),
                     ),
-                    FloatingActionButton(
-                      heroTag: 'mudeAudioHomePage',
-                      onPressed: () async {
-                        if (!muteFala!) {
-                          setState(() {
-                            muteFala = true;
-                            widget.audioController.volumeFala = 0;
-                            widget.audioController.playerFala.setVolume(0);
-                          });
-                        } else {
-                          setState(() {
-                            muteFala = false;
-                            widget.audioController.volumeFala = 1;
-                            widget.audioController.playerFala.setVolume(1);
-                          });
-                        }
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                            muteFala! ? Icons.volume_off : Icons.volume_up),
-                      ),
-                    )
+                    // FloatingActionButton(
+                    //   heroTag: 'mudeAudioHomePage',
+                    //   onPressed: () async {
+                    //     if (!muteFala!) {
+                    //       setState(() {
+                    //         muteFala = true;
+                    //         widget.audioController.volumeFala = 0;
+                    //         widget.audioController.playerFala.setVolume(0);
+                    //       });
+                    //     } else {
+                    //       setState(() {
+                    //         muteFala = false;
+                    //         widget.audioController.volumeFala = 1;
+                    //         widget.audioController.playerFala.setVolume(1);
+                    //       });
+                    //     }
+                    //   },
+                    //   child: Padding(
+                    //     padding: const EdgeInsets.all(8.0),
+                    //     child: Icon(
+                    //         muteFala! ? Icons.volume_off : Icons.volume_up),
+                    //   ),
+                    // )
                   ],
                 ),
               ),
@@ -481,6 +481,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       onPressed: () {
+                        Navigator.pop(context);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -516,6 +517,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.all(16.0),
                     child: ElevatedButton(
                       onPressed: () {
+                        Navigator.pop(context);
                         Navigator.push(
                           context,
                           MaterialPageRoute(

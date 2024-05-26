@@ -1,9 +1,18 @@
-import 'package:aventura_com_bako/features/gamificacao/quebra_cabeca/presentation/quebra_cabeca_page.dart';
+import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentation/pages/home_page.dart';
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:flutter/material.dart';
 
-class PuzzleResolveuPage extends StatelessWidget {
-  const PuzzleResolveuPage({super.key});
+class CacaPalavrasResolveuPage extends StatelessWidget {
+  const CacaPalavrasResolveuPage(
+      {super.key,
+      required this.user,
+      required this.notifyParent,
+      required this.areajogavel});
+
+  final Function() notifyParent;
+  final GamificationUser user;
+  final Widget areajogavel;
 
   @override
   Widget build(BuildContext context) {
@@ -56,14 +65,13 @@ class PuzzleResolveuPage extends StatelessWidget {
                         child: Column(
                           children: [
                             Container(
-                              padding: const EdgeInsets.only(right: 50),
                               alignment: Alignment.centerLeft,
                               child: const Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Parabéns, você resolveu!',
+                                    'Parabéns, você encontrou todas as palavras!',
                                   ),
                                 ],
                               ),
@@ -73,16 +81,14 @@ class PuzzleResolveuPage extends StatelessWidget {
                               padding: const EdgeInsets.only(right: 40),
                             ),
                             const Divider(),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.25,
-                              child: const Image(
-                                image: AssetImage(
-                                    'assets/games/quebra_cabeca_teste.jpeg'),
-                              ),
+                            SizedBox.square(
+                              dimension:
+                                  MediaQuery.of(context).size.width * 0.6,
+                              child: areajogavel,
                             ),
                             const Divider(),
                             const Text(
-                              'Parabéns! 🎉 Você completou o quebra-cabeças e mostrou sua inteligência e dedicação. Cada peça no lugar certo ajuda a proteger o meio ambiente. Continue assim, pequeno guardião da natureza! 🌿🧩✨',
+                              'Parabéns! 🎉 Você completou o caça-palavras e mostrou sua inteligência e dedicação. Encontrar todas as palavras ajuda a proteger o meio ambiente. Continue assim, pequeno guardião da natureza! 🌿🔍✨',
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 color: Colors.black54,
@@ -105,8 +111,10 @@ class PuzzleResolveuPage extends StatelessWidget {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              const PuzzleGame()),
+                                        builder: (context) => HomeCacaPalavras(
+                                            user: user,
+                                            notifyParent: notifyParent),
+                                      ),
                                     );
                                   },
                                 ),

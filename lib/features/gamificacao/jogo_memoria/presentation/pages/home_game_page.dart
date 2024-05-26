@@ -3,6 +3,7 @@ import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/data/model/game_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/informacoes_jogo_da_memoria/presentation/controller/jogoMemoria_controller.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/informacoes_jogo_da_memoria/presentation/pages/Informacoes_memoria_page.dart';
+import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/presentation/pages/resolveu_page.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -107,34 +108,36 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
   }
 
   Widget _gridCards(context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: _isEasy(widget.isEasy).gameImg!.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: widget.isEasy ? 3 : 4,
-        crossAxisSpacing: widget.isEasy ? 16.0 : 8,
-        mainAxisSpacing: 16.0,
-      ),
-      padding: const EdgeInsets.all(10.0),
-      itemBuilder: (context, index) {
-        return Animate(
-          effects: const [FlipEffect()],
-          child: FlipCard(
-            key: _isEasy(widget.isEasy).cardStateKeys[index],
-            onFlip: () {
-              logicMatch(index, context);
-            },
-            speed: 300,
-            direction: FlipDirection.HORIZONTAL,
-            flipOnTouch: _isEasy(widget.isEasy).cardFlips[index],
-            front: _faceConfigFlipCard(Colors.green, 'assets/hidden.png'),
-            back: _faceConfigFlipCard(
-                Colors.white, _isEasy(widget.isEasy).shuffleCardsList![index]),
-          ),
-        );
-      },
-    );
+    return LayoutBuilder(builder: (context, constraints) {
+      return GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        itemCount: _isEasy(widget.isEasy).gameImg!.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: widget.isEasy ? 3 : 4,
+          crossAxisSpacing: widget.isEasy ? 16.0 : 8,
+          mainAxisSpacing: 16.0,
+        ),
+        padding: const EdgeInsets.all(10.0),
+        itemBuilder: (context, index) {
+          return Animate(
+            effects: const [FlipEffect()],
+            child: FlipCard(
+              key: _isEasy(widget.isEasy).cardStateKeys[index],
+              onFlip: () {
+                logicMatch(index, context);
+              },
+              speed: 300,
+              direction: FlipDirection.HORIZONTAL,
+              flipOnTouch: _isEasy(widget.isEasy).cardFlips[index],
+              front: _faceConfigFlipCard(Colors.green, 'assets/hidden.png'),
+              back: _faceConfigFlipCard(Colors.white,
+                  _isEasy(widget.isEasy).shuffleCardsList![index]),
+            ),
+          );
+        },
+      );
+    });
   }
 
   Widget _backgroundPage() {
@@ -178,7 +181,17 @@ class _HomePageMemoryGameState extends State<HomePageMemoryGame> {
           _isEasy(widget.isEasy).cardFlips[index] = false;
           if (_isEasy(widget.isEasy).cardFlips.every((t) => t == false)) {
             //widget.gamification.updatePontuacao(pontos);
-            AlertGame(pontos: pontos).alertWin(context);
+            Future.delayed(const Duration(milliseconds: 1500), () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MemoriaResolveuPage(
+                            audioController: widget.audioController,
+                            isEasy: widget.isEasy,
+                            user: widget.user,
+                            refresh: widget.notifyParent,
+                          )));
+            });
           }
           setState(() {
             pontos += 5;

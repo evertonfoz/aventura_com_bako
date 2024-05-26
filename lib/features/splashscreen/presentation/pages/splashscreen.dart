@@ -53,10 +53,27 @@ class SplashScreenPage extends StatelessWidget {
             margin: EdgeInsets.only(
               top: size.height * 0.1,
             ),
-            child: Image.asset(
-              'assets/idv.png',
-              width: size.width * 0.7,
-            ),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'assets/idv.png',
+                    width: size.width * 0.7,
+                  ),
+                  const Text("v0.1.2",
+                      style: TextStyle(
+                          shadows: <Shadow>[
+                            Shadow(
+                              offset: Offset(1.0, 1.0),
+                              blurRadius: 3.0,
+                              color: Colors.black,
+                            ),
+                          ],
+                          color: Colors.white,
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold)),
+                ]),
           )
         ],
       ),

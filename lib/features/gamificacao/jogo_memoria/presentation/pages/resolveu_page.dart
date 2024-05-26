@@ -1,9 +1,44 @@
-import 'package:aventura_com_bako/features/gamificacao/quebra_cabeca/presentation/quebra_cabeca_page.dart';
+import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
+import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
+import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/presentation/pages/home_game_page.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
 import 'package:flutter/material.dart';
 
-class PuzzleResolveuPage extends StatelessWidget {
-  const PuzzleResolveuPage({super.key});
+class MemoriaResolveuPage extends StatelessWidget {
+  MemoriaResolveuPage({
+    super.key,
+    required this.refresh,
+    required this.user,
+    required this.isEasy,
+    required this.audioController,
+  });
+
+  final Function() refresh;
+  final GamificationUser user;
+  final bool isEasy;
+  final AudioController audioController;
+
+  final List easyImages = [
+    "assets/games/Memoria/abelha.png",
+    "assets/games/Memoria/agua.png",
+    "assets/games/Memoria/BEIJAFLOR.png",
+    "assets/games/Memoria/bosque.png",
+    "assets/games/Memoria/cactos.png",
+    "assets/games/Memoria/cipo.png",
+  ];
+
+  final List hardImages = [
+    "assets/games/Memoria/epifita.png",
+    "assets/games/Memoria/ervdepassarinho.png",
+    "assets/games/Memoria/folhas de manga.png",
+    "assets/games/Memoria/frutomanga.png",
+    "assets/games/Memoria/fungo.jpeg",
+    "assets/games/Memoria/hibisco.png",
+    "assets/games/Memoria/morgueso.png",
+    "assets/games/Memoria/sementeauracauria.png",
+    "assets/games/Memoria/serra.png",
+    "assets/games/Memoria/solo.png",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +98,7 @@ class PuzzleResolveuPage extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Parabéns, você resolveu!',
+                                    'Parabéns, você achou todas os pares!',
                                   ),
                                 ],
                               ),
@@ -74,15 +109,36 @@ class PuzzleResolveuPage extends StatelessWidget {
                             ),
                             const Divider(),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.25,
-                              child: const Image(
-                                image: AssetImage(
-                                    'assets/games/quebra_cabeca_teste.jpeg'),
-                              ),
+                              height: MediaQuery.of(context).size.height * 0.18,
+                              child: LayoutBuilder(
+                                  builder: (context, constraints) {
+                                return GridView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: isEasy
+                                        ? easyImages.length
+                                        : hardImages.length,
+                                    gridDelegate:
+                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: isEasy ? 3 : 5,
+                                      crossAxisSpacing: 5.0,
+                                      mainAxisSpacing: 10.0,
+                                      childAspectRatio: isEasy ? 1.5 : 1,
+                                    ),
+                                    itemBuilder: (context, index) {
+                                      return SizedBox(
+                                        height: constraints.maxHeight,
+                                        child: Image(
+                                          image: AssetImage(isEasy
+                                              ? easyImages[index]
+                                              : hardImages[index]),
+                                        ),
+                                      );
+                                    });
+                              }),
                             ),
                             const Divider(),
                             const Text(
-                              'Parabéns! 🎉 Você completou o quebra-cabeças e mostrou sua inteligência e dedicação. Cada peça no lugar certo ajuda a proteger o meio ambiente. Continue assim, pequeno guardião da natureza! 🌿🧩✨',
+                              'Parabéns! 🎉 Você completou o jogo da memória e mostrou sua inteligência e dedicação. Lembrar de cada par ajuda a proteger o meio ambiente. Continue assim, pequeno guardião da natureza! 🌿🧠✨',
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 color: Colors.black54,
@@ -105,8 +161,14 @@ class PuzzleResolveuPage extends StatelessWidget {
                                     Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              const PuzzleGame()),
+                                        builder: (context) =>
+                                            HomePageMemoryGame(
+                                          audioController: audioController,
+                                          isEasy: isEasy,
+                                          user: user,
+                                          notifyParent: refresh,
+                                        ),
+                                      ),
                                     );
                                   },
                                 ),

@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:aventura_com_bako/features/gamificacao/tabuleiro/presentation/controller/tabuleiroController.dart';
+import 'package:aventura_com_bako/features/gamificacao/tabuleiro/presentation/pages/final_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -169,7 +170,16 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
                                   timer.cancel();
                                   if (pos >= 15) {
                                     pos = 15;
-                                    _finalDialog();
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                TabuleiroEndPage(
+                                                  audioController:
+                                                      widget.audioController,
+                                                  refresh: widget.notifyParent,
+                                                  user: widget.user,
+                                                )));
                                   } else {
                                     _informacaoDialog(pos - 1);
                                   }
@@ -186,44 +196,6 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
         ],
       ),
     );
-  }
-
-  _finalDialog() {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text('Parabéns!'),
-            actions: [
-              Align(
-                alignment: Alignment.center,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.pop(context);
-                    },
-                    style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        backgroundColor: Colors.amber),
-                    child: const Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: Text(
-                        'Sair',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w800,
-                            backgroundColor: Colors.amber),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          );
-        });
   }
 
   _resultAction(int index) {
