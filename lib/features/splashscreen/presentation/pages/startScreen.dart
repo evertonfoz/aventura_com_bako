@@ -5,22 +5,33 @@ import 'package:flutter/material.dart';
 import '../../../home/presentation/pages/home_screen.dart';
 
 class StartScreen extends StatefulWidget {
-  const StartScreen({Key? key}) : super(key: key);
+  const StartScreen({super.key});
   @override
   // ignore: library_private_types_in_public_api
   _StartScreenState createState() => _StartScreenState();
 }
 
-class _StartScreenState extends State<StartScreen> {
+class _StartScreenState extends State<StartScreen> with WidgetsBindingObserver {
   final GamificationUser gamificationUser = GamificationUser();
   final audioPlayer = AudioController();
   bool _validate = false;
   bool muteBGM = false;
   bool muteFala = false;
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) {
+      audioPlayer.pauseBGM();
+    } else if (state == AppLifecycleState.resumed) {
+      audioPlayer.playBGM1();
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     audioPlayer.playBGM1();
+    WidgetsBinding.instance.addObserver(this);
   }
 
   @override

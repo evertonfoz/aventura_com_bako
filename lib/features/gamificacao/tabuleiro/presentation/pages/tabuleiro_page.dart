@@ -32,6 +32,7 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
   int diceImageIndex = 0;
   int counter = 1;
   int bakoAnimation = 0;
+  bool isRolling = false;
 
   List<String> diceImage = [
     'assets/games/dice1.png',
@@ -137,11 +138,13 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     IconButton(
-                        iconSize: MediaQuery.of(context).size.height * 0.1,
-                        icon: Image.asset(
-                          diceImage[diceImageIndex],
-                        ),
-                        onPressed: () async {
+                      iconSize: MediaQuery.of(context).size.height * 0.1,
+                      icon: Image.asset(
+                        diceImage[diceImageIndex],
+                      ),
+                      onPressed: () async {
+                        if (!isRolling) {
+                          isRolling = true;
                           widget.audioController.playDiceAudio();
                           Timer.periodic(const Duration(milliseconds: 100),
                               (timer) {
@@ -156,38 +159,54 @@ class _TabuleiroPageState extends State<TabuleiroPage> {
                               });
                             }
                           });
-                          await Future.delayed(const Duration(seconds: 2), () {
-                            setState(() {
-                              dice = diceImageIndex + 1;
-                              Timer.periodic(const Duration(milliseconds: 500),
-                                  (timer) {
-                                setState(() {
-                                  bakoAnimation++;
-                                  pos++;
-                                });
-                                if (bakoAnimation == dice || pos >= 15) {
-                                  bakoAnimation = 0;
-                                  timer.cancel();
-                                  if (pos >= 15) {
-                                    pos = 15;
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                TabuleiroEndPage(
-                                                  audioController:
-                                                      widget.audioController,
-                                                  refresh: widget.notifyParent,
-                                                  user: widget.user,
-                                                )));
-                                  } else {
-                                    _informacaoDialog(pos - 1);
+                          await Future.delayed(
+                            const Duration(seconds: 2),
+                            () {
+                              setState(() {
+                                dice = diceImageIndex + 1;
+                                Timer.periodic(
+                                    const Duration(milliseconds: 500), (timer) {
+                                  setState(() {
+                                    bakoAnimation++;
+                                    pos++;
+                                  });
+                                  if (bakoAnimation == dice || pos >= 15) {
+                                    bakoAnimation = 0;
+                                    timer.cancel();
+                                    if (pos >= 15) {
+                                      pos = 15;
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  TabuleiroEndPage(
+                                                    audioController:
+                                                        widget.audioController,
+                                                    refresh:
+                                                        widget.notifyParent,
+                                                    user: widget.user,
+                                                  )));
+                                    } else {
+                                      widget.audioController
+                                          .playMatchCardAudio();
+                                      Future.delayed(
+                                        const Duration(milliseconds: 500),
+                                        () {
+                                          _informacaoDialog(pos - 1);
+                                        },
+                                      );
+                                    }
                                   }
-                                }
+                                });
                               });
-                            });
-                          });
-                        })
+                            },
+                          );
+                          isRolling = false;
+                        } else {
+                          null;
+                        }
+                      },
+                    ),
                   ],
                 ),
               ),

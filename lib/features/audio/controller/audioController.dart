@@ -18,6 +18,10 @@ class AudioController {
     await playerBGM.resume();
   }
 
+  pauseBGM() async {
+    await playerBGM.pause();
+  }
+
   playBGM2() async {
     playerBGM.setReleaseMode(ReleaseMode.LOOP);
     final url = await playerBGMCache.load('audio/bgm2.mp3');
