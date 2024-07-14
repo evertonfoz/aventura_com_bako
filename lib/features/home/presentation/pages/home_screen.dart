@@ -5,6 +5,7 @@ import 'package:aventura_com_bako/features/gamificacao/caca_palavras/presentatio
 import 'package:aventura_com_bako/features/gamificacao/gamification_model.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_quizz/quizz_main.dart';
 import 'package:aventura_com_bako/features/gamificacao/jogo_memoria/presentation/pages/home_game_page.dart';
+import 'package:aventura_com_bako/features/gamificacao/quebra_cabeca_novo/quebra_cabeca_page.dart';
 //import 'package:aventura_com_bako/features/gamificacao/quizz/presentation/pages/home_page.dart';
 //import 'package:aventura_com_bako/features/loja/presentation/loja_screen.dart';
 import 'package:aventura_com_bako/features/mapa/presentation/page/welcome_page.dart';
@@ -376,7 +377,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const PuzzleGame(),
+                              builder: (context) => const QuebraCabecaPage(),
                             ),
                           );
                         },
