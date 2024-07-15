@@ -1,8 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'dart:math';
 import 'package:flutter/services.dart';
 
-import 'package:image/image.dart' as img;
+import 'package:image/image.dart' as image;
 
 class SlidePuzzleWidget extends StatefulWidget {
   const SlidePuzzleWidget(
@@ -14,11 +17,16 @@ class SlidePuzzleWidget extends StatefulWidget {
   final int sizePuzzle;
   final Image imageBckGround;
   @override
-  State<SlidePuzzleWidget> createState() => _SlidePuzzleWidgetState();
+  State<SlidePuzzleWidget> createState() => SlidePuzzleWidgetState();
 }
 
-class _SlidePuzzleWidgetState extends State<SlidePuzzleWidget> {
+class SlidePuzzleWidgetState extends State<SlidePuzzleWidget> {
+  final GlobalKey _globalKey = GlobalKey();
+  late Size size;
+
   List<SlideObject> slideObjects = [];
+
+  bool puzzleGenerated = false;
   bool success = false;
 
   bool startSlide = false;
@@ -26,7 +34,7 @@ class _SlidePuzzleWidgetState extends State<SlidePuzzleWidget> {
   List<int> process = [];
 
   bool finishSwap = false;
-  late img.Image referenceImage;
+  late image.Image referenceImage;
   bool isLoading = true;
 
   @override
@@ -37,6 +45,7 @@ class _SlidePuzzleWidgetState extends State<SlidePuzzleWidget> {
 
   @override
   Widget build(BuildContext context) {
+    size = Size(widget.size.width - 10, widget.size.width - 5);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -53,6 +62,7 @@ class _SlidePuzzleWidgetState extends State<SlidePuzzleWidget> {
               // 1º exibe a imagem de fundo
               if (widget.imageBckGround != null && slideObjects == null) ...[
                 RepaintBoundary(
+                  key: _globalKey,
                   child: Container(
                     padding: const EdgeInsets.all(10),
                     color: Colors.red,
@@ -166,16 +176,14 @@ class _SlidePuzzleWidgetState extends State<SlidePuzzleWidget> {
     );
   }
 
-  loadReferenceImage() async {
-    String imagePath = "assets/games/quebra_cabeca_teste.jpeg";
-    final ByteData data = await rootBundle.load(imagePath);
+  Future<void> loadReferenceImage() async {
+    String path = "assets/games/Memoria/abelha.png";
+    final ByteData data = await rootBundle.load(path);
     final List<int> bytes = data.buffer.asUint8List();
-    img.Image image = img.decodeImage(Uint8List.fromList(bytes))!;
-
+    image.Image img = image.decodeImage(Uint8List.fromList(bytes))!;
     setState(() {
-      referenceImage = image;
-      isLoading = false; // Indica que o carregamento foi concluído
-      //initializePuzzle(); // Chama initializePuzzle após o carregamento da imagem de referência
+      referenceImage = img;
+      isLoading = false;
     });
   }
 
@@ -195,9 +203,9 @@ class _SlidePuzzleWidgetState extends State<SlidePuzzleWidget> {
       );
 
       // set image crop for nice effect, check also if image is null
-      img.Image tempCrop;
-      tempCrop = img.copyCrop(
-        referenceImage,
+      image.Image tempCrop;
+      tempCrop = image.copyCrop(
+        referenceImage!,
         x: offsetTemp.dx.round(),
         y: offsetTemp.dy.round(),
         width: sizeBox.width.round(),
@@ -211,7 +219,7 @@ class _SlidePuzzleWidgetState extends State<SlidePuzzleWidget> {
         indexDefault: index + 1,
         size: sizeBox,
         image: Image.memory(
-          img.encodePng(tempCrop),
+          image.encodePng(tempCrop),
           fit: BoxFit.contain,
         ),
       );
@@ -259,6 +267,7 @@ class _SlidePuzzleWidgetState extends State<SlidePuzzleWidget> {
 
     startSlide = false;
     finishSwap = true;
+    puzzleGenerated = true;
     setState(() {});
   }
 
@@ -353,6 +362,7 @@ class _SlidePuzzleWidgetState extends State<SlidePuzzleWidget> {
       startSlide = true;
       slideObjects = [];
       finishSwap = true;
+      puzzleGenerated = false;
     });
   }
 

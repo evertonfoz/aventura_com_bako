@@ -10,7 +10,16 @@ class QuebraCabecaPage extends StatefulWidget {
 }
 
 class _QuebraCabecaPageState extends State<QuebraCabecaPage> {
+  final GlobalKey<SlidePuzzleWidgetState> _slidePuzzleKey =
+      GlobalKey<SlidePuzzleWidgetState>();
+
   int gridSize = 3;
+
+  void _generatePuzzleFromKey() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _slidePuzzleKey.currentState?.generatePuzzle();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +64,11 @@ class _QuebraCabecaPageState extends State<QuebraCabecaPage> {
                                   setState(() {
                                     gridSize = 2;
                                   });
+                                  if (_slidePuzzleKey.currentState != null &&
+                                      _slidePuzzleKey
+                                          .currentState!.puzzleGenerated) {
+                                    _generatePuzzleFromKey();
+                                  }
                                 },
                           style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.all(16.0),
@@ -73,6 +87,11 @@ class _QuebraCabecaPageState extends State<QuebraCabecaPage> {
                                     setState(() {
                                       gridSize = 3;
                                     });
+                                    if (_slidePuzzleKey.currentState != null &&
+                                        _slidePuzzleKey
+                                            .currentState!.puzzleGenerated) {
+                                      _generatePuzzleFromKey();
+                                    }
                                   },
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.all(16.0),
@@ -91,6 +110,11 @@ class _QuebraCabecaPageState extends State<QuebraCabecaPage> {
                                     setState(() {
                                       gridSize = 4;
                                     });
+                                    if (_slidePuzzleKey.currentState != null &&
+                                        _slidePuzzleKey
+                                            .currentState!.puzzleGenerated) {
+                                      _generatePuzzleFromKey();
+                                    }
                                   },
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.all(16.0),
@@ -158,10 +182,11 @@ class _QuebraCabecaPageState extends State<QuebraCabecaPage> {
                               ),
                             ),
                             child: SlidePuzzleWidget(
+                              key: _slidePuzzleKey,
                               size: constraints.biggest,
                               sizePuzzle: gridSize,
                               imageBckGround: Image.asset(
-                                  'assets/games/quebra_cabeca_teste.jpeg'),
+                                  'assets/games/Memoria/abelha.png'),
                             ),
                           );
                         },
