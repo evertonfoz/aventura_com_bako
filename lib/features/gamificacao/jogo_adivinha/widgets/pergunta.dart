@@ -31,13 +31,13 @@ class Pergunta {
 List<Pergunta> obterListaDePerguntas() {
   return [
     Pergunta(
-      imagePath: 'assets/Paineira-rosa-1.jpg',
+      imagePath: 'assets/Paineira-rosa.jpg',
       descricao: 'Descrição 1...',
       respostaCorreta: 'Paineira',
       opcoesIncorretas: ['Margarita', 'Rosa do deserto', 'Girasol'],
     ),
     Pergunta(
-      imagePath: 'assets/Paineira-rosa-2.jpg',
+      imagePath: 'assets/Paineira-rosa.jpg',
       descricao: 'Descrição 1...',
       respostaCorreta: 'Paineira',
       opcoesIncorretas: ['Ariticum', 'Bacupari', 'Figueira'],

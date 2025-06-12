@@ -25,8 +25,8 @@ class _PuzzleGameState extends State<PuzzleGame> {
   late List<img.Image?> puzzlePieces;
   late List<img.Image?> originalPieces;
   late List<String> imagePaths = [
-    'assets/background_forest.jpg',
-    'assets/background_forest.jpg',
+    'assets/Paineira-rosa.jpg',
+    'assets/Paineira-rosa.jpg',
   ];
   late img.Image
       referenceImage; // Variável para armazenar a imagem de referência
