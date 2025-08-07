@@ -33,7 +33,7 @@ dependencies:
   get: ^4.6.5
   google_sign_in: ^6.0.2
   graphql_flutter: ^5.1.0
-  image_picker: ^0.8.5+3
+  image_picker: ^0.8.4+4
   mobile_scanner: ^3.0.0
   status_bar_control: ^3.2.1
   timelines: ^0.1.0
