@@ -2,7 +2,7 @@ import 'package:aventura_com_bako/features/gamificacao/caca_palavras/data/model/
 import 'package:flutter/material.dart';
 
 class CardResposta extends StatefulWidget {
-  CardResposta({required this.toFind, super.key});
+  const CardResposta({required this.toFind, super.key});
   final ValueNotifier<List<RespostasCacaPalavra>> toFind;
 
   @override

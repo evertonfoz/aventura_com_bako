@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class InformacoesGalleryPage extends StatefulWidget {
-  InformacoesGalleryPage({
+  const InformacoesGalleryPage({
     required this.controller,
     required this.id,
     required this.audioController,

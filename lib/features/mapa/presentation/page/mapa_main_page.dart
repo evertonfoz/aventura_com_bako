@@ -20,7 +20,7 @@ import '../../../informacoes_especies/presentation/controller/informacoes_contro
 import '../../../informacoes_especies/presentation/pages/especie_repetida_page.dart';
 
 class MapPage extends StatefulWidget {
-  MapPage({Key? key, required this.user}) : super(key: key);
+  const MapPage({Key? key, required this.user}) : super(key: key);
 
   final GamificationUser user;
   @override
@@ -168,11 +168,11 @@ class MapPageState extends State<MapPage> {
                     ),
                 'QrCodeButton': (BuildContext context, MapScreen mapa) =>
                     Padding(
-                      padding: EdgeInsets.only(bottom: 150),
+                      padding: const EdgeInsets.only(bottom: 150),
                       child: Align(
                         alignment: Alignment.bottomLeft,
                         child: Padding(
-                          padding: EdgeInsets.all(32.0),
+                          padding: const EdgeInsets.all(32.0),
                           child: QrcodeButton(mapa: mapa),
                         ),
                       ),

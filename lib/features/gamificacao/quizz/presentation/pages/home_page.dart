@@ -6,7 +6,7 @@ import '../../data/model/questions_list.dart';
 import '../widgets/quizz_colors.dart';
 
 class HomePageQuizz extends StatefulWidget {
-  HomePageQuizz({required this.user, required this.notifyParent, Key? key})
+  const HomePageQuizz({required this.user, required this.notifyParent, Key? key})
       : super(key: key);
 
   final GamificationUser user;

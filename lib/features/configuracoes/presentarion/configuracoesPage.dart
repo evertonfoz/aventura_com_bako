@@ -1,9 +1,8 @@
 import 'package:aventura_com_bako/features/audio/controller/audioController.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ConfiguracoesScreen extends StatefulWidget {
-  ConfiguracoesScreen({super.key, required this.audioController});
+  const ConfiguracoesScreen({super.key, required this.audioController});
 
   final AudioController audioController;
   @override
@@ -36,7 +35,7 @@ class _ConfiguracoesScreenState extends State<ConfiguracoesScreen> {
           Column(
             children: [
               Container(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 decoration: const BoxDecoration(color: Colors.green),
                 child: const Align(
                   alignment: Alignment.center,

@@ -10,7 +10,7 @@ import '../../../informacoes_especies/presentation/controller/informacoes_contro
 import '../../../informacoes_especies/presentation/widgets/carregando_pagina_widget.dart';
 
 class QrCodeScannerPage extends StatefulWidget {
-  QrCodeScannerPage({Key? key, required this.mapa, required this.user})
+  const QrCodeScannerPage({Key? key, required this.mapa, required this.user})
       : super(key: key);
 
   final MapScreen mapa;
@@ -59,7 +59,7 @@ class _QrCodeScannerPageState extends State<QrCodeScannerPage> {
             ),
             Align(
               alignment: Alignment.topLeft,
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.13,
                 //width: MediaQuery.of(context).size.width * 0.4,
                 child: IconButton(

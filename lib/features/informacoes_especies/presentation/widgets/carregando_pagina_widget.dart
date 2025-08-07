@@ -44,9 +44,9 @@ class CarregandoPaginaWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
                         'Carregando',
                         style: TextStyle(

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:aventura_com_bako/features/loja/data/ItensLoja.dart';
 
 class LojaScreen extends StatefulWidget {
-  LojaScreen(
+  const LojaScreen(
       {super.key,
       required this.audioController,
       required this.user,
